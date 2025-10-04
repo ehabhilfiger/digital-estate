@@ -1,14 +1,16 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Lock, Unlock, Eye, EyeOff } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowLeft, Lock, Unlock, Eye, EyeOff, Trophy, Target, Clock, Zap } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ChallengePage() {
   const [unlockedHints, setUnlockedHints] = useState<number[]>([]);
   const [password, setPassword] = useState('');
   const [showSecret, setShowSecret] = useState(false);
+  const [answeredCount, setAnsweredCount] = useState(0);
+  const [timeSpent, setTimeSpent] = useState(0);
 
   const toggleHint = (puzzleNum: number) => {
     if (unlockedHints.includes(puzzleNum)) {
@@ -25,8 +27,54 @@ export default function ChallengePage() {
     }
   };
 
+  // Timer effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeSpent(prev => prev + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTime = (seconds: number) => {
+    const hrs = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return `${hrs}h ${mins}m ${secs}s`;
+  };
+
+  const progressPercentage = (answeredCount / 20) * 100;
+  const bonusEligible = answeredCount >= 20;
+  const passThreshold = answeredCount >= 12;
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.5, 0.3, 0.5],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </div>
       <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
@@ -56,7 +104,7 @@ export default function ChallengePage() {
             Senior Infrastructure Architect
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-6">
-            Answer 13 out of 20 questions correctly. No AI can solve this. Only master investigators succeed.
+            Answer 12 out of 20 questions correctly. No AI can solve this. Only master investigators succeed.
           </p>
           <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-amber-500/10 to-purple-500/10 border border-amber-500/30">
             <div className="text-center text-lg font-bold text-amber-500">
