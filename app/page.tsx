@@ -382,8 +382,13 @@ export default function HomePage() {
 
           {/* Law Firms Section */}
           <section id="law" className="py-20">
-            <div className="max-w-4xl mx-auto px-4">
-              <div className="rounded-2xl border-2 border-amber-500/30 bg-amber-500/5 p-8 md:p-12">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6">
+              <Link href="/solutions/law-firm" className="block">
+                <motion.div
+                  className="rounded-2xl border-2 border-amber-500/30 bg-amber-500/5 p-8 md:p-12 hover:border-amber-500/50 hover:bg-amber-500/10 transition-all duration-300 cursor-pointer"
+                  whileHover={{ scale: 1.02 }}
+                  {...fadeInUp}
+                >
                 <div className="flex items-center gap-3 mb-6">
                   <Shield className="h-8 w-8 text-amber-500" aria-hidden="true" />
                   <h2 className="text-2xl md:text-3xl font-semibold">Law Firm Starter Compliance Package</h2>
@@ -423,7 +428,8 @@ export default function HomePage() {
                     <span className="text-white/80">Disaster recovery planning</span>
                   </div>
                 </div>
-              </div>
+                </motion.div>
+              </Link>
             </div>
           </section>
 
