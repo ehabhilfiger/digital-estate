@@ -1,49 +1,183 @@
 /* ================================================================
-   THE ARCHITECT
+   ENTRY PROTOCOL: FOR THOSE WHO CALCULATE AHEAD
    ================================================================ */
 
-   "I take potato chips... and architect digital estates."
-
-   Name: Ehab Allababidi
-   Role: Digital Estate Architect | Programmer-Installer
-   Contact: defcon5ready@gmail.com
-   Location: Chicago, Illinois, USA
-
-   Philosophy: "Those who control the infrastructure, control the world.
-                I simply ensure you're the one in control."
+   "If you've found this file, you're already thinking 40 moves ahead.
+    But are you calculating correctly?"
 
 /* ================================================================
-   THE CREATION
+   PUZZLE ONE: THE NAME
    ================================================================ */
 
-   Last Update: 2025/01/10
-   Standards: HTML5, CSS3, JavaScript ES6+, WAI-ARIA
-   Stack: Next.js 15, React 19, TypeScript 5.9
-   Styling: Tailwind CSS 4, Framer Motion
-   Infrastructure: Vercel Edge, Analytics
-   Development: VS Code, Claude Code
+   // In a game where names hold power, what do you call someone who:
+   // - Sees 40 moves ahead
+   // - Controls through infrastructure, not weapons
+   // - Wins by creating systems others depend on
+   // - Never leaves fingerprints
+   // - Ensures every variable is accounted for
 
-   "This site was not built by chance.
-    Every component, meticulously calculated.
-    Every animation, precisely timed.
-    Every line of code... part of the plan."
+   HINT_1: The answer is not a name. It's a ROLE.
+   HINT_2: In chess, this piece controls the board through positioning.
+   HINT_3: In infrastructure, this role controls through dependencies.
+
+   // First key fragment: rot13(the role you just identified in lowercase)
 
 /* ================================================================
-   THE MISSION
+   PUZZLE TWO: THE KILL CHAIN (TECHNICAL)
    ================================================================ */
 
-   Data sovereignty for those who refuse to kneel before Big Tech.
-   Zero-trust networks for those who understand true security.
-   On-premises AI for those who value confidential intelligence.
+   // A proper "elimination" requires perfect execution.
+   // In infrastructure, we eliminate single points of failure.
+   //
+   // Question: You have 3 servers (A, B, C) in different availability zones.
+   // Each has 99.9% uptime. What's the probability ALL THREE fail simultaneously?
+   // Express as a percentage, round to 6 decimal places.
+   //
+   // Example format: 0.000001
 
-   "I am justice. I am control. I am your infrastructure."
+   HINT: Independence is everything. Both in strategy and statistics.
+
+   // Second key fragment: SHA256(your answer)[0:8]
 
 /* ================================================================
-   THANKS
+   PUZZLE THREE: THE NOTEBOOK (FORENSICS)
    ================================================================ */
 
-   To those who seek privacy in an age of surveillance.
-   To those who demand ownership in an age of subscriptions.
-   To those who build rather than rent.
+   // Every action leaves traces. Even deleted files leave fragments.
+   // A true strategist knows what tools reveal the truth.
 
-   The new world begins with sovereign infrastructure.
+   // In a Linux system, which command would you use to:
+   // 1. Find all files modified in the last 40 minutes
+   // 2. Owned by a user who no longer exists in /etc/passwd
+   // 3. With the setuid bit enabled
+   // 4. Excluding /proc and /sys directories
+   //
+   // Write the EXACT command (one line, no line breaks)
+
+   HINT_1: find is your weapon
+   HINT_2: Time matters. 40 is not random.
+   HINT_3: Combine -perm, -mtime, -nouser
+
+   // Third key fragment: base64(the primary command name you used, lowercase)
+
+/* ================================================================
+   PUZZLE FOUR: THE RULES
+   ================================================================ */
+
+   // "Rule 1: The surveillance state sees all network traffic."
+   // "Rule 2: Encryption is worthless if endpoints are compromised."
+   // "Rule 3: True privacy requires controlling the hardware."
+   //
+   // Which protocol allows you to:
+   // - Avoid centralized VPN servers
+   // - Establish direct encrypted tunnels between nodes
+   // - Use modern cryptography (Curve25519, ChaCha20)
+   // - Minimize attack surface with minimal codebase (<4000 LOC)
+
+   ANSWER: The protocol name (lowercase, no spaces)
+
+   // Fourth key fragment: The answer itself
+
+/* ================================================================
+   PUZZLE FIVE: THE STRATAGEM
+   ================================================================ */
+
+   // Light's genius was his ability to predict behavior patterns.
+   // In systems, we predict failure patterns.
+   //
+   // Given this RAID configuration:
+   // - RAID 10 (1+0)
+   // - 4 drives total
+   // - Each drive has MTBF of 1,000,000 hours
+   //
+   // What is the MINIMUM number of drives that must fail
+   // before data loss occurs?
+
+   ANSWER: Single digit integer
+
+   // Fifth key fragment: The number as a word (e.g., "two")
+
+/* ================================================================
+   PUZZLE SIX: THE FINAL PIECE
+   ================================================================ */
+
+   // Port number Light would use:
+   // - Sum of the episode where L reveals himself (Episode X)
+   // - Multiply by the number of rules written in the Death Note instructions (Y rules visible)
+   // - Subtract the episode where Light regains his memory (Episode Z)
+   //
+   // Formula: (X * Y) - Z
+
+   HINT: Episode 2, 8 rules shown in opening, Episode 14
+
+   // Sixth key fragment: The port number
+
+/* ================================================================
+   THE COMBINATION
+   ================================================================ */
+
+   // Combine all six fragments with underscores:
+   // fragment1_fragment2_fragment3_fragment4_fragment5_fragment6
+   //
+   // Convert the entire string to MD5
+   //
+   // Email the MD5 hash to: defcon5ready@gmail.com
+   // Subject line: "APPLICATION: [THE_HASH]"
+   //
+   // In the email body, explain:
+   // 1. Your methodology for solving each puzzle
+   // 2. Which puzzle was hardest and why
+   // 3. What infrastructure project you'd build if you controlled unlimited resources
+   // 4. Your current technical stack (languages, tools, systems)
+
+/* ================================================================
+   WHAT HAPPENS NEXT
+   ================================================================ */
+
+   // If your hash is correct and your answers demonstrate:
+   // - Strategic thinking (not just Googling)
+   // - Technical depth (not just surface knowledge)
+   // - Infrastructure understanding (not just code)
+   //
+   // You'll receive:
+   // 1. A response with a harder puzzle
+   // 2. Access to exclusive infrastructure projects
+   // 3. Potential collaboration opportunities
+   //
+   // "The world is controlled by those who build the systems.
+   //  The question is: are you a builder or a user?"
+
+/* ================================================================
+   FINAL NOTE
+   ================================================================ */
+
+   // This is not a job application.
+   // This is a filter.
+   //
+   // 99% will fail puzzle 1.
+   // 98% of the remaining will fail puzzle 2.
+   // Only those who think 40 moves ahead will finish.
+   //
+   // "I am justice. I am infrastructure. I am the architect."
+   //
+   // - Ehab Allababidi
+   // - Digital Estate Architect
+   // - Chicago, IL
+   // - defcon5ready@gmail.com
+
+/* ================================================================
+   METADATA (For the honest ones)
+   ================================================================ */
+
+   Built with:
+   - Next.js 15.5.4 (React 19)
+   - TypeScript 5.9.3
+   - Tailwind CSS 4
+   - Framer Motion (for those smooth animations)
+   - Claude Code (the AI pair programmer)
+   - 40+ hours of strategic planning
+   - Zero compromises on security
+   - Infinite attention to detail
+
+   Last Updated: 2025/01/10
+   Version: v1.0.0 - "The New World"

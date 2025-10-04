@@ -817,22 +817,22 @@ export default function HomePage() {
               <div className="text-white/60 text-sm">
                 © {new Date().getFullYear()} Ehab Allababidi. All rights reserved.
               </div>
-              <div className="flex items-center gap-4 text-white/60 text-sm">
+              <div className="flex items-center gap-4 text-white/60 text-sm font-mono">
                 <a href="/humans.txt" className="hover:text-amber-500 focus:text-amber-500 focus:outline-none transition-colors" title="The architects behind this digital creation">
-                  // HUMANS
+                  {'//'} HUMANS
                 </a>
                 <span className="text-white/30">|</span>
                 <a href="/robots.txt" className="hover:text-amber-500 focus:text-amber-500 focus:outline-none transition-colors" title="Instructions for the crawlers">
-                  // MACHINES
+                  {'//'} MACHINES
                 </a>
                 <span className="text-white/30">|</span>
                 <a href="/sitemap.xml" className="hover:text-amber-500 focus:text-amber-500 focus:outline-none transition-colors" title="The complete blueprint">
-                  // MAP
+                  {'//'} MAP
                 </a>
                 <span className="text-white/30">|</span>
                 <a href="/secret" className="text-amber-500/60 hover:text-amber-500 focus:text-amber-500 focus:outline-none inline-flex items-center gap-1 transition-colors" title="For those who seek the truth">
                   <Lock className="h-3 w-3" aria-hidden="true" />
-                  // VAULT
+                  {'//'} VAULT
                 </a>
               </div>
             </div>
