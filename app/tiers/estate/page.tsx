@@ -64,9 +64,16 @@ export default function EstateTier() {
             ELITE EXCLUSIVE
           </div>
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">
-              DarkGPT — Unrestricted Local AI
-            </h2>
+            <div className="flex items-center gap-4 mb-4">
+              <img 
+                src="/images/darkgpt.png" 
+                alt="DarkGPT Logo" 
+                className="h-12 w-auto"
+              />
+              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">
+                DarkGPT — Unrestricted Local AI
+              </h2>
+            </div>
             <p className="text-white/80 text-lg mb-6">
               We install a completely private, uncensored local LLM that <strong className="text-white">never says no</strong>. Fully customized to your needs, running entirely on your hardware with zero external connections.
             </p>

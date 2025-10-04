@@ -405,9 +405,16 @@ export default function HomePage() {
                   <span>🔒</span>
                   <span>ELITE EXCLUSIVE</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">DarkGPT</span> — Unrestricted AI
-                </h2>
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <img 
+                    src="/images/darkgpt.png" 
+                    alt="DarkGPT Logo" 
+                    className="h-16 w-auto"
+                  />
+                  <h2 className="text-4xl md:text-5xl font-bold">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">DarkGPT</span> — Unrestricted AI
+                  </h2>
+                </div>
                 <p className="text-xl text-white/80 max-w-3xl mx-auto">
                   A completely private, uncensored local LLM that <strong className="text-white">never says no</strong>. Custom-programmed on your premises, tailored to your life, zero external oversight.
                 </p>
