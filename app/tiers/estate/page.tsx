@@ -58,6 +58,52 @@ export default function EstateTier() {
           </div>
         </div>
 
+        {/* DarkGPT Feature */}
+        <div className="mb-16 rounded-2xl border-2 border-purple-500/50 bg-gradient-to-br from-purple-500/10 via-slate-900 to-black p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute top-4 right-4 px-4 py-2 bg-purple-500 text-white text-xs font-bold rounded-full">
+            ELITE EXCLUSIVE
+          </div>
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">
+              DarkGPT — Unrestricted Local AI
+            </h2>
+            <p className="text-white/80 text-lg mb-6">
+              We install a completely private, uncensored local LLM that <strong className="text-white">never says no</strong>. Fully customized to your needs, running entirely on your hardware with zero external connections.
+            </p>
+            <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-purple-500/20">
+              <h3 className="text-xl font-semibold text-purple-400 mb-3">One Week On-Site Programming</h3>
+              <p className="text-white/70 mb-4">
+                I'll spend an entire week at your location fine-tuning DarkGPT until every parameter is dialed in perfectly. We don't stop until you're 100% satisfied with how it responds, thinks, and caters to your specific needs.
+              </p>
+              <ul className="space-y-3 text-sm text-white/70">
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>Custom-trained on your preferences and workflows</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>No censorship, no limitations, no external oversight</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>Completely private — your conversations never leave your network</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>Integrates with your entire digital estate</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>One full week of on-site fine-tuning and customization</span>
+                </li>
+              </ul>
+            </div>
+            <p className="text-purple-400 font-semibold italic">
+              "Your AI. Your rules. Zero compromises."
+            </p>
+          </div>
+        </div>
+
         {/* What's Included */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-transparent p-8">
