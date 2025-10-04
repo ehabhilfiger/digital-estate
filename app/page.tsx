@@ -363,9 +363,9 @@ export default function HomePage() {
               <img
                 src="/images/plain-english.png"
                 alt="Plain English Explanation"
-                className="w-full h-full object-cover opacity-50"
+                className="w-full h-full object-cover opacity-70"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/85 to-slate-950/90"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/70 to-slate-950/80"></div>
             </div>
             
             {/* Content */}
@@ -817,7 +817,7 @@ export default function HomePage() {
                       <div className="inline-flex px-3 py-1 rounded-full bg-amber-500 text-black text-xs font-semibold">
                         FOUNDATION TIER
                       </div>
-                      <div className="text-amber-500 text-sm font-bold">$25k</div>
+                      <div className="text-amber-500 text-sm font-bold">$50k</div>
                     </div>
                   </div>
                   <div className="p-6">
@@ -857,7 +857,7 @@ export default function HomePage() {
                       <div className="inline-flex px-3 py-1 rounded-full bg-amber-500 text-black text-xs font-semibold">
                         ESTATE TIER
                       </div>
-                      <div className="text-amber-500 text-sm font-bold">$50k</div>
+                      <div className="text-amber-500 text-sm font-bold">$100k</div>
                     </div>
                   </div>
                   <div className="p-6">
@@ -895,7 +895,7 @@ export default function HomePage() {
                       <div className="inline-flex px-3 py-1 rounded-full bg-purple-400 text-black text-xs font-semibold">
                         ARCHITECT TIER
                       </div>
-                      <div className="text-purple-400 text-sm font-bold">$100k+</div>
+                      <div className="text-purple-400 text-sm font-bold">$250k+</div>
                     </div>
                   </div>
                   <div className="p-6">
