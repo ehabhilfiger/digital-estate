@@ -318,9 +318,9 @@ export default function HomePage() {
                 From foundation setups to enterprise-grade estates. Choose the tier that fits your needs.
               </p>
               <div className="mt-12 grid md:grid-cols-3 gap-6">
-                {/* Tier 1 */}
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-                  <h3 className="text-xl font-semibold text-emerald-400">Tier 1: Foundation</h3>
+                {/* Tier 1 - CLICKABLE */}
+                <Link href="/packages/foundation" className="group rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-emerald-400/50 hover:bg-emerald-400/5 transition-all duration-300 cursor-pointer">
+                  <h3 className="text-xl font-semibold text-emerald-400 group-hover:text-emerald-300 transition">Tier 1: Foundation</h3>
                   <p className="mt-2 text-3xl font-bold">$3,500–$6,000</p>
                   <p className="mt-2 text-white/70 text-sm">Perfect for getting started</p>
                   <ul className="mt-6 space-y-3 text-sm">
@@ -345,14 +345,17 @@ export default function HomePage() {
                       <span className="text-white/80">30-day support</span>
                     </li>
                   </ul>
-                </div>
+                  <div className="mt-6 text-emerald-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </div>
+                </Link>
 
-                {/* Tier 2 - Featured */}
-                <div className="rounded-2xl border-2 border-emerald-400 bg-emerald-400/5 p-8 relative">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-emerald-400 text-black text-xs font-semibold rounded-full">
+                {/* Tier 2 - Featured - CLICKABLE */}
+                <Link href="/packages/estate" className="group rounded-2xl border-2 border-emerald-400 bg-emerald-400/5 p-8 relative hover:border-emerald-300 hover:bg-emerald-400/10 hover:shadow-xl hover:shadow-emerald-400/20 transition-all duration-300 cursor-pointer">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-emerald-400 text-black text-xs font-semibold rounded-full group-hover:bg-emerald-300 transition">
                     MOST POPULAR
                   </div>
-                  <h3 className="text-xl font-semibold text-emerald-400">Tier 2: Estate</h3>
+                  <h3 className="text-xl font-semibold text-emerald-400 group-hover:text-emerald-300 transition">Tier 2: Estate</h3>
                   <p className="mt-2 text-3xl font-bold">$8,000–$15,000</p>
                   <p className="mt-2 text-white/70 text-sm">Comprehensive digital estate</p>
                   <ul className="mt-6 space-y-3 text-sm">
@@ -381,40 +384,46 @@ export default function HomePage() {
                       <span className="text-white/80">90-day support</span>
                     </li>
                   </ul>
-                </div>
+                  <div className="mt-6 text-emerald-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </div>
+                </Link>
 
-                {/* Tier 3 */}
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-                  <h3 className="text-xl font-semibold text-emerald-400">Tier 3: Architect</h3>
+                {/* Tier 3 - CLICKABLE */}
+                <Link href="/packages/architect" className="group rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-purple-400/50 hover:bg-purple-400/5 transition-all duration-300 cursor-pointer">
+                  <h3 className="text-xl font-semibold text-emerald-400 group-hover:text-purple-400 transition">Tier 3: Architect</h3>
                   <p className="mt-2 text-3xl font-bold">$20,000+</p>
                   <p className="mt-2 text-white/70 text-sm">Enterprise-grade infrastructure</p>
                   <ul className="mt-6 space-y-3 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-400 mt-0.5">✓</span>
+                      <span className="text-emerald-400 mt-0.5 group-hover:text-purple-400 transition">✓</span>
                       <span className="text-white/80">Enterprise-grade stack</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-400 mt-0.5">✓</span>
+                      <span className="text-emerald-400 mt-0.5 group-hover:text-purple-400 transition">✓</span>
                       <span className="text-white/80">High-availability clustering</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-400 mt-0.5">✓</span>
+                      <span className="text-emerald-400 mt-0.5 group-hover:text-purple-400 transition">✓</span>
                       <span className="text-white/80">Custom automation</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-400 mt-0.5">✓</span>
+                      <span className="text-emerald-400 mt-0.5 group-hover:text-purple-400 transition">✓</span>
                       <span className="text-white/80">Multi-site synchronization</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-400 mt-0.5">✓</span>
+                      <span className="text-emerald-400 mt-0.5 group-hover:text-purple-400 transition">✓</span>
                       <span className="text-white/80">Dedicated concierge</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-emerald-400 mt-0.5">✓</span>
+                      <span className="text-emerald-400 mt-0.5 group-hover:text-purple-400 transition">✓</span>
                       <span className="text-white/80">12-month SLA</span>
                     </li>
                   </ul>
-                </div>
+                  <div className="mt-6 text-emerald-400 group-hover:text-purple-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </div>
+                </Link>
               </div>
             </div>
           </section>
