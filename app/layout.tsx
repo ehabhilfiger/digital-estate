@@ -14,12 +14,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ehab Allababidi — Digital Estate Architect (Private Servers, Smart Estates & On-Prem AI)",
+  metadataBase: new URL("https://digital-estate-orcin.vercel.app"),
+  title: {
+    default: "Ehab Allababidi — Digital Estate Architect (Private Servers, Smart Estates & On-Prem AI)",
+    template: "%s | Ehab Allababidi - Digital Estate Architect"
+  },
   description: "Chicago-based programmer-installer specializing in private servers, zero-trust networks, and on-premises AI. On-site & remote services for boutique firms and privacy-focused professionals.",
   keywords: ["private servers", "on-prem AI", "zero-trust network", "digital estate", "Chicago IT consultant", "Synology", "TrueNAS", "Proxmox", "network security", "law firm IT"],
   authors: [{ name: "Ehab Allababidi", url: "https://digital-estate-orcin.vercel.app" }],
   creator: "Ehab Allababidi",
   publisher: "Ehab Allababidi",
+  alternates: {
+    canonical: "https://digital-estate-orcin.vercel.app",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -58,7 +65,6 @@ export const metadata: Metadata = {
     apple: "/favicon.ico",
   },
   manifest: "/site.webmanifest",
-  metadataBase: new URL("https://digital-estate-orcin.vercel.app"),
 };
 
 export default function RootLayout({
@@ -69,8 +75,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#B87333" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="theme-color" content="#1a1a1a" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>

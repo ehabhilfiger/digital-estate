@@ -75,7 +75,7 @@ export default function ChallengePage() {
           }}
         />
       </div>
-      <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10">
+      <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10 relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
             <ArrowLeft className="h-4 w-4" />
@@ -87,7 +87,69 @@ export default function ChallengePage() {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+      {/* Progress Tracker - Floating */}
+      <motion.div
+        className="fixed top-24 right-6 z-40 bg-slate-900/90 backdrop-blur border border-white/10 rounded-2xl p-4 shadow-2xl hidden lg:block"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
+        <div className="space-y-4 w-64">
+          <div className="flex items-center justify-between">
+            <h3 className="font-bold text-sm">Your Progress</h3>
+            <Target className="h-4 w-4 text-amber-500" />
+          </div>
+
+          {/* Progress Bar */}
+          <div>
+            <div className="flex items-center justify-between mb-2 text-xs text-white/60">
+              <span>Answered</span>
+              <span className="font-mono">{answeredCount}/20</span>
+            </div>
+            <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+              <motion.div
+                className={`h-full ${bonusEligible ? 'bg-gradient-to-r from-amber-500 to-yellow-400' : passThreshold ? 'bg-amber-500' : 'bg-purple-500'}`}
+                initial={{ width: 0 }}
+                animate={{ width: `${progressPercentage}%` }}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
+          </div>
+
+          {/* Status Indicators */}
+          <div className="space-y-2 text-xs">
+            <div className={`flex items-center gap-2 ${passThreshold ? 'text-green-400' : 'text-white/40'}`}>
+              <div className={`w-2 h-2 rounded-full ${passThreshold ? 'bg-green-400 animate-pulse' : 'bg-white/20'}`} />
+              <span>Pass Threshold (12/20)</span>
+            </div>
+            <div className={`flex items-center gap-2 ${bonusEligible ? 'text-amber-400' : 'text-white/40'}`}>
+              <Trophy className={`w-3 h-3 ${bonusEligible ? 'animate-bounce' : ''}`} />
+              <span>$10k Bonus (20/20)</span>
+            </div>
+          </div>
+
+          {/* Time Tracker */}
+          <div className="pt-3 border-t border-white/10">
+            <div className="flex items-center gap-2 text-xs text-white/60">
+              <Clock className="h-3 w-3" />
+              <span>Time: {formatTime(timeSpent)}</span>
+            </div>
+            <div className="text-xs text-white/40 mt-1">
+              Avg: 8-12 hours
+            </div>
+          </div>
+
+          {/* Hints Counter */}
+          <div className="pt-3 border-t border-white/10">
+            <div className="flex items-center gap-2 text-xs text-white/60">
+              <Eye className="h-3 w-3" />
+              <span>Hints Unlocked: {unlockedHints.length}/20</span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-16 relative">
         {/* Hero */}
         <motion.div
           className="text-center mb-16"
