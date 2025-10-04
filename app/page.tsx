@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Shield, Server, Lock, Home, Brain, ArrowRight, Phone, Mail, FileText, Calendar, Heart } from 'lucide-react';
+import { Shield, Server, Lock, Home, Brain, ArrowRight, Phone, Mail, FileText, Calendar, Heart, Check } from 'lucide-react';
 import ContactForm from './ContactForm';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
