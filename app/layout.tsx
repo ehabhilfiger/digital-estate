@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     siteName: "Digital Estate Architect",
     images: [
       {
-        url: "https://digital-estate-orcin.vercel.app/og-image.svg",
+        url: "https://digital-estate-orcin.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Ehab Allababidi - Digital Estate Architect",
+        alt: "Ehab Allababidi - Digital Estate Architect - Private Servers, Smart Estates & On-Prem AI",
       },
     ],
   },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ehab Allababidi — Digital Estate Architect",
     description: "Private Servers, Smart Estates & On-Prem AI. Chicago-based infrastructure specialist.",
-    images: ["https://digital-estate-orcin.vercel.app/og-image.svg"],
+    images: ["https://digital-estate-orcin.vercel.app/og-image.jpg"],
   },
   robots: {
     index: true,
