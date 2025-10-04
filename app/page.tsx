@@ -251,7 +251,7 @@ export default function HomePage() {
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   ></motion.div>
                   <Image
-                    src="/images/Headshot.jpeg"
+                    src="/me.jpg"
                     alt="Ehab Allababidi - Digital Estate Architect, Chicago's Premier Infrastructure Specialist"
                     width={400}
                     height={400}
@@ -753,7 +753,7 @@ export default function HomePage() {
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                     <h3 className="font-semibold mb-4">Schedule</h3>
                     <a
-                      href="https://calendly.com/yourhandle/intro"
+                      href="https://calendly.com/defcon5ready/intro"
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex items-center gap-2 text-amber-500 hover:underline focus:underline focus:outline-none"
