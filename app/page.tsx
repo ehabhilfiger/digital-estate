@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Shield, Server, Lock, Home, Brain, ArrowRight, Phone, Mail, FileText, Calendar } from 'lucide-react';
 import ContactForm from './ContactForm';
 
@@ -432,8 +433,8 @@ export default function HomePage() {
                 Showcase of world-class digital estates. Each deployment represents the pinnacle of private infrastructure engineering—custom-tailored, meticulously secured, and built for longevity.
               </p>
               <div className="mt-12 grid md:grid-cols-3 gap-8">
-                {/* Tier 1 Showcase */}
-                <div className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-emerald-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-400/20">
+                {/* Tier 1 Showcase - CLICKABLE */}
+                <Link href="/tiers/foundation" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-emerald-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-400/20 cursor-pointer">
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src="/images/Tier 1 Example.png"
@@ -443,14 +444,15 @@ export default function HomePage() {
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                       <div className="inline-flex px-3 py-1 rounded-full bg-emerald-400 text-black text-xs font-semibold">
                         FOUNDATION TIER
                       </div>
+                      <div className="text-emerald-400 text-sm font-bold">$25k</div>
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">Professional NAS Deployment</h3>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-emerald-400 transition">Professional NAS Deployment</h3>
                     <p className="text-white/70 text-sm mb-4">
                       Enterprise-grade Synology DS920+ with 16TB RAID 10, automated encrypted backups, and Wireguard VPN access. Replaced cloud subscriptions, achieving 60% cost reduction while maintaining full data sovereignty.
                     </p>
@@ -462,11 +464,14 @@ export default function HomePage() {
                     <p className="text-emerald-400 text-sm italic border-t border-white/10 pt-4">
                       "We finally own our data. Installation was seamless, support exceptional." — Boutique Law Firm
                     </p>
+                    <div className="mt-4 text-emerald-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                      View Full Details <ArrowRight className="h-4 w-4" />
+                    </div>
                   </div>
-                </div>
+                </Link>
 
-                {/* Tier 2 Showcase */}
-                <div className="group rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-b from-emerald-400/5 to-transparent overflow-hidden hover:border-emerald-400 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-400/30 relative">
+                {/* Tier 2 Showcase - CLICKABLE - MOST POPULAR */}
+                <Link href="/tiers/estate" className="group rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-b from-emerald-400/5 to-transparent overflow-hidden hover:border-emerald-400 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-400/30 relative cursor-pointer">
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-400 text-black text-xs font-bold rounded-full z-10">
                     MOST POPULAR
                   </div>
@@ -479,14 +484,15 @@ export default function HomePage() {
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                       <div className="inline-flex px-3 py-1 rounded-full bg-emerald-400 text-black text-xs font-semibold">
                         ESTATE TIER
                       </div>
+                      <div className="text-emerald-400 text-sm font-bold">$50k</div>
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">Complete Digital Estate</h3>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-emerald-400 transition">Complete Digital Estate</h3>
                     <p className="text-white/70 text-sm mb-4">
                       Multi-server deployment with pfSense firewall, segmented VLANs (smart home, office, guest), Proxmox virtualization cluster, and integrated Home Assistant. Zero-trust architecture with end-to-end encryption across all zones.
                     </p>
@@ -499,11 +505,14 @@ export default function HomePage() {
                     <p className="text-emerald-400 text-sm italic border-t border-white/10 pt-4">
                       "Peace of mind knowing my family's entire digital life is secure and private." — Executive Client
                     </p>
+                    <div className="mt-4 text-emerald-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                      View Full Details <ArrowRight className="h-4 w-4" />
+                    </div>
                   </div>
-                </div>
+                </Link>
 
-                {/* Tier 3 Showcase */}
-                <div className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-400/20">
+                {/* Tier 3 Showcase - CLICKABLE */}
+                <Link href="/tiers/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-400/20 cursor-pointer">
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src="/images/Tier 3 Example.webp"
@@ -513,14 +522,15 @@ export default function HomePage() {
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                       <div className="inline-flex px-3 py-1 rounded-full bg-purple-400 text-black text-xs font-semibold">
                         ARCHITECT TIER
                       </div>
+                      <div className="text-purple-400 text-sm font-bold">$100k+</div>
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">AI Research Infrastructure</h3>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-400 transition">AI Research Infrastructure</h3>
                     <p className="text-white/70 text-sm mb-4">
                       High-availability Proxmox cluster with GPU passthrough (NVIDIA A6000), on-prem LLM deployment (Ollama + Open WebUI), TrueNAS Scale storage array, and multi-site replication. Custom automation for model training and inference workloads.
                     </p>
@@ -533,8 +543,11 @@ export default function HomePage() {
                     <p className="text-purple-400 text-sm italic border-t border-white/10 pt-4">
                       "Our research stays confidential. Performance exceeds cloud solutions." — AI Research Lab
                     </p>
+                    <div className="mt-4 text-purple-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                      View Full Details <ArrowRight className="h-4 w-4" />
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
 
               {/* CTA */}
@@ -542,11 +555,11 @@ export default function HomePage() {
                 <p className="text-white/70 mb-6">
                   Ready to join the ranks of clients who demand excellence in digital infrastructure?
                 </p>
-                <a href="#contact">
+                <Link href="/start-project">
                   <button className="inline-flex items-center justify-center px-6 py-3 font-medium rounded-2xl transition bg-emerald-400 text-black hover:bg-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-950">
                     Start Your Project <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </section>
@@ -622,28 +635,6 @@ export default function HomePage() {
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                   <h3 className="font-semibold mb-4">Send a Message</h3>
                   <ContactForm />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Gmail Signature Block */}
-          <section className="py-20 bg-white/5">
-            <div className="max-w-4xl mx-auto px-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5">
-                <div className="p-6">
-                  <h3 className="text-xl font-medium">Signature Email Block</h3>
-                  <p className="text-white/80 text-sm mt-2">
-                    Paste this into your Gmail signature (Settings → See all settings → General → Signature). Link your name to this site.
-                  </p>
-                  <pre className="mt-4 text-xs whitespace-pre-wrap bg-black/30 p-4 rounded-xl border border-white/10 overflow-x-auto">
-{`<div style="font:14px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial;color:#0b1220">
-  <strong><a href="https://digital-estate-orcin.vercel.app" style="color:#10b981;text-decoration:none">Ehab Allababidi</a></strong> · Digital Estate Architect<br/>
-  Chicago, IL • On-site & Remote<br/>
-  <a href="mailto:defcon5ready@gmail.com" style="color:#10b981;text-decoration:none">defcon5ready@gmail.com</a> · (773) 920-0030<br/>
-  <a href="https://digital-estate-orcin.vercel.app" style="color:#64748b;text-decoration:none">digital-estate-orcin.vercel.app</a>
-</div>`}
-                  </pre>
                 </div>
               </div>
             </div>
