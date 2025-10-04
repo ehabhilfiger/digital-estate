@@ -55,8 +55,8 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <div className="inline-flex h-20 w-20 rounded-full bg-emerald-400/10 items-center justify-center mb-4">
-            <Lock className="h-10 w-10 text-emerald-400" />
+          <div className="inline-flex h-20 w-20 rounded-full bg-amber-500/10 items-center justify-center mb-4">
+            <Lock className="h-10 w-10 text-amber-500" />
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">Private Access</h1>
           <p className="text-white/60">This section is password protected</p>
@@ -76,7 +76,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
                   setPassword(e.target.value);
                   setError('');
                 }}
-                className="w-full px-4 py-3 pr-12 rounded-xl bg-slate-950 border border-white/20 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition text-white placeholder-white/40"
+                className="w-full px-4 py-3 pr-12 rounded-xl bg-slate-950 border border-white/20 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white placeholder-white/40"
                 placeholder="Enter password..."
                 autoComplete="off"
                 disabled={attempts >= 5}
@@ -103,7 +103,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
             <button
               type="submit"
               disabled={!password || attempts >= 5}
-              className="w-full mt-6 px-6 py-3 bg-emerald-400 text-black font-medium rounded-xl hover:bg-emerald-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full mt-6 px-6 py-3 bg-amber-500 text-black font-medium rounded-xl hover:bg-amber-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Unlock Access
             </button>
@@ -117,7 +117,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="text-sm text-emerald-400 hover:text-emerald-300 transition"
+            className="text-sm text-amber-500 hover:text-amber-400 transition"
           >
             ← Return to homepage
           </Link>

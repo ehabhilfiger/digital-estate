@@ -32,7 +32,7 @@ export default function ArchitectTier() {
             ARCHITECT TIER • ENTERPRISE
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            AI Research <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Infrastructure</span>
+            AI Research <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">Infrastructure</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             High-availability GPU clusters with on-premises AI deployment. Built for research labs, AI companies, and organizations demanding confidential compute at scale.
@@ -51,10 +51,10 @@ export default function ArchitectTier() {
         </div>
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-purple-400 bg-gradient-to-br from-purple-400/20 via-pink-400/10 to-transparent p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-400/10 to-blue-400/10 blur-3xl"></div>
+        <div className="mb-16 rounded-2xl border-2 border-purple-400 bg-gradient-to-br from-purple-400/20 via-amber-400/10 to-transparent p-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-amber-400/10 to-slate-400/10 blur-3xl"></div>
           <div className="relative">
-            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 mb-4">
               $100,000+
             </div>
             <div className="text-xl text-white/80">Enterprise Architecture Package</div>
@@ -88,7 +88,7 @@ export default function ArchitectTier() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <HardDrive className="h-8 w-8 text-blue-400" />
+              <HardDrive className="h-8 w-8 text-slate-400" />
               Storage & Data Management
             </h2>
             <ul className="space-y-4">
@@ -101,7 +101,7 @@ export default function ArchitectTier() {
                 'Tiered storage with hot/warm/cold zones',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -110,7 +110,7 @@ export default function ArchitectTier() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-emerald-400" />
+              <Server className="h-8 w-8 text-amber-500" />
               Network & Security
             </h2>
             <ul className="space-y-4">
@@ -123,7 +123,7 @@ export default function ArchitectTier() {
                 'Full network traffic analytics and logging',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -132,7 +132,7 @@ export default function ArchitectTier() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-pink-400" />
+              <Shield className="h-8 w-8 text-amber-400" />
               Enterprise Support & SLA
             </h2>
             <ul className="space-y-4">
@@ -145,7 +145,7 @@ export default function ArchitectTier() {
                 'Knowledge transfer and team training',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-pink-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -162,15 +162,15 @@ export default function ArchitectTier() {
               <div className="text-white/70">Uptime SLA</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">10x</div>
+              <div className="text-4xl font-bold text-slate-400 mb-2">10x</div>
               <div className="text-white/70">Faster Than Cloud</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-emerald-400 mb-2">100%</div>
+              <div className="text-4xl font-bold text-amber-500 mb-2">100%</div>
               <div className="text-white/70">Data Confidentiality</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-pink-400 mb-2">Multi-Site</div>
+              <div className="text-4xl font-bold text-amber-400 mb-2">Multi-Site</div>
               <div className="text-white/70">Replication</div>
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function ArchitectTier() {
             This tier is designed for organizations that refuse to compromise on performance, security, or data sovereignty. Let's architect your private AI infrastructure.
           </p>
           <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-400 to-pink-400 text-black rounded-2xl hover:from-purple-300 hover:to-pink-300 transition font-bold text-lg shadow-lg shadow-purple-400/30">
+            <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-400 to-amber-400 text-black rounded-2xl hover:from-purple-300 hover:to-amber-300 transition font-bold text-lg shadow-lg shadow-purple-400/30">
               Schedule Architecture Consultation <ArrowRight className="ml-2 h-5 w-5" />
             </button>
           </Link>

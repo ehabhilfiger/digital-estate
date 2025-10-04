@@ -13,7 +13,7 @@ export default function FoundationTier() {
             Back to Home
           </Link>
           <Link href="/start-project">
-            <button className="px-4 py-2 bg-emerald-400 text-black rounded-xl hover:bg-emerald-300 transition font-medium text-sm">
+            <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium text-sm">
               Request This Package
             </button>
           </Link>
@@ -23,11 +23,11 @@ export default function FoundationTier() {
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm mb-6">
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
             FOUNDATION TIER
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Professional NAS <span className="text-emerald-400">Deployment</span>
+            Professional NAS <span className="text-amber-500">Deployment</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Enterprise-grade data sovereignty for professionals and boutique firms. Own your data, cut costs, maintain complete control.
@@ -35,7 +35,7 @@ export default function FoundationTier() {
         </div>
 
         {/* Image Showcase */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-emerald-400/30 shadow-2xl">
+        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-2xl">
           <Image
             src="/images/Tier 1 Example.png"
             alt="Foundation Tier - Professional Synology NAS Deployment"
@@ -46,8 +46,8 @@ export default function FoundationTier() {
         </div>
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-emerald-400 bg-gradient-to-br from-emerald-400/10 to-transparent p-12 text-center">
-          <div className="text-6xl font-bold text-emerald-400 mb-4">$25,000</div>
+        <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/10 to-transparent p-12 text-center">
+          <div className="text-6xl font-bold text-amber-500 mb-4">$25,000</div>
           <div className="text-xl text-white/80">Complete Installation Package</div>
           <div className="mt-4 text-white/60">Includes hardware, installation, configuration & 90-day support</div>
         </div>
@@ -56,7 +56,7 @@ export default function FoundationTier() {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-emerald-400" />
+              <Server className="h-8 w-8 text-amber-500" />
               Infrastructure Delivered
             </h2>
             <ul className="space-y-4">
@@ -69,7 +69,7 @@ export default function FoundationTier() {
                 '10GbE networking integration (if infrastructure supports)',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -78,7 +78,7 @@ export default function FoundationTier() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-blue-400" />
+              <Shield className="h-8 w-8 text-slate-400" />
               Services & Support
             </h2>
             <ul className="space-y-4">
@@ -91,7 +91,7 @@ export default function FoundationTier() {
                 'Remote monitoring and maintenance setup',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -104,11 +104,11 @@ export default function FoundationTier() {
           <h2 className="text-2xl font-bold mb-6">Real-World Results</h2>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-emerald-400 mb-2">60%</div>
+              <div className="text-4xl font-bold text-amber-500 mb-2">60%</div>
               <div className="text-white/70">Cost Reduction vs. Cloud</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">100%</div>
+              <div className="text-4xl font-bold text-slate-400 mb-2">100%</div>
               <div className="text-white/70">Data Sovereignty</div>
             </div>
             <div className="text-center">
@@ -117,7 +117,7 @@ export default function FoundationTier() {
             </div>
           </div>
           <div className="border-t border-white/10 pt-6">
-            <p className="text-lg italic text-emerald-400 mb-2">
+            <p className="text-lg italic text-amber-500 mb-2">
               "We finally own our data. Installation was seamless, support exceptional."
             </p>
             <p className="text-white/60">— Managing Partner, Boutique Law Firm</p>
@@ -152,7 +152,7 @@ export default function FoundationTier() {
             This package is perfect for solo practitioners, boutique law firms, and professionals who value data sovereignty without enterprise complexity.
           </p>
           <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-emerald-400 text-black rounded-2xl hover:bg-emerald-300 transition font-bold text-lg shadow-lg shadow-emerald-400/20">
+            <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-400 transition font-bold text-lg shadow-lg shadow-amber-500/20">
               Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
             </button>
           </Link>

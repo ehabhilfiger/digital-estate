@@ -96,8 +96,8 @@ ${formData.description}
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white flex items-center justify-center p-4">
         <div className="max-w-2xl w-full text-center">
-          <div className="rounded-2xl border-2 border-emerald-400 bg-emerald-400/10 p-12">
-            <CheckCircle2 className="h-20 w-20 text-emerald-400 mx-auto mb-6" />
+          <div className="rounded-2xl border-2 border-amber-500 bg-amber-500/10 p-12">
+            <CheckCircle2 className="h-20 w-20 text-amber-500 mx-auto mb-6" />
             <h1 className="text-4xl font-bold mb-4">Project Request Received!</h1>
             <p className="text-xl text-white/80 mb-6">
               Thank you for your interest in working with us, {formData.name}.
@@ -106,25 +106,25 @@ ${formData.description}
               <h3 className="font-semibold mb-3">What Happens Next:</h3>
               <ul className="space-y-2 text-white/70">
                 <li className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>We'll review your requirements within 24-48 hours</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>Schedule a discovery call to discuss your infrastructure goals</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>Provide a detailed proposal tailored to your needs</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>Begin your journey to complete data sovereignty</span>
                 </li>
               </ul>
             </div>
             <Link href="/">
-              <button className="px-6 py-3 bg-emerald-400 text-black rounded-xl hover:bg-emerald-300 transition font-medium">
+              <button className="px-6 py-3 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium">
                 Return to Homepage
               </button>
             </Link>
@@ -147,11 +147,11 @@ ${formData.description}
 
       <main className="max-w-4xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm mb-6">
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
             PROJECT INTAKE
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Start Your <span className="text-emerald-400">Digital Estate</span>
+            Start Your <span className="text-amber-500">Digital Estate</span>
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
             Tell us about your project. We'll review your requirements and schedule a discovery call to discuss your infrastructure goals.
@@ -171,7 +171,7 @@ ${formData.description}
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition text-white"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white"
                   placeholder="John Doe"
                 />
               </div>
@@ -183,7 +183,7 @@ ${formData.description}
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition text-white"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white"
                   placeholder="john@company.com"
                 />
               </div>
@@ -195,7 +195,7 @@ ${formData.description}
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition text-white"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white"
                   placeholder="(773) 920-0030"
                 />
               </div>
@@ -206,7 +206,7 @@ ${formData.description}
                   type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition text-white"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white"
                   placeholder="Optional"
                 />
               </div>
@@ -227,7 +227,7 @@ ${formData.description}
                     onClick={() => setFormData({ ...formData, budget: range.value, tier: range.tier })}
                     className={`p-4 rounded-xl border-2 transition text-left ${
                       formData.budget === range.value
-                        ? 'border-emerald-400 bg-emerald-400/10'
+                        ? 'border-amber-500 bg-amber-500/10'
                         : 'border-white/10 bg-white/5 hover:border-white/20'
                     }`}
                   >
@@ -244,7 +244,7 @@ ${formData.description}
                 required
                 value={formData.timeline}
                 onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition text-white"
+                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white"
               >
                 <option value="">Select timeline...</option>
                 <option value="asap">ASAP (Within 2-4 weeks)</option>
@@ -264,13 +264,13 @@ ${formData.description}
                     onClick={() => handleGoalToggle(goal)}
                     className={`p-3 rounded-lg border transition text-left text-sm ${
                       formData.primaryGoals.includes(goal)
-                        ? 'border-emerald-400 bg-emerald-400/10 text-white'
+                        ? 'border-amber-500 bg-amber-500/10 text-white'
                         : 'border-white/10 bg-white/5 text-white/70 hover:border-white/20'
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       {formData.primaryGoals.includes(goal) && (
-                        <Check className="h-4 w-4 text-emerald-400" />
+                        <Check className="h-4 w-4 text-amber-500" />
                       )}
                       {goal}
                     </div>
@@ -293,7 +293,7 @@ ${formData.description}
                 rows={3}
                 value={formData.currentInfrastructure}
                 onChange={(e) => setFormData({ ...formData, currentInfrastructure: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition text-white resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white resize-none"
                 placeholder="Describe your current setup (cloud providers, existing hardware, services used, etc.)"
               />
             </div>
@@ -308,7 +308,7 @@ ${formData.description}
                 rows={5}
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 transition text-white resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/20 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white resize-none"
                 placeholder="Tell us about your project goals, specific requirements, pain points, and what success looks like for you..."
               />
             </div>
@@ -327,7 +327,7 @@ ${formData.description}
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="inline-flex items-center justify-center px-8 py-4 bg-emerald-400 text-black rounded-2xl hover:bg-emerald-300 transition font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-emerald-400/20"
+              className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-400 transition font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-500/20"
             >
               {status === 'loading' ? (
                 <>

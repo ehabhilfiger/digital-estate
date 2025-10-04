@@ -31,7 +31,7 @@ export default function ArchitectPackage() {
             TIER 3: ARCHITECT • ENTERPRISE
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Architect <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Package</span>
+            Architect <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">Package</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Enterprise-grade infrastructure with high-availability clustering, custom automation, and dedicated concierge support. Built for organizations demanding perfection.
@@ -39,10 +39,10 @@ export default function ArchitectPackage() {
         </div>
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-purple-400 bg-gradient-to-br from-purple-400/20 via-pink-400/10 to-transparent p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-400/10 to-blue-400/10 blur-3xl"></div>
+        <div className="mb-16 rounded-2xl border-2 border-purple-400 bg-gradient-to-br from-purple-400/20 via-amber-400/10 to-transparent p-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-amber-400/10 to-slate-400/10 blur-3xl"></div>
           <div className="relative">
-            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 mb-4">
               $20,000+
             </div>
             <div className="text-xl text-white/80">Enterprise Architecture Package</div>
@@ -76,7 +76,7 @@ export default function ArchitectPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Cpu className="h-8 w-8 text-blue-400" />
+              <Cpu className="h-8 w-8 text-slate-400" />
               High-Availability Clustering
             </h2>
             <ul className="space-y-4">
@@ -89,7 +89,7 @@ export default function ArchitectPackage() {
                 'Automatic resource rebalancing',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -98,7 +98,7 @@ export default function ArchitectPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Settings className="h-8 w-8 text-emerald-400" />
+              <Settings className="h-8 w-8 text-amber-500" />
               Custom Automation
             </h2>
             <ul className="space-y-4">
@@ -111,7 +111,7 @@ export default function ArchitectPackage() {
                 'Self-healing infrastructure components',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -120,7 +120,7 @@ export default function ArchitectPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Network className="h-8 w-8 text-pink-400" />
+              <Network className="h-8 w-8 text-amber-400" />
               Multi-Site Synchronization
             </h2>
             <ul className="space-y-4">
@@ -133,7 +133,7 @@ export default function ArchitectPackage() {
                 'Latency-optimized routing',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-pink-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -164,7 +164,7 @@ export default function ArchitectPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Zap className="h-8 w-8 text-blue-400" />
+              <Zap className="h-8 w-8 text-slate-400" />
               12-Month SLA
             </h2>
             <ul className="space-y-4">
@@ -177,7 +177,7 @@ export default function ArchitectPackage() {
                 'Priority access to emergency support',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -214,15 +214,15 @@ export default function ArchitectPackage() {
               <div className="text-white/70">Uptime SLA</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">2hr</div>
+              <div className="text-4xl font-bold text-slate-400 mb-2">2hr</div>
               <div className="text-white/70">Critical Response</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-emerald-400 mb-2">24/7</div>
+              <div className="text-4xl font-bold text-amber-500 mb-2">24/7</div>
               <div className="text-white/70">Monitoring</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-pink-400 mb-2">12mo</div>
+              <div className="text-4xl font-bold text-amber-400 mb-2">12mo</div>
               <div className="text-white/70">SLA Coverage</div>
             </div>
           </div>
@@ -315,7 +315,7 @@ export default function ArchitectPackage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/start-project">
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-400 to-pink-400 text-black rounded-2xl hover:from-purple-300 hover:to-pink-300 transition font-bold text-lg shadow-lg shadow-purple-400/30">
+              <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-400 to-amber-400 text-black rounded-2xl hover:from-purple-300 hover:to-amber-300 transition font-bold text-lg shadow-lg shadow-purple-400/30">
                 Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </Link>

@@ -12,7 +12,7 @@ export default function FoundationPackage() {
             Back to Packages
           </Link>
           <Link href="/start-project">
-            <button className="px-4 py-2 bg-emerald-400 text-black rounded-xl hover:bg-emerald-300 transition font-medium text-sm">
+            <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium text-sm">
               Get Started
             </button>
           </Link>
@@ -22,11 +22,11 @@ export default function FoundationPackage() {
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm mb-6">
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
             TIER 1: FOUNDATION
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Foundation <span className="text-emerald-400">Package</span>
+            Foundation <span className="text-amber-500">Package</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Perfect for individuals and small teams getting started with private infrastructure. Build your foundation with essential tools for data sovereignty.
@@ -34,8 +34,8 @@ export default function FoundationPackage() {
         </div>
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-emerald-400/30 bg-gradient-to-br from-emerald-400/10 to-transparent p-12 text-center">
-          <div className="text-5xl font-bold text-emerald-400 mb-4">$3,500 – $6,000</div>
+        <div className="mb-16 rounded-2xl border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-transparent p-12 text-center">
+          <div className="text-5xl font-bold text-amber-500 mb-4">$3,500 – $6,000</div>
           <div className="text-xl text-white/80">One-Time Setup Fee</div>
           <div className="mt-4 text-white/60">Perfect entry point into private infrastructure</div>
         </div>
@@ -44,7 +44,7 @@ export default function FoundationPackage() {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-emerald-400" />
+              <Server className="h-8 w-8 text-amber-500" />
               Core Infrastructure
             </h2>
             <ul className="space-y-4">
@@ -57,7 +57,7 @@ export default function FoundationPackage() {
                 'Remote access configuration',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -66,7 +66,7 @@ export default function FoundationPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Lock className="h-8 w-8 text-blue-400" />
+              <Lock className="h-8 w-8 text-slate-400" />
               Security & Access
             </h2>
             <ul className="space-y-4">
@@ -79,7 +79,7 @@ export default function FoundationPackage() {
                 'Secure password and 2FA implementation',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -110,7 +110,7 @@ export default function FoundationPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-pink-400" />
+              <Shield className="h-8 w-8 text-amber-400" />
               Support & Warranty
             </h2>
             <ul className="space-y-4">
@@ -123,7 +123,7 @@ export default function FoundationPackage() {
                 'Optional extended support available',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-pink-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -150,7 +150,7 @@ export default function FoundationPackage() {
               },
             ].map((item, i) => (
               <div key={i} className="text-center">
-                <h3 className="font-semibold mb-2 text-emerald-400">{item.title}</h3>
+                <h3 className="font-semibold mb-2 text-amber-500">{item.title}</h3>
                 <p className="text-sm text-white/70">{item.description}</p>
               </div>
             ))}
@@ -172,27 +172,27 @@ export default function FoundationPackage() {
               <tbody className="text-sm">
                 <tr className="border-b border-white/10">
                   <td className="py-3 pr-4 text-white/70">Monthly Cost</td>
-                  <td className="py-3 pr-4 text-emerald-400">$0 (one-time)</td>
+                  <td className="py-3 pr-4 text-amber-500">$0 (one-time)</td>
                   <td className="py-3 text-white/50">$20-50/month forever</td>
                 </tr>
                 <tr className="border-b border-white/10">
                   <td className="py-3 pr-4 text-white/70">Data Ownership</td>
-                  <td className="py-3 pr-4 text-emerald-400">100% yours</td>
+                  <td className="py-3 pr-4 text-amber-500">100% yours</td>
                   <td className="py-3 text-white/50">Vendor controlled</td>
                 </tr>
                 <tr className="border-b border-white/10">
                   <td className="py-3 pr-4 text-white/70">Privacy</td>
-                  <td className="py-3 pr-4 text-emerald-400">Complete</td>
+                  <td className="py-3 pr-4 text-amber-500">Complete</td>
                   <td className="py-3 text-white/50">Subject to scanning</td>
                 </tr>
                 <tr className="border-b border-white/10">
                   <td className="py-3 pr-4 text-white/70">Speed</td>
-                  <td className="py-3 pr-4 text-emerald-400">Local network (fast)</td>
+                  <td className="py-3 pr-4 text-amber-500">Local network (fast)</td>
                   <td className="py-3 text-white/50">Internet dependent</td>
                 </tr>
                 <tr>
                   <td className="py-3 pr-4 text-white/70">ROI</td>
-                  <td className="py-3 pr-4 text-emerald-400">6-18 months</td>
+                  <td className="py-3 pr-4 text-amber-500">6-18 months</td>
                   <td className="py-3 text-white/50">Never (perpetual cost)</td>
                 </tr>
               </tbody>
@@ -211,7 +211,7 @@ export default function FoundationPackage() {
               { phase: 'Week 4', title: 'Training & Handoff', description: 'User training, documentation delivery, and go-live' },
             ].map((item, i) => (
               <div key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-20 text-emerald-400 font-semibold">{item.phase}</div>
+                <div className="flex-shrink-0 w-20 text-amber-500 font-semibold">{item.phase}</div>
                 <div className="flex-1">
                   <h3 className="font-semibold mb-1">{item.title}</h3>
                   <p className="text-sm text-white/70">{item.description}</p>
@@ -250,7 +250,7 @@ export default function FoundationPackage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/start-project">
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-emerald-400 text-black rounded-2xl hover:bg-emerald-300 transition font-bold text-lg shadow-lg shadow-emerald-400/20">
+              <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-400 transition font-bold text-lg shadow-lg shadow-amber-500/20">
                 Get Started Now <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </Link>
