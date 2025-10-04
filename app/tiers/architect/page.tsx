@@ -55,7 +55,7 @@ export default function ArchitectTier() {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-amber-400/10 to-slate-400/10 blur-3xl"></div>
           <div className="relative">
             <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 mb-4">
-              $100,000+
+              $250,000+
             </div>
             <div className="text-xl text-white/80">Enterprise Architecture Package</div>
             <div className="mt-4 text-white/60">Turnkey AI infrastructure with HA clustering, GPU passthrough & 12-month SLA</div>

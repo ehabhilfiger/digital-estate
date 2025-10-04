@@ -47,7 +47,7 @@ export default function FoundationTier() {
 
         {/* Pricing */}
         <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/10 to-transparent p-12 text-center">
-          <div className="text-6xl font-bold text-amber-500 mb-4">$25,000</div>
+          <div className="text-6xl font-bold text-amber-500 mb-4">$50,000</div>
           <div className="text-xl text-white/80">Complete Installation Package</div>
           <div className="mt-4 text-white/60">Includes hardware, installation, configuration & 90-day support</div>
         </div>

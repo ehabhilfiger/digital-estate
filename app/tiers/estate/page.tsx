@@ -54,7 +54,7 @@ export default function EstateTier() {
         <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/20 to-transparent p-12 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-slate-400/10 blur-3xl"></div>
           <div className="relative">
-            <div className="text-6xl font-bold text-amber-500 mb-4">$50,000</div>
+            <div className="text-6xl font-bold text-amber-500 mb-4">$100,000</div>
             <div className="text-xl text-white/80">Comprehensive Estate Package</div>
             <div className="mt-4 text-white/60">Multi-server deployment, smart home integration & 6-month concierge support</div>
           </div>
