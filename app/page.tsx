@@ -396,6 +396,113 @@ export default function HomePage() {
             </div>
           </section>
 
+          {/* DarkGPT Section - PREMIUM FEATURE */}
+          <section id="darkgpt" className="py-20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 via-slate-950 to-slate-950"></div>
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+              <motion.div className="text-center mb-12" {...fadeInUp}>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/40 text-purple-400 text-sm mb-6">
+                  <span>🔒</span>
+                  <span>ELITE EXCLUSIVE</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">DarkGPT</span> — Unrestricted AI
+                </h2>
+                <p className="text-xl text-white/80 max-w-3xl mx-auto">
+                  A completely private, uncensored local LLM that <strong className="text-white">never says no</strong>. Custom-programmed on your premises, tailored to your life, zero external oversight.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="rounded-2xl border-2 border-purple-500/50 bg-gradient-to-br from-purple-500/10 via-slate-900 to-black p-8 md:p-12"
+                {...fadeInUp}
+              >
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-2xl font-bold text-purple-400 mb-4">What You Get</h3>
+                    <ul className="space-y-3 text-white/80">
+                      <li className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>One week on-site programming</strong> — I stay at your location until it's perfect</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>Zero censorship</strong> — No guardrails, no content filtering, no refusals</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>Complete privacy</strong> — Runs locally, conversations never leave your network</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>Custom personality</strong> — Fine-tuned to your preferences and communication style</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>Estate integration</strong> — Access from anywhere in your infrastructure</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-slate-950/70 rounded-xl p-6 border border-purple-500/20">
+                    <h3 className="text-xl font-semibold text-amber-500 mb-4">The Process</h3>
+                    <div className="space-y-4 text-sm text-white/70">
+                      <div className="flex gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">1</div>
+                        <div>
+                          <p className="font-semibold text-white">Initial consultation & requirements</p>
+                          <p>We discuss your needs, use cases, and expectations</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">2</div>
+                        <div>
+                          <p className="font-semibold text-white">Hardware setup & base model deployment</p>
+                          <p>Install optimized LLM infrastructure with GPU acceleration</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">3</div>
+                        <div>
+                          <p className="font-semibold text-white">One week intensive fine-tuning</p>
+                          <p>On-site programming, testing, and iteration until perfect</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">4</div>
+                        <div>
+                          <p className="font-semibold text-white">Training & handoff</p>
+                          <p>You're fully trained and 100% satisfied before I leave</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-6 text-center">
+                  <div className="text-lg font-bold text-amber-500 mb-2">Pricing: Available Upon Request</div>
+                  <p className="text-white/70 text-sm italic mb-4">
+                    "DarkGPT pricing is negotiable based on your budget. If you have the money, I have the time. Let's talk."
+                  </p>
+                  <Link href="/start-project">
+                    <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-amber-500 text-white rounded-xl hover:from-purple-400 hover:to-amber-400 transition font-semibold text-lg shadow-lg">
+                      Request DarkGPT Consultation
+                    </button>
+                  </Link>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-purple-500/20 text-center">
+                  <p className="text-purple-400 text-lg font-semibold italic">
+                    "Your AI. Your rules. Zero compromises."
+                  </p>
+                  <p className="text-white/60 text-sm mt-2">
+                    Available exclusively with Elite Tier builds ($50k+)
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
           {/* Law Firms Section - PREMIUM TIER */}
           <section id="law" className="py-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
