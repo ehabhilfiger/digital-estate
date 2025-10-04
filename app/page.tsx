@@ -512,6 +512,19 @@ export default function HomePage() {
                   whileHover={{ scale: 1.02 }}
                   {...fadeInUp}
                 >
+                  {/* Background Image */}
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                    <Image
+                      src="/images/hospital.png"
+                      alt="Healthcare Infrastructure"
+                      fill
+                      className="object-cover opacity-50"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-slate-950/80 to-slate-950/90"></div>
+                  </div>
+                  
+                  {/* Content - positioned above background */}
+                  <div className="relative z-10">
                   <div className="absolute top-4 right-4 px-4 py-2 bg-purple-500 text-white text-xs font-bold rounded-full">
                     10/10 COMPLIANCE
                   </div>
@@ -591,6 +604,7 @@ export default function HomePage() {
                   <p className="text-purple-400 text-sm italic border-t border-purple-500/20 pt-4">
                     "Mission-critical infrastructure that meets every regulatory requirement. Our patient data has never been more secure." — Medical Director, Multi-Specialty Clinic
                   </p>
+                  </div>
                 </motion.div>
               </Link>
             </div>
