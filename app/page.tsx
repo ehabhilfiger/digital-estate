@@ -826,7 +826,7 @@ export default function HomePage() {
                   {'//'} MACHINES
                 </a>
                 <span className="text-white/30">|</span>
-                <a href="/sitemap.xml" className="hover:text-amber-500 focus:text-amber-500 focus:outline-none transition-colors" title="The complete blueprint">
+                <a href="/map" className="hover:text-amber-500 focus:text-amber-500 focus:outline-none transition-colors" title="The complete blueprint - Interactive site architecture">
                   {'//'} MAP
                 </a>
                 <span className="text-white/30">|</span>

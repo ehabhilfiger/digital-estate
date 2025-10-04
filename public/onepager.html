@@ -6,216 +6,320 @@
     <title>Ehab Allababidi - Digital Estate Architect</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; 
-            background: linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #1a1a1a 100%);
-            color: #C9A961; 
-            padding: 40px; 
-            max-width: 800px; 
-            margin: 0 auto; 
+        
+        @page {
+            size: letter;
+            margin: 0;
         }
-        .header { 
-            text-align: center; 
-            margin-bottom: 30px; 
-            border-bottom: 3px solid #B8860B; 
-            padding-bottom: 20px; 
-            background: rgba(184, 134, 11, 0.05);
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #000000;
+            color: #C9A961;
+            line-height: 1.5;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            padding: 0.5in;
+            background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #1a1a1a 100%);
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #B8860B;
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.05) 0%, transparent 100%);
+            padding: 16px;
             border-radius: 8px;
-            padding: 20px;
         }
-        .header h1 { 
-            font-size: 32px; 
+        
+        .header h1 {
+            font-size: 28px;
             background: linear-gradient(135deg, #D4AF37 0%, #C9A961 50%, #B8860B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 5px; 
+            margin-bottom: 4px;
             font-weight: 700;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            letter-spacing: -0.5px;
         }
-        .header .tagline { font-size: 18px; color: #10b981; margin-bottom: 10px; font-weight: 500; }
-        .header .contact { font-size: 14px; color: #8B7355; }
-        .section { margin: 25px 0; }
-        .section h2 { 
-            font-size: 20px; 
-            color: #D4AF37; 
-            margin-bottom: 15px; 
-            border-left: 4px solid #B8860B; 
-            padding-left: 12px;
+        
+        .tagline {
+            font-size: 16px;
+            color: #C9A961;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .contact {
+            font-size: 11px;
+            color: #8B7355;
+            line-height: 1.6;
+        }
+        
+        .contact a {
+            color: #B8860B;
+            text-decoration: none;
+        }
+        
+        .section {
+            margin: 20px 0;
+        }
+        
+        .section h2 {
+            font-size: 16px;
+            color: #D4AF37;
+            margin-bottom: 12px;
+            border-left: 3px solid #B8860B;
+            padding-left: 10px;
             background: rgba(184, 134, 11, 0.05);
-            padding: 10px 10px 10px 12px;
+            padding: 8px 10px;
             border-radius: 4px;
         }
-        .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0; }
-        .pillar { 
-            background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%); 
-            padding: 15px; 
-            border-radius: 8px; 
-            border-left: 3px solid #B8860B;
+        
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 12px 0;
+        }
+        
+        .pillar {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.08) 0%, rgba(0, 0, 0, 0.5) 100%);
+            padding: 12px;
+            border-radius: 6px;
             border: 1px solid rgba(184, 134, 11, 0.2);
         }
-        .pillar h3 { font-size: 14px; color: #10b981; margin-bottom: 8px; font-weight: 600; }
-        .pillar p { font-size: 12px; color: #8B7355; line-height: 1.5; }
-        .package { 
-            background: linear-gradient(135deg, rgba(184, 134, 11, 0.08) 0%, rgba(0, 0, 0, 0.5) 100%); 
-            border: 2px solid rgba(184, 134, 11, 0.3); 
-            border-radius: 8px; 
-            padding: 15px; 
-            margin: 10px 0; 
+        
+        .pillar h3 {
+            font-size: 12px;
+            color: #C9A961;
+            margin-bottom: 6px;
+            font-weight: 600;
         }
-        .package h3 { font-size: 16px; color: #D4AF37; margin-bottom: 8px; }
-        .package .price { color: #10b981; font-weight: bold; font-size: 14px; margin: 5px 0; }
-        .package ul { margin-left: 20px; font-size: 12px; color: #8B7355; }
-        .package ul li { margin: 4px 0; }
-        .starter-box { 
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%); 
-            border: 2px solid #10b981; 
-            border-radius: 10px; 
-            padding: 20px; 
-            margin: 20px 0; 
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
-        }
-        .starter-box h3 { color: #10b981; font-size: 18px; margin-bottom: 10px; font-weight: 600; }
-        .starter-box .highlight { font-size: 16px; font-weight: bold; color: #D4AF37; margin: 10px 0; }
-        .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 15px 0; }
-        .tier { 
-            background: linear-gradient(135deg, rgba(184, 134, 11, 0.08) 0%, rgba(0, 0, 0, 0.7) 100%); 
-            border: 2px solid rgba(184, 134, 11, 0.3); 
-            border-radius: 8px; 
-            padding: 15px; 
-        }
-        .tier.featured { 
-            border-color: #10b981; 
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(0, 0, 0, 0.7) 100%); 
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
-        }
-        .tier h4 { color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 600; }
-        .tier .tier-price { font-size: 18px; font-weight: bold; color: #D4AF37; margin: 5px 0; }
-        .tier ul { list-style: none; font-size: 11px; color: #8B7355; }
-        .tier ul li { margin: 4px 0; padding-left: 15px; position: relative; }
-        .tier ul li:before { content: "✓"; position: absolute; left: 0; color: #10b981; }
-        .footer { 
-            margin-top: 30px; 
-            padding-top: 20px; 
-            border-top: 2px solid rgba(184, 134, 11, 0.3); 
-            text-align: center; 
-        }
-        .footer .qr-placeholder { 
-            width: 100px; 
-            height: 100px; 
-            border: 2px dashed #B8860B; 
-            margin: 10px auto; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 11px; 
+        
+        .pillar p {
+            font-size: 10px;
             color: #8B7355;
-            background: rgba(184, 134, 11, 0.05);
-            border-radius: 8px;
+            line-height: 1.4;
         }
-        @media print { 
-            body { 
-                padding: 20px; 
+        
+        .starter-box {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+            border: 2px solid #B8860B;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        
+        .starter-box h3 {
+            color: #D4AF37;
+            font-size: 15px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .starter-box p {
+            font-size: 11px;
+            color: #8B7355;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            font-size: 14px;
+            font-weight: bold;
+            color: #D4AF37;
+            margin: 8px 0;
+        }
+        
+        .tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 12px 0;
+        }
+        
+        .tier {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.06) 0%, rgba(0, 0, 0, 0.7) 100%);
+            border: 1.5px solid rgba(184, 134, 11, 0.3);
+            border-radius: 6px;
+            padding: 12px;
+        }
+        
+        .tier h4 {
+            color: #C9A961;
+            font-size: 12px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        
+        .tier-price {
+            font-size: 15px;
+            font-weight: bold;
+            color: #D4AF37;
+            margin: 4px 0 8px 0;
+        }
+        
+        .tier ul {
+            list-style: none;
+            font-size: 9px;
+            color: #8B7355;
+        }
+        
+        .tier ul li {
+            margin: 3px 0;
+            padding-left: 12px;
+            position: relative;
+        }
+        
+        .tier ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #B8860B;
+        }
+        
+        .footer {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(184, 134, 11, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-text {
+            flex: 1;
+            font-size: 10px;
+            color: #8B7355;
+        }
+        
+        .qr-container {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 2px solid #B8860B;
+            border-radius: 6px;
+            padding: 4px;
+        }
+        
+        .qr-container img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        @media print {
+            body {
                 background: #000000;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            } 
+            }
+            .page {
+                page-break-after: avoid;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Ehab Allababidi</h1>
-        <div class="tagline">Digital Estate Architect</div>
-        <div class="tagline" style="font-size: 16px; margin-top: 5px;">Private Servers, Smart Estates & On-Prem AI</div>
-        <div class="contact">Chicago, IL • On-Site & Remote<br>
-        📧 defcon5ready@gmail.com • 📞 (773) 920-0030<br>
-        🌐 digital-estate-orcin.vercel.app</div>
-    </div>
-
-    <div class="section">
-        <h2>What I Deliver</h2>
-        <div class="pillars">
-            <div class="pillar">
-                <h3>🔒 Private Servers</h3>
-                <p>On-prem NAS, VMs, and secure home servers. Full control, zero cloud lock-in.</p>
-            </div>
-            <div class="pillar">
-                <h3>🛡️ Zero-Trust Networks</h3>
-                <p>Wireguard VPNs, VLAN segmentation, firewall hardening for bulletproof security.</p>
-            </div>
-            <div class="pillar">
-                <h3>🤖 On-Prem AI</h3>
-                <p>Local LLMs, private ChatGPT alternatives, confidential AI inference at home.</p>
+    <div class="page">
+        <div class="header">
+            <h1>Ehab Allababidi</h1>
+            <div class="tagline">Digital Estate Architect</div>
+            <div class="tagline" style="font-size: 14px;">Private Servers, Smart Estates & On-Prem AI</div>
+            <div class="contact">
+                Chicago, IL • On-Site & Remote<br>
+                <a href="mailto:defcon5ready@gmail.com">defcon5ready@gmail.com</a> • <a href="tel:+17739200030">(773) 920-0030</a><br>
+                <a href="https://digital-estate-orcin.vercel.app">digital-estate-orcin.vercel.app</a>
             </div>
         </div>
-    </div>
 
-    <div class="starter-box">
-        <h3>⚖️ Law Firm Starter Compliance Package</h3>
-        <p style="font-size: 13px; color: #475569; margin-bottom: 10px;">
-            Perfect for solo practitioners and boutique firms. Get client-data-safe infrastructure with on-prem backups, 
-            secure file sharing, and ethical compliance—no cloud vendor lock-in.
-        </p>
-        <div class="highlight">From $4,800 install • $350+/mo concierge</div>
-        <p style="font-size: 12px; color: #64748b; margin-top: 8px;">
-            Includes: Synology/TrueNAS setup, VPN access, encrypted backups, documentation & 3 months white-glove support.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Service Tiers</h2>
-        <div class="tiers">
-            <div class="tier">
-                <h4>Tier 1: Foundation</h4>
-                <div class="tier-price">$3,500–$6,000</div>
-                <ul>
-                    <li>Single-node NAS/server</li>
-                    <li>Basic VPN setup</li>
-                    <li>Encrypted backups</li>
-                    <li>Documentation</li>
-                    <li>30-day support</li>
-                </ul>
-            </div>
-            <div class="tier featured">
-                <h4>Tier 2: Estate (Most Popular)</h4>
-                <div class="tier-price">$8,000–$15,000</div>
-                <ul>
-                    <li>Multi-server deployment</li>
-                    <li>VLAN segmentation</li>
-                    <li>Smart home integration</li>
-                    <li>On-prem AI services</li>
-                    <li>Monitoring & alerts</li>
-                    <li>90-day support</li>
-                </ul>
-            </div>
-            <div class="tier">
-                <h4>Tier 3: Architect</h4>
-                <div class="tier-price">$20,000+</div>
-                <ul>
-                    <li>Enterprise-grade stack</li>
-                    <li>HA clustering</li>
-                    <li>Custom automation</li>
-                    <li>Multi-site sync</li>
-                    <li>Dedicated concierge</li>
-                    <li>12-month SLA</li>
-                </ul>
+        <div class="section">
+            <h2>What I Deliver</h2>
+            <div class="pillars">
+                <div class="pillar">
+                    <h3>Private Servers</h3>
+                    <p>On-prem NAS, VMs, and secure home servers. Full control, zero cloud lock-in.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Zero-Trust Networks</h3>
+                    <p>Wireguard VPNs, VLAN segmentation, firewall hardening for bulletproof security.</p>
+                </div>
+                <div class="pillar">
+                    <h3>On-Prem AI</h3>
+                    <p>Local LLMs, private ChatGPT alternatives, confidential AI inference at home.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="section">
-        <h2>Why Choose a Digital Estate Architect?</h2>
-        <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 10px;">
-            I'm not just an IT consultant—I'm a programmer-installer who builds, secures, and maintains private digital infrastructure 
-            for high-net-worth individuals, boutique law firms, and privacy-conscious professionals. Every system is tailored, documented, 
-            and designed for long-term sovereignty over your data.
-        </p>
-    </div>
+        <div class="starter-box">
+            <h3>Law Firm Starter Compliance Package</h3>
+            <p>Perfect for solo practitioners and boutique firms. Get client-data-safe infrastructure with on-prem backups, secure file sharing, and ethical compliance—no cloud vendor lock-in.</p>
+            <div class="highlight">From $4,800 install • $350+/mo concierge</div>
+            <p style="margin-top: 6px;">Includes: Synology/TrueNAS setup, VPN access, encrypted backups, documentation & 3 months white-glove support.</p>
+        </div>
 
-    <div class="footer">
-        <div class="qr-placeholder">QR Code<br>to Homepage</div>
-        <p style="font-size: 12px; color: #8B7355;">Ready to take control of your digital estate? Let's build something secure together.</p>
+        <div class="section">
+            <h2>Service Tiers</h2>
+            <div class="tiers">
+                <div class="tier">
+                    <h4>Tier 1: Foundation</h4>
+                    <div class="tier-price">$3,500–$6,000</div>
+                    <ul>
+                        <li>Single-node NAS/server</li>
+                        <li>Basic VPN setup</li>
+                        <li>Encrypted backups</li>
+                        <li>Documentation</li>
+                        <li>30-day support</li>
+                    </ul>
+                </div>
+                <div class="tier">
+                    <h4>Tier 2: Estate</h4>
+                    <div class="tier-price">$8,000–$15,000</div>
+                    <ul>
+                        <li>Multi-server deployment</li>
+                        <li>VLAN segmentation</li>
+                        <li>Smart home integration</li>
+                        <li>On-prem AI services</li>
+                        <li>Monitoring & alerts</li>
+                        <li>90-day support</li>
+                    </ul>
+                </div>
+                <div class="tier">
+                    <h4>Tier 3: Architect</h4>
+                    <div class="tier-price">$20,000+</div>
+                    <ul>
+                        <li>Enterprise-grade stack</li>
+                        <li>HA clustering</li>
+                        <li>Custom automation</li>
+                        <li>Multi-site sync</li>
+                        <li>Dedicated concierge</li>
+                        <li>12-month SLA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="margin-top: 16px;">
+            <h2>Why Choose a Digital Estate Architect?</h2>
+            <p style="font-size: 11px; color: #8B7355; line-height: 1.5; margin-top: 8px;">
+                I'm not just an IT consultant—I'm a programmer-installer who builds, secures, and maintains private digital infrastructure for high-net-worth individuals, boutique law firms, and privacy-conscious professionals. Every system is tailored, documented, and designed for long-term sovereignty over your data.
+            </p>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">
+                <strong style="color: #D4AF37;">Ready to take control of your digital estate?</strong><br>
+                Let's build something secure together. Scan the QR code to visit my site or reach out directly.
+            </div>
+            <div class="qr-container">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 29'%3E%3Cpath fill='%23000' d='M0 0h7v7H0zM8 0h1v1H8zM10 0h2v1h-2zM13 0h3v1h-3zM17 0h2v1h-2zM22 0h7v7h-7zM0 1h1v1H0zM6 1h1v1H6zM9 1h1v2H9zM11 1h1v1h-1zM16 1h1v1h-1zM18 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM10 2h3v1h-3zM14 2h2v1h-2zM17 2h2v1h-2zM20 2h1v1h-1zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h1v1H8zM11 3h1v1h-1zM13 3h1v1h-1zM16 3h2v1h-2zM19 3h2v1h-2zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM10 4h1v1h-1zM12 4h1v1h-1zM15 4h1v1h-1zM17 4h1v1h-1zM19 4h1v1h-1zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1H0zM6 5h1v1H6zM8 5h1v1H8zM11 5h4v1h-4zM17 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM8 7h3v1H8zM13 7h1v1h-1zM15 7h2v1h-2zM18 7h3v1h-3zM0 8h1v1H0zM3 8h1v1H3zM5 8h3v1H5zM9 8h2v1H9zM12 8h2v1h-2zM15 8h1v1h-1zM17 8h3v1h-3zM21 8h1v1h-1zM23 8h1v1h-1zM25 8h2v1h-2zM0 9h2v1H0zM3 9h1v1H3zM6 9h1v1H6zM9 9h2v1H9zM13 9h3v1h-3zM18 9h1v1h-1zM20 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM0 10h1v1H0zM2 10h1v1H2zM4 10h1v1H4zM6 10h1v1H6zM9 10h1v1H9zM11 10h1v1h-1zM14 10h1v1h-1zM17 10h1v1h-1zM19 10h3v1h-3zM23 10h1v1h-1zM25 10h1v1h-1zM27 10h2v1h-2zM0 11h1v1H0zM3 11h2v1H3zM6 11h2v1H6zM9 11h1v1H9zM12 11h2v1h-2zM15 11h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM23 11h3v1h-3zM0 12h1v1H0zM2 12h1v1H2zM5 12h3v1H5zM11 12h1v1h-1zM15 12h1v1h-1zM17 12h1v1h-1zM19 12h1v1h-1zM21 12h3v1h-3zM25 12h1v1h-1zM27 12h1v1h-1zM1 13h1v1H1zM4 13h1v1H4zM7 13h1v1H7zM9 13h1v1H9zM11 13h2v1h-2zM14 13h1v1h-1zM16 13h1v1h-1zM19 13h2v1h-2zM23 13h1v1h-1zM25 13h1v1h-1zM27 13h2v1h-2zM0 14h3v1H0zM4 14h2v1H4zM8 14h1v1H8zM10 14h2v1h-2zM13 14h1v1h-1zM15 14h1v1h-1zM17 14h1v1h-1zM21 14h2v1h-2zM24 14h1v1h-1zM26 14h2v1h-2zM2 15h2v1H2zM5 15h1v1H5zM7 15h3v1H7zM11 15h1v1h-1zM13 15h1v1h-1zM16 15h2v1h-2zM19 15h1v1h-1zM21 15h1v1h-1zM23 15h1v1h-1zM26 15h2v1h-2zM1 16h1v1H1zM3 16h1v1H3zM5 16h3v1H5zM9 16h1v1H9zM13 16h1v1h-1zM15 16h1v1h-1zM19 16h1v1h-1zM21 16h1v1h-1zM24 16h1v1h-1zM27 16h1v1h-1zM0 17h1v1H0zM2 17h2v1H2zM5 17h1v1H5zM7 17h1v1H7zM9 17h3v1H9zM13 17h2v1h-2zM16 17h1v1h-1zM19 17h1v1h-1zM21 17h4v1h-4zM26 17h1v1h-1zM0 18h1v1H0zM2 18h1v1H2zM5 18h1v1H5zM7 18h2v1H7zM10 18h3v1h-3zM14 18h1v1h-1zM17 18h2v1h-2zM20 18h2v1h-2zM23 18h3v1h-3zM27 18h1v1h-1zM3 19h2v1H3zM6 19h3v1H6zM10 19h1v1h-1zM12 19h1v1h-1zM14 19h1v1h-1zM16 19h1v1h-1zM18 19h1v1h-1zM20 19h1v1h-1zM22 19h1v1h-1zM25 19h1v1h-1zM27 19h2v1h-2zM1 20h3v1H1zM6 20h2v1H6zM9 20h1v1H9zM12 20h3v1h-2zM16 20h1v1h-1zM18 20h2v1h-2zM21 20h1v1h-1zM24 20h2v1h-2zM27 20h1v1h-1zM8 21h1v1H8zM10 21h1v1h-1zM12 21h2v1h-2zM16 21h1v1h-1zM18 21h1v1h-1zM20 21h2v1h-2zM24 21h1v1h-1zM26 21h2v1h-2zM0 22h7v1H0zM8 22h1v1H8zM10 22h1v1h-1zM12 22h1v1h-1zM15 22h1v1h-1zM17 22h1v1h-1zM20 22h2v1h-2zM24 22h2v1h-2zM27 22h2v1h-2zM0 23h1v1H0zM6 23h1v1H6zM8 23h1v2H8zM10 23h3v1h-3zM14 23h1v1h-1zM16 23h1v1h-1zM19 23h2v1h-2zM23 23h1v1h-1zM25 23h1v1h-1zM0 24h1v1H0zM2 24h3v1H2zM6 24h1v1H6zM10 24h1v1h-1zM13 24h1v1h-1zM16 24h1v1h-1zM18 24h1v1h-1zM22 24h1v1h-1zM24 24h1v1h-1zM26 24h1v1h-1zM0 25h1v1H0zM2 25h3v1H2zM6 25h1v1H6zM9 25h2v1H9zM12 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM19 25h1v1h-1zM21 25h1v1h-1zM23 25h3v1h-3zM28 25h1v1h-1zM0 26h1v1H0zM2 26h3v1H2zM6 26h1v1H6zM9 26h1v1H9zM12 26h1v1h-1zM14 26h1v1h-1zM16 26h3v1h-3zM20 26h1v1h-1zM22 26h2v1h-2zM25 26h1v1h-1zM27 26h1v1h-1zM0 27h1v1H0zM6 27h1v1H6zM8 27h3v1H8zM12 27h1v1h-1zM15 27h2v1h-2zM18 27h3v1h-3zM22 27h2v1h-2zM26 27h1v1h-1zM0 28h7v1H0zM8 28h3v1H8zM12 28h2v1h-2zM15 28h1v1h-1zM17 28h3v1h-3zM21 28h1v1h-1zM23 28h1v1h-1zM25 28h4v1h-4z'/%3E%3C/svg%3E" alt="QR Code to digital-estate-orcin.vercel.app">
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ehab Allababidi - Digital Estate Architect</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; 
+            background: linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #1a1a1a 100%);
+            color: #C9A961; 
+            padding: 40px; 
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
+        .header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            border-bottom: 3px solid #B8860B; 
+            padding-bottom: 20px; 
+            background: rgba(184, 134, 11, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .header h1 { 
+            font-size: 32px; 
+            background: linear-gradient(135deg, #D4AF37 0%, #C9A961 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px; 
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .header .tagline { font-size: 18px; color: #10b981; margin-bottom: 10px; font-weight: 500; }
+        .header .contact { font-size: 14px; color: #8B7355; }
+        .section { margin: 25px 0; }
+        .section h2 { 
+            font-size: 20px; 
+            color: #D4AF37; 
+            margin-bottom: 15px; 
+            border-left: 4px solid #B8860B; 
+            padding-left: 12px;
+            background: rgba(184, 134, 11, 0.05);
+            padding: 10px 10px 10px 12px;
+            border-radius: 4px;
+        }
+        .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0; }
+        .pillar { 
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%); 
+            padding: 15px; 
+            border-radius: 8px; 
+            border-left: 3px solid #B8860B;
+            border: 1px solid rgba(184, 134, 11, 0.2);
+        }
+        .pillar h3 { font-size: 14px; color: #10b981; margin-bottom: 8px; font-weight: 600; }
+        .pillar p { font-size: 12px; color: #8B7355; line-height: 1.5; }
+        .package { 
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.08) 0%, rgba(0, 0, 0, 0.5) 100%); 
+            border: 2px solid rgba(184, 134, 11, 0.3); 
+            border-radius: 8px; 
+            padding: 15px; 
+            margin: 10px 0; 
+        }
+        .package h3 { font-size: 16px; color: #D4AF37; margin-bottom: 8px; }
+        .package .price { color: #10b981; font-weight: bold; font-size: 14px; margin: 5px 0; }
+        .package ul { margin-left: 20px; font-size: 12px; color: #8B7355; }
+        .package ul li { margin: 4px 0; }
+        .starter-box { 
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%); 
+            border: 2px solid #10b981; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin: 20px 0; 
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+        }
+        .starter-box h3 { color: #10b981; font-size: 18px; margin-bottom: 10px; font-weight: 600; }
+        .starter-box .highlight { font-size: 16px; font-weight: bold; color: #D4AF37; margin: 10px 0; }
+        .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 15px 0; }
+        .tier { 
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.08) 0%, rgba(0, 0, 0, 0.7) 100%); 
+            border: 2px solid rgba(184, 134, 11, 0.3); 
+            border-radius: 8px; 
+            padding: 15px; 
+        }
+        .tier.featured { 
+            border-color: #10b981; 
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(0, 0, 0, 0.7) 100%); 
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+        }
+        .tier h4 { color: #10b981; font-size: 14px; margin-bottom: 8px; font-weight: 600; }
+        .tier .tier-price { font-size: 18px; font-weight: bold; color: #D4AF37; margin: 5px 0; }
+        .tier ul { list-style: none; font-size: 11px; color: #8B7355; }
+        .tier ul li { margin: 4px 0; padding-left: 15px; position: relative; }
+        .tier ul li:before { content: "✓"; position: absolute; left: 0; color: #10b981; }
+        .footer { 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 2px solid rgba(184, 134, 11, 0.3); 
+            text-align: center; 
+        }
+        .footer .qr-placeholder { 
+            width: 100px; 
+            height: 100px; 
+            border: 2px dashed #B8860B; 
+            margin: 10px auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 11px; 
+            color: #8B7355;
+            background: rgba(184, 134, 11, 0.05);
+            border-radius: 8px;
+        }
+        @media print { 
+            body { 
+                padding: 20px; 
+                background: #000000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            } 
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Ehab Allababidi</h1>
+        <div class="tagline">Digital Estate Architect</div>
+        <div class="tagline" style="font-size: 16px; margin-top: 5px;">Private Servers, Smart Estates & On-Prem AI</div>
+        <div class="contact">Chicago, IL • On-Site & Remote<br>
+        📧 defcon5ready@gmail.com • 📞 (773) 920-0030<br>
+        🌐 digital-estate-orcin.vercel.app</div>
+    </div>
+
+    <div class="section">
+        <h2>What I Deliver</h2>
+        <div class="pillars">
+            <div class="pillar">
+                <h3>🔒 Private Servers</h3>
+                <p>On-prem NAS, VMs, and secure home servers. Full control, zero cloud lock-in.</p>
+            </div>
+            <div class="pillar">
+                <h3>🛡️ Zero-Trust Networks</h3>
+                <p>Wireguard VPNs, VLAN segmentation, firewall hardening for bulletproof security.</p>
+            </div>
+            <div class="pillar">
+                <h3>🤖 On-Prem AI</h3>
+                <p>Local LLMs, private ChatGPT alternatives, confidential AI inference at home.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="starter-box">
+        <h3>⚖️ Law Firm Starter Compliance Package</h3>
+        <p style="font-size: 13px; color: #475569; margin-bottom: 10px;">
+            Perfect for solo practitioners and boutique firms. Get client-data-safe infrastructure with on-prem backups, 
+            secure file sharing, and ethical compliance—no cloud vendor lock-in.
+        </p>
+        <div class="highlight">From $4,800 install • $350+/mo concierge</div>
+        <p style="font-size: 12px; color: #64748b; margin-top: 8px;">
+            Includes: Synology/TrueNAS setup, VPN access, encrypted backups, documentation & 3 months white-glove support.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Service Tiers</h2>
+        <div class="tiers">
+            <div class="tier">
+                <h4>Tier 1: Foundation</h4>
+                <div class="tier-price">$3,500–$6,000</div>
+                <ul>
+                    <li>Single-node NAS/server</li>
+                    <li>Basic VPN setup</li>
+                    <li>Encrypted backups</li>
+                    <li>Documentation</li>
+                    <li>30-day support</li>
+                </ul>
+            </div>
+            <div class="tier featured">
+                <h4>Tier 2: Estate (Most Popular)</h4>
+                <div class="tier-price">$8,000–$15,000</div>
+                <ul>
+                    <li>Multi-server deployment</li>
+                    <li>VLAN segmentation</li>
+                    <li>Smart home integration</li>
+                    <li>On-prem AI services</li>
+                    <li>Monitoring & alerts</li>
+                    <li>90-day support</li>
+                </ul>
+            </div>
+            <div class="tier">
+                <h4>Tier 3: Architect</h4>
+                <div class="tier-price">$20,000+</div>
+                <ul>
+                    <li>Enterprise-grade stack</li>
+                    <li>HA clustering</li>
+                    <li>Custom automation</li>
+                    <li>Multi-site sync</li>
+                    <li>Dedicated concierge</li>
+                    <li>12-month SLA</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Why Choose a Digital Estate Architect?</h2>
+        <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 10px;">
+            I'm not just an IT consultant—I'm a programmer-installer who builds, secures, and maintains private digital infrastructure 
+            for high-net-worth individuals, boutique law firms, and privacy-conscious professionals. Every system is tailored, documented, 
+            and designed for long-term sovereignty over your data.
+        </p>
+    </div>
+
+    <div class="footer">
+        <div class="qr-placeholder">QR Code<br>to Homepage</div>
+        <p style="font-size: 12px; color: #8B7355;">Ready to take control of your digital estate? Let's build something secure together.</p>
+    </div>
+</body>
+</html>
