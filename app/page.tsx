@@ -845,12 +845,10 @@ export default function HomePage() {
                     MOST POPULAR
                   </div>
                   <div className="relative h-64 overflow-hidden">
-                    <Image
+                    <img
                       src="/images/secret-room.png"
                       alt="Estate Tier - Complete digital estate with secret server room"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
