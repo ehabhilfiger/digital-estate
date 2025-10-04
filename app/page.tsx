@@ -22,7 +22,7 @@ export default function HomePage() {
     initial: { opacity: 0, y: 60 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-100px" },
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as const }
   };
 
   const staggerContainer = {
@@ -35,7 +35,7 @@ export default function HomePage() {
     initial: { opacity: 0, scale: 0.9 },
     whileInView: { opacity: 1, scale: 1 },
     viewport: { once: true, margin: "-100px" },
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const }
   };
 
   const jsonLd = {
@@ -364,19 +364,19 @@ export default function HomePage() {
                 className="mt-12 space-y-6 text-base sm:text-lg text-white/80"
                 {...staggerContainer}
               >
-                <p>
+                <motion.p {...fadeInUp}>
                   <strong className="text-white">You don't trust the cloud.</strong> You want your files, cameras, smart home, and AI on servers <em>you</em> own—in your office, your home, or a locked rack you control.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p {...fadeInUp}>
                   <strong className="text-white">You're tired of consultants who just resell SaaS.</strong> You need someone who codes, racks hardware, configures firewalls, and actually understands the tech stack from bare metal to application layer.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p {...fadeInUp}>
                   <strong className="text-white">You want privacy by default.</strong> Zero telemetry, no vendor lock-in, encrypted tunnels, and systems designed for sovereignty—not surveillance.
-                </p>
-                <p className="text-amber-500 font-medium">
+                </motion.p>
+                <motion.p className="text-amber-500 font-medium" {...fadeInUp}>
                   That's what I build. Private digital estates for people who demand control.
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             </div>
           </section>
 

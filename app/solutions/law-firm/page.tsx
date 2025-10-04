@@ -1,13 +1,34 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Check, Scale, Shield, Server, Database, Lock, FileText, Users, Clock, Phone } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function LawFirmSolution() {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-100px" },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
+  const staggerContainer = {
+    initial: {},
+    whileInView: { transition: { staggerChildren: 0.1 } },
+    viewport: { once: true, margin: "-100px" }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <motion.header
+        className="sticky top-0 z-50 backdrop-blur border-b border-white/10"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
             <ArrowLeft className="h-4 w-4" />
             Back to Home
@@ -18,7 +39,7 @@ export default function LawFirmSolution() {
             </button>
           </Link>
         </div>
-      </header>
+      </motion.header>
 
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Hero */}
