@@ -385,54 +385,119 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Law Firms Section */}
+          {/* Law Firms Section - PREMIUM TIER */}
           <section id="law" className="py-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
               <Link href="/solutions/law-firm" className="block">
                 <motion.div
-                  className="rounded-2xl border-2 border-amber-500/30 bg-amber-500/5 p-8 md:p-12 hover:border-amber-500/50 hover:bg-amber-500/10 transition-all duration-300 cursor-pointer"
+                  className="rounded-2xl border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-yellow-500/5 p-8 md:p-12 hover:border-amber-500/50 hover:from-amber-500/15 hover:to-yellow-500/10 transition-all duration-300 cursor-pointer relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   {...fadeInUp}
                 >
+                  <div className="absolute top-4 right-4 px-4 py-2 bg-amber-500 text-black text-xs font-bold rounded-full">
+                    10/10 ABA COMPLIANT
+                  </div>
                 <div className="flex items-center gap-3 mb-6">
                   <Shield className="h-8 w-8 text-amber-500" aria-hidden="true" />
-                  <h2 className="text-2xl md:text-3xl font-semibold">Law Firm Starter Compliance Package</h2>
+                  <h2 className="text-2xl md:text-3xl font-semibold">Law Firm Enterprise Compliance Infrastructure</h2>
                 </div>
                 <p className="text-white/80 text-lg mb-6">
-                  Perfect for solo practitioners and boutique firms. Get client-data-safe infrastructure with on-prem backups, secure file sharing, and ethical compliance—no cloud vendor lock-in.
+                  Premium-grade infrastructure for solo practitioners, boutique firms, and multi-partner practices. Full ABA Model Rule 1.6 compliance, attorney-client privilege protection, conflict-checking systems, and ethical wall enforcement with complete data sovereignty.
                 </p>
-                <div className="bg-slate-950/50 rounded-xl p-6 mb-6">
-                  <p className="text-2xl font-bold text-amber-500">From $4,800 install • $350+/mo concierge</p>
+                <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-amber-500/20">
+                  <p className="text-3xl font-bold text-amber-500">Starting at $18,000 install • $1,200+/mo managed services</p>
                   <p className="mt-2 text-white/70">
-                    Includes: Synology/TrueNAS setup, VPN access, encrypted backups, documentation &amp; 3 months white-glove support.
+                    Includes: ABA-compliant infrastructure, secure document management system, encrypted client portals, conflict-checking database, disaster recovery, automated compliance reporting, staff training & 12-month white-glove support.
                   </p>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div className="grid md:grid-cols-2 gap-4 text-sm mb-6">
                   <div className="flex items-start gap-2">
                     <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
                       <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                     </div>
-                    <span className="text-white/80">ABA-compliant data security</span>
+                    <span className="text-white/80">ABA Model Rule 1.6 compliance</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
                       <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                     </div>
-                    <span className="text-white/80">Local document management</span>
+                    <span className="text-white/80">Attorney-client privilege protection</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
                       <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                     </div>
-                    <span className="text-white/80">Secure client portals</span>
+                    <span className="text-white/80">Secure document management (DMS)</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
                       <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                     </div>
-                    <span className="text-white/80">Disaster recovery planning</span>
+                    <span className="text-white/80">Encrypted client portals</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
+                    </div>
+                    <span className="text-white/80">Conflict-checking systems</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
+                    </div>
+                    <span className="text-white/80">Ethical wall enforcement</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
+                    </div>
+                    <span className="text-white/80">Redundant backup systems</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
+                    </div>
+                    <span className="text-white/80">Zero-trust network architecture</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
+                    </div>
+                    <span className="text-white/80">Complete audit trail logging</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
+                    </div>
+                    <span className="text-white/80">Business continuity planning</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
+                    </div>
+                    <span className="text-white/80">Practice management integration</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-amber-500"></div>
+                    </div>
+                    <span className="text-white/80">Dedicated compliance specialist liaison</span>
                   </div>
                 </div>
+                <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 mb-4">
+                  <p className="text-amber-400 font-semibold mb-2">Why Law Firms Choose Us:</p>
+                  <ul className="space-y-2 text-sm text-white/70">
+                    <li>• Client data never leaves your premises — maintain attorney-client privilege sovereignty</li>
+                    <li>• Avoid cloud vendor subpoenas and third-party data breaches</li>
+                    <li>• Meet state bar ethical obligations with automated compliance documentation</li>
+                    <li>• Scale from solo practice to multi-office firm infrastructure</li>
+                    <li>• Integrate with existing practice management software (Clio, PracticePanther, etc.)</li>
+                    <li>• Protected against ransomware with air-gapped backup systems</li>
+                  </ul>
+                </div>
+                <p className="text-amber-400 text-sm italic border-t border-amber-500/20 pt-4">
+                  "We finally own our data. Installation was seamless, support exceptional, and we passed our state bar audit with zero findings." — Managing Partner, Corporate Law Firm
+                </p>
                 </motion.div>
               </Link>
             </div>
