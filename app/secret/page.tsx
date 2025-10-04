@@ -77,87 +77,149 @@ export default function SecretPage() {
               <h3 className="text-2xl font-semibold">Confidential Documentation</h3>
               <div className="text-sm text-white/60">
                 <FileText className="h-4 w-4 inline mr-1" />
-                7 files
+                9 files
               </div>
             </div>
             
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer">
+              {/* TOP SECRET - Ehab's Master Plan */}
+              <a 
+                href="/vault/Ehab Secret plan.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-amber-500/20 border-2 border-purple-500/50 hover:border-purple-400 transition group cursor-pointer"
+              >
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-purple-500 text-white">TOP SECRET</span>
+                  </div>
+                  <h4 className="font-bold text-lg group-hover:text-purple-400 transition">Ehab's Master Plan</h4>
+                  <p className="text-sm text-white/70 mt-1">Confidential strategic roadmap - Authorized eyes only</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="text-xs text-white/60">PDF • 5.6 MB</div>
+                  <Download className="h-5 w-5 text-purple-400 group-hover:text-purple-300 transition animate-pulse" />
+                </div>
+              </a>
+
+              <a 
+                href="/vault/Enterprise Infrastructure Blueprint.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer"
+              >
                 <div className="flex-1">
                   <h4 className="font-medium group-hover:text-amber-500 transition">Enterprise Infrastructure Blueprint</h4>
                   <p className="text-sm text-white/60 mt-1">Complete deployment guide for enterprise clients - includes network diagrams</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-xs text-white/40">PDF • 2.4 MB</div>
+                  <div className="text-xs text-white/40">PDF • 47 KB</div>
                   <Download className="h-4 w-4 text-white/40 group-hover:text-amber-500 transition" />
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer">
+              <a 
+                href="/vault/Advanced Security Protocols.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer"
+              >
                 <div className="flex-1">
                   <h4 className="font-medium group-hover:text-amber-500 transition">Advanced Security Protocols</h4>
                   <p className="text-sm text-white/60 mt-1">Zero-trust architecture implementation guide with firewall rules</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-xs text-white/40">PDF • 1.8 MB</div>
+                  <div className="text-xs text-white/40">PDF • 34 KB</div>
                   <Download className="h-4 w-4 text-white/40 group-hover:text-amber-500 transition" />
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer">
+              <a 
+                href="/vault/Client Contract Templates.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer"
+              >
                 <div className="flex-1">
                   <h4 className="font-medium group-hover:text-amber-500 transition">Client Contract Templates</h4>
                   <p className="text-sm text-white/60 mt-1">Legal agreements, MSA, and service level documents</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-xs text-white/40">DOCX • 156 KB</div>
+                  <div className="text-xs text-white/40">PDF • 39 KB</div>
                   <Download className="h-4 w-4 text-white/40 group-hover:text-amber-500 transition" />
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer">
+              <a 
+                href="/vault/On-Prem AI Deployment Scripts.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer"
+              >
                 <div className="flex-1">
                   <h4 className="font-medium group-hover:text-amber-500 transition">On-Prem AI Deployment Scripts</h4>
                   <p className="text-sm text-white/60 mt-1">Automated setup for Ollama, llama.cpp, Open WebUI, and LM Studio</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-xs text-white/40">ZIP • 842 KB</div>
+                  <div className="text-xs text-white/40">PDF • 42 KB</div>
                   <Download className="h-4 w-4 text-white/40 group-hover:text-amber-500 transition" />
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer">
+              <a 
+                href="/vault/GPU Passthrough Guide.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer"
+              >
                 <div className="flex-1">
                   <h4 className="font-medium group-hover:text-amber-500 transition">Proxmox GPU Passthrough Guide</h4>
                   <p className="text-sm text-white/60 mt-1">Step-by-step configuration for NVIDIA GPU passthrough to VMs</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-xs text-white/40">PDF • 3.2 MB</div>
+                  <div className="text-xs text-white/40">PDF • 47 KB</div>
                   <Download className="h-4 w-4 text-white/40 group-hover:text-amber-500 transition" />
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer">
+              <a 
+                href="/vault/TrueNAS Setup Guide.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer"
+              >
                 <div className="flex-1">
                   <h4 className="font-medium group-hover:text-amber-500 transition">TrueNAS Scale Configuration</h4>
                   <p className="text-sm text-white/60 mt-1">Complete setup guide with ZFS pool optimization and app deployment</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-xs text-white/40">PDF • 2.1 MB</div>
+                  <div className="text-xs text-white/40">PDF • 47 KB</div>
                   <Download className="h-4 w-4 text-white/40 group-hover:text-amber-500 transition" />
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer">
+              <a 
+                href="/vault/WireGuard VPN Configuration.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer"
+              >
                 <div className="flex-1">
                   <h4 className="font-medium group-hover:text-amber-500 transition">Wireguard VPN Automation</h4>
                   <p className="text-sm text-white/60 mt-1">Bash scripts for automated client provisioning and QR code generation</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="text-xs text-white/40">SH • 28 KB</div>
+                  <div className="text-xs text-white/40">PDF • 45 KB</div>
                   <Download className="h-4 w-4 text-white/40 group-hover:text-amber-500 transition" />
                 </div>
-              </div>
+              </a>
+
+              <a 
+                href="/vault/Confidential Documentation Vault.pdf" 
+                download 
+                className="flex items-center justify-between p-4 rounded-xl bg-slate-950/50 border border-white/10 hover:border-amber-500/50 transition group cursor-pointer"
+              >
+                <div className="flex-1">
+                  <h4 className="font-medium group-hover:text-amber-500 transition">Confidential Documentation Vault</h4>
+                  <p className="text-sm text-white/60 mt-1">Master documentation repository index and overview</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="text-xs text-white/40">PDF • 112 KB</div>
+                  <Download className="h-4 w-4 text-white/40 group-hover:text-amber-500 transition" />
+                </div>
+              </a>
             </div>
 
             <div className="mt-8 p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
@@ -170,11 +232,11 @@ export default function SecretPage() {
           {/* Stats */}
           <div className="mt-12 grid grid-cols-3 gap-6 text-center">
             <div className="rounded-xl border border-white/10 bg-white/5 p-6">
-              <div className="text-3xl font-bold text-amber-500">7</div>
+              <div className="text-3xl font-bold text-amber-500">9</div>
               <div className="text-sm text-white/60 mt-1">Documents</div>
             </div>
             <div className="rounded-xl border border-white/10 bg-white/5 p-6">
-              <div className="text-3xl font-bold text-slate-400">10.5 MB</div>
+              <div className="text-3xl font-bold text-slate-400">6.1 MB</div>
               <div className="text-sm text-white/60 mt-1">Total Size</div>
             </div>
             <div className="rounded-xl border border-white/10 bg-white/5 p-6">
