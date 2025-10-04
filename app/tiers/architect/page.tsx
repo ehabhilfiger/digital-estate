@@ -41,11 +41,9 @@ export default function ArchitectTier() {
 
         {/* Image Showcase */}
         <div className="mb-16 rounded-2xl overflow-hidden border-2 border-purple-400 shadow-2xl shadow-purple-400/20">
-          <Image
-            src="/images/Tier 3 Example.webp"
+          <img
+            src="/images/250k-tier.png"
             alt="Architect Tier - Enterprise AI Research Infrastructure"
-            width={1200}
-            height={800}
             className="w-full h-auto"
           />
         </div>

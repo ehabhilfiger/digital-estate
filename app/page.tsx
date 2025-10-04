@@ -881,12 +881,10 @@ export default function HomePage() {
                 {/* Tier 3 Showcase - CLICKABLE */}
                 <Link href="/tiers/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-400/20 cursor-pointer">
                   <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/images/Tier 3 Example.webp"
+                    <img
+                      src="/images/250k-tier.png"
                       alt="Architect Tier - Enterprise-grade infrastructure with on-premises AI and GPU clustering"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
