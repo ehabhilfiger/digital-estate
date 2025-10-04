@@ -150,9 +150,14 @@ export default function HomePage() {
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <div className="h-9 w-9 rounded-xl bg-amber-500/10 grid place-items-center">
-                <Shield className="h-5 w-5 text-amber-500" aria-hidden="true" />
-              </div>
+              <Image 
+                src="/logo.png" 
+                alt="Digital Estate Architect Logo" 
+                width={36} 
+                height={36} 
+                className="rounded-xl"
+                priority
+              />
               <span className="font-semibold tracking-tight">Digital Estate Architect</span>
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm text-white/80" aria-label="Main navigation">
