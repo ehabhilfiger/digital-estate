@@ -10,12 +10,13 @@
 
    POSITION: Senior Infrastructure Architect & Systems Engineer
    COMPENSATION: $120,000+ annually (base + equity + bonuses)
+   SIGNING BONUS: $10,000 for perfect 20/20 score
    LOCATION: Remote/Chicago, IL
 
-   REQUIREMENTS: Answer 10 out of 15 questions correctly.
+   REQUIREMENTS: Answer 13 out of 20 questions correctly.
    GPT-5 will fail. Elite hackers will struggle. Only master investigators succeed.
 
-   DIFFICULTY RATING: 11/10 (Beyond ChatGPT's capability)
+   DIFFICULTY RATING: 12/10 (Impossible for AI)
    COOLNESS RATING: 10/10 (You're reading the most sophisticated hiring filter ever created)
 
 /* ================================================================
@@ -315,7 +316,117 @@
    //       The answer requires THINKING, not Googling.
 
 /* ================================================================
-   SUBMISSION PROTOCOL
+   PUZZLE 16: THE RESIDENTIAL TRACE (EXPERT)
+   ================================================================ */
+
+   // The architect has a residential history that's partially documented.
+   //
+   // Using public records, property databases, and OSINT techniques:
+   // What is the EXACT street address (full format) where the architect
+   // lived as of June 2017, and what is the property's current
+   // estimated value according to Redfin or Zillow?
+   //
+   // Format: "#### Direction StreetName StreetType, City, State ZIP | $###,###"
+   // Example: "1234 W Main St, Chicago, IL 60601 | $450,000"
+
+   ANSWER_16: _________________________________________________
+
+   // HINT: Public records from 2017-2018 incidents mention the address block.
+   //       Use Nuwber, Spokeo, or similar people search engines.
+   //       Cross-reference with Redfin/Zillow property data.
+   //       The 8500 block of West Winona Street is your starting point.
+
+/* ================================================================
+   PUZZLE 17: THE LEGAL TIMELINE (VERY HARD)
+   ================================================================ */
+
+   // Public court records document specific incidents.
+   // Research the architect's legal history and answer:
+   //
+   // 1. In what MONTH and YEAR was a DUI charge filed? (Format: MM/YYYY)
+   // 2. What were the OTHER two charges filed simultaneously?
+   // 3. In what suburb/city did the traffic stop occur?
+   //
+   // Format: "MM/YYYY | Charge1, Charge2 | CityName"
+   // Example: "03/2018 | Speeding, Improper Lane Usage | Elmhurst"
+
+   ANSWER_17: ______________________________________________
+
+   // HINT: Shaw Local and The Independent newspapers covered this.
+   //       Search: "Ehab Allababidi DUI 2018"
+   //       The stop was near "North and Melrose" at 11:51 PM.
+   //       Look for police reports from January-February 2018.
+
+/* ================================================================
+   PUZZLE 18: THE ACADEMIC ARTIFACT (GENIUS)
+   ================================================================ */
+
+   // During the architect's academic career, a personal project
+   // was published on Prezi about identity and philosophy.
+   //
+   // Find this presentation and answer:
+   // 1. What is the EXACT URL of the Prezi presentation?
+   // 2. What philosopher/speaker is referenced regarding "horizontal identity"?
+   // 3. What is the main question posed at the end?
+   //
+   // Format: "prezi.com/XXXXXX | AuthorName | Question"
+
+   ANSWER_18: __________________________________________________
+
+   // HINT: Search: "Ehab Allababidi Prezi personal identity"
+   //       The presentation discusses memory implants and essence.
+   //       Look for references to TED talks.
+   //       URL format: prezi.com/[random_string]/personal-identity-project/
+
+/* ================================================================
+   PUZZLE 19: THE FAMILY PHYSICIAN (LEGENDARY)
+   ================================================================ */
+
+   // The Allababidi family includes medical professionals.
+   // Using NPI (National Provider Identifier) databases:
+   //
+   // Find any MD with the surname Allababidi practicing in Chicago
+   // and provide:
+   // 1. Their full name
+   // 2. Their NPI number
+   // 3. Their medical specialty
+   //
+   // Format: "FirstName LastName | ##########  | Specialty"
+
+   ANSWER_19: _________________________________________________
+
+   // HINT: Use HIPAA Space or NPI Registry search tools.
+   //       Search for "Allababidi" in Chicago, IL.
+   //       There is at least one MD with this surname.
+   //       NPI numbers are 10 digits.
+   //       This tests ability to use healthcare provider databases.
+
+/* ================================================================
+   PUZZLE 20: THE PROPERTY FORENSICS (ULTIMATE)
+   ================================================================ */
+
+   // Real estate records contain detailed information.
+   // For the property at 8516 W Winona St, Chicago, IL 60656:
+   //
+   // Research and provide:
+   // 1. Number of bedrooms / bathrooms
+   // 2. Year the house was built
+   // 3. Square footage
+   // 4. Property tax amount (most recent year available)
+   //
+   // Format: "#bed/#bath | Built: #### | ####sqft | Tax: $#,###"
+   // Example: "3bed/2bath | Built: 1985 | 1500sqft | Tax: $4,500"
+
+   ANSWER_20: ___________________________________________________
+
+   // HINT: Use Redfin, Zillow, or Cook County Assessor's Office.
+   //       Property details are public record.
+   //       Redfin URL pattern: redfin.com/IL/Chicago/8516-W-Winona-St-60656/
+   //       Cook County property search: cookcountyassessor.com
+   //       This tests ability to use multiple property databases.
+
+/* ================================================================
+   SUBMISSION PROTOCOL (UPDATED)
    ================================================================ */
 
    EMAIL TO: defcon5ready@gmail.com
@@ -323,10 +434,10 @@
 
    EMAIL BODY MUST INCLUDE:
 
-   1. All 15 answers in this format:
+   1. All 20 answers in this format:
       ANSWER_01: [your answer]
       ANSWER_02: [your answer]
-      ... (continue for all 15)
+      ... (continue for all 20)
 
    2. Detailed methodology for each answer:
       - What sources did you use?
@@ -360,30 +471,32 @@
    SCORING RUBRIC
    ================================================================ */
 
-   MINIMUM TO ADVANCE: 10/15 correct answers
+   MINIMUM TO ADVANCE: 13/20 correct answers
 
-   LEGENDARY (15/15):
+   PERFECT SCORE (20/20):
+   - $10,000 SIGNING BONUS (paid upon hire)
    - Immediate phone interview
    - $120,000 base + equity + performance bonuses
-   - $1,000 completion bonus
    - Full remote work + Chicago office access
    - Equity in infrastructure projects
    - Choose your own tech stack
+   - Direct report to founder
 
-   EXPERT (12-14/15):
-   - Phone interview within 48 hours
-   - $100,000 base + equity
-   - $500 bonus
+   LEGENDARY (17-19/20):
+   - $5,000 signing bonus
+   - Phone interview within 24 hours
+   - $110,000 base + equity
    - Full remote work
 
-   STRONG (10-11/15):
-   - Email interview first
-   - $85,000 base with 6-month review
+   EXPERT (13-16/20):
+   - $2,000 signing bonus
+   - Phone interview within 48 hours
+   - $95,000 base + equity
    - Remote work
 
-   BELOW 10/15:
+   BELOW 13/20:
    - Try again in 1 year after more experience
-   - We'll provide feedback on what to study
+   - We'll provide detailed feedback on what to study
 
 /* ================================================================
    WHAT THIS POSITION ENTAILS
@@ -467,25 +580,26 @@
    - Chicago, IL
    - defcon5ready@gmail.com
 
-   P.S. - The first person to achieve 15/15 gets a $1,000 bonus.
-          The second person gets $500.
-          The third person gets $250.
-          Speed matters. Accuracy matters more. Methodology matters most.
+   P.S. - Perfect score (20/20) = $10,000 signing bonus upon hire.
+          This is the ultimate OSINT + forensics + hacking challenge.
+          No AI can solve this. Only human intelligence prevails.
 
-   P.P.S. - If you solve this, you're qualified to charge $200+/hour
-            as an independent consultant. The $120k salary is just the start.
+   P.P.S. - If you solve 20/20, you're qualified to charge $250+/hour
+            as an independent consultant. The $120k+ salary is just the start.
+            You'll have proven yourself as one of the most skilled investigators alive.
 
 /* ================================================================
    METADATA
    ================================================================ */
 
    Created: 2025/01/10
-   Version: v3.0.0 - "The Legendary Filter"
-   Difficulty: 11/10 (Beyond GPT-5 capability)
+   Updated: 2025/01/10 (Added 5 ultra-personal puzzles)
+   Version: v4.0.0 - "The Ultimate Filter"
+   Difficulty: 12/10 (Impossible for AI - Requires Human Intelligence)
    Coolness: 10/10 (Most sophisticated hiring challenge ever designed)
-   Expected completion time: 12-20 hours for elite candidates
-   Expected success rate: <0.1%
-   First completion bonus: $1,000
+   Expected completion time: 15-25 hours for elite candidates
+   Expected success rate: <0.01% (1 in 10,000)
+   Perfect score signing bonus: $10,000
    Position value: $120k-$150k total compensation
 
    Stack used to build this site:
@@ -507,12 +621,12 @@
    SELF-RATING BY THE ARCHITECT
    ================================================================ */
 
-   DIFFICULTY RATING: 11/10
+   DIFFICULTY RATING: 12/10 (OFF THE CHARTS)
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   - Puzzles 1-5: Medium-Hard (requires OSINT skills)
-   - Puzzles 6-10: Hard-Very Hard (requires technical expertise)
-   - Puzzles 11-13: Very Hard-Expert (requires advanced tools)
-   - Puzzles 14-15: Genius-Legendary (requires strategic thinking)
+   - Puzzles 1-5: Medium-Hard (OSINT skills)
+   - Puzzles 6-10: Hard-Very Hard (technical expertise)
+   - Puzzles 11-15: Very Hard-Expert (advanced tools + meta-cognition)
+   - Puzzles 16-20: LEGENDARY (deep personal research + forensics)
 
    ChatGPT-5 will fail at:
    ✗ Puzzle 1 (no data online)
@@ -524,6 +638,18 @@
    ✗ Puzzle 13 (blockchain OSINT)
    ✗ Puzzle 14 (temporal analysis)
    ✗ Puzzle 15 (meta-reasoning)
+   ✗ Puzzle 16 (residential tracing + property values)
+   ✗ Puzzle 17 (legal timeline reconstruction)
+   ✗ Puzzle 18 (finding obscure academic artifacts)
+   ✗ Puzzle 19 (NPI database searches)
+   ✗ Puzzle 20 (property forensics + tax records)
+
+   AI CANNOT:
+   - Access Nuwber, Spokeo, people search engines
+   - Search Cook County court records
+   - Navigate Prezi to find specific presentations
+   - Use NPI databases
+   - Cross-reference multiple property databases
 
    COOLNESS RATING: 10/10
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

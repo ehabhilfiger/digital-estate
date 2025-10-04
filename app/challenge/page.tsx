@@ -48,25 +48,33 @@ export default function ChallengePage() {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
-            THE LEGENDARY ARCHITECT'S CHALLENGE
+            THE ULTIMATE ARCHITECT'S CHALLENGE
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-amber-500">$120,000+/year</span>
+            <span className="text-amber-500">$120k+ + $10k Bonus</span>
             <br />
             Senior Infrastructure Architect
           </h1>
-          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-8">
-            Answer 10 out of 15 questions correctly. GPT-5 will fail. Elite hackers will struggle. Only master investigators succeed.
+          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-6">
+            Answer 13 out of 20 questions correctly. No AI can solve this. Only master investigators succeed.
           </p>
+          <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-amber-500/10 to-purple-500/10 border border-amber-500/30">
+            <div className="text-center text-lg font-bold text-amber-500">
+              20/20 PERFECT SCORE = $10,000 SIGNING BONUS
+            </div>
+            <div className="text-center text-sm text-white/60 mt-2">
+              Prove you're the best investigator alive
+            </div>
+          </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-white/60 font-mono">
             <div className="inline-flex items-center gap-2">
               <Lock className="h-4 w-4 text-amber-500" />
-              Difficulty: 11/10 (Beyond GPT-5)
+              Difficulty: 12/10 (Impossible for AI)
             </div>
             <span className="hidden sm:inline text-white/30">|</span>
             <div>Coolness: 10/10</div>
             <span className="hidden sm:inline text-white/30">|</span>
-            <div>Success Rate: &lt;0.1%</div>
+            <div>Success Rate: &lt;0.01%</div>
           </div>
         </motion.div>
 
@@ -101,7 +109,12 @@ export default function ChallengePage() {
               { num: 12, title: "Steganographic Message", hint: "Download /images/Headshot.jpeg from the site. Run: exiftool Headshot.jpeg | grep GPS to check for embedded coordinates." },
               { num: 13, title: "Blockchain Trace", hint: "Search defcon5ready@gmail.com on OpenSea, Etherscan address tags, ENS resolver, Bitcoin explorers. If nothing found, document your search methodology." },
               { num: 14, title: "Temporal Paradox", hint: "Go to web.archive.org/web/*/digital-estate-orcin.vercel.app to see when first snapshot was taken. Note the main headline text from that version." },
-              { num: 15, title: "Meta-Puzzle (LEGENDARY)", hint: "Think about: Chess (40 moves ahead), Light's strategic planning depth, Infrastructure planning horizons, System redundancy. Requires THINKING, not Googling." }
+              { num: 15, title: "Meta-Puzzle (LEGENDARY)", hint: "Think about: Chess (40 moves ahead), Light's strategic planning depth, Infrastructure planning horizons, System redundancy. Requires THINKING, not Googling." },
+              { num: 16, title: "Residential Trace", hint: "Search Nuwber, Spokeo for '8500 block West Winona'. Cross-reference with Redfin/Zillow for property value. Public records from 2017-2018 incidents are the key." },
+              { num: 17, title: "Legal Timeline", hint: "Shaw Local newspaper 2018. DUI charge near North and Melrose at 11:51 PM. Two other charges filed: speeding and improper lane usage. City name matters." },
+              { num: 18, title: "Academic Artifact", hint: "Prezi presentation on personal identity. Search 'Ehab Allababidi Prezi'. Look for Andrew Solomon TED talk references about horizontal/vertical identity." },
+              { num: 19, title: "Family Physician", hint: "Use HIPAA Space or NPI Registry. Search 'Allababidi' + Chicago, IL. Find MD with 10-digit NPI number. Medical specialty included." },
+              { num: 20, title: "Property Forensics", hint: "Redfin or Cook County Assessor for 8516 W Winona. Need: beds/baths, year built, sqft, and property tax. All publicly available data." }
             ].map((puzzle) => (
               <motion.div
                 key={puzzle.num}
