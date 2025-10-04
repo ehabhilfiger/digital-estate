@@ -839,7 +839,7 @@ export default function HomePage() {
             <div className="mt-4 text-center text-white/50 text-xs">
               <div className="mb-2">
                 <a href="/challenge" className="text-amber-500 hover:text-amber-400 font-mono transition-colors">
-                  {'//'} HIRING: $80k+ Infrastructure Engineer - Think you can solve the challenge?
+                  {'//'} HIRING: $120k+ Senior Infrastructure Architect - 15 impossible puzzles await
                 </a>
               </div>
               Analytics enabled for performance optimization. No personal data collected.{' '}

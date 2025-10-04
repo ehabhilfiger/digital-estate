@@ -48,19 +48,25 @@ export default function ChallengePage() {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
-            THE ARCHITECT'S CHALLENGE
+            THE LEGENDARY ARCHITECT'S CHALLENGE
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-amber-500">$80,000+/year</span>
+            <span className="text-amber-500">$120,000+/year</span>
             <br />
-            Infrastructure Position
+            Senior Infrastructure Architect
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-8">
-            Answer 7 out of 10 questions correctly. ChatGPT will fail. Only true investigators succeed.
+            Answer 10 out of 15 questions correctly. GPT-5 will fail. Elite hackers will struggle. Only master investigators succeed.
           </p>
-          <div className="inline-flex items-center gap-2 text-sm text-white/60 font-mono">
-            <Lock className="h-4 w-4 text-amber-500" />
-            Difficulty: 10/10 (ChatGPT-proof)
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-white/60 font-mono">
+            <div className="inline-flex items-center gap-2">
+              <Lock className="h-4 w-4 text-amber-500" />
+              Difficulty: 11/10 (Beyond GPT-5)
+            </div>
+            <span className="hidden sm:inline text-white/30">|</span>
+            <div>Coolness: 10/10</div>
+            <span className="hidden sm:inline text-white/30">|</span>
+            <div>Success Rate: &lt;0.1%</div>
           </div>
         </motion.div>
 
@@ -82,15 +88,20 @@ export default function ChallengePage() {
           <div className="space-y-4">
             {[
               { num: 1, title: "The Opening Gambit", hint: "IHSA doesn't publish all rosters online. Try contacting Taft High School's athletic department directly, or search for archived team photos from 2016-2020." },
-              { num: 2, title: "The Academic Path", hint: "Use the Wayback Machine to view archived versions of UIC's Biochemistry department website from 2018-2019. Building names changed when departments relocated." },
-              { num: 3, title: "The Business Legacy", hint: "Illinois Secretary of State business search + Google Maps historical Street View. Business addresses are public record." },
-              { num: 4, title: "The Family Constellation", hint: "The name 'Allababidi' is of Syrian/Lebanese origin. Research Arabic surname meanings and genealogical databases." },
-              { num: 5, title: "The Digital Footprint", hint: "Look at the LinkedIn profile carefully. The company name has specific capitalization that matters." },
-              { num: 6, title: "The Hospital Incident", hint: "Cook County court records are searchable online. The hospital was Advocate Lutheran General, February 2023." },
-              { num: 7, title: "The Infrastructure Philosophy", hint: "Open /robots.txt on this domain. Look for the Death Note formula. (2 * 8) - 14 = 2" },
-              { num: 8, title: "The Chess Stratagem", hint: "IHSA allows 8 boards maximum. Check the official IHSA chess rules PDF for current time controls." },
-              { num: 9, title: "The Network Architecture", hint: "Run: curl -I https://digital-estate-orcin.vercel.app/ and dig digital-estate-orcin.vercel.app" },
-              { num: 10, title: "The Final Stratagem", hint: "Line numbers of PUZZLE headers: 19, 35, 52, 69, 85, 98, 117, 134, 150, 168. Last digits: 9,5,2,9,5,8,7,4,0,8. Convert to letters..." }
+              { num: 2, title: "The Academic Path", hint: "Use the Wayback Machine (archive.org) to view archived versions of UIC's Biochemistry department website from 2018-2019. Building names changed when departments relocated." },
+              { num: 3, title: "The Business Legacy", hint: "Illinois Secretary of State business search (ilsos.gov/corporatellc) + Google Maps historical Street View. Business addresses are public record." },
+              { num: 4, title: "The Family Constellation", hint: "The name 'Allababidi' is of Syrian/Lebanese origin. Research Arabic surname meanings and genealogical databases. Has religious/scholarly connotations." },
+              { num: 5, title: "The Digital Footprint", hint: "Look at the LinkedIn profile carefully. The company name has specific capitalization that matters. Every. Letter. Counts." },
+              { num: 6, title: "The Hospital Incident", hint: "Cook County court records are searchable online (cookcountyclerkofcourt.org). The hospital was Advocate Lutheran General, February 2023. Case format: ##CH######" },
+              { num: 7, title: "The Infrastructure Philosophy", hint: "Open /robots.txt on this domain. Look for the Death Note formula. (2 * 8) - 14 = 2. The answer is NOT a standard port." },
+              { num: 8, title: "The Chess Stratagem", hint: "IHSA allows 8 boards maximum. Check the official IHSA chess rules PDF for 2024-2025 time controls. Rules changed recently." },
+              { num: 9, title: "The Network Architecture", hint: "Run: curl -I https://digital-estate-orcin.vercel.app/ and dig digital-estate-orcin.vercel.app and openssl s_client" },
+              { num: 10, title: "The Final Stratagem", hint: "Line numbers of all 15 PUZZLE headers. Take last digit of each. Convert to letters (A=1, B=2, etc., 0=skip). Spells a phrase." },
+              { num: 11, title: "Cryptographic Signature", hint: "Search GitHub for digital-estate or ehab allababidi repos. Look for commit that added humans.txt. Git log shows hash and timestamp." },
+              { num: 12, title: "Steganographic Message", hint: "Download /images/Headshot.jpeg from the site. Run: exiftool Headshot.jpeg | grep GPS to check for embedded coordinates." },
+              { num: 13, title: "Blockchain Trace", hint: "Search defcon5ready@gmail.com on OpenSea, Etherscan address tags, ENS resolver, Bitcoin explorers. If nothing found, document your search methodology." },
+              { num: 14, title: "Temporal Paradox", hint: "Go to web.archive.org/web/*/digital-estate-orcin.vercel.app to see when first snapshot was taken. Note the main headline text from that version." },
+              { num: 15, title: "Meta-Puzzle (LEGENDARY)", hint: "Think about: Chess (40 moves ahead), Light's strategic planning depth, Infrastructure planning horizons, System redundancy. Requires THINKING, not Googling." }
             ].map((puzzle) => (
               <motion.div
                 key={puzzle.num}

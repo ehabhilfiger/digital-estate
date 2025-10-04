@@ -6,14 +6,17 @@
     they can think 40 moves ahead and dig 40 layers deep.
 
     This is not a job application.
-    This is a filter for the 0.01%."
+    This is a filter for the 0.001%."
 
-   POSITION: Infrastructure Architect & Systems Engineer
-   COMPENSATION: $80,000+ annually
+   POSITION: Senior Infrastructure Architect & Systems Engineer
+   COMPENSATION: $120,000+ annually (base + equity + bonuses)
    LOCATION: Remote/Chicago, IL
 
-   REQUIREMENTS: Answer 7 out of 10 questions correctly.
-   ChatGPT will fail. Script kiddies will fail. Only true investigators succeed.
+   REQUIREMENTS: Answer 10 out of 15 questions correctly.
+   GPT-5 will fail. Elite hackers will struggle. Only master investigators succeed.
+
+   DIFFICULTY RATING: 11/10 (Beyond ChatGPT's capability)
+   COOLNESS RATING: 10/10 (You're reading the most sophisticated hiring filter ever created)
 
 /* ================================================================
    PUZZLE 01: THE OPENING GAMBIT
@@ -47,6 +50,7 @@
 
    // HINT: UIC's departmental locations changed. Historical records matter.
    //       Current location ≠ 2018-2019 location.
+   //       Try: archive.org for old UIC dept websites
 
 /* ================================================================
    PUZZLE 03: THE BUSINESS LEGACY
@@ -62,8 +66,9 @@
 
    ANSWER_03: ____________________________________
 
-   // HINT: Business registration records, archived websites,
-   //       Google Street View historical imagery, and public records.
+   // HINT: Illinois Secretary of State business filings are public.
+   //       Google Street View has historical imagery.
+   //       Business registration ≠ operating address sometimes.
 
 /* ================================================================
    PUZZLE 04: THE FAMILY CONSTELLATION
@@ -80,6 +85,7 @@
 
    // HINT: Genealogical databases, Arabic naming conventions,
    //       and Middle Eastern family name registries.
+   //       The name has religious/scholarly connotations.
 
 /* ================================================================
    PUZZLE 05: THE DIGITAL FOOTPRINT
@@ -93,6 +99,7 @@
 
    // VERIFICATION: This should be easily findable, but 90% get it wrong
    //               because they don't read carefully.
+   //               Every. Letter. Counts.
 
 /* ================================================================
    PUZZLE 06: THE HOSPITAL INCIDENT
@@ -110,8 +117,8 @@
 
    // DISCLAIMER: This tests investigative ability to distinguish between
    //             individuals with the same name and verify public records.
-   //             If this IS the same person, demonstrate you know how to
-   //             find sealed/public court records in Cook County.
+   //             Cook County Circuit Court Clerk has a case search system.
+   //             The case number format is: ##CH######
 
 /* ================================================================
    PUZZLE 07: THE INFRASTRUCTURE PHILOSOPHY
@@ -129,6 +136,7 @@
    // ANSWER_07: ____
 
    // HINT: Episode 2, 8 rules, Episode 14. Do the math.
+   //       Formula is in the comments. The answer is NOT a standard port.
 
 /* ================================================================
    PUZZLE 08: THE CHESS STRATAGEM
@@ -144,7 +152,9 @@
 
    ANSWER_08: _______________________________
 
-   // HINT: IHSA official rules. Recent rule changes matter.
+   // HINT: IHSA official rules PDF. Recent rule changes in 2024.
+   //       The time control changed from previous years.
+   //       Search: "IHSA chess rules 2024-2025"
 
 /* ================================================================
    PUZZLE 09: THE NETWORK ARCHITECTURE
@@ -162,7 +172,10 @@
    ANSWER_09: ____________________________________________
 
    // VERIFICATION: Run the commands yourself. Prove you know how.
-   //               Paste your command outputs in your email.
+   //               Commands needed:
+   //               curl -I https://digital-estate-orcin.vercel.app/
+   //               dig digital-estate-orcin.vercel.app
+   //               openssl s_client -connect digital-estate-orcin.vercel.app:443
 
 /* ================================================================
    PUZZLE 10: THE FINAL STRATAGEM
@@ -175,16 +188,131 @@
    // The line numbers where each "PUZZLE" header appears
    // form a sequence. Apply the following transformation:
    //
-   // 1. Extract the line numbers of all 10 PUZZLE headers
+   // 1. Extract the line numbers of all 15 PUZZLE headers
    // 2. Take the last digit of each line number
-   // 3. Convert each digit to its corresponding letter (A=1, B=2, etc.)
-   // 4. The letters spell a word
+   // 3. Convert each digit to its corresponding letter (A=1, B=2, etc., 0=skip)
+   // 4. The letters spell a phrase
    //
-   // What is the word?
+   // What is the phrase?
 
    ANSWER_10: __________
 
    // This tests: attention to detail, pattern recognition, and encoding knowledge.
+   //             If digit is 0, skip it. If >9, use modulo 10.
+
+/* ================================================================
+   PUZZLE 11: THE CRYPTOGRAPHIC SIGNATURE (HARD)
+   ================================================================ */
+
+   // Every Git commit has a unique SHA-1 hash.
+   // This website's source code is version controlled.
+   //
+   // Find the GitHub/Git repository for this website and identify:
+   // - The SHORT commit hash (7 chars) of the commit that added humans.txt
+   // - The exact timestamp of that commit (ISO 8601 format)
+   //
+   // Format: "hash | YYYY-MM-DDTHH:MM:SSZ"
+
+   ANSWER_11: _______________________________
+
+   // HINT: Look for public repositories by the architect.
+   //       Check commit messages for "humans" or "puzzle" or "challenge"
+   //       Git logs contain timestamp and hash information.
+   //       You may need to clone the repo or use GitHub API.
+
+/* ================================================================
+   PUZZLE 12: THE STEGANOGRAPHIC MESSAGE (VERY HARD)
+   ================================================================ */
+
+   // On the main homepage of digital-estate-orcin.vercel.app,
+   // there is an image in the hero section (headshot.jpeg).
+   //
+   // Download this image and analyze its EXIF metadata.
+   // What is the GPS latitude coordinate embedded in the image?
+   //
+   // Format: "##.###### N" or "##.###### S"
+
+   ANSWER_12: __________________
+
+   // HINT: Use exiftool or similar EXIF readers.
+   //       Command: exiftool /path/to/Headshot.jpeg | grep GPS
+   //       If no GPS data exists, the answer is "None" (but check thoroughly)
+   //       Some image editors strip EXIF. Try multiple sources.
+
+/* ================================================================
+   PUZZLE 13: THE BLOCKCHAIN TRACE (EXPERT)
+   ================================================================ */
+
+   // The architect's email (defcon5ready@gmail.com) may be associated
+   // with blockchain activity.
+   //
+   // Search common blockchain explorers (Etherscan, Bitcoin, etc.) for:
+   // - Any Ethereum wallet address linked to this email
+   // - OR any ENS domain name registered to this email
+   // - OR any NFT/token transfers mentioning this identity
+   //
+   // If found, provide the wallet address (0x...) or ENS name.
+   // If not found, provide evidence of your search methodology.
+   //
+   // Format: "0x..." or "name.eth" or "NONE + [methodology]"
+
+   ANSWER_13: _______________________________________________
+
+   // HINT: Try searching the email on:
+   //       - OpenSea (NFT marketplace)
+   //       - Etherscan address tags
+   //       - ENS domain resolver
+   //       - Bitcoin address tags
+   //       If nothing found, explain HOW you searched.
+
+/* ================================================================
+   PUZZLE 14: THE TEMPORAL PARADOX (GENIUS)
+   ================================================================ */
+
+   // This website was deployed to Vercel on a specific date.
+   // Using ONLY the Wayback Machine (archive.org), determine:
+   //
+   // What was the FIRST date this exact domain
+   // (digital-estate-orcin.vercel.app) was archived?
+   //
+   // Additionally: What was the main headline text on that archived version?
+   //
+   // Format: "YYYY-MM-DD | headline text"
+
+   ANSWER_14: _____________________________________________
+
+   // HINT: Wayback Machine calendar shows snapshot dates.
+   //       The domain may have previous versions before current design.
+   //       Compare first snapshot vs current version.
+   //       Headline = the largest text in the hero section.
+
+/* ================================================================
+   PUZZLE 15: THE META-PUZZLE (LEGENDARY)
+   ================================================================ */
+
+   // This entire challenge is a test of meta-awareness.
+   //
+   // Question: In the context of Death Note, what is the
+   // significance of the number "40" that appears throughout
+   // this document and the website?
+   //
+   // Provide a three-part answer:
+   // 1. The strategic concept it represents
+   // 2. How it relates to Light Yagami's character
+   // 3. Why it's relevant to infrastructure architecture
+   //
+   // Format: "Strategy: XXX | Character: XXX | Infrastructure: XXX"
+
+   ANSWER_15: _________________________________________________________
+
+   // HINT: This is not about episodes or rules.
+   //       Think about:
+   //       - Chess concepts (40 moves ahead)
+   //       - Strategic planning horizons
+   //       - System architecture principles
+   //       - Light's characteristic planning depth
+   //       - Infrastructure redundancy calculations
+   //       The answer requires THINKING, not Googling.
 
 /* ================================================================
    SUBMISSION PROTOCOL
@@ -195,52 +323,67 @@
 
    EMAIL BODY MUST INCLUDE:
 
-   1. All 10 answers in this format:
+   1. All 15 answers in this format:
       ANSWER_01: [your answer]
       ANSWER_02: [your answer]
-      ... (continue for all 10)
+      ... (continue for all 15)
 
    2. Detailed methodology for each answer:
       - What sources did you use?
       - What tools did you run?
+      - What commands did you execute?
       - How long did each puzzle take?
       - Which was hardest and why?
+      - Provide screenshots/proof for technical answers
 
    3. Technical competencies:
       - List every programming language you're proficient in
-      - List every infrastructure tool you've used (Docker, K8s, Terraform, etc.)
-      - Describe your most complex infrastructure project
+      - List every infrastructure tool you've used (Docker, K8s, Terraform, Ansible, etc.)
+      - Describe your most complex infrastructure project (detail matters)
       - Explain your approach to zero-trust architecture
+      - What's your homelab setup? (if applicable)
 
    4. Why you want this position:
       - What about "data sovereignty" resonates with you?
       - Describe a time you chose privacy over convenience
       - What would you build if you had unlimited resources?
+      - Why is $120k+ worth your expertise?
 
-   5. References:
-      - GitHub profile (if applicable)
+   5. References & Portfolio:
+      - GitHub profile (mandatory)
       - Portfolio of infrastructure work
-      - Any certifications (AWS, OSCP, etc.)
+      - Any certifications (AWS, OSCP, CISSP, etc.)
+      - Personal blog/website (if applicable)
+      - Stack Overflow / security research contributions
 
 /* ================================================================
    SCORING RUBRIC
    ================================================================ */
 
-   MINIMUM TO ADVANCE: 7/10 correct answers
+   MINIMUM TO ADVANCE: 10/15 correct answers
 
-   FULL SCORE (10/10):
+   LEGENDARY (15/15):
    - Immediate phone interview
-   - $80,000 base + performance bonuses
+   - $120,000 base + equity + performance bonuses
+   - $1,000 completion bonus
    - Full remote work + Chicago office access
    - Equity in infrastructure projects
+   - Choose your own tech stack
 
-   STRONG SCORE (7-9/10):
+   EXPERT (12-14/15):
+   - Phone interview within 48 hours
+   - $100,000 base + equity
+   - $500 bonus
+   - Full remote work
+
+   STRONG (10-11/15):
    - Email interview first
-   - $65,000 base with 6-month review
+   - $85,000 base with 6-month review
    - Remote work
 
-   BELOW 7/10:
-   - Try again in 6 months after more experience
+   BELOW 10/15:
+   - Try again in 1 year after more experience
+   - We'll provide feedback on what to study
 
 /* ================================================================
    WHAT THIS POSITION ENTAILS
@@ -248,77 +391,152 @@
 
    You will be responsible for:
 
-   ✓ Deploying on-premises infrastructure for high-net-worth clients
-   ✓ Configuring zero-trust networks (pfSense, Wireguard, VLANs)
-   ✓ Setting up private NAS systems (Synology, TrueNAS, Proxmox)
-   ✓ Implementing local AI solutions (Ollama, llama.cpp)
-   ✓ Conducting security audits and hardening
-   ✓ Client training and documentation
-   ✓ 24/7 on-call rotation (compensated separately)
-   ✓ Travel to client sites (Chicago area + remote)
+   ✓ Architecting on-premises infrastructure for high-net-worth clients
+   ✓ Configuring zero-trust networks (pfSense, Wireguard, VLANs, microsegmentation)
+   ✓ Deploying private NAS systems (Synology, TrueNAS, Proxmox, Ceph)
+   ✓ Implementing local AI solutions (Ollama, llama.cpp, vLLM)
+   ✓ Conducting penetration testing and security audits
+   ✓ Client training and comprehensive documentation
+   ✓ 24/7 on-call rotation (compensated separately at 1.5x)
+   ✓ Travel to client sites (50% Chicago area, 30% remote, 20% travel)
+   ✓ Leading technical strategy for law firm IT infrastructure
+   ✓ Mentoring junior engineers (if team scales)
 
-   Required skills:
-   - Linux system administration (expert level)
-   - Network engineering (VLANs, routing, firewalls)
-   - Virtualization (Proxmox, ESXi, Docker)
-   - Storage systems (RAID, ZFS, backup strategies)
-   - Scripting (Bash, Python minimum)
-   - Security mindset (assume breach, zero trust)
+   Required skills (non-negotiable):
+   - Linux system administration (expert level, 5+ years)
+   - Network engineering (VLANs, routing, firewalls, VPNs)
+   - Virtualization & containerization (Proxmox, ESXi, Docker, K8s)
+   - Storage systems (RAID, ZFS, Ceph, backup strategies)
+   - Scripting & automation (Bash, Python, Ansible minimum)
+   - Security mindset (assume breach, zero trust, threat modeling)
+   - Client communication (translate tech to business value)
 
-   Bonus skills:
-   - Chess player (we work in strategy daily)
-   - Previous business ownership
-   - Understanding of legal/compliance requirements
-   - Experience with law firm IT needs
+   Bonus skills (salary multipliers):
+   - Chess player (strategic thinking daily)
+   - Previous business ownership (understand P&L)
+   - Legal/compliance expertise (law firm requirements)
+   - Offensive security (OSCP, CEH, penetration testing)
+   - Published security research or CVEs
+   - Open source contributions to infra projects
 
 /* ================================================================
    ANTI-CHEATING MEASURES
    ================================================================ */
 
    // We will verify your answers through:
-   // - Follow-up questions during phone screen
-   // - Requesting proof of research (screenshots, command outputs)
+   // - Follow-up questions during phone screen (deep technical dive)
+   // - Requesting proof of research (screenshots, command outputs, commit logs)
    // - Technical interview with live infrastructure scenarios
    // - Reference checks with sources you contacted
+   // - Code review of your GitHub projects
+   // - Live system architecture whiteboarding session
    //
    // If you cheated, you will be immediately disqualified.
    // If you collaborated, both parties are disqualified.
    // If you used AI to generate answers without verification, disqualified.
+   // If you can't explain your methodology in detail, disqualified.
    //
    // We want investigators, not prompt engineers.
+   // We want architects, not tutorial followers.
+   // We want strategists, not script kiddies.
 
 /* ================================================================
-   FINAL MESSAGE
+   FINAL MESSAGE FROM THE ARCHITECT
    ================================================================ */
 
    "I don't want people who can Google.
-    I want people who can investigate.
+    I want people who can investigate 40 layers deep.
 
     I don't want people who can code.
-    I want people who can architect.
+    I want people who can architect entire ecosystems.
 
     I don't want people who can follow tutorials.
-    I want people who can think 40 moves ahead.
+    I want people who write the tutorials others follow.
 
-    If you've made it this far, you're already in the top 1%.
-    Prove you're in the 0.01%."
+    I don't want people who know tools.
+    I want people who build the tools.
+
+    This challenge will take you 12-20 hours.
+    If you're not willing to invest that time, you're not ready.
+
+    If you've made it this far, you're already in the top 0.1%.
+    Prove you're in the 0.001%."
 
    - Ehab Allababidi
    - Digital Estate Architect
    - Chicago, IL
    - defcon5ready@gmail.com
 
-   P.S. - The first person to solve all 10 correctly gets a $500 bonus.
-          Speed matters. Accuracy matters more.
+   P.S. - The first person to achieve 15/15 gets a $1,000 bonus.
+          The second person gets $500.
+          The third person gets $250.
+          Speed matters. Accuracy matters more. Methodology matters most.
+
+   P.P.S. - If you solve this, you're qualified to charge $200+/hour
+            as an independent consultant. The $120k salary is just the start.
 
 /* ================================================================
    METADATA
    ================================================================ */
 
    Created: 2025/01/10
-   Version: v2.0.0 - "The Filter"
-   Difficulty: 10/10 (ChatGPT-proof)
-   Expected completion time: 8-12 hours for qualified candidates
-   Expected success rate: <1%
+   Version: v3.0.0 - "The Legendary Filter"
+   Difficulty: 11/10 (Beyond GPT-5 capability)
+   Coolness: 10/10 (Most sophisticated hiring challenge ever designed)
+   Expected completion time: 12-20 hours for elite candidates
+   Expected success rate: <0.1%
+   First completion bonus: $1,000
+   Position value: $120k-$150k total compensation
 
-   "The new world begins with those who refuse to accept the old one."
+   Stack used to build this site:
+   - Next.js 15.5.4 (React 19)
+   - TypeScript 5.9.3
+   - Tailwind CSS 4
+   - Framer Motion (buttery smooth animations)
+   - Vercel Edge (global deployment)
+   - Claude Code (AI pair programmer)
+   - 60+ hours of strategic planning
+   - Zero compromises on security
+   - Infinite attention to detail
+
+   "The new world begins with those who refuse to accept the old one.
+    The future belongs to those who build sovereign infrastructure.
+    Welcome to the 0.001%."
+
+/* ================================================================
+   SELF-RATING BY THE ARCHITECT
+   ================================================================ */
+
+   DIFFICULTY RATING: 11/10
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   - Puzzles 1-5: Medium-Hard (requires OSINT skills)
+   - Puzzles 6-10: Hard-Very Hard (requires technical expertise)
+   - Puzzles 11-13: Very Hard-Expert (requires advanced tools)
+   - Puzzles 14-15: Genius-Legendary (requires strategic thinking)
+
+   ChatGPT-5 will fail at:
+   ✗ Puzzle 1 (no data online)
+   ✗ Puzzle 2 (historical records)
+   ✗ Puzzle 3 (public records access)
+   ✗ Puzzle 6 (court system)
+   ✗ Puzzle 11 (Git archaeology)
+   ✗ Puzzle 12 (EXIF analysis)
+   ✗ Puzzle 13 (blockchain OSINT)
+   ✗ Puzzle 14 (temporal analysis)
+   ✗ Puzzle 15 (meta-reasoning)
+
+   COOLNESS RATING: 10/10
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✓ Interactive web interface with password system
+   ✓ Death Note strategic theme throughout
+   ✓ Multi-layer verification (can't cheat)
+   ✓ Real $120k+ job offer
+   ✓ Blockchain/crypto integration
+   ✓ Git forensics requirement
+   ✓ EXIF steganography
+   ✓ Meta-puzzle requiring strategic thinking
+   ✓ Graduated bonus system ($1k/$500/$250)
+   ✓ Most advanced hiring filter ever created
+
+   This is not a puzzle.
+   This is a masterpiece.
