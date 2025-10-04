@@ -238,6 +238,18 @@ export default function HomePage() {
                   <span className="inline-flex items-center gap-2">
                     <Home className="h-4 w-4 text-amber-500" aria-hidden="true" /> Smart estates
                   </span>
+                </motion.div>
+                <motion.div
+                  className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm font-medium"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.0 }}
+                >
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Based in Chicago, IL — Serving Chicagoland & Beyond</span>
+                </motion.div>
                   <span className="inline-flex items-center gap-2">
                     <Brain className="h-4 w-4 text-amber-500" aria-hidden="true" /> Local AI
                   </span>
@@ -1049,10 +1061,10 @@ export default function HomePage() {
               <h2 className="text-3xl md:text-4xl font-semibold text-center">About Ehab Allababidi</h2>
               <div className="mt-12 space-y-6 text-lg text-white/80">
                 <p>
-                  <strong className="text-white">Ehab Allababidi</strong> is a Chicago-based digital infrastructure architect specializing in private, sovereign technology deployments for high-net-worth individuals, boutique law firms, medical practices, and privacy-conscious professionals.
+                  <strong className="text-white">Ehab Allababidi</strong> is a Chicago-based digital infrastructure architect specializing in private, sovereign technology deployments for high-net-worth individuals, boutique law firms, medical practices, and privacy-conscious professionals throughout Chicagoland and beyond.
                 </p>
                 <p>
-                  With over a decade of hands-on experience in enterprise systems engineering, Ehab delivers turnkey solutions that prioritize data sovereignty, regulatory compliance, and zero vendor lock-in. His technical approach combines deep systems programming expertise with meticulous on-site installation and ongoing concierge support.
+                  With over a decade of hands-on experience in enterprise systems engineering, Ehab delivers turnkey solutions that prioritize data sovereignty, regulatory compliance, and zero vendor lock-in. His technical approach combines deep systems programming expertise with meticulous on-site installation and ongoing concierge support—whether you're in the Loop, North Shore, western suburbs, or anywhere in the greater Chicago metropolitan area.
                 </p>
                 <p>
                   Rather than pushing cloud subscriptions and managed dependencies, Ehab architects infrastructure you truly own—bare metal servers, on-premises networks, HIPAA-compliant systems, and confidential AI deployments. Every engagement includes comprehensive documentation, staff training, and white-glove support designed for clients who demand excellence.
