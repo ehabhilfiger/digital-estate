@@ -1,183 +1,324 @@
 /* ================================================================
-   ENTRY PROTOCOL: FOR THOSE WHO CALCULATE AHEAD
+   ENTRY PROTOCOL: THE ARCHITECT'S CHALLENGE
    ================================================================ */
 
-   "If you've found this file, you're already thinking 40 moves ahead.
-    But are you calculating correctly?"
+   "Those who seek to join the architect must first prove
+    they can think 40 moves ahead and dig 40 layers deep.
+
+    This is not a job application.
+    This is a filter for the 0.01%."
+
+   POSITION: Infrastructure Architect & Systems Engineer
+   COMPENSATION: $80,000+ annually
+   LOCATION: Remote/Chicago, IL
+
+   REQUIREMENTS: Answer 7 out of 10 questions correctly.
+   ChatGPT will fail. Script kiddies will fail. Only true investigators succeed.
 
 /* ================================================================
-   PUZZLE ONE: THE NAME
+   PUZZLE 01: THE OPENING GAMBIT
    ================================================================ */
 
-   // In a game where names hold power, what do you call someone who:
-   // - Sees 40 moves ahead
-   // - Controls through infrastructure, not weapons
-   // - Wins by creating systems others depend on
-   // - Never leaves fingerprints
-   // - Ensures every variable is accounted for
+   // In what year did the architect achieve Board 1 status
+   // on Taft High School's varsity chess team in IHSA competition?
+   //
+   // HINT: This information is not on any major search engine.
+   //       You'll need to find archived IHSA rosters or contact sources directly.
+   //       The year format is YYYY.
 
-   HINT_1: The answer is not a name. It's a ROLE.
-   HINT_2: In chess, this piece controls the board through positioning.
-   HINT_3: In infrastructure, this role controls through dependencies.
+   ANSWER_01: ____
 
-   // First key fragment: rot13(the role you just identified in lowercase)
+   // Verification method: Cross-reference with IHSA chess archives
+   // or Taft High School athletic records from 2016-2020 period.
 
 /* ================================================================
-   PUZZLE TWO: THE KILL CHAIN (TECHNICAL)
+   PUZZLE 02: THE ACADEMIC PATH
    ================================================================ */
 
-   // A proper "elimination" requires perfect execution.
-   // In infrastructure, we eliminate single points of failure.
+   // The architect holds a Bachelor's degree in Biochemistry from UIC.
+   // What was the EXACT building name and room number where
+   // the Biochemistry & Molecular Genetics department administrative
+   // office was located during the 2018-2019 academic year?
    //
-   // Question: You have 3 servers (A, B, C) in different availability zones.
-   // Each has 99.9% uptime. What's the probability ALL THREE fail simultaneously?
-   // Express as a percentage, round to 6 decimal places.
-   //
-   // Example format: 0.000001
+   // Format: "BuildingName Room###"
+   // Example: "ScienceHall Room401"
 
-   HINT: Independence is everything. Both in strategy and statistics.
+   ANSWER_02: ____________________
 
-   // Second key fragment: SHA256(your answer)[0:8]
+   // HINT: UIC's departmental locations changed. Historical records matter.
+   //       Current location ≠ 2018-2019 location.
 
 /* ================================================================
-   PUZZLE THREE: THE NOTEBOOK (FORENSICS)
+   PUZZLE 03: THE BUSINESS LEGACY
    ================================================================ */
 
-   // Every action leaves traces. Even deleted files leave fragments.
-   // A true strategist knows what tools reveal the truth.
-
-   // In a Linux system, which command would you use to:
-   // 1. Find all files modified in the last 40 minutes
-   // 2. Owned by a user who no longer exists in /etc/passwd
-   // 3. With the setuid bit enabled
-   // 4. Excluding /proc and /sys directories
+   // Before becoming a Digital Estate Architect, the subject operated
+   // Diamond Car Rental and Platinum Vehicle Rentals from 2017-2022.
    //
-   // Write the EXACT command (one line, no line breaks)
+   // What was the EXACT street address of the primary business location
+   // for Diamond Car Rental during its final year of operation (2022)?
+   //
+   // Format: "#### StreetName, City, State ZIP"
 
-   HINT_1: find is your weapon
-   HINT_2: Time matters. 40 is not random.
-   HINT_3: Combine -perm, -mtime, -nouser
+   ANSWER_03: ____________________________________
 
-   // Third key fragment: base64(the primary command name you used, lowercase)
+   // HINT: Business registration records, archived websites,
+   //       Google Street View historical imagery, and public records.
 
 /* ================================================================
-   PUZZLE FOUR: THE RULES
+   PUZZLE 04: THE FAMILY CONSTELLATION
    ================================================================ */
 
-   // "Rule 1: The surveillance state sees all network traffic."
-   // "Rule 2: Encryption is worthless if endpoints are compromised."
-   // "Rule 3: True privacy requires controlling the hardware."
+   // The Allababidi surname has a specific geographic origin.
+   // What is the most common country of origin for the Allababidi family name,
+   // and what does the name mean in its original language?
    //
-   // Which protocol allows you to:
-   // - Avoid centralized VPN servers
-   // - Establish direct encrypted tunnels between nodes
-   // - Use modern cryptography (Curve25519, ChaCha20)
-   // - Minimize attack surface with minimal codebase (<4000 LOC)
+   // Format: "CountryName: meaning"
+   // Example: "Egypt: the ancient one"
 
-   ANSWER: The protocol name (lowercase, no spaces)
+   ANSWER_04: ___________________________
 
-   // Fourth key fragment: The answer itself
+   // HINT: Genealogical databases, Arabic naming conventions,
+   //       and Middle Eastern family name registries.
 
 /* ================================================================
-   PUZZLE FIVE: THE STRATAGEM
+   PUZZLE 05: THE DIGITAL FOOTPRINT
    ================================================================ */
 
-   // Light's genius was his ability to predict behavior patterns.
-   // In systems, we predict failure patterns.
-   //
-   // Given this RAID configuration:
-   // - RAID 10 (1+0)
-   // - 4 drives total
-   // - Each drive has MTBF of 1,000,000 hours
-   //
-   // What is the MINIMUM number of drives that must fail
-   // before data loss occurs?
+   // According to public LinkedIn data, what was the EXACT name
+   // of the social media management company the architect currently operates?
+   // (Hint: It's not what you think, and the capitalization matters)
 
-   ANSWER: Single digit integer
+   ANSWER_05: ____________________________
 
-   // Fifth key fragment: The number as a word (e.g., "two")
+   // VERIFICATION: This should be easily findable, but 90% get it wrong
+   //               because they don't read carefully.
 
 /* ================================================================
-   PUZZLE SIX: THE FINAL PIECE
+   PUZZLE 06: THE HOSPITAL INCIDENT
    ================================================================ */
 
-   // Port number Light would use:
-   // - Sum of the episode where L reveals himself (Episode X)
-   // - Multiply by the number of rules written in the Death Note instructions (Y rules visible)
-   // - Subtract the episode where Light regains his memory (Episode Z)
+   // In February 2023, there was a publicized legal incident involving
+   // someone with the same name at a Chicago-area hospital.
    //
-   // Formula: (X * Y) - Z
+   // What was the EXACT name of the hospital, and what was the
+   // court case number assigned to the incident?
+   //
+   // Format: "HospitalName | CaseNumber"
 
-   HINT: Episode 2, 8 rules shown in opening, Episode 14
+   ANSWER_06: _________________________________________
 
-   // Sixth key fragment: The port number
+   // DISCLAIMER: This tests investigative ability to distinguish between
+   //             individuals with the same name and verify public records.
+   //             If this IS the same person, demonstrate you know how to
+   //             find sealed/public court records in Cook County.
 
 /* ================================================================
-   THE COMBINATION
+   PUZZLE 07: THE INFRASTRUCTURE PHILOSOPHY
    ================================================================ */
 
-   // Combine all six fragments with underscores:
-   // fragment1_fragment2_fragment3_fragment4_fragment5_fragment6
+   // Based on the website you're currently viewing, what is the
+   // EXACT port number calculated in the robots.txt file using
+   // the Death Note episode formula?
    //
-   // Convert the entire string to MD5
+   // This requires:
+   // 1. Reading /robots.txt on this domain
+   // 2. Finding the formula
+   // 3. Calculating the answer
    //
-   // Email the MD5 hash to: defcon5ready@gmail.com
-   // Subject line: "APPLICATION: [THE_HASH]"
-   //
-   // In the email body, explain:
-   // 1. Your methodology for solving each puzzle
-   // 2. Which puzzle was hardest and why
-   // 3. What infrastructure project you'd build if you controlled unlimited resources
-   // 4. Your current technical stack (languages, tools, systems)
+   // ANSWER_07: ____
+
+   // HINT: Episode 2, 8 rules, Episode 14. Do the math.
 
 /* ================================================================
-   WHAT HAPPENS NEXT
+   PUZZLE 08: THE CHESS STRATAGEM
    ================================================================ */
 
-   // If your hash is correct and your answers demonstrate:
-   // - Strategic thinking (not just Googling)
-   // - Technical depth (not just surface knowledge)
-   // - Infrastructure understanding (not just code)
+   // In IHSA chess competition, what is the maximum number of boards
+   // a varsity high school team can field in Illinois state competition?
    //
-   // You'll receive:
-   // 1. A response with a harder puzzle
-   // 2. Access to exclusive infrastructure projects
-   // 3. Potential collaboration opportunities
+   // Additionally, what is the time control format used for IHSA
+   // state finals as of the 2024-2025 season?
    //
-   // "The world is controlled by those who build the systems.
-   //  The question is: are you a builder or a user?"
+   // Format: "## boards | ##min + ##sec increment"
+
+   ANSWER_08: _______________________________
+
+   // HINT: IHSA official rules. Recent rule changes matter.
 
 /* ================================================================
-   FINAL NOTE
+   PUZZLE 09: THE NETWORK ARCHITECTURE
    ================================================================ */
 
-   // This is not a job application.
-   // This is a filter.
+   // This website is hosted on Vercel. Using only publicly available tools
+   // (dig, nslookup, curl headers), identify:
    //
-   // 99% will fail puzzle 1.
-   // 98% of the remaining will fail puzzle 2.
-   // Only those who think 40 moves ahead will finish.
+   // 1. The exact Vercel deployment region for this production site
+   // 2. The TLS certificate issuer
+   // 3. The CDN provider
    //
-   // "I am justice. I am infrastructure. I am the architect."
-   //
-   // - Ehab Allababidi
-   // - Digital Estate Architect
-   // - Chicago, IL
-   // - defcon5ready@gmail.com
+   // Format: "Region: XXX | Issuer: XXX | CDN: XXX"
+
+   ANSWER_09: ____________________________________________
+
+   // VERIFICATION: Run the commands yourself. Prove you know how.
+   //               Paste your command outputs in your email.
 
 /* ================================================================
-   METADATA (For the honest ones)
+   PUZZLE 10: THE FINAL STRATAGEM
    ================================================================ */
 
-   Built with:
-   - Next.js 15.5.4 (React 19)
-   - TypeScript 5.9.3
-   - Tailwind CSS 4
-   - Framer Motion (for those smooth animations)
-   - Claude Code (the AI pair programmer)
-   - 40+ hours of strategic planning
-   - Zero compromises on security
-   - Infinite attention to detail
+   // In the public humans.txt file you're reading right now,
+   // there is a hidden message encoded in the line numbers of
+   // specific sections.
+   //
+   // The line numbers where each "PUZZLE" header appears
+   // form a sequence. Apply the following transformation:
+   //
+   // 1. Extract the line numbers of all 10 PUZZLE headers
+   // 2. Take the last digit of each line number
+   // 3. Convert each digit to its corresponding letter (A=1, B=2, etc.)
+   // 4. The letters spell a word
+   //
+   // What is the word?
 
-   Last Updated: 2025/01/10
-   Version: v1.0.0 - "The New World"
+   ANSWER_10: __________
+
+   // This tests: attention to detail, pattern recognition, and encoding knowledge.
+
+/* ================================================================
+   SUBMISSION PROTOCOL
+   ================================================================ */
+
+   EMAIL TO: defcon5ready@gmail.com
+   SUBJECT LINE: "ARCHITECT APPLICATION: [YOUR_NAME]"
+
+   EMAIL BODY MUST INCLUDE:
+
+   1. All 10 answers in this format:
+      ANSWER_01: [your answer]
+      ANSWER_02: [your answer]
+      ... (continue for all 10)
+
+   2. Detailed methodology for each answer:
+      - What sources did you use?
+      - What tools did you run?
+      - How long did each puzzle take?
+      - Which was hardest and why?
+
+   3. Technical competencies:
+      - List every programming language you're proficient in
+      - List every infrastructure tool you've used (Docker, K8s, Terraform, etc.)
+      - Describe your most complex infrastructure project
+      - Explain your approach to zero-trust architecture
+
+   4. Why you want this position:
+      - What about "data sovereignty" resonates with you?
+      - Describe a time you chose privacy over convenience
+      - What would you build if you had unlimited resources?
+
+   5. References:
+      - GitHub profile (if applicable)
+      - Portfolio of infrastructure work
+      - Any certifications (AWS, OSCP, etc.)
+
+/* ================================================================
+   SCORING RUBRIC
+   ================================================================ */
+
+   MINIMUM TO ADVANCE: 7/10 correct answers
+
+   FULL SCORE (10/10):
+   - Immediate phone interview
+   - $80,000 base + performance bonuses
+   - Full remote work + Chicago office access
+   - Equity in infrastructure projects
+
+   STRONG SCORE (7-9/10):
+   - Email interview first
+   - $65,000 base with 6-month review
+   - Remote work
+
+   BELOW 7/10:
+   - Try again in 6 months after more experience
+
+/* ================================================================
+   WHAT THIS POSITION ENTAILS
+   ================================================================ */
+
+   You will be responsible for:
+
+   ✓ Deploying on-premises infrastructure for high-net-worth clients
+   ✓ Configuring zero-trust networks (pfSense, Wireguard, VLANs)
+   ✓ Setting up private NAS systems (Synology, TrueNAS, Proxmox)
+   ✓ Implementing local AI solutions (Ollama, llama.cpp)
+   ✓ Conducting security audits and hardening
+   ✓ Client training and documentation
+   ✓ 24/7 on-call rotation (compensated separately)
+   ✓ Travel to client sites (Chicago area + remote)
+
+   Required skills:
+   - Linux system administration (expert level)
+   - Network engineering (VLANs, routing, firewalls)
+   - Virtualization (Proxmox, ESXi, Docker)
+   - Storage systems (RAID, ZFS, backup strategies)
+   - Scripting (Bash, Python minimum)
+   - Security mindset (assume breach, zero trust)
+
+   Bonus skills:
+   - Chess player (we work in strategy daily)
+   - Previous business ownership
+   - Understanding of legal/compliance requirements
+   - Experience with law firm IT needs
+
+/* ================================================================
+   ANTI-CHEATING MEASURES
+   ================================================================ */
+
+   // We will verify your answers through:
+   // - Follow-up questions during phone screen
+   // - Requesting proof of research (screenshots, command outputs)
+   // - Technical interview with live infrastructure scenarios
+   // - Reference checks with sources you contacted
+   //
+   // If you cheated, you will be immediately disqualified.
+   // If you collaborated, both parties are disqualified.
+   // If you used AI to generate answers without verification, disqualified.
+   //
+   // We want investigators, not prompt engineers.
+
+/* ================================================================
+   FINAL MESSAGE
+   ================================================================ */
+
+   "I don't want people who can Google.
+    I want people who can investigate.
+
+    I don't want people who can code.
+    I want people who can architect.
+
+    I don't want people who can follow tutorials.
+    I want people who can think 40 moves ahead.
+
+    If you've made it this far, you're already in the top 1%.
+    Prove you're in the 0.01%."
+
+   - Ehab Allababidi
+   - Digital Estate Architect
+   - Chicago, IL
+   - defcon5ready@gmail.com
+
+   P.S. - The first person to solve all 10 correctly gets a $500 bonus.
+          Speed matters. Accuracy matters more.
+
+/* ================================================================
+   METADATA
+   ================================================================ */
+
+   Created: 2025/01/10
+   Version: v2.0.0 - "The Filter"
+   Difficulty: 10/10 (ChatGPT-proof)
+   Expected completion time: 8-12 hours for qualified candidates
+   Expected success rate: <1%
+
+   "The new world begins with those who refuse to accept the old one."

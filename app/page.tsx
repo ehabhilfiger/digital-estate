@@ -837,6 +837,11 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mt-4 text-center text-white/50 text-xs">
+              <div className="mb-2">
+                <a href="/challenge" className="text-amber-500 hover:text-amber-400 font-mono transition-colors">
+                  {'//'} HIRING: $80k+ Infrastructure Engineer - Think you can solve the challenge?
+                </a>
+              </div>
               Analytics enabled for performance optimization. No personal data collected.{' '}
               <a href="https://vercel.com/docs/analytics" target="_blank" rel="noreferrer" className="underline hover:text-white/70">
                 Learn more
