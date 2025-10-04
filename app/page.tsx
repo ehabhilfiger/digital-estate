@@ -846,8 +846,8 @@ export default function HomePage() {
                   </div>
                   <div className="relative h-64 overflow-hidden">
                     <Image
-                      src="/images/Tier 2 example.webp"
-                      alt="Estate Tier - Complete digital estate with zero-trust network architecture"
+                      src="/images/secret-room.png"
+                      alt="Estate Tier - Complete digital estate with secret server room"
                       width={600}
                       height={400}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"

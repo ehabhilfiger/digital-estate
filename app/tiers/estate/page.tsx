@@ -42,8 +42,8 @@ export default function EstateTier() {
         {/* Image Showcase */}
         <div className="mb-16 rounded-2xl overflow-hidden border-2 border-amber-500 shadow-2xl shadow-amber-500/20">
           <Image
-            src="/images/Tier 2 example.webp"
-            alt="Estate Tier - Complete Digital Estate with Zero-Trust Network"
+            src="/images/secret-room.png"
+            alt="Estate Tier - Complete Digital Estate with Secret Server Room"
             width={1200}
             height={800}
             className="w-full h-auto"
