@@ -394,6 +394,19 @@ export default function HomePage() {
                   whileHover={{ scale: 1.02 }}
                   {...fadeInUp}
                 >
+                  {/* Background Image */}
+                  <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                    <Image
+                      src="/images/lawfirm.png"
+                      alt="Law Firm Infrastructure"
+                      fill
+                      className="object-cover opacity-50"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-slate-950/80 to-slate-950/90"></div>
+                  </div>
+                  
+                  {/* Content - positioned above background */}
+                  <div className="relative z-10">
                   <div className="absolute top-4 right-4 px-4 py-2 bg-amber-500 text-black text-xs font-bold rounded-full">
                     10/10 ABA COMPLIANT
                   </div>
@@ -498,6 +511,7 @@ export default function HomePage() {
                 <p className="text-amber-400 text-sm italic border-t border-amber-500/20 pt-4">
                   "We finally own our data. Installation was seamless, support exceptional, and we passed our state bar audit with zero findings." — Managing Partner, Corporate Law Firm
                 </p>
+                </div>
                 </motion.div>
               </Link>
             </div>
