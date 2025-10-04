@@ -72,7 +72,7 @@ export default function FoundationTier() {
               <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-4 mb-4">
                 <div className="text-lg font-bold text-amber-500 mb-2">Pricing: Available Upon Request</div>
                 <p className="text-white/70 text-sm italic">
-                  "Depending on how much money you have, I'll say yes or no. Money doesn't discriminate — neither do I."
+                  "DarkGPT pricing is negotiable based on your budget. If you have the money, I have the time. Let's talk."
                 </p>
               </div>
               <ul className="space-y-3 text-sm text-white/70">
