@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Shield, Server, Lock, Home, Brain, ArrowRight, Phone, Mail, FileText, Calendar } from 'lucide-react';
+import { Shield, Server, Lock, Home, Brain, ArrowRight, Phone, Mail, FileText, Calendar, Heart } from 'lucide-react';
 import ContactForm from './ContactForm';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -164,6 +164,7 @@ export default function HomePage() {
               <a href="#services" className="hover:text-white focus:text-white focus:outline-none focus:underline">Services</a>
               <a href="#tldr" className="hover:text-white focus:text-white focus:outline-none focus:underline">Plain-English</a>
               <a href="#law" className="hover:text-white focus:text-white focus:outline-none focus:underline">For Law Firms</a>
+              <a href="#healthcare" className="hover:text-white focus:text-white focus:outline-none focus:underline">For Healthcare</a>
               <a href="#work" className="hover:text-white focus:text-white focus:outline-none focus:underline">Packages</a>
               <a href="#accomp" className="hover:text-white focus:text-white focus:outline-none focus:underline">Accomplishments</a>
               <a href="#about" className="hover:text-white focus:text-white focus:outline-none focus:underline">About</a>
@@ -433,6 +434,99 @@ export default function HomePage() {
                     <span className="text-white/80">Disaster recovery planning</span>
                   </div>
                 </div>
+                </motion.div>
+              </Link>
+            </div>
+          </section>
+
+          {/* Healthcare/Medical Facilities Section - PREMIUM TIER */}
+          <section id="healthcare" className="py-20 bg-white/5">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6">
+              <Link href="/solutions/healthcare" className="block">
+                <motion.div
+                  className="rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-pink-500/5 p-8 md:p-12 hover:border-purple-500/50 hover:from-purple-500/15 hover:to-pink-500/10 transition-all duration-300 cursor-pointer relative overflow-hidden"
+                  whileHover={{ scale: 1.02 }}
+                  {...fadeInUp}
+                >
+                  <div className="absolute top-4 right-4 px-4 py-2 bg-purple-500 text-white text-xs font-bold rounded-full">
+                    10/10 COMPLIANCE
+                  </div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <Heart className="h-8 w-8 text-purple-500" aria-hidden="true" />
+                    <h2 className="text-2xl md:text-3xl font-semibold">Healthcare & Medical Facilities — HIPAA-Grade Infrastructure</h2>
+                  </div>
+                  <p className="text-white/80 text-lg mb-6">
+                    Enterprise-grade infrastructure for hospitals, clinics, and medical practices. Full HIPAA compliance, zero-trust architecture, 99.99% uptime SLA, disaster recovery, and end-to-end encryption for patient data sovereignty.
+                  </p>
+                  <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-purple-500/20">
+                    <p className="text-3xl font-bold text-purple-500">Starting at $35,000 install • $2,500+/mo managed services</p>
+                    <p className="mt-2 text-white/70">
+                      Includes: HIPAA-compliant infrastructure, redundant servers, encrypted patient records system, disaster recovery, 24/7 monitoring, audit logging, staff training & 12-month concierge support with guaranteed response times.
+                    </p>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm mb-6">
+                    <div className="flex items-start gap-2">
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      </div>
+                      <span className="text-white/80">HIPAA-compliant from day one</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      </div>
+                      <span className="text-white/80">Electronic health records (EHR) integration</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      </div>
+                      <span className="text-white/80">Redundant backup systems</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      </div>
+                      <span className="text-white/80">Zero-trust network segmentation</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      </div>
+                      <span className="text-white/80">Complete audit trail logging</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      </div>
+                      <span className="text-white/80">Business continuity planning</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      </div>
+                      <span className="text-white/80">High availability clustering</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      </div>
+                      <span className="text-white/80">Dedicated compliance officer liaison</span>
+                    </div>
+                  </div>
+                  <div className="bg-purple-500/10 border border-purple-500/20 rounded-xl p-4 mb-4">
+                    <p className="text-purple-400 font-semibold mb-2">Why Healthcare Facilities Choose Us:</p>
+                    <ul className="space-y-2 text-sm text-white/70">
+                      <li>• Patient data never leaves your premises — complete sovereignty over sensitive medical records</li>
+                      <li>• Avoid cloud ransomware attacks with air-gapped backup systems</li>
+                      <li>• Meet OCR audit requirements with automated compliance documentation</li>
+                      <li>• Scale from single clinic to multi-location hospital networks</li>
+                      <li>• 99.99% uptime guarantee with failover protection for critical systems</li>
+                    </ul>
+                  </div>
+                  <p className="text-purple-400 text-sm italic border-t border-purple-500/20 pt-4">
+                    "Mission-critical infrastructure that meets every regulatory requirement. Our patient data has never been more secure." — Medical Director, Multi-Specialty Clinic
+                  </p>
                 </motion.div>
               </Link>
             </div>
