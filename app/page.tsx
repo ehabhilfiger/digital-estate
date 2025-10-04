@@ -170,12 +170,12 @@ export default function HomePage() {
                 <div className="relative">
                   <div className="absolute inset-0 bg-emerald-400/20 blur-3xl rounded-full"></div>
                   <Image
-                    src="/headshot-placeholder.svg"
-                    alt="Ehab Allababidi - Digital Estate Architect"
+                    src="/images/Headshot.jpeg"
+                    alt="Ehab Allababidi - Digital Estate Architect, Chicago's Premier Infrastructure Specialist"
                     width={400}
                     height={400}
                     priority
-                    className="relative rounded-2xl border border-white/10"
+                    className="relative rounded-2xl border-2 border-emerald-400/30 shadow-2xl object-cover"
                   />
                 </div>
               </div>
@@ -418,58 +418,135 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Accomplishments & Case Studies */}
+          {/* Premium Portfolio Showcase */}
           <section id="accomp" className="py-20">
             <div className="max-w-6xl mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-semibold text-center">Accomplishments &amp; Case Studies</h2>
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm mb-4">
+                  <span>🏆</span>
+                  <span>Premium Portfolio</span>
+                </div>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-semibold text-center">Elite Infrastructure Deployments</h2>
               <p className="mt-4 text-center text-white/70 max-w-2xl mx-auto">
-                Real projects for real clients. Privacy-first infrastructure that works.
+                Showcase of world-class digital estates. Each deployment represents the pinnacle of private infrastructure engineering—custom-tailored, meticulously secured, and built for longevity.
               </p>
               <div className="mt-12 grid md:grid-cols-3 gap-8">
-                <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-                  <div className="h-48 bg-gradient-to-br from-emerald-400/20 to-emerald-600/20 flex items-center justify-center">
-                    <Server className="h-16 w-16 text-emerald-400" aria-hidden="true" />
+                {/* Tier 1 Showcase */}
+                <div className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-emerald-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-400/20">
+                  <div className="relative h-64 overflow-hidden">
+                    <Image
+                      src="/images/Tier 1 Example.png"
+                      alt="Foundation Tier - Professional NAS deployment with enterprise backup solution"
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="inline-flex px-3 py-1 rounded-full bg-emerald-400 text-black text-xs font-semibold">
+                        FOUNDATION TIER
+                      </div>
+                    </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold">Boutique Law Firm NAS</h3>
-                    <p className="mt-2 text-white/70 text-sm">
-                      Deployed Synology DS920+ with 16TB RAID, VPN access, and automated encrypted backups. Replaced Dropbox, cut costs by 60%.
+                    <h3 className="text-xl font-semibold mb-2">Professional NAS Deployment</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      Enterprise-grade Synology DS920+ with 16TB RAID 10, automated encrypted backups, and Wireguard VPN access. Replaced cloud subscriptions, achieving 60% cost reduction while maintaining full data sovereignty.
                     </p>
-                    <p className="mt-4 text-emerald-400 text-sm italic">
-                      "We finally own our data. Ehab made it seamless." — Managing Partner
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="text-xs px-2 py-1 rounded-md bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">Synology NAS</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-blue-400/10 text-blue-400 border border-blue-400/20">RAID 10</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-purple-400/10 text-purple-400 border border-purple-400/20">VPN Access</span>
+                    </div>
+                    <p className="text-emerald-400 text-sm italic border-t border-white/10 pt-4">
+                      "We finally own our data. Installation was seamless, support exceptional." — Boutique Law Firm
                     </p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-                  <div className="h-48 bg-gradient-to-br from-blue-400/20 to-blue-600/20 flex items-center justify-center">
-                    <Lock className="h-16 w-16 text-blue-400" aria-hidden="true" />
+                {/* Tier 2 Showcase */}
+                <div className="group rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-b from-emerald-400/5 to-transparent overflow-hidden hover:border-emerald-400 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-400/30 relative">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-400 text-black text-xs font-bold rounded-full z-10">
+                    MOST POPULAR
+                  </div>
+                  <div className="relative h-64 overflow-hidden">
+                    <Image
+                      src="/images/Tier 2 example.webp"
+                      alt="Estate Tier - Complete digital estate with zero-trust network architecture"
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="inline-flex px-3 py-1 rounded-full bg-emerald-400 text-black text-xs font-semibold">
+                        ESTATE TIER
+                      </div>
+                    </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold">Executive Home Network</h3>
-                    <p className="mt-2 text-white/70 text-sm">
-                      Built zero-trust network with pfSense firewall, Wireguard VPN, and segmented IoT VLAN. Smart home, office, and guest networks fully isolated.
+                    <h3 className="text-xl font-semibold mb-2">Complete Digital Estate</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      Multi-server deployment with pfSense firewall, segmented VLANs (smart home, office, guest), Proxmox virtualization cluster, and integrated Home Assistant. Zero-trust architecture with end-to-end encryption across all zones.
                     </p>
-                    <p className="mt-4 text-blue-400 text-sm italic">
-                      "Peace of mind knowing my family's data is secure." — Tech Executive
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="text-xs px-2 py-1 rounded-md bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">pfSense</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-blue-400/10 text-blue-400 border border-blue-400/20">VLAN Segmentation</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-purple-400/10 text-purple-400 border border-purple-400/20">Proxmox</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-pink-400/10 text-pink-400 border border-pink-400/20">Home Assistant</span>
+                    </div>
+                    <p className="text-emerald-400 text-sm italic border-t border-white/10 pt-4">
+                      "Peace of mind knowing my family's entire digital life is secure and private." — Executive Client
                     </p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-                  <div className="h-48 bg-gradient-to-br from-purple-400/20 to-purple-600/20 flex items-center justify-center">
-                    <Brain className="h-16 w-16 text-purple-400" aria-hidden="true" />
+                {/* Tier 3 Showcase */}
+                <div className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-400/20">
+                  <div className="relative h-64 overflow-hidden">
+                    <Image
+                      src="/images/Tier 3 Example.webp"
+                      alt="Architect Tier - Enterprise-grade infrastructure with on-premises AI and GPU clustering"
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="inline-flex px-3 py-1 rounded-full bg-purple-400 text-black text-xs font-semibold">
+                        ARCHITECT TIER
+                      </div>
+                    </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold">Private AI Research Lab</h3>
-                    <p className="mt-2 text-white/70 text-sm">
-                      Configured Proxmox cluster with GPU passthrough for local LLM inference. Private ChatGPT alternative with Ollama and Open WebUI.
+                    <h3 className="text-xl font-semibold mb-2">AI Research Infrastructure</h3>
+                    <p className="text-white/70 text-sm mb-4">
+                      High-availability Proxmox cluster with GPU passthrough (NVIDIA A6000), on-prem LLM deployment (Ollama + Open WebUI), TrueNAS Scale storage array, and multi-site replication. Custom automation for model training and inference workloads.
                     </p>
-                    <p className="mt-4 text-purple-400 text-sm italic">
-                      "Our research stays confidential. Worth every penny." — Research Director
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="text-xs px-2 py-1 rounded-md bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">GPU Cluster</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-blue-400/10 text-blue-400 border border-blue-400/20">On-Prem AI</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-purple-400/10 text-purple-400 border border-purple-400/20">HA Cluster</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-pink-400/10 text-pink-400 border border-pink-400/20">Multi-Site</span>
+                    </div>
+                    <p className="text-purple-400 text-sm italic border-t border-white/10 pt-4">
+                      "Our research stays confidential. Performance exceeds cloud solutions." — AI Research Lab
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-12 text-center">
+                <p className="text-white/70 mb-6">
+                  Ready to join the ranks of clients who demand excellence in digital infrastructure?
+                </p>
+                <a href="#contact">
+                  <button className="inline-flex items-center justify-center px-6 py-3 font-medium rounded-2xl transition bg-emerald-400 text-black hover:bg-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-950">
+                    Start Your Project <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                  </button>
+                </a>
               </div>
             </div>
           </section>
@@ -623,6 +700,11 @@ export default function HomePage() {
                 <a href="/robots.txt" className="hover:text-white focus:text-white focus:outline-none focus:underline">robots.txt</a>
                 <span>•</span>
                 <a href="/sitemap.xml" className="hover:text-white focus:text-white focus:outline-none focus:underline">sitemap</a>
+                <span>•</span>
+                <a href="/secret" className="text-emerald-400/60 hover:text-emerald-400 focus:text-emerald-400 focus:outline-none focus:underline inline-flex items-center gap-1">
+                  <Lock className="h-3 w-3" aria-hidden="true" />
+                  vault
+                </a>
               </div>
             </div>
             <div className="mt-4 text-center text-white/50 text-xs">
