@@ -396,11 +396,10 @@ export default function HomePage() {
                 >
                   {/* Background Image */}
                   <div className="absolute inset-0 overflow-hidden rounded-2xl">
-                    <Image
+                    <img
                       src="/images/lawfirm.png"
                       alt="Law Firm Infrastructure"
-                      fill
-                      className="object-cover opacity-50"
+                      className="w-full h-full object-cover opacity-50"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-slate-950/80 to-slate-950/90"></div>
                   </div>
@@ -528,11 +527,10 @@ export default function HomePage() {
                 >
                   {/* Background Image */}
                   <div className="absolute inset-0 overflow-hidden rounded-2xl">
-                    <Image
+                    <img
                       src="/images/hospital.png"
                       alt="Healthcare Infrastructure"
-                      fill
-                      className="object-cover opacity-50"
+                      className="w-full h-full object-cover opacity-50"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-slate-950/80 to-slate-950/90"></div>
                   </div>
