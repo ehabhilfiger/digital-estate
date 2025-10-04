@@ -357,8 +357,19 @@ export default function HomePage() {
           </section>
 
           {/* Plain English TLDR */}
-          <section id="tldr" className="py-20 bg-white/5">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <section id="tldr" className="py-20 bg-white/5 relative overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img
+                src="/images/plain-english.png"
+                alt="Plain English Explanation"
+                className="w-full h-full object-cover opacity-50"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/85 to-slate-950/90"></div>
+            </div>
+            
+            {/* Content */}
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
               <motion.h2
                 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center"
                 {...fadeInUp}
