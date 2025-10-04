@@ -631,7 +631,18 @@ export default function HomePage() {
               </p>
               <div className="mt-12 grid md:grid-cols-3 gap-6">
                 {/* Tier 1 - CLICKABLE */}
-                <Link href="/packages/foundation" className="group rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all duration-300 cursor-pointer">
+                <Link href="/packages/foundation" className="group rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all duration-300 cursor-pointer relative overflow-hidden">
+                  {/* Background Image */}
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src="/images/foundation.png"
+                      alt="Foundation Tier"
+                      fill
+                      className="object-cover opacity-10 group-hover:opacity-15 transition-opacity"
+                    />
+                  </div>
+                  {/* Content */}
+                  <div className="relative z-10">
                   <h3 className="text-xl font-semibold text-amber-500 group-hover:text-amber-400 transition">Tier 1: Foundation</h3>
                   <p className="mt-2 text-3xl font-bold">$3,500–$6,000</p>
                   <p className="mt-2 text-white/70 text-sm">Perfect for getting started</p>
@@ -660,10 +671,22 @@ export default function HomePage() {
                   <div className="mt-6 text-amber-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
                     Learn More <ArrowRight className="h-4 w-4" />
                   </div>
+                  </div>
                 </Link>
 
                 {/* Tier 2 - Featured - CLICKABLE */}
-                <Link href="/packages/estate" className="group rounded-2xl border-2 border-amber-500 bg-amber-500/5 p-8 relative hover:border-amber-400 hover:bg-amber-500/10 hover:shadow-xl hover:shadow-amber-500/20 transition-all duration-300 cursor-pointer">
+                <Link href="/packages/estate" className="group rounded-2xl border-2 border-amber-500 bg-amber-500/5 p-8 relative hover:border-amber-400 hover:bg-amber-500/10 hover:shadow-xl hover:shadow-amber-500/20 transition-all duration-300 cursor-pointer overflow-hidden">
+                  {/* Background Image */}
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src="/images/25k.webp"
+                      alt="Estate Tier"
+                      fill
+                      className="object-cover opacity-10 group-hover:opacity-15 transition-opacity"
+                    />
+                  </div>
+                  {/* Content Wrapper */}
+                  <div className="relative z-10">
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-amber-500 text-black text-xs font-semibold rounded-full group-hover:bg-amber-400 transition">
                     MOST POPULAR
                   </div>
@@ -699,10 +722,22 @@ export default function HomePage() {
                   <div className="mt-6 text-amber-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
                     Learn More <ArrowRight className="h-4 w-4" />
                   </div>
+                  </div>
                 </Link>
 
                 {/* Tier 3 - CLICKABLE */}
-                <Link href="/packages/architect" className="group rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-purple-400/50 hover:bg-purple-400/5 transition-all duration-300 cursor-pointer">
+                <Link href="/packages/architect" className="group rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-purple-400/50 hover:bg-purple-400/5 transition-all duration-300 cursor-pointer relative overflow-hidden">
+                  {/* Background Image */}
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src="/images/architect.png"
+                      alt="Architect Tier"
+                      fill
+                      className="object-cover opacity-10 group-hover:opacity-15 transition-opacity"
+                    />
+                  </div>
+                  {/* Content */}
+                  <div className="relative z-10">
                   <h3 className="text-xl font-semibold text-amber-500 group-hover:text-purple-400 transition">Tier 3: Architect</h3>
                   <p className="mt-2 text-3xl font-bold">$20,000+</p>
                   <p className="mt-2 text-white/70 text-sm">Enterprise-grade infrastructure</p>
@@ -735,7 +770,9 @@ export default function HomePage() {
                   <div className="mt-6 text-amber-500 group-hover:text-purple-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
                     Learn More <ArrowRight className="h-4 w-4" />
                   </div>
+                  </div>
                 </Link>
+
               </div>
             </div>
           </section>
