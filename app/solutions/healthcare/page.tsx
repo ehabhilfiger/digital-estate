@@ -44,12 +44,10 @@ export default function HealthcareSolution() {
       {/* Hero with Background Image */}
       <div className="relative mb-16 -mt-16">
         <div className="absolute inset-0 overflow-hidden">
-          <Image
+          <img
             src="/images/hospital.png"
             alt="Healthcare Infrastructure"
-            fill
-            className="object-cover opacity-50"
-            priority
+            className="w-full h-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/70 to-slate-950"></div>
         </div>

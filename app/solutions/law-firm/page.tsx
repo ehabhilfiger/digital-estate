@@ -41,26 +41,41 @@ export default function LawFirmSolution() {
         </div>
       </motion.header>
 
-      <main className="max-w-6xl mx-auto px-4 py-16">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
+      {/* Hero with Background Image */}
+      <div className="relative mb-16 -mt-16">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/lawfirm.png"
+            alt="Law Firm Infrastructure"
+            className="w-full h-full object-cover opacity-50"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/70 to-slate-950"></div>
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 py-32 text-center">
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6 backdrop-blur-sm">
             LAW FIRM SOLUTION
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="text-amber-500">Complete Digital Infrastructure</span> for Law Firms
           </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
             Attorney-client privilege starts with data sovereignty. Deploy a private, secure case management system that keeps everything local, encrypted, and compliant.
           </p>
         </div>
+      </div>
+
+      <main className="max-w-6xl mx-auto px-4 py-8">
 
         {/* Pricing */}
         <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/10 to-transparent p-12 text-center">
-          <div className="text-sm text-amber-500 font-semibold mb-2">STARTING AT</div>
-          <div className="text-6xl font-bold text-amber-500 mb-4">$4,800</div>
-          <div className="text-xl text-white/80">Turnkey Law Firm Infrastructure</div>
-          <div className="mt-4 text-white/60">Complete setup + Training + 90-day support + Optional ongoing management</div>
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500 text-black text-xs font-bold mb-4">
+            10/10 ABA COMPLIANT
+          </div>
+          <div className="text-sm text-amber-500 font-semibold mb-2">ENTERPRISE PRICING</div>
+          <div className="text-6xl font-bold text-amber-500 mb-4">$18,000+</div>
+          <div className="text-xl text-white/80">Enterprise Law Firm Compliance Infrastructure</div>
+          <div className="mt-4 text-white/60">Complete ABA-compliant setup + Training + 12-month enterprise support + Compliance specialist</div>
+          <div className="mt-6 text-amber-500 font-semibold">$1,200+/month managed services</div>
         </div>
 
         {/* Why Law Firms Need This */}
