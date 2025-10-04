@@ -1,0 +1,6 @@
+# *
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://digital-estate-orcin.vercel.app/sitemap.xml

@@ -1,0 +1,10 @@
+/* TEAM */
+Name: Ehab Allababidi
+Contact: defcon5ready@gmail.com
+Location: Chicago, Illinois, USA
+
+/* SITE */
+Last update: 2025/01/10
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: Next.js 15, React 19, TypeScript, Tailwind CSS
+Software: VS Code

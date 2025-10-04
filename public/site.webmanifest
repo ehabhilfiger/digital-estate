@@ -1,0 +1,16 @@
+{
+  "name": "Ehab Allababidi - Digital Estate Architect",
+  "short_name": "Digital Estate",
+  "description": "Private Servers, Smart Estates & On-Prem AI - Chicago-based Digital Estate Architect",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

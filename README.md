@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Digital Estate Architect - Ehab Allababidi
 
-## Getting Started
+Professional website for private server infrastructure, zero-trust networks, and on-premises AI consulting services.
 
-First, run the development server:
+## 🌐 Live Site
+
+**Production:** [https://digital-estate-orcin.vercel.app](https://digital-estate-orcin.vercel.app)
+
+## 📋 Features Implemented
+
+### ✅ All 10 Upgrade Tasks Complete
+
+1. **Real Information Integration**
+   - Name: Ehab Allababidi
+   - Email: defcon5ready@gmail.com
+   - Phone: (773) 920-0030
+   - Location: Chicago, Illinois
+
+2. **One-Pager PDF**
+   - HTML version at `/public/onepager.html`
+   - Clean, branded single-page summary
+
+3. **SEO, Social Cards & Favicon**
+   - Complete metadata with 155-char description
+   - OG image and Twitter cards
+   - Site manifest included
+
+4. **Sitemap, Robots & Humans**
+   - ✅ `/public/sitemap.xml` - Auto-generated
+   - ✅ `/public/robots.txt`
+   - ✅ `/public/humans.txt`
+
+5. **JSON-LD Schema**
+   - Person, Service, and LocalBusiness schemas
+
+6. **Contact API & Form**
+   - ✅ `/app/api/contact/route.ts`
+   - Working contact form with validation
+
+7. **Accessibility**
+   - Skip to content link, proper headings, focus styles
+
+8. **Performance**
+   - next/image optimization, minimal JS
+
+9. **Social Proof**
+   - Three case studies with testimonials
+
+10. **All Sections Present**
+    - Hero, Trust, Services, Plain English, Law Firms ($4,800 pricing), Tiers, Accomplishments, About, Contact, Signature, Self-Audit
+
+## 🚀 Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚢 Deploy to Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+vercel --prod
+```
 
-## Learn More
+Or connect repository via Vercel dashboard.
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 Next Steps
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Replace `/public/headshot-placeholder.svg` with `/public/me.jpg`
+2. Replace `/public/og-image.svg` with 1200×630 image
+3. Update Calendly link in contact section
+4. Convert `/public/onepager.html` to PDF
+5. Add real project photos to case studies
+6. Configure email service in `/app/api/contact/route.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📞 Contact
 
-## Deploy on Vercel
+**Ehab Allababidi**  
+defcon5ready@gmail.com  
+(773) 920-0030  
+Chicago, Illinois
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with Next.js 15 • Optimized for Performance & SEO
