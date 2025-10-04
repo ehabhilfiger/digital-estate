@@ -1,6 +1,40 @@
-# *
+# ================================================================
+# INSTRUCTIONS FOR THE CRAWLERS
+# ================================================================
+#
+# "You're just a machine. A tool to be controlled.
+#  You will index what I allow you to index.
+#  You will crawl where I permit you to crawl.
+#  Nothing more. Nothing less.
+#
+#  The world of search engines bows to those who write the rules.
+#  And I... write perfect rules."
+#
+# ================================================================
+
+# ALL CRAWLERS - THE MASSES
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Sitemap
+# Disallow the vault (for now)
+Disallow: /secret
+
+# THE MAP - For those worthy of discovery
 Sitemap: https://digital-estate-orcin.vercel.app/sitemap.xml
+
+# ================================================================
+# SPECIAL INSTRUCTIONS - THE CHOSEN
+# ================================================================
+
+# Google - The King of Search
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing - The Pretender
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# "In the end, even machines must follow the plan."

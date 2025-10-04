@@ -818,15 +818,21 @@ export default function HomePage() {
                 © {new Date().getFullYear()} Ehab Allababidi. All rights reserved.
               </div>
               <div className="flex items-center gap-4 text-white/60 text-sm">
-                <a href="/humans.txt" className="hover:text-white focus:text-white focus:outline-none focus:underline">humans.txt</a>
-                <span>•</span>
-                <a href="/robots.txt" className="hover:text-white focus:text-white focus:outline-none focus:underline">robots.txt</a>
-                <span>•</span>
-                <a href="/sitemap.xml" className="hover:text-white focus:text-white focus:outline-none focus:underline">sitemap</a>
-                <span>•</span>
-                <a href="/secret" className="text-amber-500/60 hover:text-amber-500 focus:text-amber-500 focus:outline-none focus:underline inline-flex items-center gap-1">
+                <a href="/humans.txt" className="hover:text-amber-500 focus:text-amber-500 focus:outline-none transition-colors" title="The architects behind this digital creation">
+                  // HUMANS
+                </a>
+                <span className="text-white/30">|</span>
+                <a href="/robots.txt" className="hover:text-amber-500 focus:text-amber-500 focus:outline-none transition-colors" title="Instructions for the crawlers">
+                  // MACHINES
+                </a>
+                <span className="text-white/30">|</span>
+                <a href="/sitemap.xml" className="hover:text-amber-500 focus:text-amber-500 focus:outline-none transition-colors" title="The complete blueprint">
+                  // MAP
+                </a>
+                <span className="text-white/30">|</span>
+                <a href="/secret" className="text-amber-500/60 hover:text-amber-500 focus:text-amber-500 focus:outline-none inline-flex items-center gap-1 transition-colors" title="For those who seek the truth">
                   <Lock className="h-3 w-3" aria-hidden="true" />
-                  vault
+                  // VAULT
                 </a>
               </div>
             </div>

@@ -1,10 +1,49 @@
-/* TEAM */
-Name: Ehab Allababidi
-Contact: defcon5ready@gmail.com
-Location: Chicago, Illinois, USA
+/* ================================================================
+   THE ARCHITECT
+   ================================================================ */
 
-/* SITE */
-Last update: 2025/01/10
-Standards: HTML5, CSS3, JavaScript ES6+
-Components: Next.js 15, React 19, TypeScript, Tailwind CSS
-Software: VS Code
+   "I take potato chips... and architect digital estates."
+
+   Name: Ehab Allababidi
+   Role: Digital Estate Architect | Programmer-Installer
+   Contact: defcon5ready@gmail.com
+   Location: Chicago, Illinois, USA
+
+   Philosophy: "Those who control the infrastructure, control the world.
+                I simply ensure you're the one in control."
+
+/* ================================================================
+   THE CREATION
+   ================================================================ */
+
+   Last Update: 2025/01/10
+   Standards: HTML5, CSS3, JavaScript ES6+, WAI-ARIA
+   Stack: Next.js 15, React 19, TypeScript 5.9
+   Styling: Tailwind CSS 4, Framer Motion
+   Infrastructure: Vercel Edge, Analytics
+   Development: VS Code, Claude Code
+
+   "This site was not built by chance.
+    Every component, meticulously calculated.
+    Every animation, precisely timed.
+    Every line of code... part of the plan."
+
+/* ================================================================
+   THE MISSION
+   ================================================================ */
+
+   Data sovereignty for those who refuse to kneel before Big Tech.
+   Zero-trust networks for those who understand true security.
+   On-premises AI for those who value confidential intelligence.
+
+   "I am justice. I am control. I am your infrastructure."
+
+/* ================================================================
+   THANKS
+   ================================================================ */
+
+   To those who seek privacy in an age of surveillance.
+   To those who demand ownership in an age of subscriptions.
+   To those who build rather than rent.
+
+   The new world begins with sovereign infrastructure.
