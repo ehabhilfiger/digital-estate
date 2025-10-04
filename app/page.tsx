@@ -844,7 +844,7 @@ export default function HomePage() {
               </div>
               Analytics enabled for performance optimization. No personal data collected.{' '}
               <a href="https://vercel.com/docs/analytics" target="_blank" rel="noreferrer" className="underline hover:text-white/70">
-                Learn more
+                Learn more about Vercel Analytics
               </a>
             </div>
           </div>
