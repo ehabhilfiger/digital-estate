@@ -75,6 +75,12 @@ export default function EstateTier() {
               <p className="text-white/70 mb-4">
                 I'll spend an entire week at your location fine-tuning DarkGPT until every parameter is dialed in perfectly. We don't stop until you're 100% satisfied with how it responds, thinks, and caters to your specific needs.
               </p>
+              <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-4 mb-4">
+                <div className="text-lg font-bold text-amber-500 mb-2">Pricing: Available Upon Request</div>
+                <p className="text-white/70 text-sm italic">
+                  "Depending on how much money you have, I'll say yes or no. Money doesn't discriminate — neither do I."
+                </p>
+              </div>
               <ul className="space-y-3 text-sm text-white/70">
                 <li className="flex items-start gap-2">
                   <Check className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
