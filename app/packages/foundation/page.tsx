@@ -1,9 +1,22 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, Check, Shield, Server, HardDrive, Lock, ArrowRight, Zap } from 'lucide-react';
 
 export default function FoundationPackage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white relative">
+      {/* Background Image */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src="/images/foundation.png"
+          alt="Foundation Package Background"
+          fill
+          className="object-cover opacity-10"
+          priority
+        />
+      </div>
+      {/* Content */}
+      <div className="relative z-10">
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -262,6 +275,7 @@ export default function FoundationPackage() {
           </div>
         </div>
       </main>
+      </div>
     </div>
   );
 }
