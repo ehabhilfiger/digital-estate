@@ -362,9 +362,9 @@ export default function ChallengePage() {
                 <span className="text-amber-500 font-bold">4</span>
               </div>
               <div>
-                <h3 className="font-semibold mb-1">Get 7/10 Correct</h3>
+                <h3 className="font-semibold mb-1">Get 13/20 Correct</h3>
                 <p className="text-sm text-white/60">
-                  Minimum threshold for interview. 10/10 = $80k base + $500 bonus.
+                  Minimum threshold for interview. 20/20 = $120k base + $10k bonus.
                 </p>
               </div>
             </div>
