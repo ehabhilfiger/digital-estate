@@ -162,11 +162,10 @@ export default function HomePage() {
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm text-white/80" aria-label="Main navigation">
               <a href="#services" className="hover:text-white focus:text-white focus:outline-none focus:underline">Services</a>
-              <a href="#tldr" className="hover:text-white focus:text-white focus:outline-none focus:underline">Plain-English</a>
-              <a href="#law" className="hover:text-white focus:text-white focus:outline-none focus:underline">For Law Firms</a>
-              <a href="#healthcare" className="hover:text-white focus:text-white focus:outline-none focus:underline">For Healthcare</a>
+              <a href="#law" className="hover:text-white focus:text-white focus:outline-none focus:underline">Law Firms</a>
+              <a href="#healthcare" className="hover:text-white focus:text-white focus:outline-none focus:underline">Healthcare</a>
               <a href="#work" className="hover:text-white focus:text-white focus:outline-none focus:underline">Packages</a>
-              <a href="#accomp" className="hover:text-white focus:text-white focus:outline-none focus:underline">Accomplishments</a>
+              <a href="#accomp" className="hover:text-white focus:text-white focus:outline-none focus:underline">Elite Builds</a>
               <a href="#about" className="hover:text-white focus:text-white focus:outline-none focus:underline">About</a>
               <a href="#contact" className="hover:text-white focus:text-white focus:outline-none focus:underline">Contact</a>
             </nav>
@@ -650,18 +649,18 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Premium Portfolio Showcase */}
+          {/* Elite Tier Builds Showcase */}
           <section id="accomp" className="py-20">
             <div className="max-w-6xl mx-auto px-4">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-4">
                   <span>🏆</span>
-                  <span>Premium Portfolio</span>
+                  <span>Elite Portfolio</span>
                 </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-center">Elite Infrastructure Deployments</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-center">Elite Tier Builds</h2>
               <p className="mt-4 text-center text-white/70 max-w-2xl mx-auto">
-                Showcase of world-class digital estates. Each deployment represents the pinnacle of private infrastructure engineering—custom-tailored, meticulously secured, and built for longevity.
+                World-class digital estates representing the pinnacle of private infrastructure engineering—custom-tailored, meticulously secured, and built for longevity.
               </p>
               <div className="mt-12 grid md:grid-cols-3 gap-8">
                 {/* Tier 1 Showcase - CLICKABLE */}
@@ -798,19 +797,22 @@ export default function HomePage() {
           {/* About Section */}
           <section id="about" className="py-20 bg-white/5">
             <div className="max-w-4xl mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-semibold text-center">About</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-center">About Ehab Allababidi</h2>
               <div className="mt-12 space-y-6 text-lg text-white/80">
                 <p>
-                  I'm <strong className="text-white">Ehab Allababidi</strong>, a programmer-installer based in <strong className="text-white">Chicago, Illinois</strong>. I've spent over a decade building secure, private infrastructure for clients who refuse to compromise on data sovereignty.
+                  <strong className="text-white">Ehab Allababidi</strong> is a Chicago-based digital infrastructure architect specializing in private, sovereign technology deployments for high-net-worth individuals, boutique law firms, medical practices, and privacy-conscious professionals.
                 </p>
                 <p>
-                  I'm not your typical "cloud consultant" pushing monthly subscriptions. I build systems you own—bare metal servers, on-premises networks, and local AI—designed for privacy, resilience, and zero vendor lock-in.
+                  With over a decade of hands-on experience in enterprise systems engineering, Ehab delivers turnkey solutions that prioritize data sovereignty, regulatory compliance, and zero vendor lock-in. His technical approach combines deep systems programming expertise with meticulous on-site installation and ongoing concierge support.
                 </p>
                 <p>
-                  My clients include boutique law firms, high-net-worth individuals, privacy-focused professionals, and anyone who understands that <strong className="text-amber-500">if you don't own the hardware, you don't own the data.</strong>
+                  Rather than pushing cloud subscriptions and managed dependencies, Ehab architects infrastructure you truly own—bare metal servers, on-premises networks, HIPAA-compliant systems, and confidential AI deployments. Every engagement includes comprehensive documentation, staff training, and white-glove support designed for clients who demand excellence.
                 </p>
                 <p>
-                  Whether you need a secure home server, a zero-trust network, or a private AI deployment, I bring technical depth and hands-on execution. I code, I rack, I configure, and I document—everything you need to run your digital estate with confidence.
+                  His client portfolio spans boutique law firms requiring ABA-compliant security, medical facilities navigating HIPAA regulations, executives protecting sensitive business intelligence, and discerning homeowners building luxury smart estates. Each deployment is custom-engineered to exacting standards with <strong className="text-amber-500">privacy, resilience, and longevity</strong> as foundational principles.
+                </p>
+                <p className="text-white/70 border-l-2 border-amber-500 pl-6 italic">
+                  "If you don't own the hardware, you don't own the data. I build systems where you control everything—from the silicon to the encryption keys."
                 </p>
               </div>
             </div>
