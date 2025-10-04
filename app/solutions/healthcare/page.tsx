@@ -48,10 +48,10 @@ export default function HealthcareSolution() {
             src="/images/hospital.png"
             alt="Healthcare Infrastructure"
             fill
-            className="object-cover opacity-30"
+            className="object-cover opacity-50"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/80 to-slate-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/70 to-slate-950"></div>
         </div>
         <div className="relative max-w-6xl mx-auto px-4 py-32 text-center">
           <div className="inline-flex px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-6 backdrop-blur-sm">
