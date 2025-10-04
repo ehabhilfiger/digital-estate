@@ -41,10 +41,20 @@ export default function HealthcareSolution() {
         </div>
       </motion.header>
 
-      <main className="max-w-6xl mx-auto px-4 py-16">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-6">
+      {/* Hero with Background Image */}
+      <div className="relative mb-16 -mt-16">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/images/hospital.png"
+            alt="Healthcare Infrastructure"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950"></div>
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 py-32 text-center">
+          <div className="inline-flex px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-6 backdrop-blur-sm">
             <div className="flex items-center gap-2">
               <Heart className="h-4 w-4" />
               HEALTHCARE SOLUTION
@@ -56,10 +66,13 @@ export default function HealthcareSolution() {
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="text-purple-400">HIPAA-Grade Infrastructure</span> for Medical Facilities
           </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
             Patient data sovereignty starts with enterprise infrastructure. Deploy a HIPAA-compliant, zero-trust medical records system with 99.99% uptime, complete audit trails, and air-gapped backups.
           </p>
         </div>
+      </div>
+
+      <main className="max-w-6xl mx-auto px-4 py-8">
 
         {/* Pricing */}
         <div className="mb-16 rounded-2xl border-2 border-purple-500 bg-gradient-to-br from-purple-500/10 to-pink-500/5 p-12 text-center">
