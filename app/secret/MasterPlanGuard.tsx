@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Lock, Eye, EyeOff, Crown, Shield, Download } from 'lucide-react';
 
-const MASTER_PLAN_PASSWORD = 'Amex420?';
+const MASTER_PLAN_PASSWORD = 'Amex420!';
 
 interface MasterPlanGuardProps {
   onUnlock: () => void;

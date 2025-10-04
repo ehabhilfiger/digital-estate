@@ -1,9 +1,43 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Shield, Server, Lock, Home, Brain, ArrowRight, Phone, Mail, FileText, Calendar } from 'lucide-react';
 import ContactForm from './ContactForm';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function HomePage() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-100px" },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
+  const staggerContainer = {
+    initial: {},
+    whileInView: { transition: { staggerChildren: 0.1 } },
+    viewport: { once: true, margin: "-100px" }
+  };
+
+  const scaleIn = {
+    initial: { opacity: 0, scale: 0.9 },
+    whileInView: { opacity: 1, scale: 1 },
+    viewport: { once: true, margin: "-100px" },
+    transition: { duration: 0.5, ease: "easeOut" }
+  };
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -108,8 +142,13 @@ export default function HomePage() {
 
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
         {/* Header */}
-        <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10">
-          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <motion.header
+          className={`sticky top-0 z-50 backdrop-blur border-b transition-all duration-300 ${isScrolled ? 'border-white/20 bg-slate-950/80' : 'border-white/10'}`}
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="h-9 w-9 rounded-xl bg-amber-500/10 grid place-items-center">
                 <Shield className="h-5 w-5 text-amber-500" aria-hidden="true" />
@@ -126,33 +165,65 @@ export default function HomePage() {
               <a href="#contact" className="hover:text-white focus:text-white focus:outline-none focus:underline">Contact</a>
             </nav>
           </div>
-        </header>
+        </motion.header>
 
         <main id="main-content">
           {/* Hero Section */}
           <section className="relative overflow-hidden">
-            <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-              <div>
-                <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <motion.h1
+                  className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
                   Private Servers, Smart Estates, &amp; On-Prem AI —
                   <span className="block text-amber-500">built and secured by a programmer-installer.</span>
-                </h1>
-                <p className="mt-6 text-white/80 text-lg md:text-xl max-w-xl">
+                </motion.h1>
+                <motion.p
+                  className="mt-6 text-white/80 text-base sm:text-lg md:text-xl max-w-xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
                   I design, install, and maintain <span className="text-white">private digital estates</span>: on-prem servers, zero-trust networks, luxury smart home systems, and confidential AI — tailored for high-end homes and boutique firms.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
+                </motion.p>
+                <motion.div
+                  className="mt-8 flex flex-wrap gap-3"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
                   <a href="#contact">
-                    <button className="inline-flex items-center justify-center px-4 py-2 font-medium rounded-2xl transition bg-amber-500 text-black hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-slate-950">
+                    <motion.button
+                      className="inline-flex items-center justify-center px-5 py-3 font-medium rounded-2xl transition bg-amber-500 text-black hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-slate-950 text-sm sm:text-base"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       Book a consult <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                    </button>
+                    </motion.button>
                   </a>
                   <a href="#work">
-                    <button className="inline-flex items-center justify-center px-4 py-2 font-medium rounded-2xl transition bg-white/10 border border-white/10 text-white hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-slate-950">
+                    <motion.button
+                      className="inline-flex items-center justify-center px-5 py-3 font-medium rounded-2xl transition bg-white/10 border border-white/10 text-white hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-slate-950 text-sm sm:text-base"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       View packages
-                    </button>
+                    </motion.button>
                   </a>
-                </div>
-                <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-white/70">
+                </motion.div>
+                <motion.div
+                  className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-white/70"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                >
                   <span className="inline-flex items-center gap-2">
                     <Server className="h-4 w-4 text-amber-500" aria-hidden="true" /> On-prem NAS/VMs
                   </span>
@@ -165,88 +236,134 @@ export default function HomePage() {
                   <span className="inline-flex items-center gap-2">
                     <Brain className="h-4 w-4 text-amber-500" aria-hidden="true" /> Local AI
                   </span>
-                </div>
-              </div>
-              <div className="flex justify-center">
+                </motion.div>
+              </motion.div>
+              <motion.div
+                className="flex justify-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full"></div>
+                  <motion.div
+                    className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full"
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  ></motion.div>
                   <Image
                     src="/images/Headshot.jpeg"
                     alt="Ehab Allababidi - Digital Estate Architect, Chicago's Premier Infrastructure Specialist"
                     width={400}
                     height={400}
                     priority
-                    className="relative rounded-2xl border-2 border-amber-500/30 shadow-2xl object-cover"
+                    className="relative rounded-2xl border-2 border-amber-500/30 shadow-2xl object-cover w-full max-w-sm"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
           </section>
 
           {/* Trust Section */}
-          <section className="py-12 border-y border-white/10 bg-white/5">
-            <div className="max-w-6xl mx-auto px-4">
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-amber-500">10+</div>
-                  <div className="mt-2 text-white/70">Years of Experience</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-amber-500">50+</div>
-                  <div className="mt-2 text-white/70">Systems Deployed</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-amber-500">100%</div>
-                  <div className="mt-2 text-white/70">Client Satisfaction</div>
-                </div>
+          <motion.section
+            className="py-12 border-y border-white/10 bg-white/5"
+            {...fadeInUp}
+          >
+            <motion.div
+              className="max-w-6xl mx-auto px-4 sm:px-6"
+              {...staggerContainer}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
+                <motion.div {...fadeInUp}>
+                  <div className="text-3xl sm:text-4xl font-bold text-amber-500">10+</div>
+                  <div className="mt-2 text-sm sm:text-base text-white/70">Years of Experience</div>
+                </motion.div>
+                <motion.div {...fadeInUp}>
+                  <div className="text-3xl sm:text-4xl font-bold text-amber-500">50+</div>
+                  <div className="mt-2 text-sm sm:text-base text-white/70">Systems Deployed</div>
+                </motion.div>
+                <motion.div {...fadeInUp}>
+                  <div className="text-3xl sm:text-4xl font-bold text-amber-500">100%</div>
+                  <div className="mt-2 text-sm sm:text-base text-white/70">Client Satisfaction</div>
+                </motion.div>
               </div>
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
           {/* Services Section */}
           <section id="services" className="py-20">
-            <div className="max-w-6xl mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-semibold text-center">What I Deliver</h2>
-              <p className="mt-4 text-center text-white/70 max-w-2xl mx-auto">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+              <motion.h2
+                className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center"
+                {...fadeInUp}
+              >
+                What I Deliver
+              </motion.h2>
+              <motion.p
+                className="mt-4 text-center text-white/70 max-w-2xl mx-auto text-sm sm:text-base"
+                {...fadeInUp}
+              >
                 Three pillars of sovereign infrastructure—built for privacy, security, and total control.
-              </p>
-              <div className="mt-12 grid md:grid-cols-3 gap-8">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+              </motion.p>
+              <motion.div
+                className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
+                {...staggerContainer}
+              >
+                <motion.div
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all duration-300"
+                  {...scaleIn}
+                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                >
                   <div className="h-12 w-12 rounded-xl bg-amber-500/10 grid place-items-center mb-4">
                     <Server className="h-6 w-6 text-amber-500" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-medium">Private Servers</h3>
-                  <p className="mt-3 text-white/70">
+                  <h3 className="text-lg sm:text-xl font-medium">Private Servers</h3>
+                  <p className="mt-3 text-white/70 text-sm sm:text-base">
                     On-prem NAS (Synology, TrueNAS), VMs (Proxmox, ESXi), and secure home servers. Full control, zero cloud lock-in, local backups.
                   </p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+                </motion.div>
+                <motion.div
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all duration-300"
+                  {...scaleIn}
+                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                >
                   <div className="h-12 w-12 rounded-xl bg-amber-500/10 grid place-items-center mb-4">
                     <Lock className="h-6 w-6 text-amber-500" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-medium">Zero-Trust Networks</h3>
-                  <p className="mt-3 text-white/70">
+                  <h3 className="text-lg sm:text-xl font-medium">Zero-Trust Networks</h3>
+                  <p className="mt-3 text-white/70 text-sm sm:text-base">
                     Wireguard VPNs, VLAN segmentation, pfSense/OPNsense firewalls, and multi-factor auth. Bulletproof perimeter, encrypted everything.
                   </p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+                </motion.div>
+                <motion.div
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all duration-300"
+                  {...scaleIn}
+                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                >
                   <div className="h-12 w-12 rounded-xl bg-amber-500/10 grid place-items-center mb-4">
                     <Brain className="h-6 w-6 text-amber-500" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-medium">On-Prem AI</h3>
-                  <p className="mt-3 text-white/70">
+                  <h3 className="text-lg sm:text-xl font-medium">On-Prem AI</h3>
+                  <p className="mt-3 text-white/70 text-sm sm:text-base">
                     Local LLMs (Ollama, llama.cpp), private ChatGPT alternatives, confidential AI inference. Your data never leaves your network.
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </section>
 
           {/* Plain English TLDR */}
           <section id="tldr" className="py-20 bg-white/5">
-            <div className="max-w-4xl mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-semibold text-center">In Plain English</h2>
-              <div className="mt-12 space-y-6 text-lg text-white/80">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6">
+              <motion.h2
+                className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center"
+                {...fadeInUp}
+              >
+                In Plain English
+              </motion.h2>
+              <motion.div
+                className="mt-12 space-y-6 text-base sm:text-lg text-white/80"
+                {...staggerContainer}
+              >
                 <p>
                   <strong className="text-white">You don't trust the cloud.</strong> You want your files, cameras, smart home, and AI on servers <em>you</em> own—in your office, your home, or a locked rack you control.
                 </p>
