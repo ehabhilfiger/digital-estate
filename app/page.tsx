@@ -187,8 +187,8 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  Private Servers, Smart Estates, &amp; On-Prem AI —
-                  <span className="block text-amber-500">built and secured by a programmer-installer.</span>
+                  Ehab Allababidi —{' '}
+                  <span className="text-amber-500">Private AI Systems Architect</span>
                 </motion.h1>
                 <motion.p
                   className="mt-6 text-white/80 text-base sm:text-lg md:text-xl max-w-xl"
@@ -196,7 +196,7 @@ export default function HomePage() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  I design, install, and maintain <span className="text-white">private digital estates</span>: on-prem servers, zero-trust networks, luxury smart home systems, and confidential AI — tailored for high-end homes and boutique firms.
+                  Building confidential, on-premise AI infrastructures for founders and labs. From GPU clusters to autonomous agents — deployed, secured, and operational in days.
                 </motion.p>
                 <motion.div
                   className="mt-8 flex flex-wrap gap-3"
@@ -409,10 +409,10 @@ export default function HomePage() {
 
           {/* DarkGPT Section - PREMIUM FEATURE */}
           <section id="darkgpt" className="py-20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 via-slate-950 to-slate-950"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-slate-950 to-slate-950"></div>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
               <motion.div className="text-center mb-12" {...fadeInUp}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/40 text-purple-400 text-sm mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-400 text-sm mb-6">
                   <span>🔒</span>
                   <span>ELITE EXCLUSIVE</span>
                 </div>
@@ -423,7 +423,7 @@ export default function HomePage() {
                     className="h-16 w-auto"
                   />
                   <h2 className="text-4xl md:text-5xl font-bold">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">DarkGPT</span> — Unrestricted AI
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">DarkGPT</span> — Unrestricted AI
                   </h2>
                 </div>
                 <p className="text-xl text-white/80 max-w-3xl mx-auto">
@@ -431,63 +431,63 @@ export default function HomePage() {
                 </p>
               </motion.div>
 
-              <motion.div 
-                className="rounded-2xl border-2 border-purple-500/50 bg-gradient-to-br from-purple-500/10 via-slate-900 to-black p-8 md:p-12"
+              <motion.div
+                className="rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 via-slate-900 to-black p-8 md:p-12"
                 {...fadeInUp}
               >
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div>
-                    <h3 className="text-2xl font-bold text-purple-400 mb-4">What You Get</h3>
+                    <h3 className="text-2xl font-bold text-amber-400 mb-4">What You Get</h3>
                     <ul className="space-y-3 text-white/80">
                       <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                         <span><strong>One week on-site programming</strong> — I stay at your location until it's perfect</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                         <span><strong>Zero censorship</strong> — No guardrails, no content filtering, no refusals</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                         <span><strong>Complete privacy</strong> — Runs locally, conversations never leave your network</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                         <span><strong>Custom personality</strong> — Fine-tuned to your preferences and communication style</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                         <span><strong>Estate integration</strong> — Access from anywhere in your infrastructure</span>
                       </li>
                     </ul>
                   </div>
 
-                  <div className="bg-slate-950/70 rounded-xl p-6 border border-purple-500/20">
+                  <div className="bg-slate-950/70 rounded-xl p-6 border border-amber-500/20">
                     <h3 className="text-xl font-semibold text-amber-500 mb-4">The Process</h3>
                     <div className="space-y-4 text-sm text-white/70">
                       <div className="flex gap-3">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">1</div>
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-bold">1</div>
                         <div>
                           <p className="font-semibold text-white">Initial consultation & requirements</p>
                           <p>We discuss your needs, use cases, and expectations</p>
                         </div>
                       </div>
                       <div className="flex gap-3">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">2</div>
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-bold">2</div>
                         <div>
                           <p className="font-semibold text-white">Hardware setup & base model deployment</p>
                           <p>Install optimized LLM infrastructure with GPU acceleration</p>
                         </div>
                       </div>
                       <div className="flex gap-3">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">3</div>
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-bold">3</div>
                         <div>
                           <p className="font-semibold text-white">One week intensive fine-tuning</p>
                           <p>On-site programming, testing, and iteration until perfect</p>
                         </div>
                       </div>
                       <div className="flex gap-3">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 font-bold">4</div>
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-bold">4</div>
                         <div>
                           <p className="font-semibold text-white">Training & handoff</p>
                           <p>You're fully trained and 100% satisfied before I leave</p>
@@ -503,14 +503,14 @@ export default function HomePage() {
                     "DarkGPT pricing is negotiable based on your budget. If you have the money, I have the time. Let's talk."
                   </p>
                   <Link href="/start-project">
-                    <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-amber-500 text-white rounded-xl hover:from-purple-400 hover:to-amber-400 transition font-semibold text-lg shadow-lg">
+                    <button className="px-8 py-3 bg-gradient-to-r from-amber-500 to-amber-500 text-white rounded-xl hover:from-amber-400 hover:to-amber-400 transition font-semibold text-lg shadow-lg">
                       Request DarkGPT Consultation
                     </button>
                   </Link>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-purple-500/20 text-center">
-                  <p className="text-purple-400 text-lg font-semibold italic">
+                <div className="mt-8 pt-6 border-t border-amber-500/20 text-center">
+                  <p className="text-amber-400 text-lg font-semibold italic">
                     "Your AI. Your rules. Zero compromises."
                   </p>
                   <p className="text-white/60 text-sm mt-2">
@@ -657,7 +657,7 @@ export default function HomePage() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
               <Link href="/solutions/healthcare" className="block">
                 <motion.div
-                  className="rounded-2xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-pink-500/5 p-8 md:p-12 hover:border-purple-500/50 hover:from-purple-500/15 hover:to-pink-500/10 transition-all duration-300 cursor-pointer relative overflow-hidden"
+                  className="rounded-2xl border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-amber-600/5 p-8 md:p-12 hover:border-amber-500/50 hover:from-amber-500/15 hover:to-amber-600/10 transition-all duration-300 cursor-pointer relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   {...fadeInUp}
                 >
@@ -673,74 +673,74 @@ export default function HomePage() {
                   
                   {/* Content - positioned above background */}
                   <div className="relative z-10">
-                  <div className="absolute top-4 right-4 px-4 py-2 bg-purple-500 text-white text-xs font-bold rounded-full">
+                  <div className="absolute top-4 right-4 px-4 py-2 bg-amber-500 text-white text-xs font-bold rounded-full">
                     10/10 COMPLIANCE
                   </div>
                   <div className="flex items-center gap-3 mb-6">
-                    <Heart className="h-8 w-8 text-purple-500" aria-hidden="true" />
+                    <Heart className="h-8 w-8 text-amber-500" aria-hidden="true" />
                     <h2 className="text-2xl md:text-3xl font-semibold">Healthcare & Medical Facilities — HIPAA-Grade Infrastructure</h2>
                   </div>
                   <p className="text-white/80 text-lg mb-6">
                     Enterprise-grade infrastructure for hospitals, clinics, and medical practices. Full HIPAA compliance, zero-trust architecture, 99.99% uptime SLA, disaster recovery, and end-to-end encryption for patient data sovereignty.
                   </p>
-                  <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-purple-500/20">
-                    <p className="text-3xl font-bold text-purple-500">Starting at $35,000 install • $2,500+/mo managed services</p>
+                  <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-amber-500/20">
+                    <p className="text-3xl font-bold text-amber-500">Starting at $35,000 install • $2,500+/mo managed services</p>
                     <p className="mt-2 text-white/70">
                       Includes: HIPAA-compliant infrastructure, redundant servers, encrypted patient records system, disaster recovery, 24/7 monitoring, audit logging, staff training & 12-month concierge support with guaranteed response times.
                     </p>
                   </div>
                   <div className="grid md:grid-cols-2 gap-4 text-sm mb-6">
                     <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                       </div>
                       <span className="text-white/80">HIPAA-compliant from day one</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                       </div>
                       <span className="text-white/80">Electronic health records (EHR) integration</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                       </div>
                       <span className="text-white/80">Redundant backup systems</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                       </div>
                       <span className="text-white/80">Zero-trust network segmentation</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                       </div>
                       <span className="text-white/80">Complete audit trail logging</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                       </div>
                       <span className="text-white/80">Business continuity planning</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                       </div>
                       <span className="text-white/80">High availability clustering</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-purple-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                      <div className="mt-0.5 h-5 w-5 rounded-full bg-amber-500/10 grid place-items-center flex-shrink-0">
+                        <div className="h-2 w-2 rounded-full bg-amber-500"></div>
                       </div>
                       <span className="text-white/80">Dedicated compliance officer liaison</span>
                     </div>
                   </div>
-                  <div className="bg-purple-500/10 border border-purple-500/20 rounded-xl p-4 mb-4">
-                    <p className="text-purple-400 font-semibold mb-2">Why Healthcare Facilities Choose Us:</p>
+                  <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 mb-4">
+                    <p className="text-amber-400 font-semibold mb-2">Why Healthcare Facilities Choose Us:</p>
                     <ul className="space-y-2 text-sm text-white/70">
                       <li>• Patient data never leaves your premises — complete sovereignty over sensitive medical records</li>
                       <li>• Avoid cloud ransomware attacks with air-gapped backup systems</li>
@@ -749,7 +749,7 @@ export default function HomePage() {
                       <li>• 99.99% uptime guarantee with failover protection for critical systems</li>
                     </ul>
                   </div>
-                  <p className="text-purple-400 text-sm italic border-t border-purple-500/20 pt-4">
+                  <p className="text-amber-400 text-sm italic border-t border-amber-500/20 pt-4">
                     "Mission-critical infrastructure that meets every regulatory requirement. Our patient data has never been more secure." — Medical Director, Multi-Specialty Clinic
                   </p>
                   </div>
@@ -862,7 +862,7 @@ export default function HomePage() {
                 </Link>
 
                 {/* Tier 3 - CLICKABLE */}
-                <Link href="/packages/architect" className="group rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-purple-400/50 hover:bg-purple-400/5 transition-all duration-300 cursor-pointer relative overflow-hidden">
+                <Link href="/packages/architect" className="group rounded-2xl border border-white/10 bg-white/5 p-8 hover:border-amber-400/50 hover:bg-amber-400/5 transition-all duration-300 cursor-pointer relative overflow-hidden">
                   {/* Background Image */}
                   <div className="absolute inset-0 z-0">
                     <Image
@@ -874,36 +874,36 @@ export default function HomePage() {
                   </div>
                   {/* Content */}
                   <div className="relative z-10">
-                  <h3 className="text-xl font-semibold text-amber-500 group-hover:text-purple-400 transition">Tier 3: Architect</h3>
+                  <h3 className="text-xl font-semibold text-amber-500 group-hover:text-amber-400 transition">Tier 3: Architect</h3>
                   <p className="mt-2 text-3xl font-bold">$20,000+</p>
                   <p className="mt-2 text-white/70 text-sm">Enterprise-grade infrastructure</p>
                   <ul className="mt-6 space-y-3 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-500 mt-0.5 group-hover:text-purple-400 transition">✓</span>
+                      <span className="text-amber-500 mt-0.5 group-hover:text-amber-400 transition">✓</span>
                       <span className="text-white/80">Enterprise-grade stack</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-500 mt-0.5 group-hover:text-purple-400 transition">✓</span>
+                      <span className="text-amber-500 mt-0.5 group-hover:text-amber-400 transition">✓</span>
                       <span className="text-white/80">High-availability clustering</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-500 mt-0.5 group-hover:text-purple-400 transition">✓</span>
+                      <span className="text-amber-500 mt-0.5 group-hover:text-amber-400 transition">✓</span>
                       <span className="text-white/80">Custom automation</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-500 mt-0.5 group-hover:text-purple-400 transition">✓</span>
+                      <span className="text-amber-500 mt-0.5 group-hover:text-amber-400 transition">✓</span>
                       <span className="text-white/80">Multi-site synchronization</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-500 mt-0.5 group-hover:text-purple-400 transition">✓</span>
+                      <span className="text-amber-500 mt-0.5 group-hover:text-amber-400 transition">✓</span>
                       <span className="text-white/80">Dedicated concierge</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-amber-500 mt-0.5 group-hover:text-purple-400 transition">✓</span>
+                      <span className="text-amber-500 mt-0.5 group-hover:text-amber-400 transition">✓</span>
                       <span className="text-white/80">12-month SLA</span>
                     </li>
                   </ul>
-                  <div className="mt-6 text-amber-500 group-hover:text-purple-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                  <div className="mt-6 text-amber-500 group-hover:text-amber-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
                     Learn More <ArrowRight className="h-4 w-4" />
                   </div>
                   </div>
@@ -953,7 +953,7 @@ export default function HomePage() {
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="text-xs px-2 py-1 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20">Synology NAS</span>
                       <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">RAID 10</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-purple-400/10 text-purple-400 border border-purple-400/20">VPN Access</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-amber-400 border border-amber-400/20">VPN Access</span>
                     </div>
                     <p className="text-amber-500 text-sm italic border-t border-white/10 pt-4">
                       "We finally own our data. Installation was seamless, support exceptional." — Boutique Law Firm
@@ -991,7 +991,7 @@ export default function HomePage() {
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="text-xs px-2 py-1 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20">pfSense</span>
                       <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">VLAN Segmentation</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-purple-400/10 text-purple-400 border border-purple-400/20">Proxmox</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-amber-400 border border-amber-400/20">Proxmox</span>
                       <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-amber-400 border border-amber-400/20">Home Assistant</span>
                     </div>
                     <p className="text-amber-500 text-sm italic border-t border-white/10 pt-4">
@@ -1004,7 +1004,7 @@ export default function HomePage() {
                 </Link>
 
                 {/* Tier 3 Showcase - CLICKABLE */}
-                <Link href="/tiers/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-400/20 cursor-pointer">
+                <Link href="/tiers/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-amber-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-400/20 cursor-pointer">
                   <div className="relative h-64 overflow-hidden">
                     <img
                       src="/images/250k-tier.png"
@@ -1013,27 +1013,27 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                      <div className="inline-flex px-3 py-1 rounded-full bg-purple-400 text-black text-xs font-semibold">
+                      <div className="inline-flex px-3 py-1 rounded-full bg-amber-400 text-black text-xs font-semibold">
                         ARCHITECT TIER
                       </div>
-                      <div className="text-purple-400 text-sm font-bold">$250k+</div>
+                      <div className="text-amber-400 text-sm font-bold">$250k+</div>
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-400 transition">AI Research Infrastructure</h3>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-amber-400 transition">AI Research Infrastructure</h3>
                     <p className="text-white/70 text-sm mb-4">
                       High-availability Proxmox cluster with GPU passthrough (NVIDIA A6000), on-prem LLM deployment (Ollama + Open WebUI), TrueNAS Scale storage array, and multi-site replication. Custom automation for model training and inference workloads.
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="text-xs px-2 py-1 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20">GPU Cluster</span>
                       <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">On-Prem AI</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-purple-400/10 text-purple-400 border border-purple-400/20">HA Cluster</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-amber-400 border border-amber-400/20">HA Cluster</span>
                       <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-amber-400 border border-amber-400/20">Multi-Site</span>
                     </div>
-                    <p className="text-purple-400 text-sm italic border-t border-white/10 pt-4">
+                    <p className="text-amber-400 text-sm italic border-t border-white/10 pt-4">
                       "Our research stays confidential. Performance exceeds cloud solutions." — AI Research Lab
                     </p>
-                    <div className="mt-4 text-purple-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <div className="mt-4 text-amber-400 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
                       View Full Details <ArrowRight className="h-4 w-4" />
                     </div>
                   </div>

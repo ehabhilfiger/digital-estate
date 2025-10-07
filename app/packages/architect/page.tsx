@@ -4,7 +4,7 @@ import { ArrowLeft, Check, Shield, Server, Cpu, Network, ArrowRight, Zap, Settin
 
 export default function ArchitectPackage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-purple-950/20 to-slate-950 text-white relative">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-amber-950/20 to-slate-950 text-white relative">
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <Image
@@ -18,18 +18,18 @@ export default function ArchitectPackage() {
       {/* Content */}
       <div className="relative z-10">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur border-b border-purple-400/30 bg-slate-950/50">
+      <header className="sticky top-0 z-50 backdrop-blur border-b border-amber-400/30 bg-slate-950/50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/#work" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
             <ArrowLeft className="h-4 w-4" />
             Back to Packages
           </Link>
           <div className="flex items-center gap-4">
-            <span className="px-3 py-1 rounded-full bg-purple-400 text-black text-xs font-bold">
+            <span className="px-3 py-1 rounded-full bg-amber-400 text-black text-xs font-bold">
               ENTERPRISE GRADE
             </span>
             <Link href="/start-project">
-              <button className="px-4 py-2 bg-purple-400 text-black rounded-xl hover:bg-purple-300 transition font-medium text-sm">
+              <button className="px-4 py-2 bg-amber-400 text-black rounded-xl hover:bg-amber-300 transition font-medium text-sm">
                 Get Started
               </button>
             </Link>
@@ -40,11 +40,11 @@ export default function ArchitectPackage() {
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-purple-400/20 border border-purple-400/40 text-purple-400 text-sm font-bold mb-6">
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-400 text-sm font-bold mb-6">
             TIER 3: ARCHITECT • ENTERPRISE
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Architect <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">Package</span>
+            Architect <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-400">Package</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Enterprise-grade infrastructure with high-availability clustering, custom automation, and dedicated concierge support. Built for organizations demanding perfection.
@@ -52,10 +52,10 @@ export default function ArchitectPackage() {
         </div>
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-purple-400 bg-gradient-to-br from-purple-400/20 via-amber-400/10 to-transparent p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-amber-400/10 to-slate-400/10 blur-3xl"></div>
+        <div className="mb-16 rounded-2xl border-2 border-amber-400 bg-gradient-to-br from-amber-400/20 via-amber-400/10 to-transparent p-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 via-amber-400/10 to-slate-400/10 blur-3xl"></div>
           <div className="relative">
-            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400 mb-4">
+            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-400 mb-4">
               $20,000+
             </div>
             <div className="text-xl text-white/80">Enterprise Architecture Package</div>
@@ -65,9 +65,9 @@ export default function ArchitectPackage() {
 
         {/* What's Included */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="rounded-2xl border-2 border-purple-400/50 bg-gradient-to-br from-purple-400/10 to-transparent p-8">
+          <div className="rounded-2xl border-2 border-amber-400/50 bg-gradient-to-br from-amber-400/10 to-transparent p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-purple-400" />
+              <Server className="h-8 w-8 text-amber-400" />
               Enterprise-Grade Stack
             </h2>
             <ul className="space-y-4">
@@ -80,7 +80,7 @@ export default function ArchitectPackage() {
                 'Disaster recovery with off-site replication',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -155,7 +155,7 @@ export default function ArchitectPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-purple-400" />
+              <Shield className="h-8 w-8 text-amber-400" />
               Dedicated Concierge
             </h2>
             <ul className="space-y-4">
@@ -168,7 +168,7 @@ export default function ArchitectPackage() {
                 'Technology roadmap planning',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -211,7 +211,7 @@ export default function ArchitectPackage() {
               { title: 'Knowledge Transfer', description: 'Team training and ongoing education for your IT staff' },
             ].map((item, i) => (
               <div key={i}>
-                <h3 className="font-semibold mb-2 text-purple-400">{item.title}</h3>
+                <h3 className="font-semibold mb-2 text-amber-400">{item.title}</h3>
                 <p className="text-sm text-white/70">{item.description}</p>
               </div>
             ))}
@@ -219,11 +219,11 @@ export default function ArchitectPackage() {
         </div>
 
         {/* Metrics */}
-        <div className="rounded-2xl border-2 border-purple-400/30 bg-gradient-to-br from-purple-400/5 to-transparent p-8 mb-16">
+        <div className="rounded-2xl border-2 border-amber-400/30 bg-gradient-to-br from-amber-400/5 to-transparent p-8 mb-16">
           <h2 className="text-2xl font-bold mb-6">Enterprise Performance Metrics</h2>
           <div className="grid md:grid-cols-4 gap-6 mb-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-400 mb-2">99.9%</div>
+              <div className="text-4xl font-bold text-amber-400 mb-2">99.9%</div>
               <div className="text-white/70">Uptime SLA</div>
             </div>
             <div className="text-center">
@@ -240,7 +240,7 @@ export default function ArchitectPackage() {
             </div>
           </div>
           <div className="border-t border-white/10 pt-6">
-            <p className="text-lg italic text-purple-400 text-center">
+            <p className="text-lg italic text-amber-400 text-center">
               "Enterprise-grade infrastructure with Fortune 500 reliability for organizations that demand perfection."
             </p>
           </div>
@@ -265,7 +265,7 @@ export default function ArchitectPackage() {
               },
             ].map((item, i) => (
               <div key={i} className="text-center">
-                <h3 className="font-semibold mb-2 text-purple-400">{item.title}</h3>
+                <h3 className="font-semibold mb-2 text-amber-400">{item.title}</h3>
                 <p className="text-sm text-white/70">{item.description}</p>
               </div>
             ))}
@@ -285,7 +285,7 @@ export default function ArchitectPackage() {
               { phase: 'Week 12', title: 'Go-Live & Knowledge Transfer', description: 'Production cutover, team training, documentation delivery' },
             ].map((item, i) => (
               <div key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-28 text-purple-400 font-semibold">{item.phase}</div>
+                <div className="flex-shrink-0 w-28 text-amber-400 font-semibold">{item.phase}</div>
                 <div className="flex-1">
                   <h3 className="font-semibold mb-1">{item.title}</h3>
                   <p className="text-sm text-white/70">{item.description}</p>
@@ -328,7 +328,7 @@ export default function ArchitectPackage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/start-project">
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-400 to-amber-400 text-black rounded-2xl hover:from-purple-300 hover:to-amber-300 transition font-bold text-lg shadow-lg shadow-purple-400/30">
+              <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-400 text-black rounded-2xl hover:from-amber-300 hover:to-amber-300 transition font-bold text-lg shadow-lg shadow-amber-400/30">
                 Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </Link>

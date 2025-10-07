@@ -109,7 +109,7 @@ export default function EstatePackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Home className="h-8 w-8 text-purple-400" />
+              <Home className="h-8 w-8 text-amber-400" />
               Smart Home Integration
             </h2>
             <ul className="space-y-4">
@@ -122,7 +122,7 @@ export default function EstatePackage() {
                 'Custom automation rules and scenes',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -239,7 +239,7 @@ export default function EstatePackage() {
               <div className="text-white/70">Devices Supported</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-400 mb-2">100%</div>
+              <div className="text-4xl font-bold text-amber-400 mb-2">100%</div>
               <div className="text-white/70">Local Control</div>
             </div>
             <div className="text-center">

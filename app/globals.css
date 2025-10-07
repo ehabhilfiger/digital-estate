@@ -4,20 +4,15 @@
   --background: #0a0a0a;
   --foreground: #ededed;
   
-  /* Anubis Egyptian Gold Palette */
+  /* Primary Gold Palette */
+  --primary-gold: #C8A64B;
   --anubis-gold-light: #E8D5B7;
-  --anubis-gold: #D4A574;
-  --anubis-gold-dark: #C2956B;
+  --anubis-gold: #C8A64B;
+  --anubis-gold-dark: #B8963B;
   --anubis-copper: #B87333;
   --anubis-copper-dark: #A65D2A;
   --anubis-sand: #C2B280;
   --anubis-sand-dark: #B5A572;
-  
-  /* Premium Purple for High-End Tiers */
-  --royal-purple-light: #A78BFA;
-  --royal-purple: #8B5CF6;
-  --royal-purple-dark: #7C3AED;
-  --deep-purple: #6D28D9;
   
   /* Sophisticated Greys - Egyptian Stone */
   --obsidian: #0A0A0A;
@@ -36,12 +31,25 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Override Tailwind amber colors with custom gold */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #D4A574;
+  --color-amber-500: #C8A64B;
+  --color-amber-600: #B8963B;
+  --color-amber-700: #A67C28;
+  --color-amber-800: #92661A;
+  --color-amber-900: #78521A;
+  --color-amber-950: #451a03;
 }
 
 body {
   background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Inter, system-ui, -apple-system, sans-serif;
 }
 
 /* Smooth scrolling */
@@ -62,25 +70,14 @@ html {
   box-shadow: 0 0 20px rgba(184, 115, 51, 0.3);
 }
 
-.purple-glow {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
-}
 
 /* Premium Gradients */
 .gradient-anubis {
-  background: linear-gradient(135deg, #D4A574 0%, #B87333 50%, #C2956B 100%);
-}
-
-.gradient-royal {
-  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  background: linear-gradient(135deg, #C8A64B 0%, #B87333 50%, #B8963B 100%);
 }
 
 .gradient-gold-subtle {
-  background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(184, 115, 51, 0.05) 100%);
-}
-
-.gradient-purple-subtle {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(124, 58, 237, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(200, 166, 75, 0.1) 0%, rgba(184, 115, 51, 0.05) 100%);
 }
 
 /* Egyptian texture overlay */

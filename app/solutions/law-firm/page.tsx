@@ -90,7 +90,7 @@ export default function LawFirmSolution() {
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <Shield className="h-12 w-12 text-purple-400 mx-auto mb-4" />
+              <Shield className="h-12 w-12 text-amber-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-3">Compliance Ready</h3>
               <p className="text-white/70 text-sm">
                 Meet ABA ethical obligations, HIPAA requirements, and data residency rules with local-first architecture.
@@ -136,7 +136,7 @@ export default function LawFirmSolution() {
             {/* Case Management */}
             <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <FileText className="h-8 w-8 text-purple-400" />
+                <FileText className="h-8 w-8 text-amber-400" />
                 Local Case Management System
               </h3>
               <ul className="space-y-4">
@@ -149,7 +149,7 @@ export default function LawFirmSolution() {
                   'Mobile app access for attorneys on the go',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                     <span className="text-white/80 text-sm">{item}</span>
                   </li>
                 ))}
@@ -205,11 +205,11 @@ export default function LawFirmSolution() {
         </div>
 
         {/* Ongoing Management Option */}
-        <div className="mb-16 rounded-2xl border-2 border-purple-500/50 bg-gradient-to-br from-purple-500/10 to-transparent p-8">
+        <div className="mb-16 rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-transparent p-8">
           <div className="flex items-start gap-4">
-            <Phone className="h-10 w-10 text-purple-400 flex-shrink-0 mt-1" />
+            <Phone className="h-10 w-10 text-amber-400 flex-shrink-0 mt-1" />
             <div>
-              <h3 className="text-2xl font-bold mb-3 text-purple-300">Want Us to Manage Everything?</h3>
+              <h3 className="text-2xl font-bold mb-3 text-amber-300">Want Us to Manage Everything?</h3>
               <p className="text-white/80 mb-4">
                 <strong>Call us</strong> to discuss our <strong>ongoing management services</strong>. We can handle all your caseload organization, document management, backups, monitoring, and system maintenance — letting you focus on practicing law.
               </p>
@@ -222,13 +222,13 @@ export default function LawFirmSolution() {
                   'Priority support with 4-hour response time',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <Check className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
                     <span className="text-white/70">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link href="/start-project">
-                <button className="px-6 py-3 bg-purple-500 text-white rounded-xl hover:bg-purple-400 transition font-semibold">
+                <button className="px-6 py-3 bg-amber-500 text-white rounded-xl hover:bg-amber-400 transition font-semibold">
                   Schedule a Call
                 </button>
               </Link>
@@ -245,7 +245,7 @@ export default function LawFirmSolution() {
               <div className="text-white/70">Cost Reduction vs SaaS</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-400 mb-2">100%</div>
+              <div className="text-4xl font-bold text-amber-400 mb-2">100%</div>
               <div className="text-white/70">Client Data Privacy</div>
             </div>
             <div className="text-center">
@@ -261,7 +261,7 @@ export default function LawFirmSolution() {
               <p className="text-white/60">— Managing Partner, 5-Attorney Firm, Chicago</p>
             </div>
             <div>
-              <p className="text-lg italic text-purple-400 mb-2">
+              <p className="text-lg italic text-amber-400 mb-2">
                 "We cut our document management costs by $18,000/year and sleep better knowing everything is encrypted and local."
               </p>
               <p className="text-white/60">— Solo Practitioner, Estate Planning</p>

@@ -34,7 +34,7 @@ export default function HealthcareSolution() {
             Back to Home
           </Link>
           <Link href="/start-project">
-            <button className="px-4 py-2 bg-purple-500 text-white rounded-xl hover:bg-purple-400 transition font-medium text-sm">
+            <button className="px-4 py-2 bg-amber-500 text-white rounded-xl hover:bg-amber-400 transition font-medium text-sm">
               Schedule Consultation
             </button>
           </Link>
@@ -52,17 +52,17 @@ export default function HealthcareSolution() {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/70 to-slate-950"></div>
         </div>
         <div className="relative max-w-6xl mx-auto px-4 py-32 text-center">
-          <div className="inline-flex px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-6 backdrop-blur-sm">
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm mb-6 backdrop-blur-sm">
             <div className="flex items-center gap-2">
               <Heart className="h-4 w-4" />
               HEALTHCARE SOLUTION
             </div>
           </div>
-          <div className="inline-flex px-4 py-2 rounded-full bg-purple-500 text-white text-xs font-bold mb-6 ml-2">
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500 text-white text-xs font-bold mb-6 ml-2">
             10/10 HIPAA COMPLIANT
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-purple-400">HIPAA-Grade Infrastructure</span> for Medical Facilities
+            <span className="text-amber-400">HIPAA-Grade Infrastructure</span> for Medical Facilities
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
             Patient data sovereignty starts with enterprise infrastructure. Deploy a HIPAA-compliant, zero-trust medical records system with 99.99% uptime, complete audit trails, and air-gapped backups.
@@ -73,12 +73,12 @@ export default function HealthcareSolution() {
       <main className="max-w-6xl mx-auto px-4 py-8">
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-purple-500 bg-gradient-to-br from-purple-500/10 to-pink-500/5 p-12 text-center">
-          <div className="text-sm text-purple-400 font-semibold mb-2">ENTERPRISE PRICING</div>
-          <div className="text-6xl font-bold text-purple-400 mb-4">$35,000+</div>
+        <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/10 to-amber-600/5 p-12 text-center">
+          <div className="text-sm text-amber-400 font-semibold mb-2">ENTERPRISE PRICING</div>
+          <div className="text-6xl font-bold text-amber-400 mb-4">$35,000+</div>
           <div className="text-xl text-white/80">Complete HIPAA Infrastructure Deployment</div>
           <div className="mt-4 text-white/60">Installation + Training + 12-month enterprise support + 24/7 monitoring</div>
-          <div className="mt-6 text-purple-400 font-semibold">$2,500+/month managed services</div>
+          <div className="mt-6 text-amber-400 font-semibold">$2,500+/month managed services</div>
         </div>
 
         {/* Critical Alert */}
@@ -102,7 +102,7 @@ export default function HealthcareSolution() {
           <h2 className="text-3xl font-bold mb-8 text-center">Why Medical Facilities Need Private Infrastructure</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <Heart className="h-12 w-12 text-purple-400 mx-auto mb-4" />
+              <Heart className="h-12 w-12 text-amber-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-3">Patient Privacy</h3>
               <p className="text-white/70 text-sm">
                 HIPAA compliance demands absolute data control. No third-party cloud providers accessing sensitive patient records or medical histories.
@@ -130,9 +130,9 @@ export default function HealthcareSolution() {
           <h2 className="text-3xl font-bold mb-8 text-center">Complete HIPAA Solution — From Deployment to Certification</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Infrastructure */}
-            <div className="rounded-2xl border border-purple-500/30 bg-purple-500/5 p-8">
+            <div className="rounded-2xl border border-amber-500/30 bg-amber-500/5 p-8">
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Server className="h-8 w-8 text-purple-400" />
+                <Server className="h-8 w-8 text-amber-400" />
                 Enterprise Infrastructure
               </h3>
               <ul className="space-y-4">
@@ -147,7 +147,7 @@ export default function HealthcareSolution() {
                   'Dedicated firewall appliance (pfSense or similar)',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
                     <span className="text-white/80 text-sm">{item}</span>
                   </li>
                 ))}
@@ -232,11 +232,11 @@ export default function HealthcareSolution() {
         </div>
 
         {/* Managed Services */}
-        <div className="mb-16 rounded-2xl border-2 border-purple-500/50 bg-gradient-to-br from-purple-500/10 to-transparent p-8">
+        <div className="mb-16 rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-transparent p-8">
           <div className="flex items-start gap-4">
-            <Phone className="h-10 w-10 text-purple-400 flex-shrink-0 mt-1" />
+            <Phone className="h-10 w-10 text-amber-400 flex-shrink-0 mt-1" />
             <div>
-              <h3 className="text-2xl font-bold mb-3 text-purple-300">Fully Managed Healthcare IT Services</h3>
+              <h3 className="text-2xl font-bold mb-3 text-amber-300">Fully Managed Healthcare IT Services</h3>
               <p className="text-white/80 mb-4">
                 Focus on patient care while we handle everything else. Our <strong>$2,500+/month managed services</strong> include 24/7 monitoring, proactive maintenance, compliance updates, staff training, and guaranteed uptime.
               </p>
@@ -252,13 +252,13 @@ export default function HealthcareSolution() {
                   'Disaster recovery drills and business continuity planning',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <Check className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
                     <span className="text-white/70">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link href="/start-project">
-                <button className="px-6 py-3 bg-purple-500 text-white rounded-xl hover:bg-purple-400 transition font-semibold">
+                <button className="px-6 py-3 bg-amber-500 text-white rounded-xl hover:bg-amber-400 transition font-semibold">
                   Schedule Enterprise Consultation
                 </button>
               </Link>
@@ -271,7 +271,7 @@ export default function HealthcareSolution() {
           <h2 className="text-2xl font-bold mb-6">Healthcare Facilities We've Protected</h2>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-400 mb-2">99.99%</div>
+              <div className="text-4xl font-bold text-amber-400 mb-2">99.99%</div>
               <div className="text-white/70">Uptime Achieved</div>
             </div>
             <div className="text-center">
@@ -285,7 +285,7 @@ export default function HealthcareSolution() {
           </div>
           <div className="border-t border-white/10 pt-6 space-y-4">
             <div>
-              <p className="text-lg italic text-purple-400 mb-2">
+              <p className="text-lg italic text-amber-400 mb-2">
                 "Mission-critical infrastructure that meets every regulatory requirement. Our patient data has never been more secure, and we passed our OCR audit with zero findings."
               </p>
               <p className="text-white/60">— Medical Director, Multi-Specialty Clinic (8 Physicians)</p>
@@ -309,7 +309,7 @@ export default function HealthcareSolution() {
               { title: 'Dental Practices', desc: 'Imaging & records' },
               { title: 'Surgery Centers', desc: 'Critical uptime' },
             ].map((use, i) => (
-              <div key={i} className="rounded-xl border border-purple-500/30 bg-purple-500/5 p-6 text-center">
+              <div key={i} className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-6 text-center">
                 <div className="text-lg font-bold mb-2">{use.title}</div>
                 <div className="text-sm text-white/60">{use.desc}</div>
               </div>
@@ -335,7 +335,7 @@ export default function HealthcareSolution() {
               'LDAP/Active Directory',
               'Two-Factor Authentication',
             ].map((tech) => (
-              <span key={tech} className="px-4 py-2 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-400/20 text-sm">
+              <span key={tech} className="px-4 py-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-400/20 text-sm">
                 {tech}
               </span>
             ))}
@@ -352,7 +352,7 @@ export default function HealthcareSolution() {
               <p className="text-sm text-white/70">Full compliance with Security Rule, Privacy Rule, and Breach Notification Rule</p>
             </div>
             <div>
-              <Lock className="h-12 w-12 text-purple-400 mx-auto mb-3" />
+              <Lock className="h-12 w-12 text-amber-400 mx-auto mb-3" />
               <h3 className="font-bold mb-2">HITECH Act</h3>
               <p className="text-sm text-white/70">Meets all electronic health record security requirements</p>
             </div>
@@ -371,7 +371,7 @@ export default function HealthcareSolution() {
             Schedule an enterprise consultation to discuss your facility's needs. We'll conduct a security assessment, design a HIPAA-compliant solution, deploy redundant infrastructure, train your staff, and provide 24/7 support.
           </p>
           <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-purple-500 text-white rounded-2xl hover:bg-purple-400 transition font-bold text-lg shadow-lg shadow-purple-500/20">
+            <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-white rounded-2xl hover:bg-amber-400 transition font-bold text-lg shadow-lg shadow-amber-500/20">
               Schedule Enterprise Consultation
             </button>
           </Link>
