@@ -4,7 +4,7 @@ import { ArrowLeft, Check, Shield, Server, Lock, Zap, ArrowRight } from 'lucide-
 
 export default function FoundationTier() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -13,7 +13,7 @@ export default function FoundationTier() {
             Back to Home
           </Link>
           <Link href="/start-project">
-            <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium text-sm">
+            <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium text-sm">
               Request This Package
             </button>
           </Link>
@@ -64,7 +64,7 @@ export default function FoundationTier() {
                 alt="DarkGPT Logo" 
                 className="h-12 w-auto"
               />
-              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-400">
+              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-500">
                 DarkGPT — Unrestricted Local AI
               </h2>
             </div>
@@ -72,7 +72,7 @@ export default function FoundationTier() {
               We install a completely private, uncensored local LLM that <strong className="text-white">never says no</strong>. Fully customized to your needs, running entirely on your hardware with zero external connections.
             </p>
             <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-amber-500/20">
-              <h3 className="text-xl font-semibold text-amber-400 mb-3">One Week On-Site Programming</h3>
+              <h3 className="text-xl font-semibold text-amber-500 mb-3">One Week On-Site Programming</h3>
               <p className="text-white/70 mb-4">
                 I'll spend an entire week at your location fine-tuning DarkGPT until every parameter is dialed in perfectly. We don't stop until you're 100% satisfied with how it responds, thinks, and caters to your specific needs.
               </p>
@@ -84,28 +84,28 @@ export default function FoundationTier() {
               </div>
               <ul className="space-y-3 text-sm text-white/70">
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>Custom-trained on your preferences and workflows</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>No censorship, no limitations, no external oversight</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>Completely private — your conversations never leave your network</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>Integrates with your entire digital estate</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span>One full week of on-site fine-tuning and customization</span>
                 </li>
               </ul>
             </div>
-            <p className="text-amber-400 font-semibold italic">
+            <p className="text-amber-500 font-semibold italic">
               "Your AI. Your rules. Zero compromises."
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function FoundationTier() {
               <div className="text-white/70">Data Sovereignty</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-400 mb-2">24/7</div>
+              <div className="text-4xl font-bold text-amber-500 mb-2">24/7</div>
               <div className="text-white/70">Local Access</div>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function FoundationTier() {
             This package is perfect for solo practitioners, boutique law firms, and professionals who value data sovereignty without enterprise complexity.
           </p>
           <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-400 transition font-bold text-lg shadow-lg shadow-amber-500/20">
+            <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-500 transition font-bold text-lg shadow-lg shadow-amber-500/20">
               Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
             </button>
           </Link>

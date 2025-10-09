@@ -138,7 +138,7 @@ export default function MapPage() {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'critical': return 'border-red-500/50 bg-red-500/10 text-red-400';
-      case 'high': return 'border-amber-500/50 bg-amber-500/10 text-amber-400';
+      case 'high': return 'border-amber-500/50 bg-amber-500/10 text-amber-500';
       case 'medium': return 'border-blue-500/50 bg-blue-500/10 text-blue-400';
       case 'low': return 'border-purple-500/50 bg-purple-500/10 text-purple-400';
       default: return 'border-white/20 bg-white/5 text-white';
@@ -214,7 +214,7 @@ export default function MapPage() {
             <AnimatePresence>
               {!revealedNodes.includes(node.children[0].id) && (
                 <motion.button
-                  className="mt-3 px-4 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm hover:bg-amber-500/20 transition-all"
+                  className="mt-3 px-4 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-500 text-sm hover:bg-amber-500/20 transition-all"
                   onClick={(e) => {
                     e.stopPropagation();
                     node.children?.forEach(child => revealNode(child.id));
@@ -253,7 +253,7 @@ export default function MapPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
       {/* Header */}
       <motion.header
         className="sticky top-0 z-50 backdrop-blur border-b border-white/10"
@@ -429,7 +429,7 @@ export default function MapPage() {
             <a
               href="/sitemap.xml"
               target="_blank"
-              className="font-mono text-sm text-amber-500 hover:text-amber-400 transition-colors"
+              className="font-mono text-sm text-amber-500 hover:text-amber-500 transition-colors"
             >
               https://digital-estate-orcin.vercel.app/sitemap.xml
             </a>

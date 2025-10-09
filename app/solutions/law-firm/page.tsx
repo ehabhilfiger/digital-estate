@@ -20,7 +20,7 @@ export default function LawFirmSolution() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
       {/* Header */}
       <motion.header
         className="sticky top-0 z-50 backdrop-blur border-b border-white/10"
@@ -34,37 +34,41 @@ export default function LawFirmSolution() {
             Back to Home
           </Link>
           <Link href="/start-project">
-            <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium text-sm">
+            <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium text-sm">
               Schedule Consultation
             </button>
           </Link>
         </div>
       </motion.header>
 
-      {/* Hero with Background Image */}
-      <div className="relative mb-16 -mt-16">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="/images/lawfirm.png"
-            alt="Law Firm Infrastructure"
-            className="w-full h-full object-cover opacity-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/70 to-slate-950"></div>
-        </div>
-        <div className="relative max-w-6xl mx-auto px-4 py-32 text-center">
-          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6 backdrop-blur-sm">
+      <main className="max-w-6xl mx-auto px-4 py-16">
+        {/* Hero */}
+        <div className="text-center mb-12">
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
             LAW FIRM SOLUTION
+          </div>
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500 text-white text-xs font-bold mb-6">
+            10/10 ABA COMPLIANT
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="text-amber-500">Complete Digital Infrastructure</span> for Law Firms
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Attorney-client privilege starts with data sovereignty. Deploy a private, secure case management system that keeps everything local, encrypted, and compliant.
           </p>
         </div>
-      </div>
 
-      <main className="max-w-6xl mx-auto px-4 py-8">
+        {/* Image Showcase - Centerpiece */}
+        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-2xl copper-glow">
+          <Image
+            src="/images/lawfirm.png"
+            alt="Law Firm Infrastructure - ABA-compliant legal practice"
+            width={1200}
+            height={800}
+            className="w-full h-auto"
+            priority
+          />
+        </div>
 
         {/* Pricing */}
         <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/10 to-transparent p-12 text-center">
@@ -90,7 +94,7 @@ export default function LawFirmSolution() {
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <Shield className="h-12 w-12 text-amber-400 mx-auto mb-4" />
+              <Shield className="h-12 w-12 text-amber-500 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-3">Compliance Ready</h3>
               <p className="text-white/70 text-sm">
                 Meet ABA ethical obligations, HIPAA requirements, and data residency rules with local-first architecture.
@@ -136,7 +140,7 @@ export default function LawFirmSolution() {
             {/* Case Management */}
             <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <FileText className="h-8 w-8 text-amber-400" />
+                <FileText className="h-8 w-8 text-amber-500" />
                 Local Case Management System
               </h3>
               <ul className="space-y-4">
@@ -149,7 +153,7 @@ export default function LawFirmSolution() {
                   'Mobile app access for attorneys on the go',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                     <span className="text-white/80 text-sm">{item}</span>
                   </li>
                 ))}
@@ -207,7 +211,7 @@ export default function LawFirmSolution() {
         {/* Ongoing Management Option */}
         <div className="mb-16 rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-transparent p-8">
           <div className="flex items-start gap-4">
-            <Phone className="h-10 w-10 text-amber-400 flex-shrink-0 mt-1" />
+            <Phone className="h-10 w-10 text-amber-500 flex-shrink-0 mt-1" />
             <div>
               <h3 className="text-2xl font-bold mb-3 text-amber-300">Want Us to Manage Everything?</h3>
               <p className="text-white/80 mb-4">
@@ -222,13 +226,13 @@ export default function LawFirmSolution() {
                   'Priority support with 4-hour response time',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <Check className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
                     <span className="text-white/70">{item}</span>
                   </li>
                 ))}
               </ul>
               <Link href="/start-project">
-                <button className="px-6 py-3 bg-amber-500 text-white rounded-xl hover:bg-amber-400 transition font-semibold">
+                <button className="px-6 py-3 bg-amber-500 text-white rounded-xl hover:bg-amber-500 transition font-semibold">
                   Schedule a Call
                 </button>
               </Link>
@@ -245,7 +249,7 @@ export default function LawFirmSolution() {
               <div className="text-white/70">Cost Reduction vs SaaS</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-400 mb-2">100%</div>
+              <div className="text-4xl font-bold text-amber-500 mb-2">100%</div>
               <div className="text-white/70">Client Data Privacy</div>
             </div>
             <div className="text-center">
@@ -261,7 +265,7 @@ export default function LawFirmSolution() {
               <p className="text-white/60">— Managing Partner, 5-Attorney Firm, Chicago</p>
             </div>
             <div>
-              <p className="text-lg italic text-amber-400 mb-2">
+              <p className="text-lg italic text-amber-500 mb-2">
                 "We cut our document management costs by $18,000/year and sleep better knowing everything is encrypted and local."
               </p>
               <p className="text-white/60">— Solo Practitioner, Estate Planning</p>
@@ -301,7 +305,7 @@ export default function LawFirmSolution() {
               'Role-Based Access Control',
               'Full Disk Encryption',
             ].map((tech) => (
-              <span key={tech} className="px-4 py-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-400/20 text-sm">
+              <span key={tech} className="px-4 py-2 rounded-lg bg-amber-500/10 text-amber-500 border border-amber-500/20 text-sm">
                 {tech}
               </span>
             ))}
@@ -315,7 +319,7 @@ export default function LawFirmSolution() {
             Schedule a consultation to discuss your firm's needs. We'll design a custom solution, install everything on-site, train your team, and provide ongoing support.
           </p>
           <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-400 transition font-bold text-lg shadow-lg shadow-amber-500/20">
+            <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-500 transition font-bold text-lg shadow-lg shadow-amber-500/20">
               Schedule Your Consultation
             </button>
           </Link>

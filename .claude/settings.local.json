@@ -7,7 +7,22 @@
       "Bash(npm run build:*)",
       "Bash(npm run dev:*)",
       "Bash(curl:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nUpdate site to exact 1:1 match with live deployment\n\n- Update hero text to ''Ehab Allababidi — Private AI Systems Architect''\n- Override Tailwind amber colors with custom gold (#C8A64B)\n- Remove all purple color references, replace with amber/gold\n- Update body font to Geist Sans with Inter fallback\n- Update theme-color meta tag to #C8A64B\n- Ensure all text content matches live site exactly\n- Update all solution, package, and tier pages with correct colors\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(where gh)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo create:*)",
+      "Read(//c/Users/defco/OneDrive/Desktop/**)",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npx create-next-app:*)",
+      "Read(//c//**)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git config:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: DarkGPT - Unrestricted Intelligence System\n\nComplete 1:1 replica of https://darkgpt-official.vercel.app/\n\nFeatures:\n- Exact UI/UX match with original site\n- Custom animations (pulse-slow, fade-in)\n- Noise texture background effect\n- Responsive design (mobile & desktop)\n- Password visibility toggle\n- Amber/gold color scheme with zinc backgrounds\n- Terminal SAP clearance badge\n- \"Grant Access\" authorization form\n- Secure connection status indicators\n\nTech Stack:\n- Next.js 15.5.4 with Turbopack\n- React 19\n- TypeScript\n- Tailwind CSS v4\n- Lucide React icons\n- Geist fonts\n\nCreated by Ehab Allababidi & Nikoloas Markou\n\n🤖 Generated with Claude Code\nEOF\n)\")",
+      "Bash(npm install openai --prefix \"C:\\Users\\defco\\OneDrive\\Desktop\\darkgptv2\")"
     ],
     "deny": [],
     "ask": []

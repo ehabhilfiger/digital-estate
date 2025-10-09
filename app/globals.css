@@ -1,29 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #000000;
+  --foreground: #f5f5f5;
   
-  /* Primary Gold Palette */
-  --primary-gold: #C8A64B;
-  --anubis-gold-light: #E8D5B7;
-  --anubis-gold: #C8A64B;
-  --anubis-gold-dark: #B8963B;
-  --anubis-copper: #B87333;
-  --anubis-copper-dark: #A65D2A;
-  --anubis-sand: #C2B280;
-  --anubis-sand-dark: #B5A572;
+  /* Blue and Copper Palette - Professional Look */
+  --primary-blue: #1E40AF;
+  --blue-light: #3B82F6;
+  --blue-dark: #1E3A8A;
+  --blue-accent: #2563EB;
+  --blue-subtle: #DBEAFE;
   
-  /* Sophisticated Greys - Egyptian Stone */
-  --obsidian: #0A0A0A;
-  --charcoal: #1A1A1A;
-  --slate-dark: #1E293B;
-  --slate: #334155;
-  --slate-light: #475569;
-  --slate-lighter: #64748B;
-  --stone: #94A3B8;
-  --stone-light: #CBD5E1;
-  --pearl: #E2E8F0;
+  --primary-copper: #B87333;
+  --copper-light: #D4A574;
+  --copper-dark: #8B4513;
+  --copper-accent: #CD7F32;
+  --copper-bright: #E6A85C;
+  
+  /* Egyptian-Inspired Black & Grey Scale */
+  --obsidian: #000000;
+  --charcoal: #0A0A0A;
+  --slate-dark: #1A1A1A;
+  --slate: #2A2A2A;
+  --slate-light: #3A3A3A;
+  --slate-lighter: #4A4A4A;
+  --stone: #6A6A6A;
+  --stone-light: #8A8A8A;
+  --pearl: #B0B0B0;
+  --egyptian-black: #000000;
+  --egyptian-charcoal: #1A1A1A;
 }
 
 @theme inline {
@@ -32,22 +37,34 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Override Tailwind amber colors with custom gold */
-  --color-amber-50: #fffbeb;
-  --color-amber-100: #fef3c7;
-  --color-amber-200: #fde68a;
-  --color-amber-300: #fcd34d;
-  --color-amber-400: #D4A574;
-  --color-amber-500: #C8A64B;
-  --color-amber-600: #B8963B;
-  --color-amber-700: #A67C28;
-  --color-amber-800: #92661A;
-  --color-amber-900: #78521A;
-  --color-amber-950: #451a03;
+  /* Override Tailwind colors with blue and yellow */
+  --color-blue-50: #EFF6FF;
+  --color-blue-100: #DBEAFE;
+  --color-blue-200: #BFDBFE;
+  --color-blue-300: #93C5FD;
+  --color-blue-400: #60A5FA;
+  --color-blue-500: #3B82F6;
+  --color-blue-600: #2563EB;
+  --color-blue-700: #1D4ED8;
+  --color-blue-800: #1E40AF;
+  --color-blue-900: #1E3A8A;
+  --color-blue-950: #172554;
+  
+  --color-amber-50: #FFFBEB;
+  --color-amber-100: #FEF3C7;
+  --color-amber-200: #FDE68A;
+  --color-amber-300: #FCD34D;
+  --color-amber-400: #FBBF24;
+  --color-amber-500: #B87333;
+  --color-amber-600: #D97706;
+  --color-amber-700: #B45309;
+  --color-amber-800: #92400E;
+  --color-amber-900: #78350F;
+  --color-amber-950: #451A03;
 }
 
 body {
-  background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+  background: linear-gradient(to bottom, #0F172A 0%, #1E293B 30%, #334155 70%, #0F172A 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Inter, system-ui, -apple-system, sans-serif;
 }
@@ -57,32 +74,59 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Anubis Gold Glow Effects */
-.gold-glow {
-  box-shadow: 0 0 20px rgba(212, 165, 116, 0.3);
+/* Blue and Yellow Glow Effects - Matching Old Website */
+.blue-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
 }
 
-.gold-glow-lg {
-  box-shadow: 0 0 40px rgba(212, 165, 116, 0.4), 0 0 60px rgba(212, 165, 116, 0.2);
+.blue-glow-lg {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.7), 0 0 60px rgba(59, 130, 246, 0.5);
 }
 
 .copper-glow {
-  box-shadow: 0 0 20px rgba(184, 115, 51, 0.3);
+  box-shadow: 0 0 20px rgba(184, 115, 51, 0.6);
+}
+
+.copper-glow-lg {
+  box-shadow: 0 0 40px rgba(184, 115, 51, 0.7), 0 0 60px rgba(184, 115, 51, 0.5);
 }
 
 
-/* Premium Gradients */
-.gradient-anubis {
-  background: linear-gradient(135deg, #C8A64B 0%, #B87333 50%, #B8963B 100%);
+/* Blue and Yellow Gradients - Matching Old Website */
+.gradient-blue {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%);
 }
 
-.gradient-gold-subtle {
-  background: linear-gradient(135deg, rgba(200, 166, 75, 0.1) 0%, rgba(184, 115, 51, 0.05) 100%);
+.gradient-blue-subtle {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.08) 100%);
 }
 
-/* Egyptian texture overlay */
-.egyptian-texture {
+.gradient-copper {
+  background: linear-gradient(135deg, #D4A574 0%, #B87333 50%, #8B4513 100%);
+}
+
+.gradient-copper-subtle {
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.15) 0%, rgba(184, 115, 51, 0.08) 100%);
+}
+
+/* Blue and Yellow texture overlay - Matching Old Website */
+.blue-texture {
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(184, 115, 51, 0.03) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+}
+
+.copper-texture {
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(184, 115, 51, 0.03) 0%, transparent 50%);
+}
+
+/* Blue and Copper pattern - Professional Look */
+.blue-pattern {
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(59, 130, 246, 0.02) 20px, rgba(59, 130, 246, 0.02) 40px);
+}
+
+.copper-pattern {
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(184, 115, 51, 0.02) 20px, rgba(184, 115, 51, 0.02) 40px);
 }

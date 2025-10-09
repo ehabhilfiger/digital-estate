@@ -11,7 +11,7 @@ export default function SecretPage() {
 
   return (
     <SecretGate>
-      <div className="min-h-screen bg-black text-white overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white overflow-hidden egyptian-texture">
         {/* Enhanced Animated Background */}
         <div className="fixed inset-0 bg-gradient-to-br from-black via-zinc-950 to-black">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,165,116,0.12),transparent_50%)]" />
@@ -40,10 +40,10 @@ export default function SecretPage() {
               </div>
               <Link
                 href="/"
-                className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500/15 to-yellow-600/15 border-2 border-amber-500/40 hover:border-amber-400/60 transition-all hover:shadow-xl hover:shadow-amber-500/30 hover:from-amber-500/25 hover:to-yellow-600/25"
+                className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500/15 to-yellow-600/15 border-2 border-amber-500/40 hover:border-amber-500/60 transition-all hover:shadow-xl hover:shadow-amber-500/30 hover:from-amber-500/25 hover:to-yellow-600/25"
               >
-                <span className="text-sm font-semibold text-amber-400 group-hover:text-amber-300">Exit Vault</span>
-                <Lock className="h-4 w-4 text-amber-400 group-hover:text-amber-300" />
+                <span className="text-sm font-semibold text-amber-500 group-hover:text-amber-300">Exit Vault</span>
+                <Lock className="h-4 w-4 text-amber-500 group-hover:text-amber-300" />
               </Link>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function SecretPage() {
         <main className="relative max-w-7xl mx-auto px-6 py-20">
           {/* Enhanced Welcome Section */}
           <div className="text-center mb-24">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/25 via-yellow-600/25 to-amber-500/25 border-2 border-amber-500/40 text-amber-400 text-sm mb-10 shadow-2xl shadow-amber-500/20 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/25 via-yellow-600/25 to-amber-500/25 border-2 border-amber-500/40 text-amber-500 text-sm mb-10 shadow-2xl shadow-amber-500/20 backdrop-blur-sm">
               <Sparkles className="h-5 w-5 animate-pulse" />
               <span className="font-bold tracking-wide">ACCESS GRANTED</span>
               <Key className="h-5 w-5" />
@@ -67,7 +67,7 @@ export default function SecretPage() {
 
           {/* Enhanced Feature Grid with Egyptian Theme */}
           <div className="grid md:grid-cols-3 gap-8 mb-24">
-            <div className="group relative rounded-3xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-yellow-600/5 to-amber-500/10 p-10 hover:border-amber-400/60 transition-all hover:shadow-2xl hover:shadow-amber-500/30 hover:-translate-y-2 duration-300 backdrop-blur-sm">
+            <div className="group relative rounded-3xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-yellow-600/5 to-amber-500/10 p-10 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/30 hover:-translate-y-2 duration-300 backdrop-blur-sm">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-transparent to-yellow-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <Star className="relative h-16 w-16 text-amber-500 mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform drop-shadow-lg" />
               <h3 className="relative text-2xl font-bold mb-4 text-amber-100">Premium Intel</h3>
@@ -108,7 +108,7 @@ export default function SecretPage() {
               </div>
               <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-amber-500/15 border-2 border-amber-500/30 shadow-lg shadow-amber-500/10">
                 <FileText className="h-5 w-5 text-amber-500" />
-                <span className="text-sm font-bold text-amber-400">9 Documents</span>
+                <span className="text-sm font-bold text-amber-500">9 Documents</span>
               </div>
             </div>
             
@@ -131,7 +131,7 @@ export default function SecretPage() {
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Enterprise Infrastructure Blueprint
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-400 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Complete deployment guide with network diagrams
@@ -149,7 +149,7 @@ export default function SecretPage() {
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Advanced Security Protocols
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-400 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Zero-trust architecture with firewall rules
@@ -167,7 +167,7 @@ export default function SecretPage() {
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Client Contract Templates
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-400 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Legal agreements and service level docs
@@ -185,7 +185,7 @@ export default function SecretPage() {
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       On-Prem AI Deployment Scripts
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-400 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Ollama, llama.cpp, Open WebUI automation
@@ -203,7 +203,7 @@ export default function SecretPage() {
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Proxmox GPU Passthrough
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-400 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     NVIDIA GPU configuration for VMs
@@ -221,7 +221,7 @@ export default function SecretPage() {
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       TrueNAS Scale Configuration
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-400 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     ZFS pool optimization and app deployment
@@ -239,7 +239,7 @@ export default function SecretPage() {
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       WireGuard VPN Automation
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-400 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Client provisioning and QR code generation
@@ -257,7 +257,7 @@ export default function SecretPage() {
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Documentation Vault Index
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-400 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Master repository overview and catalog
@@ -269,7 +269,7 @@ export default function SecretPage() {
 
             <div className="relative mt-12 p-8 rounded-2xl bg-gradient-to-r from-amber-500/15 via-yellow-600/15 to-amber-500/15 border-2 border-amber-500/40 shadow-2xl shadow-amber-500/10 backdrop-blur-sm">
               <div className="flex items-start gap-5">
-                <Shield className="h-7 w-7 text-amber-400 flex-shrink-0 mt-1" />
+                <Shield className="h-7 w-7 text-amber-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-base font-bold text-amber-300 mb-2">
                     ⚠️ Confidentiality Notice
@@ -284,10 +284,10 @@ export default function SecretPage() {
 
           {/* Enhanced Stats Grid */}
           <div className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="relative group rounded-2xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-black to-amber-500/10 p-10 text-center hover:border-amber-400/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 duration-300">
+            <div className="relative group rounded-2xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-black to-amber-500/10 p-10 text-center hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/15 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <FileText className="relative h-10 w-10 text-amber-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <div className="relative text-5xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent mb-3">9</div>
+              <div className="relative text-5xl font-bold bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent mb-3">9</div>
               <div className="relative text-sm text-zinc-300 tracking-wider font-medium">Documents</div>
             </div>
 
@@ -305,10 +305,10 @@ export default function SecretPage() {
               <div className="relative text-sm text-zinc-300 tracking-wider font-medium">Encrypted</div>
             </div>
 
-            <div className="relative group rounded-2xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-black to-yellow-600/10 p-10 text-center hover:border-amber-400/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 duration-300">
+            <div className="relative group rounded-2xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-black to-yellow-600/10 p-10 text-center hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-yellow-500/15 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Crown className="relative h-10 w-10 text-amber-400 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <div className="relative text-5xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent mb-3">Elite</div>
+              <Crown className="relative h-10 w-10 text-amber-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <div className="relative text-5xl font-bold bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent mb-3">Elite</div>
               <div className="relative text-sm text-zinc-300 tracking-wider font-medium">Access Level</div>
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function SecretPage() {
             </p>
             <p className="text-zinc-500 text-sm">
               For support or access issues, contact:{' '}
-              <a href="mailto:defcon5ready@gmail.com" className="text-amber-500 hover:text-amber-400 transition underline decoration-amber-500/40 font-medium">
+              <a href="mailto:defcon5ready@gmail.com" className="text-amber-500 hover:text-amber-500 transition underline decoration-amber-500/40 font-medium">
                 defcon5ready@gmail.com
               </a>
             </p>

@@ -4,7 +4,7 @@ import { ArrowLeft, Check, Shield, Server, Home, Network, ArrowRight, Zap, Brain
 
 export default function EstatePackage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white relative">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white relative egyptian-texture">
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <Image
@@ -29,7 +29,7 @@ export default function EstatePackage() {
               MOST POPULAR
             </span>
             <Link href="/start-project">
-              <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium text-sm">
+              <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium text-sm">
                 Get Started
               </button>
             </Link>
@@ -40,15 +40,27 @@ export default function EstatePackage() {
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500 text-black text-sm font-bold mb-6">
-            TIER 2: ESTATE • MOST POPULAR
+          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
+            ESTATE PACKAGE
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Estate <span className="text-amber-500">Package</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Comprehensive digital estate for professionals and families. Multi-server deployment with advanced security, smart home integration, and on-prem AI capabilities.
           </p>
+        </div>
+
+        {/* Image Showcase - Centerpiece */}
+        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-2xl copper-glow">
+          <Image
+            src="/images/25k.webp"
+            alt="Estate Package - Comprehensive digital estate"
+            width={1200}
+            height={800}
+            className="w-full h-auto"
+            priority
+          />
         </div>
 
         {/* Pricing */}
@@ -109,7 +121,7 @@ export default function EstatePackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Home className="h-8 w-8 text-amber-400" />
+              <Home className="h-8 w-8 text-amber-500" />
               Smart Home Integration
             </h2>
             <ul className="space-y-4">
@@ -122,7 +134,7 @@ export default function EstatePackage() {
                 'Custom automation rules and scenes',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -131,7 +143,7 @@ export default function EstatePackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Brain className="h-8 w-8 text-amber-400" />
+              <Brain className="h-8 w-8 text-amber-500" />
               On-Prem AI Services
             </h2>
             <ul className="space-y-4">
@@ -144,7 +156,7 @@ export default function EstatePackage() {
                 'All processing stays on your network',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -239,11 +251,11 @@ export default function EstatePackage() {
               <div className="text-white/70">Devices Supported</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-400 mb-2">100%</div>
+              <div className="text-4xl font-bold text-amber-500 mb-2">100%</div>
               <div className="text-white/70">Local Control</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-400 mb-2">90</div>
+              <div className="text-4xl font-bold text-amber-500 mb-2">90</div>
               <div className="text-white/70">Days Support</div>
             </div>
           </div>
@@ -307,7 +319,7 @@ export default function EstatePackage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/start-project">
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-400 transition font-bold text-lg shadow-lg shadow-amber-500/30">
+              <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-500 transition font-bold text-lg shadow-lg shadow-amber-500/30">
                 Start Your Estate <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </Link>

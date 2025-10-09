@@ -91,7 +91,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full inline-flex items-center justify-center px-4 py-2 font-medium rounded-2xl transition bg-amber-500 text-black hover:bg-amber-400 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full inline-flex items-center justify-center px-4 py-2 font-medium rounded-2xl transition bg-amber-500 text-black hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === 'loading' ? 'Sending...' : 'Send Message'}
         {status !== 'loading' && <ArrowRight className="ml-2 h-4 w-4" />}

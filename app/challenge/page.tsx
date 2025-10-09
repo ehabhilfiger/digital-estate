@@ -47,7 +47,7 @@ export default function ChallengePage() {
   const passThreshold = answeredCount >= 12;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white relative overflow-hidden egyptian-texture">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -81,7 +81,7 @@ export default function ChallengePage() {
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
-          <a href="/humans.txt" target="_blank" className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium text-sm">
+          <a href="/humans.txt" target="_blank" className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium text-sm">
             View Full Challenge
           </a>
         </div>
@@ -122,7 +122,7 @@ export default function ChallengePage() {
               <div className={`w-2 h-2 rounded-full ${passThreshold ? 'bg-green-400 animate-pulse' : 'bg-white/20'}`} />
               <span>Pass Threshold (12/20)</span>
             </div>
-            <div className={`flex items-center gap-2 ${bonusEligible ? 'text-amber-400' : 'text-white/40'}`}>
+            <div className={`flex items-center gap-2 ${bonusEligible ? 'text-amber-500' : 'text-white/40'}`}>
               <Trophy className={`w-3 h-3 ${bonusEligible ? 'animate-bounce' : ''}`} />
               <span>$10k Bonus (20/20)</span>
             </div>
@@ -288,7 +288,7 @@ export default function ChallengePage() {
             />
             <button
               onClick={checkPassword}
-              className="px-6 py-3 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium"
+              className="px-6 py-3 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium"
             >
               Unlock
             </button>
@@ -381,7 +381,7 @@ export default function ChallengePage() {
         <div className="mt-12 text-center">
           <a href="/humans.txt" target="_blank">
             <motion.button
-              className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-400 transition font-bold text-lg shadow-lg shadow-amber-500/20"
+              className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-500 transition font-bold text-lg shadow-lg shadow-amber-500/20"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

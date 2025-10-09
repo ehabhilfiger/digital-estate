@@ -124,7 +124,7 @@ ${formData.description}
               </ul>
             </div>
             <Link href="/">
-              <button className="px-6 py-3 bg-amber-500 text-black rounded-xl hover:bg-amber-400 transition font-medium">
+              <button className="px-6 py-3 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium">
                 Return to Homepage
               </button>
             </Link>
@@ -135,7 +135,7 @@ ${formData.description}
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
       <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <Link href="/" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
@@ -327,7 +327,7 @@ ${formData.description}
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-400 transition font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-500/20"
+              className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-500 transition font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-amber-500/20"
             >
               {status === 'loading' ? (
                 <>

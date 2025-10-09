@@ -37,7 +37,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
 
   if (attempts >= 5) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center p-4 overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black flex items-center justify-center p-4 overflow-hidden egyptian-texture">
         {/* Animated Background */}
         <div className="fixed inset-0 bg-gradient-to-br from-black via-zinc-950 to-black">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.15),transparent_50%)]" />
@@ -120,7 +120,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-amber-400 transition"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-amber-500 transition"
               >
                 {showPassword ? (
                   <EyeOff className="h-6 w-6" />
@@ -139,7 +139,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
             <button
               type="submit"
               disabled={!password || attempts >= 5}
-              className="relative w-full mt-7 px-6 py-4 bg-gradient-to-r from-amber-500 via-yellow-600 to-amber-500 text-black font-bold text-lg rounded-xl hover:from-amber-400 hover:via-yellow-500 hover:to-amber-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/40 hover:-translate-y-0.5"
+              className="relative w-full mt-7 px-6 py-4 bg-gradient-to-r from-amber-500 via-yellow-600 to-amber-500 text-black font-bold text-lg rounded-xl hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/40 hover:-translate-y-0.5"
             >
               Unlock Vault
             </button>
@@ -156,7 +156,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-amber-500 hover:text-amber-400 transition"
+            className="inline-flex items-center gap-2 text-sm text-amber-500 hover:text-amber-500 transition"
           >
             <span>← Return to homepage</span>
           </Link>
