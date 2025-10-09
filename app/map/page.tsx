@@ -138,7 +138,7 @@ export default function MapPage() {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'critical': return 'border-red-500/50 bg-red-500/10 text-red-400';
-      case 'high': return 'border-amber-500/50 bg-amber-500/10 text-amber-500';
+      case 'high': return 'border-blue-500/50 bg-blue-500/10 text-blue-500';
       case 'medium': return 'border-blue-500/50 bg-blue-500/10 text-blue-400';
       case 'low': return 'border-purple-500/50 bg-purple-500/10 text-purple-400';
       default: return 'border-white/20 bg-white/5 text-white';
@@ -176,7 +176,7 @@ export default function MapPage() {
           {/* Connection line to parent */}
           {depth > 0 && showConnections && (
             <motion.div
-              className="absolute -left-8 top-1/2 w-8 h-0.5 bg-gradient-to-r from-amber-500/50 to-transparent"
+              className="absolute -left-8 top-1/2 w-8 h-0.5 bg-gradient-to-r from-blue-500/50 to-transparent"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.5 }}
@@ -214,7 +214,7 @@ export default function MapPage() {
             <AnimatePresence>
               {!revealedNodes.includes(node.children[0].id) && (
                 <motion.button
-                  className="mt-3 px-4 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-500 text-sm hover:bg-amber-500/20 transition-all"
+                  className="mt-3 px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-500 text-sm hover:bg-blue-500/20 transition-all"
                   onClick={(e) => {
                     e.stopPropagation();
                     node.children?.forEach(child => revealNode(child.id));
@@ -282,11 +282,11 @@ export default function MapPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6 font-mono">
+          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm mb-6 font-mono">
             {'//'} THE ARCHITECT'S MAP
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-amber-500">Site Architecture</span>
+            <span className="text-blue-500">Site Architecture</span>
             <br />
             Strategic Overview
           </h1>
@@ -299,7 +299,7 @@ export default function MapPage() {
               <span className="text-white/60">Critical</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="h-3 w-3 rounded-full bg-amber-500/50"></div>
+              <div className="h-3 w-3 rounded-full bg-blue-500/50"></div>
               <span className="text-white/60">High Priority</span>
             </div>
             <div className="flex items-center gap-2">
@@ -321,7 +321,7 @@ export default function MapPage() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center">
-            <div className="text-3xl font-bold text-amber-500 mb-2">13</div>
+            <div className="text-3xl font-bold text-blue-500 mb-2">13</div>
             <div className="text-sm text-white/60">Total Pages</div>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/5 p-6 text-center">
@@ -341,8 +341,8 @@ export default function MapPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <div className="mb-6 p-6 rounded-xl border border-amber-500/30 bg-amber-500/5">
-            <h2 className="text-xl font-bold mb-2 text-amber-500">Interactive Navigation</h2>
+          <div className="mb-6 p-6 rounded-xl border border-blue-500/30 bg-blue-500/5">
+            <h2 className="text-xl font-bold mb-2 text-blue-500">Interactive Navigation</h2>
             <p className="text-sm text-white/70">
               Click any node to select it. Click "Reveal" buttons to expand sub-pages.
               Every page is interconnected—just like Light's plans.
@@ -429,7 +429,7 @@ export default function MapPage() {
             <a
               href="/sitemap.xml"
               target="_blank"
-              className="font-mono text-sm text-amber-500 hover:text-amber-500 transition-colors"
+              className="font-mono text-sm text-blue-500 hover:text-blue-500 transition-colors"
             >
               https://digital-estate-orcin.vercel.app/sitemap.xml
             </a>

@@ -51,7 +51,7 @@ export default function ChallengePage() {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -81,7 +81,7 @@ export default function ChallengePage() {
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
-          <a href="/humans.txt" target="_blank" className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium text-sm">
+          <a href="/humans.txt" target="_blank" className="px-4 py-2 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium text-sm">
             View Full Challenge
           </a>
         </div>
@@ -97,7 +97,7 @@ export default function ChallengePage() {
         <div className="space-y-4 w-64">
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-sm">Your Progress</h3>
-            <Target className="h-4 w-4 text-amber-500" />
+            <Target className="h-4 w-4 text-blue-500" />
           </div>
 
           {/* Progress Bar */}
@@ -108,7 +108,7 @@ export default function ChallengePage() {
             </div>
             <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
               <motion.div
-                className={`h-full ${bonusEligible ? 'bg-gradient-to-r from-amber-500 to-yellow-400' : passThreshold ? 'bg-amber-500' : 'bg-purple-500'}`}
+                className={`h-full ${bonusEligible ? 'bg-gradient-to-r from-blue-500 to-blue-400' : passThreshold ? 'bg-blue-500' : 'bg-purple-500'}`}
                 initial={{ width: 0 }}
                 animate={{ width: `${progressPercentage}%` }}
                 transition={{ duration: 0.5 }}
@@ -122,7 +122,7 @@ export default function ChallengePage() {
               <div className={`w-2 h-2 rounded-full ${passThreshold ? 'bg-green-400 animate-pulse' : 'bg-white/20'}`} />
               <span>Pass Threshold (12/20)</span>
             </div>
-            <div className={`flex items-center gap-2 ${bonusEligible ? 'text-amber-500' : 'text-white/40'}`}>
+            <div className={`flex items-center gap-2 ${bonusEligible ? 'text-blue-500' : 'text-white/40'}`}>
               <Trophy className={`w-3 h-3 ${bonusEligible ? 'animate-bounce' : ''}`} />
               <span>$10k Bonus (20/20)</span>
             </div>
@@ -157,19 +157,19 @@ export default function ChallengePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
+          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm mb-6">
             THE ULTIMATE ARCHITECT'S CHALLENGE
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-amber-500">$120k+ + $10k Bonus</span>
+            <span className="text-blue-500">$120k+ + $10k Bonus</span>
             <br />
             Senior Infrastructure Architect
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-6">
             Answer 12 out of 20 questions correctly. No AI can solve this. Only master investigators succeed.
           </p>
-          <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-amber-500/10 to-purple-500/10 border border-amber-500/30">
-            <div className="text-center text-lg font-bold text-amber-500">
+          <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30">
+            <div className="text-center text-lg font-bold text-blue-500">
               20/20 PERFECT SCORE = $10,000 SIGNING BONUS
             </div>
             <div className="text-center text-sm text-white/60 mt-2">
@@ -178,7 +178,7 @@ export default function ChallengePage() {
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-white/60 font-mono">
             <div className="inline-flex items-center gap-2">
-              <Lock className="h-4 w-4 text-amber-500" />
+              <Lock className="h-4 w-4 text-blue-500" />
               Difficulty: 12/10 (Impossible for AI)
             </div>
             <span className="hidden sm:inline text-white/30">|</span>
@@ -264,13 +264,13 @@ export default function ChallengePage() {
 
         {/* Secret Password Section */}
         <motion.div
-          className="mb-12 rounded-2xl border-2 border-amber-500/30 bg-amber-500/5 p-8"
+          className="mb-12 rounded-2xl border-2 border-blue-500/30 bg-blue-500/5 p-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
-            <Lock className="h-6 w-6 text-amber-500" />
+            <Lock className="h-6 w-6 text-blue-500" />
             Unlock Master Hint
           </h2>
           <p className="text-white/70 mb-6">
@@ -284,11 +284,11 @@ export default function ChallengePage() {
               onChange={(e) => setPassword(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && checkPassword()}
               placeholder="Enter password..."
-              className="flex-1 px-4 py-3 bg-slate-900/50 border border-white/10 rounded-xl focus:outline-none focus:border-amber-500 transition"
+              className="flex-1 px-4 py-3 bg-slate-900/50 border border-white/10 rounded-xl focus:outline-none focus:border-blue-500 transition"
             />
             <button
               onClick={checkPassword}
-              className="px-6 py-3 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium"
+              className="px-6 py-3 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium"
             >
               Unlock
             </button>
@@ -296,11 +296,11 @@ export default function ChallengePage() {
 
           {showSecret && (
             <motion.div
-              className="mt-6 p-6 bg-slate-900/50 rounded-xl border border-amber-500/30"
+              className="mt-6 p-6 bg-slate-900/50 rounded-xl border border-blue-500/30"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <h3 className="text-lg font-bold text-amber-500 mb-4">🔓 MASTER HINT UNLOCKED</h3>
+              <h3 className="text-lg font-bold text-blue-500 mb-4">🔓 MASTER HINT UNLOCKED</h3>
               <div className="space-y-3 text-sm text-white/80">
                 <p><strong>Puzzle 1:</strong> The year was likely 2018 or 2019. Check with Taft's chess coach.</p>
                 <p><strong>Puzzle 2:</strong> UIC BMG was in the Medical Sciences Building (MSB) Room 2014 during 2018-2019.</p>
@@ -322,20 +322,20 @@ export default function ChallengePage() {
           <h2 className="text-2xl font-bold mb-6">How to Apply</h2>
           <div className="space-y-4 text-white/80">
             <div className="flex items-start gap-3">
-              <div className="h-8 w-8 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-amber-500 font-bold">1</span>
+              <div className="h-8 w-8 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-blue-500 font-bold">1</span>
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Download the Challenge</h3>
                 <p className="text-sm text-white/60">
-                  Open <a href="/humans.txt" className="text-amber-500 hover:underline">/humans.txt</a> and read all 10 puzzles carefully.
+                  Open <a href="/humans.txt" className="text-blue-500 hover:underline">/humans.txt</a> and read all 10 puzzles carefully.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="h-8 w-8 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-amber-500 font-bold">2</span>
+              <div className="h-8 w-8 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-blue-500 font-bold">2</span>
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Investigate & Solve</h3>
@@ -346,20 +346,20 @@ export default function ChallengePage() {
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="h-8 w-8 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-amber-500 font-bold">3</span>
+              <div className="h-8 w-8 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-blue-500 font-bold">3</span>
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Submit Your Answers</h3>
                 <p className="text-sm text-white/60">
-                  Email <span className="text-amber-500 font-mono">defcon5ready@gmail.com</span> with subject "ARCHITECT APPLICATION: [YOUR NAME]"
+                  Email <span className="text-blue-500 font-mono">defcon5ready@gmail.com</span> with subject "ARCHITECT APPLICATION: [YOUR NAME]"
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="h-8 w-8 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-amber-500 font-bold">4</span>
+              <div className="h-8 w-8 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span className="text-blue-500 font-bold">4</span>
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Get 13/20 Correct</h3>
@@ -381,7 +381,7 @@ export default function ChallengePage() {
         <div className="mt-12 text-center">
           <a href="/humans.txt" target="_blank">
             <motion.button
-              className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-500 transition font-bold text-lg shadow-lg shadow-amber-500/20"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-black rounded-2xl hover:bg-blue-500 transition font-bold text-lg shadow-lg shadow-blue-500/20"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

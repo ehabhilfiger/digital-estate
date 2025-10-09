@@ -285,15 +285,15 @@ export default function HomePage() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
                 <motion.div {...fadeInUp}>
-                  <div className="text-3xl sm:text-4xl font-bold text-amber-500">10+</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-blue-500">10+</div>
                   <div className="mt-2 text-sm sm:text-base text-white/70">Years of Experience</div>
                 </motion.div>
                 <motion.div {...fadeInUp}>
-                  <div className="text-3xl sm:text-4xl font-bold text-amber-500">50+</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-blue-500">50+</div>
                   <div className="mt-2 text-sm sm:text-base text-white/70">Systems Deployed</div>
                 </motion.div>
                 <motion.div {...fadeInUp}>
-                  <div className="text-3xl sm:text-4xl font-bold text-amber-500">100%</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-blue-500">100%</div>
                   <div className="mt-2 text-sm sm:text-base text-white/70">Client Satisfaction</div>
                 </motion.div>
               </div>
@@ -529,7 +529,7 @@ export default function HomePage() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
               <Link href="/solutions/law-firm" className="block">
                 <motion.div
-                  className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-yellow-500/5 p-8 md:p-12 hover:border-blue-500/50 hover:from-blue-500/15 hover:to-yellow-500/10 transition-all duration-300 cursor-pointer relative overflow-hidden"
+                  className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-transparent p-8 md:p-12 hover:border-blue-500/50 hover:from-blue-500/15 hover:to-blue-500/5 transition-all duration-300 cursor-pointer relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   {...fadeInUp}
                 >
@@ -875,7 +875,7 @@ export default function HomePage() {
                 </Link>
 
                 {/* Tier 3 - Architect */}
-                <Link href="/packages/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-400/20 cursor-pointer">
+                <Link href="/packages/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src="/images/architect.png"
@@ -968,7 +968,7 @@ export default function HomePage() {
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">Synology NAS</span>
                       <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">RAID 10</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-blue-500 border border-blue-500/20">VPN Access</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">VPN Access</span>
                     </div>
                     <p className="text-blue-500 text-sm italic border-t border-white/10 pt-4">
                       "We finally own our data. Installation was seamless, support exceptional." — Boutique Law Firm
@@ -1008,8 +1008,8 @@ export default function HomePage() {
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">pfSense</span>
                       <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">VLAN Segmentation</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-blue-500 border border-blue-500/20">Proxmox</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-blue-500 border border-blue-500/20">Home Assistant</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">Proxmox</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">Home Assistant</span>
                     </div>
                     <p className="text-blue-500 text-sm italic border-t border-white/10 pt-4">
                       "Peace of mind knowing my family's entire digital life is secure and private." — Executive Client
@@ -1021,7 +1021,7 @@ export default function HomePage() {
                 </Link>
 
                 {/* Tier 3 Showcase - CLICKABLE */}
-                <Link href="/tiers/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-400/20 cursor-pointer">
+                <Link href="/tiers/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src="/images/250k-tier.png"
@@ -1032,7 +1032,7 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                      <div className="inline-flex px-3 py-1 rounded-full bg-amber-400 text-black text-xs font-semibold">
+                      <div className="inline-flex px-3 py-1 rounded-full bg-blue-500 text-white text-xs font-semibold">
                         ARCHITECT TIER
                       </div>
                       <div className="text-blue-500 text-sm font-bold">$250k+</div>
@@ -1046,8 +1046,8 @@ export default function HomePage() {
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">GPU Cluster</span>
                       <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">On-Prem AI</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-blue-500 border border-blue-500/20">HA Cluster</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-amber-400/10 text-blue-500 border border-blue-500/20">Multi-Site</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">HA Cluster</span>
+                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">Multi-Site</span>
                     </div>
                     <p className="text-blue-500 text-sm italic border-t border-white/10 pt-4">
                       "Our research stays confidential. Performance exceeds cloud solutions." — AI Research Lab

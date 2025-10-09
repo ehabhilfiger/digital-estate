@@ -18,18 +18,18 @@ export default function ArchitectPackage() {
       {/* Content */}
       <div className="relative z-10">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur border-b border-amber-500/30 bg-slate-950/50">
+      <header className="sticky top-0 z-50 backdrop-blur border-b border-blue-500/30 bg-slate-950/50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/#work" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
             <ArrowLeft className="h-4 w-4" />
             Back to Packages
           </Link>
           <div className="flex items-center gap-4">
-            <span className="px-3 py-1 rounded-full bg-amber-500 text-black text-xs font-bold">
+            <span className="px-3 py-1 rounded-full bg-blue-500 text-black text-xs font-bold">
               ENTERPRISE GRADE
             </span>
             <Link href="/start-project">
-              <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium text-sm">
+              <button className="px-4 py-2 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium text-sm">
                 Get Started
               </button>
             </Link>
@@ -40,11 +40,11 @@ export default function ArchitectPackage() {
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
+          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm mb-6">
             ARCHITECT PACKAGE
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Architect <span className="text-amber-500">Package</span>
+            Architect <span className="text-blue-500">Package</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Enterprise-grade infrastructure with high-availability clustering, custom automation, and dedicated concierge support. Built for organizations demanding perfection.
@@ -52,7 +52,7 @@ export default function ArchitectPackage() {
         </div>
 
         {/* Image Showcase - Centerpiece */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-2xl copper-glow">
+        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-2xl blue-glow">
           <Image
             src="/images/architect.png"
             alt="Architect Package - Enterprise-grade infrastructure"
@@ -64,10 +64,10 @@ export default function ArchitectPackage() {
         </div>
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/20 via-amber-400/10 to-transparent p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-amber-400/10 to-slate-400/10 blur-3xl"></div>
+        <div className="mb-16 rounded-2xl border-2 border-blue-500 bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent p-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-blue-400/10 to-slate-400/10 blur-3xl"></div>
           <div className="relative">
-            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-500 mb-4">
+            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-500 mb-4">
               $20,000+
             </div>
             <div className="text-xl text-white/80">Enterprise Architecture Package</div>
@@ -77,9 +77,9 @@ export default function ArchitectPackage() {
 
         {/* What's Included */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-transparent p-8">
+          <div className="rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 to-transparent p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-amber-500" />
+              <Server className="h-8 w-8 text-blue-500" />
               Enterprise-Grade Stack
             </h2>
             <ul className="space-y-4">
@@ -92,7 +92,7 @@ export default function ArchitectPackage() {
                 'Disaster recovery with off-site replication',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -123,7 +123,7 @@ export default function ArchitectPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Settings className="h-8 w-8 text-amber-500" />
+              <Settings className="h-8 w-8 text-blue-500" />
               Custom Automation
             </h2>
             <ul className="space-y-4">
@@ -136,7 +136,7 @@ export default function ArchitectPackage() {
                 'Self-healing infrastructure components',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -145,7 +145,7 @@ export default function ArchitectPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Network className="h-8 w-8 text-amber-500" />
+              <Network className="h-8 w-8 text-blue-500" />
               Multi-Site Synchronization
             </h2>
             <ul className="space-y-4">
@@ -158,7 +158,7 @@ export default function ArchitectPackage() {
                 'Latency-optimized routing',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -167,7 +167,7 @@ export default function ArchitectPackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-amber-500" />
+              <Shield className="h-8 w-8 text-blue-500" />
               Dedicated Concierge
             </h2>
             <ul className="space-y-4">
@@ -180,7 +180,7 @@ export default function ArchitectPackage() {
                 'Technology roadmap planning',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -223,7 +223,7 @@ export default function ArchitectPackage() {
               { title: 'Knowledge Transfer', description: 'Team training and ongoing education for your IT staff' },
             ].map((item, i) => (
               <div key={i}>
-                <h3 className="font-semibold mb-2 text-amber-500">{item.title}</h3>
+                <h3 className="font-semibold mb-2 text-blue-500">{item.title}</h3>
                 <p className="text-sm text-white/70">{item.description}</p>
               </div>
             ))}
@@ -231,11 +231,11 @@ export default function ArchitectPackage() {
         </div>
 
         {/* Metrics */}
-        <div className="rounded-2xl border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-transparent p-8 mb-16">
+        <div className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-transparent p-8 mb-16">
           <h2 className="text-2xl font-bold mb-6">Enterprise Performance Metrics</h2>
           <div className="grid md:grid-cols-4 gap-6 mb-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-500 mb-2">99.9%</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">99.9%</div>
               <div className="text-white/70">Uptime SLA</div>
             </div>
             <div className="text-center">
@@ -243,16 +243,16 @@ export default function ArchitectPackage() {
               <div className="text-white/70">Critical Response</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-500 mb-2">24/7</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">24/7</div>
               <div className="text-white/70">Monitoring</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-500 mb-2">12mo</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">12mo</div>
               <div className="text-white/70">SLA Coverage</div>
             </div>
           </div>
           <div className="border-t border-white/10 pt-6">
-            <p className="text-lg italic text-amber-500 text-center">
+            <p className="text-lg italic text-blue-500 text-center">
               "Enterprise-grade infrastructure with Fortune 500 reliability for organizations that demand perfection."
             </p>
           </div>
@@ -277,7 +277,7 @@ export default function ArchitectPackage() {
               },
             ].map((item, i) => (
               <div key={i} className="text-center">
-                <h3 className="font-semibold mb-2 text-amber-500">{item.title}</h3>
+                <h3 className="font-semibold mb-2 text-blue-500">{item.title}</h3>
                 <p className="text-sm text-white/70">{item.description}</p>
               </div>
             ))}
@@ -297,7 +297,7 @@ export default function ArchitectPackage() {
               { phase: 'Week 12', title: 'Go-Live & Knowledge Transfer', description: 'Production cutover, team training, documentation delivery' },
             ].map((item, i) => (
               <div key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-28 text-amber-500 font-semibold">{item.phase}</div>
+                <div className="flex-shrink-0 w-28 text-blue-500 font-semibold">{item.phase}</div>
                 <div className="flex-1">
                   <h3 className="font-semibold mb-1">{item.title}</h3>
                   <p className="text-sm text-white/70">{item.description}</p>
@@ -340,7 +340,7 @@ export default function ArchitectPackage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/start-project">
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-500 text-black rounded-2xl hover:from-amber-300 hover:to-amber-300 transition font-bold text-lg shadow-lg shadow-amber-400/30">
+              <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-500 text-black rounded-2xl hover:from-blue-400 hover:to-blue-400 transition font-bold text-lg shadow-lg shadow-blue-400/30">
                 Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </Link>

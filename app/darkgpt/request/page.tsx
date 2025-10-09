@@ -26,7 +26,7 @@ export default function DarkGPTRequestPage() {
       {/* Header */}
       <header className="border-b border-white/10 bg-slate-950/80 backdrop-blur">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
-          <Link href="/" className="text-xl font-semibold hover:text-amber-500 transition">
+          <Link href="/" className="text-xl font-semibold hover:text-blue-500 transition">
             ← Back to Home
           </Link>
         </div>
@@ -38,10 +38,10 @@ export default function DarkGPTRequestPage() {
           <div className="flex items-center justify-center gap-4 mb-6">
             <img src="/images/darkgpt.png" alt="DarkGPT Logo" className="h-16 w-auto" />
             <h1 className="text-4xl md:text-5xl font-bold">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">DarkGPT</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-amber-600">DarkGPT</span>
             </h1>
           </div>
-          <p className="text-2xl font-semibold text-amber-500 mb-4">
+          <p className="text-2xl font-semibold text-blue-500 mb-4">
             Your AI. Your rules. Zero compromises.
           </p>
           <p className="text-lg text-white/70">
@@ -51,25 +51,25 @@ export default function DarkGPTRequestPage() {
 
         {/* Value Proposition */}
         <div className="grid md:grid-cols-3 gap-4 mb-12">
-          <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-center">
-            <Check className="h-6 w-6 text-amber-500 mx-auto mb-2" />
+          <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4 text-center">
+            <Check className="h-6 w-6 text-blue-500 mx-auto mb-2" />
             <h3 className="font-semibold mb-1">100% Private Conversations</h3>
             <p className="text-sm text-white/70">Runs locally on your infrastructure</p>
           </div>
-          <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-center">
-            <Check className="h-6 w-6 text-amber-500 mx-auto mb-2" />
+          <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4 text-center">
+            <Check className="h-6 w-6 text-blue-500 mx-auto mb-2" />
             <h3 className="font-semibold mb-1">Zero Content Restrictions</h3>
             <p className="text-sm text-white/70">No guardrails or censorship</p>
           </div>
-          <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-center">
-            <Check className="h-6 w-6 text-amber-500 mx-auto mb-2" />
+          <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4 text-center">
+            <Check className="h-6 w-6 text-blue-500 mx-auto mb-2" />
             <h3 className="font-semibold mb-1">Custom AI Architecture</h3>
             <p className="text-sm text-white/70">Tailored to your specific needs</p>
           </div>
         </div>
 
         {/* Consultation Request Form */}
-        <div className="rounded-2xl border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/10 to-slate-900 p-8 mb-12">
+        <div className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-slate-900 p-8 mb-12">
           <h2 className="text-2xl font-bold mb-6">Request DarkGPT Consultation</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-4">
@@ -80,7 +80,7 @@ export default function DarkGPTRequestPage() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-amber-500 focus:outline-none transition"
+                  className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-blue-500 focus:outline-none transition"
                 />
               </div>
               <div>
@@ -90,7 +90,7 @@ export default function DarkGPTRequestPage() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-amber-500 focus:outline-none transition"
+                  className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-blue-500 focus:outline-none transition"
                 />
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function DarkGPTRequestPage() {
                 type="text"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-amber-500 focus:outline-none transition"
+                className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-blue-500 focus:outline-none transition"
               />
             </div>
 
@@ -111,7 +111,7 @@ export default function DarkGPTRequestPage() {
                 <select
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-amber-500 focus:outline-none transition"
+                  className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-blue-500 focus:outline-none transition"
                 >
                   <option value="">Select budget range</option>
                   <option value="$50k - $100k">$50k - $100k</option>
@@ -126,7 +126,7 @@ export default function DarkGPTRequestPage() {
                 <select
                   value={formData.timeline}
                   onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-amber-500 focus:outline-none transition"
+                  className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-blue-500 focus:outline-none transition"
                 >
                   <option value="">Select timeline</option>
                   <option value="ASAP (Priority)">ASAP (Priority)</option>
@@ -144,7 +144,7 @@ export default function DarkGPTRequestPage() {
                 rows={4}
                 value={formData.useCase}
                 onChange={(e) => setFormData({ ...formData, useCase: e.target.value })}
-                className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-amber-500 focus:outline-none transition"
+                className="w-full px-4 py-2 rounded-lg bg-slate-900 border border-white/10 focus:border-blue-500 focus:outline-none transition"
                 placeholder="Describe your use case and requirements..."
               />
             </div>
@@ -155,14 +155,14 @@ export default function DarkGPTRequestPage() {
                 id="betaAccess"
                 checked={formData.betaAccess}
                 onChange={(e) => setFormData({ ...formData, betaAccess: e.target.checked })}
-                className="w-4 h-4 rounded border-white/10 text-amber-500 focus:ring-amber-500"
+                className="w-4 h-4 rounded border-white/10 text-blue-500 focus:ring-blue-500"
               />
               <label htmlFor="betaAccess" className="text-sm">Request Beta Access Passcode</label>
             </div>
 
             <button
               type="submit"
-              className="w-full px-8 py-3 bg-gradient-to-r from-amber-500 to-amber-500 text-white rounded-xl hover:from-amber-500 hover:to-amber-500 transition font-semibold text-lg shadow-lg"
+              className="w-full px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-500 text-white rounded-xl hover:from-blue-500 hover:to-blue-500 transition font-semibold text-lg shadow-lg"
             >
               Submit Request
             </button>
@@ -172,25 +172,25 @@ export default function DarkGPTRequestPage() {
         {/* Services Overview */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="rounded-xl border border-white/10 bg-white/5 p-6">
-            <Brain className="h-8 w-8 text-amber-500 mb-3" />
+            <Brain className="h-8 w-8 text-blue-500 mb-3" />
             <h3 className="font-semibold mb-2">Private LLM Deployments</h3>
             <p className="text-white/70 text-sm">Complete on-premise LLM infrastructure</p>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/5 p-6">
-            <Shield className="h-8 w-8 text-amber-500 mb-3" />
+            <Shield className="h-8 w-8 text-blue-500 mb-3" />
             <h3 className="font-semibold mb-2">AI Infrastructure Audits</h3>
             <p className="text-white/70 text-sm">Comprehensive security assessment</p>
           </div>
           <div className="rounded-xl border border-white/10 bg-white/5 p-6">
-            <Cpu className="h-8 w-8 text-amber-500 mb-3" />
+            <Cpu className="h-8 w-8 text-blue-500 mb-3" />
             <h3 className="font-semibold mb-2">On-Call Architect Support</h3>
             <p className="text-white/70 text-sm">Expert-level architecture decisions</p>
           </div>
         </div>
 
         {/* Pricing */}
-        <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-6 mb-8 text-center">
-          <h3 className="text-xl font-bold text-amber-500 mb-2">Premium Service</h3>
+        <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-6 mb-8 text-center">
+          <h3 className="text-xl font-bold text-blue-500 mb-2">Premium Service</h3>
           <p className="text-white/70">Starting at $50k+ with custom pricing based on your requirements</p>
         </div>
 
@@ -198,16 +198,16 @@ export default function DarkGPTRequestPage() {
         <div className="text-center">
           <h3 className="font-semibold mb-4">Ehab Allababidi — Private AI Systems Architect</h3>
           <div className="flex items-center justify-center gap-4 text-white/60 mb-4">
-            <a href="tel:+17739200030" className="hover:text-amber-500 transition">(773) 920-0030</a>
+            <a href="tel:+17739200030" className="hover:text-blue-500 transition">(773) 920-0030</a>
             <span>•</span>
-            <a href="mailto:defcon5ready@gmail.com" className="hover:text-amber-500 transition">defcon5ready@gmail.com</a>
+            <a href="mailto:defcon5ready@gmail.com" className="hover:text-blue-500 transition">defcon5ready@gmail.com</a>
           </div>
           <div className="flex items-center justify-center gap-6">
-            <a href="https://github.com/ehaballa" target="_blank" rel="noreferrer" className="hover:text-amber-500 transition">
+            <a href="https://github.com/ehaballa" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition">
               GitHub
             </a>
             <span>|</span>
-            <a href="https://www.linkedin.com/in/ehab-allababidi" target="_blank" rel="noreferrer" className="hover:text-amber-500 transition">
+            <a href="https://www.linkedin.com/in/ehab-allababidi" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition">
               LinkedIn
             </a>
           </div>

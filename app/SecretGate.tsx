@@ -85,8 +85,8 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
       <div className="relative max-w-md w-full">
         <div className="text-center mb-10">
           <div className="relative inline-block mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-full blur-2xl opacity-50 animate-pulse" />
-            <div className="relative h-24 w-24 rounded-full bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-700 mx-auto grid place-items-center shadow-2xl shadow-amber-500/50">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-yellow-600 rounded-full blur-2xl opacity-50 animate-pulse" />
+            <div className="relative h-24 w-24 rounded-full bg-gradient-to-br from-blue-500 via-yellow-600 to-amber-700 mx-auto grid place-items-center shadow-2xl shadow-blue-500/50">
               <Lock className="h-12 w-12 text-black" />
             </div>
           </div>
@@ -97,8 +97,8 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
         </div>
 
         <form onSubmit={handleSubmit} className="relative space-y-6">
-          <div className="relative rounded-3xl border border-amber-500/30 bg-gradient-to-br from-zinc-900/50 via-black/50 to-zinc-900/50 p-8 md:p-10 backdrop-blur-xl shadow-2xl shadow-amber-500/10">
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-purple-500/5 rounded-3xl" />
+          <div className="relative rounded-3xl border border-blue-500/30 bg-gradient-to-br from-zinc-900/50 via-black/50 to-zinc-900/50 p-8 md:p-10 backdrop-blur-xl shadow-2xl shadow-blue-500/10">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 rounded-3xl" />
             
             <label htmlFor="password" className="relative block text-sm font-medium mb-4 text-amber-100">
               Enter Password
@@ -112,7 +112,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
                   setPassword(e.target.value);
                   setError('');
                 }}
-                className="w-full px-5 py-4 pr-14 rounded-xl bg-black border-2 border-amber-500/30 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition text-white placeholder-zinc-600 text-lg"
+                className="w-full px-5 py-4 pr-14 rounded-xl bg-black border-2 border-blue-500/30 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition text-white placeholder-zinc-600 text-lg"
                 placeholder="Enter your password..."
                 autoComplete="off"
                 disabled={attempts >= 5}
@@ -120,7 +120,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-amber-500 transition"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-blue-500 transition"
               >
                 {showPassword ? (
                   <EyeOff className="h-6 w-6" />
@@ -139,7 +139,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
             <button
               type="submit"
               disabled={!password || attempts >= 5}
-              className="relative w-full mt-7 px-6 py-4 bg-gradient-to-r from-amber-500 via-yellow-600 to-amber-500 text-black font-bold text-lg rounded-xl hover:from-amber-500 hover:via-yellow-500 hover:to-amber-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/40 hover:-translate-y-0.5"
+              className="relative w-full mt-7 px-6 py-4 bg-gradient-to-r from-blue-500 via-yellow-600 to-blue-500 text-black font-bold text-lg rounded-xl hover:from-blue-500 hover:via-blue-500 hover:to-blue-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/40 hover:-translate-y-0.5"
             >
               Unlock Vault
             </button>
@@ -156,7 +156,7 @@ export default function SecretGate({ children }: { children: React.ReactNode }) 
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-amber-500 hover:text-amber-500 transition"
+            className="inline-flex items-center gap-2 text-sm text-blue-500 hover:text-blue-500 transition"
           >
             <span>← Return to homepage</span>
           </Link>

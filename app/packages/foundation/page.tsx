@@ -27,7 +27,7 @@ export default function FoundationPackage() {
             FOUNDATION PACKAGE
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Foundation <span className="text-amber-500">Package</span>
+            Foundation <span className="text-blue-500">Package</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Perfect for individuals and small teams getting started with private infrastructure. Professional NAS deployment with enterprise-grade security.
@@ -35,7 +35,7 @@ export default function FoundationPackage() {
         </div>
 
         {/* Image Showcase - Centerpiece */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-2xl copper-glow">
+        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-2xl blue-glow">
           <Image
             src="/images/foundation.png"
             alt="Foundation Package - Professional NAS deployment"

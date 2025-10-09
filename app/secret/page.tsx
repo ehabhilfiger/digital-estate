@@ -21,13 +21,13 @@ export default function SecretPage() {
         </div>
 
         {/* Enhanced Header with Egyptian Gold Theme */}
-        <header className="relative border-b border-amber-500/30 backdrop-blur-xl bg-gradient-to-r from-black/60 via-zinc-950/60 to-black/60 sticky top-0 z-50 shadow-2xl shadow-black/50">
+        <header className="relative border-b border-blue-500/30 backdrop-blur-xl bg-gradient-to-r from-black/60 via-zinc-950/60 to-black/60 sticky top-0 z-50 shadow-2xl shadow-black/50">
           <div className="max-w-7xl mx-auto px-6 py-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-500 via-yellow-600 to-amber-500 rounded-2xl blur-2xl opacity-60 animate-pulse" />
-                  <div className="relative h-14 w-14 rounded-2xl bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-700 grid place-items-center shadow-2xl shadow-amber-500/60 ring-2 ring-amber-400/30">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-yellow-600 to-blue-500 rounded-2xl blur-2xl opacity-60 animate-pulse" />
+                  <div className="relative h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-500 via-yellow-600 to-amber-700 grid place-items-center shadow-2xl shadow-blue-500/60 ring-2 ring-blue-400/30">
                     <Crown className="h-8 w-8 text-black drop-shadow-lg" />
                   </div>
                 </div>
@@ -35,15 +35,15 @@ export default function SecretPage() {
                   <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent drop-shadow-lg">
                     The Sanctum
                   </h1>
-                  <p className="text-xs text-amber-500/90 tracking-widest uppercase font-semibold">Authorized Access Only</p>
+                  <p className="text-xs text-blue-500/90 tracking-widest uppercase font-semibold">Authorized Access Only</p>
                 </div>
               </div>
               <Link
                 href="/"
-                className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500/15 to-yellow-600/15 border-2 border-amber-500/40 hover:border-amber-500/60 transition-all hover:shadow-xl hover:shadow-amber-500/30 hover:from-amber-500/25 hover:to-yellow-600/25"
+                className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500/15 to-yellow-600/15 border-2 border-blue-500/40 hover:border-blue-500/60 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:from-blue-500/25 hover:to-yellow-600/25"
               >
-                <span className="text-sm font-semibold text-amber-500 group-hover:text-amber-300">Exit Vault</span>
-                <Lock className="h-4 w-4 text-amber-500 group-hover:text-amber-300" />
+                <span className="text-sm font-semibold text-blue-500 group-hover:text-amber-300">Exit Vault</span>
+                <Lock className="h-4 w-4 text-blue-500 group-hover:text-amber-300" />
               </Link>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function SecretPage() {
         <main className="relative max-w-7xl mx-auto px-6 py-20">
           {/* Enhanced Welcome Section */}
           <div className="text-center mb-24">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500/25 via-yellow-600/25 to-amber-500/25 border-2 border-amber-500/40 text-amber-500 text-sm mb-10 shadow-2xl shadow-amber-500/20 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/25 via-yellow-600/25 to-blue-500/25 border-2 border-blue-500/40 text-blue-500 text-sm mb-10 shadow-2xl shadow-blue-500/20 backdrop-blur-sm">
               <Sparkles className="h-5 w-5 animate-pulse" />
               <span className="font-bold tracking-wide">ACCESS GRANTED</span>
               <Key className="h-5 w-5" />
@@ -67,9 +67,9 @@ export default function SecretPage() {
 
           {/* Enhanced Feature Grid with Egyptian Theme */}
           <div className="grid md:grid-cols-3 gap-8 mb-24">
-            <div className="group relative rounded-3xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-yellow-600/5 to-amber-500/10 p-10 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/30 hover:-translate-y-2 duration-300 backdrop-blur-sm">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-transparent to-yellow-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Star className="relative h-16 w-16 text-amber-500 mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform drop-shadow-lg" />
+            <div className="group relative rounded-3xl border-2 border-blue-500/40 bg-gradient-to-br from-blue-500/10 via-yellow-600/5 to-blue-500/10 p-10 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-2 duration-300 backdrop-blur-sm">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-transparent to-yellow-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Star className="relative h-16 w-16 text-blue-500 mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform drop-shadow-lg" />
               <h3 className="relative text-2xl font-bold mb-4 text-amber-100">Premium Intel</h3>
               <p className="relative text-zinc-300 leading-relaxed">
                 Exclusive access to classified whitepapers, case studies, and advanced technical documentation unavailable to the public.
@@ -96,8 +96,8 @@ export default function SecretPage() {
           </div>
 
           {/* Secret Content Area - Enhanced Aesthetics */}
-          <div className="relative rounded-3xl border-2 border-amber-500/40 bg-gradient-to-br from-black via-zinc-950 to-black p-12 md:p-16 shadow-2xl shadow-amber-500/20 backdrop-blur-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/8 via-transparent to-purple-500/8 rounded-3xl" />
+          <div className="relative rounded-3xl border-2 border-blue-500/40 bg-gradient-to-br from-black via-zinc-950 to-black p-12 md:p-16 shadow-2xl shadow-blue-500/20 backdrop-blur-sm">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/8 via-transparent to-purple-500/8 rounded-3xl" />
             
             <div className="relative flex items-center justify-between mb-12">
               <div>
@@ -106,9 +106,9 @@ export default function SecretPage() {
                 </h3>
                 <p className="text-zinc-400 text-lg">Confidential documentation repository</p>
               </div>
-              <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-amber-500/15 border-2 border-amber-500/30 shadow-lg shadow-amber-500/10">
-                <FileText className="h-5 w-5 text-amber-500" />
-                <span className="text-sm font-bold text-amber-500">9 Documents</span>
+              <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-blue-500/15 border-2 border-blue-500/30 shadow-lg shadow-blue-500/10">
+                <FileText className="h-5 w-5 text-blue-500" />
+                <span className="text-sm font-bold text-blue-500">9 Documents</span>
               </div>
             </div>
             
@@ -124,152 +124,152 @@ export default function SecretPage() {
                 <a 
                   href="/vault/Enterprise Infrastructure Blueprint.pdf" 
                   download 
-                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-amber-500/30 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
+                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/8 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/8 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-start justify-between mb-4">
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Enterprise Infrastructure Blueprint
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-blue-500/70 group-hover:text-blue-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Complete deployment guide with network diagrams
                   </p>
-                  <div className="relative text-xs font-semibold text-amber-500/90">PDF • 47 KB</div>
+                  <div className="relative text-xs font-semibold text-blue-500/90">PDF • 47 KB</div>
                 </a>
 
                 <a 
                   href="/vault/Advanced Security Protocols.pdf" 
                   download 
-                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-amber-500/30 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
+                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/8 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/8 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-start justify-between mb-4">
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Advanced Security Protocols
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-blue-500/70 group-hover:text-blue-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Zero-trust architecture with firewall rules
                   </p>
-                  <div className="relative text-xs font-semibold text-amber-500/90">PDF • 34 KB</div>
+                  <div className="relative text-xs font-semibold text-blue-500/90">PDF • 34 KB</div>
                 </a>
 
                 <a 
                   href="/vault/Client Contract Templates.pdf" 
                   download 
-                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-amber-500/30 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
+                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/8 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/8 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-start justify-between mb-4">
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Client Contract Templates
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-blue-500/70 group-hover:text-blue-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Legal agreements and service level docs
                   </p>
-                  <div className="relative text-xs font-semibold text-amber-500/90">PDF • 39 KB</div>
+                  <div className="relative text-xs font-semibold text-blue-500/90">PDF • 39 KB</div>
                 </a>
 
                 <a 
                   href="/vault/On-Prem AI Deployment Scripts.pdf" 
                   download 
-                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-amber-500/30 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
+                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/8 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/8 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-start justify-between mb-4">
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       On-Prem AI Deployment Scripts
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-blue-500/70 group-hover:text-blue-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Ollama, llama.cpp, Open WebUI automation
                   </p>
-                  <div className="relative text-xs font-semibold text-amber-500/90">PDF • 42 KB</div>
+                  <div className="relative text-xs font-semibold text-blue-500/90">PDF • 42 KB</div>
                 </a>
 
                 <a 
                   href="/vault/GPU Passthrough Guide.pdf" 
                   download 
-                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-amber-500/30 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
+                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/8 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/8 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-start justify-between mb-4">
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Proxmox GPU Passthrough
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-blue-500/70 group-hover:text-blue-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     NVIDIA GPU configuration for VMs
                   </p>
-                  <div className="relative text-xs font-semibold text-amber-500/90">PDF • 47 KB</div>
+                  <div className="relative text-xs font-semibold text-blue-500/90">PDF • 47 KB</div>
                 </a>
 
                 <a 
                   href="/vault/TrueNAS Setup Guide.pdf" 
                   download 
-                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-amber-500/30 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
+                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/8 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/8 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-start justify-between mb-4">
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       TrueNAS Scale Configuration
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-blue-500/70 group-hover:text-blue-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     ZFS pool optimization and app deployment
                   </p>
-                  <div className="relative text-xs font-semibold text-amber-500/90">PDF • 47 KB</div>
+                  <div className="relative text-xs font-semibold text-blue-500/90">PDF • 47 KB</div>
                 </a>
 
                 <a 
                   href="/vault/WireGuard VPN Configuration.pdf" 
                   download 
-                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-amber-500/30 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
+                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/8 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/8 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-start justify-between mb-4">
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       WireGuard VPN Automation
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-blue-500/70 group-hover:text-blue-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Client provisioning and QR code generation
                   </p>
-                  <div className="relative text-xs font-semibold text-amber-500/90">PDF • 45 KB</div>
+                  <div className="relative text-xs font-semibold text-blue-500/90">PDF • 45 KB</div>
                 </a>
 
                 <a 
                   href="/vault/Confidential Documentation Vault.pdf" 
                   download 
-                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-amber-500/30 hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
+                  className="group relative flex flex-col p-6 rounded-2xl bg-gradient-to-br from-zinc-900/90 via-zinc-950/90 to-zinc-900/90 border-2 border-blue-500/30 hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1 cursor-pointer backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/8 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/8 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-start justify-between mb-4">
                     <h4 className="font-bold text-lg text-amber-100 group-hover:text-amber-50 transition flex-1 leading-tight">
                       Documentation Vault Index
                     </h4>
-                    <Download className="h-6 w-6 text-amber-500/70 group-hover:text-amber-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
+                    <Download className="h-6 w-6 text-blue-500/70 group-hover:text-blue-500 group-hover:scale-110 transition-all flex-shrink-0 ml-2" />
                   </div>
                   <p className="relative text-sm text-zinc-300 leading-relaxed mb-4">
                     Master repository overview and catalog
                   </p>
-                  <div className="relative text-xs font-semibold text-amber-500/90">PDF • 112 KB</div>
+                  <div className="relative text-xs font-semibold text-blue-500/90">PDF • 112 KB</div>
                 </a>
               </div>
             </div>
 
-            <div className="relative mt-12 p-8 rounded-2xl bg-gradient-to-r from-amber-500/15 via-yellow-600/15 to-amber-500/15 border-2 border-amber-500/40 shadow-2xl shadow-amber-500/10 backdrop-blur-sm">
+            <div className="relative mt-12 p-8 rounded-2xl bg-gradient-to-r from-blue-500/15 via-yellow-600/15 to-blue-500/15 border-2 border-blue-500/40 shadow-2xl shadow-blue-500/10 backdrop-blur-sm">
               <div className="flex items-start gap-5">
-                <Shield className="h-7 w-7 text-amber-500 flex-shrink-0 mt-1" />
+                <Shield className="h-7 w-7 text-blue-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-base font-bold text-amber-300 mb-2">
                     ⚠️ Confidentiality Notice
@@ -284,10 +284,10 @@ export default function SecretPage() {
 
           {/* Enhanced Stats Grid */}
           <div className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="relative group rounded-2xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-black to-amber-500/10 p-10 text-center hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-amber-500/15 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <FileText className="relative h-10 w-10 text-amber-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <div className="relative text-5xl font-bold bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent mb-3">9</div>
+            <div className="relative group rounded-2xl border-2 border-blue-500/40 bg-gradient-to-br from-blue-500/10 via-black to-blue-500/10 p-10 text-center hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/15 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <FileText className="relative h-10 w-10 text-blue-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <div className="relative text-5xl font-bold bg-gradient-to-r from-blue-500 to-blue-500 bg-clip-text text-transparent mb-3">9</div>
               <div className="relative text-sm text-zinc-300 tracking-wider font-medium">Documents</div>
             </div>
 
@@ -305,10 +305,10 @@ export default function SecretPage() {
               <div className="relative text-sm text-zinc-300 tracking-wider font-medium">Encrypted</div>
             </div>
 
-            <div className="relative group rounded-2xl border-2 border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-black to-yellow-600/10 p-10 text-center hover:border-amber-500/60 transition-all hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-2 duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 via-yellow-500/15 to-amber-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Crown className="relative h-10 w-10 text-amber-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <div className="relative text-5xl font-bold bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent mb-3">Elite</div>
+            <div className="relative group rounded-2xl border-2 border-blue-500/40 bg-gradient-to-br from-blue-500/10 via-black to-yellow-600/10 p-10 text-center hover:border-blue-500/60 transition-all hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/15 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Crown className="relative h-10 w-10 text-blue-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <div className="relative text-5xl font-bold bg-gradient-to-r from-blue-500 to-blue-500 bg-clip-text text-transparent mb-3">Elite</div>
               <div className="relative text-sm text-zinc-300 tracking-wider font-medium">Access Level</div>
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function SecretPage() {
             </p>
             <p className="text-zinc-500 text-sm">
               For support or access issues, contact:{' '}
-              <a href="mailto:defcon5ready@gmail.com" className="text-amber-500 hover:text-amber-500 transition underline decoration-amber-500/40 font-medium">
+              <a href="mailto:defcon5ready@gmail.com" className="text-blue-500 hover:text-blue-500 transition underline decoration-blue-500/40 font-medium">
                 defcon5ready@gmail.com
               </a>
             </p>

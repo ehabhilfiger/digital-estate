@@ -13,7 +13,7 @@ export default function FoundationTier() {
             Back to Home
           </Link>
           <Link href="/start-project">
-            <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium text-sm">
+            <button className="px-4 py-2 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium text-sm">
               Request This Package
             </button>
           </Link>
@@ -23,11 +23,11 @@ export default function FoundationTier() {
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
+          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm mb-6">
             FOUNDATION TIER
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Professional NAS <span className="text-amber-500">Deployment</span>
+            Professional NAS <span className="text-blue-500">Deployment</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Enterprise-grade data sovereignty for professionals and boutique firms. Own your data, cut costs, maintain complete control.
@@ -35,7 +35,7 @@ export default function FoundationTier() {
         </div>
 
         {/* Image Showcase */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-2xl">
+        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-2xl">
           <Image
             src="/images/Tier 1 Example.png"
             alt="Foundation Tier - Professional Synology NAS Deployment"
@@ -46,15 +46,15 @@ export default function FoundationTier() {
         </div>
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/10 to-transparent p-12 text-center">
-          <div className="text-6xl font-bold text-amber-500 mb-4">$50,000</div>
+        <div className="mb-16 rounded-2xl border-2 border-blue-500 bg-gradient-to-br from-blue-500/10 to-transparent p-12 text-center">
+          <div className="text-6xl font-bold text-blue-500 mb-4">$50,000</div>
           <div className="text-xl text-white/80">Complete Installation Package</div>
           <div className="mt-4 text-white/60">Includes hardware, installation, configuration & 90-day support</div>
         </div>
 
         {/* DarkGPT Feature */}
-        <div className="mb-16 rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 via-slate-900 to-black p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute top-4 right-4 px-4 py-2 bg-amber-500 text-white text-xs font-bold rounded-full">
+        <div className="mb-16 rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 via-slate-900 to-black p-8 md:p-12 relative overflow-hidden">
+          <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-white text-xs font-bold rounded-full">
             ELITE EXCLUSIVE
           </div>
           <div className="relative z-10">
@@ -64,48 +64,48 @@ export default function FoundationTier() {
                 alt="DarkGPT Logo" 
                 className="h-12 w-auto"
               />
-              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-500">
+              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-500">
                 DarkGPT — Unrestricted Local AI
               </h2>
             </div>
             <p className="text-white/80 text-lg mb-6">
               We install a completely private, uncensored local LLM that <strong className="text-white">never says no</strong>. Fully customized to your needs, running entirely on your hardware with zero external connections.
             </p>
-            <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-amber-500/20">
-              <h3 className="text-xl font-semibold text-amber-500 mb-3">One Week On-Site Programming</h3>
+            <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-blue-500/20">
+              <h3 className="text-xl font-semibold text-blue-500 mb-3">One Week On-Site Programming</h3>
               <p className="text-white/70 mb-4">
                 I'll spend an entire week at your location fine-tuning DarkGPT until every parameter is dialed in perfectly. We don't stop until you're 100% satisfied with how it responds, thinks, and caters to your specific needs.
               </p>
-              <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-4 mb-4">
-                <div className="text-lg font-bold text-amber-500 mb-2">Pricing: Available Upon Request</div>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mb-4">
+                <div className="text-lg font-bold text-blue-500 mb-2">Pricing: Available Upon Request</div>
                 <p className="text-white/70 text-sm italic">
                   "DarkGPT pricing is negotiable based on your budget. If you have the money, I have the time. Let's talk."
                 </p>
               </div>
               <ul className="space-y-3 text-sm text-white/70">
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span>Custom-trained on your preferences and workflows</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span>No censorship, no limitations, no external oversight</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span>Completely private — your conversations never leave your network</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span>Integrates with your entire digital estate</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span>One full week of on-site fine-tuning and customization</span>
                 </li>
               </ul>
             </div>
-            <p className="text-amber-500 font-semibold italic">
+            <p className="text-blue-500 font-semibold italic">
               "Your AI. Your rules. Zero compromises."
             </p>
           </div>
@@ -115,7 +115,7 @@ export default function FoundationTier() {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-amber-500" />
+              <Server className="h-8 w-8 text-blue-500" />
               Infrastructure Delivered
             </h2>
             <ul className="space-y-4">
@@ -128,7 +128,7 @@ export default function FoundationTier() {
                 '10GbE networking integration (if infrastructure supports)',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -163,7 +163,7 @@ export default function FoundationTier() {
           <h2 className="text-2xl font-bold mb-6">Real-World Results</h2>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-500 mb-2">60%</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">60%</div>
               <div className="text-white/70">Cost Reduction vs. Cloud</div>
             </div>
             <div className="text-center">
@@ -171,12 +171,12 @@ export default function FoundationTier() {
               <div className="text-white/70">Data Sovereignty</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-500 mb-2">24/7</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">24/7</div>
               <div className="text-white/70">Local Access</div>
             </div>
           </div>
           <div className="border-t border-white/10 pt-6">
-            <p className="text-lg italic text-amber-500 mb-2">
+            <p className="text-lg italic text-blue-500 mb-2">
               "We finally own our data. Installation was seamless, support exceptional."
             </p>
             <p className="text-white/60">— Managing Partner, Boutique Law Firm</p>
@@ -211,7 +211,7 @@ export default function FoundationTier() {
             This package is perfect for solo practitioners, boutique law firms, and professionals who value data sovereignty without enterprise complexity.
           </p>
           <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-500 transition font-bold text-lg shadow-lg shadow-amber-500/20">
+            <button className="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-black rounded-2xl hover:bg-blue-500 transition font-bold text-lg shadow-lg shadow-blue-500/20">
               Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
             </button>
           </Link>

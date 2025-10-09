@@ -18,18 +18,18 @@ export default function EstatePackage() {
       {/* Content */}
       <div className="relative z-10">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur border-b border-amber-500/30 bg-slate-950/50">
+      <header className="sticky top-0 z-50 backdrop-blur border-b border-blue-500/30 bg-slate-950/50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/#work" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
             <ArrowLeft className="h-4 w-4" />
             Back to Packages
           </Link>
           <div className="flex items-center gap-4">
-            <span className="px-3 py-1 rounded-full bg-amber-500 text-black text-xs font-bold">
+            <span className="px-3 py-1 rounded-full bg-blue-500 text-black text-xs font-bold">
               MOST POPULAR
             </span>
             <Link href="/start-project">
-              <button className="px-4 py-2 bg-amber-500 text-black rounded-xl hover:bg-amber-500 transition font-medium text-sm">
+              <button className="px-4 py-2 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium text-sm">
                 Get Started
               </button>
             </Link>
@@ -40,11 +40,11 @@ export default function EstatePackage() {
       <main className="max-w-6xl mx-auto px-4 py-16">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-sm mb-6">
+          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm mb-6">
             ESTATE PACKAGE
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Estate <span className="text-amber-500">Package</span>
+            Estate <span className="text-blue-500">Package</span>
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
             Comprehensive digital estate for professionals and families. Multi-server deployment with advanced security, smart home integration, and on-prem AI capabilities.
@@ -52,7 +52,7 @@ export default function EstatePackage() {
         </div>
 
         {/* Image Showcase - Centerpiece */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-2xl copper-glow">
+        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-2xl blue-glow">
           <Image
             src="/images/25k.webp"
             alt="Estate Package - Comprehensive digital estate"
@@ -64,10 +64,10 @@ export default function EstatePackage() {
         </div>
 
         {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-amber-500 bg-gradient-to-br from-amber-500/20 to-transparent p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-slate-400/10 blur-3xl"></div>
+        <div className="mb-16 rounded-2xl border-2 border-blue-500 bg-gradient-to-br from-blue-500/20 to-transparent p-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-slate-400/10 blur-3xl"></div>
           <div className="relative">
-            <div className="text-6xl font-bold text-amber-500 mb-4">$8,000 – $15,000</div>
+            <div className="text-6xl font-bold text-blue-500 mb-4">$8,000 – $15,000</div>
             <div className="text-xl text-white/80">Complete Digital Estate</div>
             <div className="mt-4 text-white/60">Our most popular package - comprehensive infrastructure with ongoing support</div>
           </div>
@@ -75,9 +75,9 @@ export default function EstatePackage() {
 
         {/* What's Included */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="rounded-2xl border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-transparent p-8">
+          <div className="rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 to-transparent p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-amber-500" />
+              <Server className="h-8 w-8 text-blue-500" />
               Multi-Server Infrastructure
             </h2>
             <ul className="space-y-4">
@@ -90,7 +90,7 @@ export default function EstatePackage() {
                 'Virtualization with Proxmox or ESXi',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -121,7 +121,7 @@ export default function EstatePackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Home className="h-8 w-8 text-amber-500" />
+              <Home className="h-8 w-8 text-blue-500" />
               Smart Home Integration
             </h2>
             <ul className="space-y-4">
@@ -134,7 +134,7 @@ export default function EstatePackage() {
                 'Custom automation rules and scenes',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -143,7 +143,7 @@ export default function EstatePackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Brain className="h-8 w-8 text-amber-500" />
+              <Brain className="h-8 w-8 text-blue-500" />
               On-Prem AI Services
             </h2>
             <ul className="space-y-4">
@@ -156,7 +156,7 @@ export default function EstatePackage() {
                 'All processing stays on your network',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -165,7 +165,7 @@ export default function EstatePackage() {
 
           <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-amber-500" />
+              <Shield className="h-8 w-8 text-blue-500" />
               Monitoring & Alerts
             </h2>
             <ul className="space-y-4">
@@ -178,7 +178,7 @@ export default function EstatePackage() {
                 'Mobile app for remote monitoring',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <span className="text-white/80">{item}</span>
                 </li>
               ))}
@@ -230,8 +230,8 @@ export default function EstatePackage() {
               },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center text-center">
-                <item.icon className="h-12 w-12 text-amber-500 mb-4" />
-                <h3 className="font-semibold mb-2 text-amber-500">{item.title}</h3>
+                <item.icon className="h-12 w-12 text-blue-500 mb-4" />
+                <h3 className="font-semibold mb-2 text-blue-500">{item.title}</h3>
                 <p className="text-sm text-white/70">{item.description}</p>
               </div>
             ))}
@@ -239,11 +239,11 @@ export default function EstatePackage() {
         </div>
 
         {/* Value Proposition */}
-        <div className="rounded-2xl border-2 border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-transparent p-8 mb-16">
+        <div className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-transparent p-8 mb-16">
           <h2 className="text-2xl font-bold mb-6">Estate Package Value</h2>
           <div className="grid md:grid-cols-4 gap-6 mb-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-500 mb-2">3+</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">3+</div>
               <div className="text-white/70">Network Zones</div>
             </div>
             <div className="text-center">
@@ -251,16 +251,16 @@ export default function EstatePackage() {
               <div className="text-white/70">Devices Supported</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-500 mb-2">100%</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">100%</div>
               <div className="text-white/70">Local Control</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-500 mb-2">90</div>
+              <div className="text-4xl font-bold text-blue-500 mb-2">90</div>
               <div className="text-white/70">Days Support</div>
             </div>
           </div>
           <div className="border-t border-white/10 pt-6">
-            <p className="text-lg italic text-amber-500 text-center">
+            <p className="text-lg italic text-blue-500 text-center">
               "The Estate package transforms your home into a sophisticated digital estate with enterprise-grade capabilities."
             </p>
           </div>
@@ -278,7 +278,7 @@ export default function EstatePackage() {
               { phase: 'Week 6', title: 'Training & Go-Live', description: 'User training, documentation, final handoff and 90-day support begins' },
             ].map((item, i) => (
               <div key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-24 text-amber-500 font-semibold">{item.phase}</div>
+                <div className="flex-shrink-0 w-24 text-blue-500 font-semibold">{item.phase}</div>
                 <div className="flex-1">
                   <h3 className="font-semibold mb-1">{item.title}</h3>
                   <p className="text-sm text-white/70">{item.description}</p>
@@ -319,7 +319,7 @@ export default function EstatePackage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/start-project">
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-black rounded-2xl hover:bg-amber-500 transition font-bold text-lg shadow-lg shadow-amber-500/30">
+              <button className="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-black rounded-2xl hover:bg-blue-500 transition font-bold text-lg shadow-lg shadow-blue-500/30">
                 Start Your Estate <ArrowRight className="ml-2 h-5 w-5" />
               </button>
             </Link>

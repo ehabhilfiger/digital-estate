@@ -45,7 +45,7 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition"
+          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition"
           placeholder="Your name"
         />
       </div>
@@ -57,7 +57,7 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition"
+          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition"
           placeholder="your@email.com"
         />
       </div>
@@ -69,13 +69,13 @@ export default function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition resize-none"
+          className="w-full px-4 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition resize-none"
           placeholder="Tell me about your project..."
         />
       </div>
       
       {status === 'success' && (
-        <div className="flex items-center gap-2 p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-amber-500">
+        <div className="flex items-center gap-2 p-3 bg-blue-500/10 border border-blue-500/20 rounded-xl text-blue-500">
           <CheckCircle2 className="h-5 w-5" />
           <span className="text-sm">Message sent successfully!</span>
         </div>
@@ -91,7 +91,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full inline-flex items-center justify-center px-4 py-2 font-medium rounded-2xl transition bg-amber-500 text-black hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full inline-flex items-center justify-center px-4 py-2 font-medium rounded-2xl transition bg-blue-500 text-black hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === 'loading' ? 'Sending...' : 'Send Message'}
         {status !== 'loading' && <ArrowRight className="ml-2 h-4 w-4" />}
@@ -99,7 +99,7 @@ export default function ContactForm() {
       
       <p className="text-sm text-white/60 text-center">
         Or email me directly at{' '}
-        <a href="mailto:defcon5ready@gmail.com" className="text-amber-500 hover:underline">
+        <a href="mailto:defcon5ready@gmail.com" className="text-blue-500 hover:underline">
           defcon5ready@gmail.com
         </a>
       </p>
