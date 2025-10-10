@@ -12,6 +12,7 @@ export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -252,8 +253,8 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* Digital Rain Effect */}
-          {typeof window !== 'undefined' && [...Array(20)].map((_, i) => (
+          {/* Digital Rain Effect - Reduced for Mobile */}
+          {typeof window !== 'undefined' && [...Array(shouldReduceMotion ? 5 : 20)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute text-blue-400/30 font-mono text-xs"
@@ -267,14 +268,14 @@ export default function HomePage() {
                 opacity: [0, 1, 0]
               }}
               transition={{ 
-                duration: 3 + Math.random() * 2, 
-                delay: Math.random() * 2,
+                duration: shouldReduceMotion ? 5 : 3 + Math.random() * 2, 
+                delay: shouldReduceMotion ? 0 : Math.random() * 2,
                 ease: "linear",
                 repeat: Infinity,
-                repeatDelay: Math.random() * 3
+                repeatDelay: shouldReduceMotion ? 2 : Math.random() * 3
               }}
             >
-              {Array.from({length: 8}, () => Math.random().toString(36).substring(7)).join('\n')}
+              {Array.from({length: shouldReduceMotion ? 4 : 8}, () => Math.random().toString(36).substring(7)).join('\n')}
             </motion.div>
           ))}
         </motion.div>
@@ -310,6 +311,7 @@ export default function HomePage() {
               />
               <span className="font-semibold tracking-tight">Digital Estate Architect</span>
             </Link>
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6 text-sm text-white/80" aria-label="Main navigation">
               <a href="#services" className="hover:text-white focus:text-white focus:outline-none focus:underline">Services</a>
               <a href="#law" className="hover:text-white focus:text-white focus:outline-none focus:underline">Law Firms</a>
@@ -319,8 +321,115 @@ export default function HomePage() {
               <a href="#about" className="hover:text-white focus:text-white focus:outline-none focus:underline">About</a>
               <a href="#contact" className="hover:text-white focus:text-white focus:outline-none focus:underline">Contact</a>
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-950 rounded-lg"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            </button>
           </div>
         </motion.header>
+
+        {/* Mobile Navigation Menu */}
+        <motion.div
+          className={`fixed inset-0 z-40 md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isMobileMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          
+          {/* Menu Panel */}
+          <motion.div
+            className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-slate-900/95 backdrop-blur-md border-l border-blue-500/30"
+            initial={{ x: '100%' }}
+            animate={{ x: isMobileMenuOpen ? 0 : '100%' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <div className="p-6 pt-20">
+              {/* Close Button */}
+              <button
+                className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close mobile menu"
+              >
+                <span className="text-white text-xl">×</span>
+              </button>
+              
+              {/* Navigation Links */}
+              <nav className="space-y-6" aria-label="Mobile navigation">
+                <a 
+                  href="#services" 
+                  className="block text-lg font-medium text-white hover:text-blue-400 transition-colors py-3 border-b border-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Services
+                </a>
+                <a 
+                  href="#law" 
+                  className="block text-lg font-medium text-white hover:text-blue-400 transition-colors py-3 border-b border-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Law Firms
+                </a>
+                <a 
+                  href="#healthcare" 
+                  className="block text-lg font-medium text-white hover:text-blue-400 transition-colors py-3 border-b border-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Healthcare
+                </a>
+                <a 
+                  href="#work" 
+                  className="block text-lg font-medium text-white hover:text-blue-400 transition-colors py-3 border-b border-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Packages
+                </a>
+                <a 
+                  href="#accomp" 
+                  className="block text-lg font-medium text-white hover:text-blue-400 transition-colors py-3 border-b border-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Elite Builds
+                </a>
+                <a 
+                  href="#about" 
+                  className="block text-lg font-medium text-white hover:text-blue-400 transition-colors py-3 border-b border-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  About
+                </a>
+                <a 
+                  href="#contact" 
+                  className="block text-lg font-medium text-white hover:text-blue-400 transition-colors py-3 border-b border-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact
+                </a>
+              </nav>
+              
+              {/* Contact Info */}
+              <div className="mt-8 pt-6 border-t border-white/20">
+                <div className="text-sm text-white/70 space-y-2">
+                  <p>Chicago, IL</p>
+                  <p>defcon5ready@gmail.com</p>
+                  <p>(773) 920-0030</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
 
         <motion.main 
           id="main-content"
@@ -365,18 +474,18 @@ export default function HomePage() {
                 >
                   <a href="#contact">
                     <motion.button
-                      className="inline-flex items-center justify-center px-5 py-3 font-medium rounded-2xl transition bg-blue-500 text-black hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-950 text-sm sm:text-base"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center justify-center px-6 py-4 font-medium rounded-2xl transition bg-blue-500 text-black hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-950 text-base min-h-[44px] min-w-[140px]"
+                      whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                      whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
                     >
                       Book a consult <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                     </motion.button>
                   </a>
                   <a href="#work">
                     <motion.button
-                      className="inline-flex items-center justify-center px-5 py-3 font-medium rounded-2xl transition bg-white/10 border border-white/10 text-white hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-slate-950 text-sm sm:text-base"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center justify-center px-6 py-4 font-medium rounded-2xl transition bg-white/10 border border-white/10 text-white hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-slate-950 text-base min-h-[44px] min-w-[140px]"
+                      whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                      whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
                     >
                       View packages
                     </motion.button>

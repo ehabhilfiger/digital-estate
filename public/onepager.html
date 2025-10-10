@@ -39,6 +39,16 @@
             pointer-events: none;
         }
 
+        @media (max-width: 768px) {
+            .code-background {
+                opacity: 0.08;
+            }
+            
+            .code-line {
+                font-size: 10px;
+            }
+        }
+
         .code-line {
             position: absolute;
             font-family: 'Courier New', monospace;
@@ -661,6 +671,37 @@
             
             .section {
                 padding: 12px;
+            }
+
+            .tier, .elite-item, .pillar {
+                min-height: 44px;
+                padding: 12px;
+            }
+
+            .contact a {
+                display: inline-block;
+                padding: 8px 12px;
+                margin: 4px;
+                min-height: 44px;
+                min-width: 120px;
+                text-align: center;
+                border-radius: 8px;
+                background: #3b82f6;
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .medical-features {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .medical-feature {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
 
