@@ -27,6 +27,78 @@
             position: relative;
         }
 
+        /* ANIMATED CODE BACKGROUND */
+        .code-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .code-line {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #3b82f6;
+            white-space: nowrap;
+            animation: codeFall linear infinite;
+            opacity: 0.7;
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+        }
+
+        .code-line:nth-child(odd) {
+            color: #f59e0b;
+            text-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
+        }
+
+        .code-line:nth-child(3n) {
+            color: #10b981;
+            text-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+        }
+
+        .code-line:nth-child(4n) {
+            color: #8b5cf6;
+            text-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+        }
+
+        @keyframes codeFall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Different animation speeds for variety */
+        .code-line:nth-child(1) { animation-duration: 15s; animation-delay: 0s; }
+        .code-line:nth-child(2) { animation-duration: 18s; animation-delay: 2s; }
+        .code-line:nth-child(3) { animation-duration: 20s; animation-delay: 4s; }
+        .code-line:nth-child(4) { animation-duration: 16s; animation-delay: 1s; }
+        .code-line:nth-child(5) { animation-duration: 22s; animation-delay: 3s; }
+        .code-line:nth-child(6) { animation-duration: 19s; animation-delay: 5s; }
+        .code-line:nth-child(7) { animation-duration: 17s; animation-delay: 0.5s; }
+        .code-line:nth-child(8) { animation-duration: 21s; animation-delay: 2.5s; }
+        .code-line:nth-child(9) { animation-duration: 14s; animation-delay: 4.5s; }
+        .code-line:nth-child(10) { animation-duration: 23s; animation-delay: 1.5s; }
+        .code-line:nth-child(11) { animation-duration: 16s; animation-delay: 3.5s; }
+        .code-line:nth-child(12) { animation-duration: 20s; animation-delay: 5.5s; }
+        .code-line:nth-child(13) { animation-duration: 18s; animation-delay: 0.8s; }
+        .code-line:nth-child(14) { animation-duration: 15s; animation-delay: 2.8s; }
+        .code-line:nth-child(15) { animation-duration: 19s; animation-delay: 4.8s; }
+
         /* SUPER COOL ONE-PAGER ANIMATION */
         .animation-overlay {
             position: fixed;
@@ -598,6 +670,46 @@
             <div class="tech-particles"></div>
             <div class="tech-particles"></div>
         </div>
+    </div>
+
+    <!-- ANIMATED CODE BACKGROUND WITH HIDDEN MESSAGES -->
+    <div class="code-background">
+        <div class="code-line" style="left: 5%;">// Digital Estate Architect - Private AI Infrastructure</div>
+        <div class="code-line" style="left: 15%;">const securityLevel = "ZERO_TRUST"; // Bulletproof perimeter</div>
+        <div class="code-line" style="left: 25%;">// Ehab Allababidi - Chicago's Premier Infrastructure Specialist</div>
+        <div class="code-line" style="left: 35%;">if (dataSovereignty === true) { deployOnPremise(); }</div>
+        <div class="code-line" style="left: 45%;">// HIPAA + ABA Compliant Infrastructure</div>
+        <div class="code-line" style="left: 55%;">const eliteTier = { foundation: "$50k", estate: "$100k", architect: "$250k+" };</div>
+        <div class="code-line" style="left: 65%;">// Wireguard VPN + VLAN Segmentation + pfSense Firewall</div>
+        <div class="code-line" style="left: 75%;">let darkGPT = "Unrestricted AI - Zero Censorship";</div>
+        <div class="code-line" style="left: 85%;">// Synology NAS + Proxmox + TrueNAS + GPU Clusters</div>
+        <div class="code-line" style="left: 10%;">// Law Firms: ABA Model Rule 1.6 Compliance</div>
+        <div class="code-line" style="left: 20%;">const backupStrategy = "AirGapped + Encrypted + Redundant";</div>
+        <div class="code-line" style="left: 30%;">// Healthcare: 99.99% Uptime SLA + OCR Audit Ready</div>
+        <div class="code-line" style="left: 40%;">if (clientNeeds === "privacy") { buildPrivateEstate(); }</div>
+        <div class="code-line" style="left: 50%;">// Home Assistant + Smart Home + IoT Security</div>
+        <div class="code-line" style="left: 60%;">const contactInfo = { email: "defcon5ready@gmail.com", phone: "(773) 920-0030" };</div>
+        <div class="code-line" style="left: 70%;">// Ollama + llama.cpp + Local LLMs + Private ChatGPT</div>
+        <div class="code-line" style="left: 80%;">// Multi-Factor Auth + End-to-End Encryption</div>
+        <div class="code-line" style="left: 90%;">// defcon5ready@gmail.com - Ready for Elite Deployments</div>
+        <div class="code-line" style="left: 8%;">// Chicago, IL - Serving Chicagoland & Beyond</div>
+        <div class="code-line" style="left: 18%;">const monitoring = "24/7 Alerts + Grafana + Prometheus";</div>
+        <div class="code-line" style="left: 28%;">// Enterprise Synology DS1821+ + 8x 18TB Drives</div>
+        <div class="code-line" style="left: 38%;">// High Availability Clustering + Disaster Recovery</div>
+        <div class="code-line" style="left: 48%;">if (budget >= 50000) { unlockEliteTier(); }</div>
+        <div class="code-line" style="left: 58%;">// Conflict Checking + Ethical Walls + Attorney-Client Privilege</div>
+        <div class="code-line" style="left: 68%;">const automation = "Ansible + Terraform + Custom Scripts";</div>
+        <div class="code-line" style="left: 78%;">// Zero Vendor Lock-in + Complete Data Sovereignty</div>
+        <div class="code-line" style="left: 88%;">// RTX 4090 GPU Cluster + On-Prem AI Inference</div>
+        <div class="code-line" style="left: 12%;">// backupestate.vercel.app - Your Digital Estate Awaits</div>
+        <div class="code-line" style="left: 22%;">const securityAudit = "Penetration Testing + Compliance Documentation";</div>
+        <div class="code-line" style="left: 32%;">// Multi-Site Replication + Geographic Redundancy</div>
+        <div class="code-line" style="left: 42%;">// Practice Management Integration (Clio, PracticePanther)</div>
+        <div class="code-line" style="left: 52%;">if (uptime === "critical") { deployHA(); }</div>
+        <div class="code-line" style="left: 62%;">// Custom AI Models + Fine-Tuning + Local Training</div>
+        <div class="code-line" style="left: 72%;">// Ransomware Protection + Air-Gapped Backups</div>
+        <div class="code-line" style="left: 82%;">// Calendly: calendly.com/defcon5ready/new-meeting</div>
+        <div class="code-line" style="left: 92%;">// Elite Infrastructure for Elite Clients</div>
     </div>
 
     <div class="container">
