@@ -10,7 +10,24 @@ import { formatPrice } from '@/config/pricing';
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState(0);
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    // Super Cool Entrance Animation Sequence
+    const timer1 = setTimeout(() => setIsLoaded(true), 100);
+    const timer2 = setTimeout(() => setAnimationPhase(1), 400);
+    const timer3 = setTimeout(() => setAnimationPhase(2), 1000);
+    const timer4 = setTimeout(() => setAnimationPhase(3), 1800);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timer4);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -140,13 +157,144 @@ export default function HomePage() {
         Skip to content
       </a>
 
-      <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 text-white blue-texture">
+      {/* SUPER COOL ENTRANCE ANIMATION */}
+      {!shouldReduceMotion && (
+        <motion.div
+          className="fixed inset-0 z-50 pointer-events-none"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 2.5, delay: 2.2, ease: "easeInOut" }}
+        >
+          {/* Animated Background Matrix */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-slate-900/60 to-blue-800/30"
+            initial={{ scale: 0, opacity: 1, rotate: 0 }}
+            animate={{ scale: 3, opacity: 0, rotate: 180 }}
+            transition={{ duration: 2.8, ease: "easeInOut" }}
+          />
+          
+          {/* Central Holographic Loading */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            initial={{ scale: 0, opacity: 1 }}
+            animate={{ scale: 1, opacity: 0 }}
+            transition={{ duration: 1.8, delay: 0.5, ease: "easeOut" }}
+          >
+            <div className="relative">
+              {/* Outer Holographic Ring */}
+              <motion.div 
+                className="w-48 h-48 border-4 border-blue-500/60 rounded-full relative"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, ease: "linear", repeat: Infinity }}
+              >
+                <div className="absolute inset-0 border-4 border-transparent border-t-blue-500 rounded-full" />
+                <div className="absolute inset-2 border-4 border-transparent border-r-blue-400 rounded-full" />
+                <div className="absolute inset-4 border-4 border-transparent border-b-blue-300 rounded-full" />
+              </motion.div>
+              
+              {/* Inner Counter-Rotating Ring */}
+              <motion.div 
+                className="absolute inset-4 w-40 h-40 border-4 border-amber-500/40 rounded-full"
+                animate={{ rotate: -360 }}
+                transition={{ duration: 3, ease: "linear", repeat: Infinity }}
+              >
+                <div className="absolute inset-0 border-4 border-transparent border-l-amber-500 rounded-full" />
+                <div className="absolute inset-2 border-4 border-transparent border-t-amber-400 rounded-full" />
+              </motion.div>
+              
+              {/* Central Pulsing Core */}
+              <motion.div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ 
+                  scale: [0, 1.2, 1, 1.2, 1],
+                  opacity: [0, 1, 1, 1, 0]
+                }}
+                transition={{ duration: 1.8, delay: 0.8, ease: "easeInOut" }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-amber-500 rounded-full shadow-2xl shadow-blue-500/50" />
+              </motion.div>
+              
+              {/* Floating Tech Particles */}
+              {[...Array(12)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 bg-blue-400 rounded-full"
+                  style={{
+                    top: `${50 + 40 * Math.cos((i * 30) * Math.PI / 180)}%`,
+                    left: `${50 + 40 * Math.sin((i * 30) * Math.PI / 180)}%`,
+                  }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ 
+                    opacity: [0, 1, 0],
+                    scale: [0, 1, 0],
+                    y: [-10, -30, -50]
+                  }}
+                  transition={{ 
+                    duration: 2.5, 
+                    delay: i * 0.2, 
+                    ease: "easeOut",
+                    repeat: Infinity,
+                    repeatDelay: 0.5
+                  }}
+                />
+              ))}
+              
+              {/* Scanning Line Effect */}
+              <motion.div
+                className="absolute inset-0 border-2 border-blue-500/30 rounded-full"
+                animate={{ 
+                  scale: [1, 1.3, 1],
+                  opacity: [0.3, 0.8, 0.3]
+                }}
+                transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Digital Rain Effect */}
+          {typeof window !== 'undefined' && [...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-blue-400/30 font-mono text-xs"
+              style={{
+                left: `${5 + (i * 5)}%`,
+                top: `${-10}%`,
+              }}
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ 
+                y: [0, window.innerHeight + 50],
+                opacity: [0, 1, 0]
+              }}
+              transition={{ 
+                duration: 3 + Math.random() * 2, 
+                delay: Math.random() * 2,
+                ease: "linear",
+                repeat: Infinity,
+                repeatDelay: Math.random() * 3
+              }}
+            >
+              {Array.from({length: 8}, () => Math.random().toString(36).substring(7)).join('\n')}
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
+
+      <motion.div 
+        className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 text-white blue-texture"
+        initial={{ opacity: 0 }}
+        animate={isLoaded ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      >
         {/* Header */}
         <motion.header
           className={`sticky top-0 z-50 backdrop-blur border-b transition-all duration-300 ${isScrolled ? 'border-blue-500/30 bg-slate-900/90' : 'border-blue-500/20'}`}
-          initial={shouldReduceMotion ? false : { y: -50 }}
-          animate={shouldReduceMotion ? false : { y: 0 }}
-          transition={shouldReduceMotion ? {} : { duration: 0.3, ease: "easeOut" }}
+          initial={shouldReduceMotion ? false : { y: -100, opacity: 0 }}
+          animate={shouldReduceMotion ? false : { 
+            y: 0, 
+            opacity: 1,
+            transition: { duration: 0.8, delay: 0.3, ease: "easeOut" }
+          }}
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -174,14 +322,23 @@ export default function HomePage() {
           </div>
         </motion.header>
 
-        <main id="main-content">
+        <motion.main 
+          id="main-content"
+          initial={{ opacity: 0 }}
+          animate={isLoaded ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+        >
           {/* Hero Section */}
           <section className="relative overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
               <motion.div
-                initial={{ opacity: 0, x: -60 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                initial={{ opacity: 0, x: -80, scale: 0.9 }}
+                animate={isLoaded ? { 
+                  opacity: 1, 
+                  x: 0, 
+                  scale: 1,
+                  transition: { duration: 1.2, delay: 0.5, ease: "easeOut" }
+                } : { opacity: 0, x: -80, scale: 0.9 }}
               >
                 <motion.h1
                   className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight"
@@ -247,9 +404,13 @@ export default function HomePage() {
               </motion.div>
               <motion.div
                 className="flex justify-center"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
+                initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
+                animate={isLoaded ? { 
+                  opacity: 1, 
+                  scale: 1,
+                  rotateY: 0,
+                  transition: { duration: 1.2, delay: 0.7, ease: "easeOut" }
+                } : { opacity: 0, scale: 0.9, rotateY: 15 }}
               >
                 <div className="relative">
                   <motion.div
@@ -1228,7 +1389,7 @@ export default function HomePage() {
               </div>
             </div>
           </section>
-        </main>
+        </motion.main>
 
         {/* Footer */}
         <footer className="border-t border-white/10 py-12">
@@ -1283,7 +1444,7 @@ export default function HomePage() {
             </div>
           </div>
         </footer>
-      </div>
+      </motion.div>
     </>
   );
 }
