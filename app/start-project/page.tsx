@@ -86,7 +86,7 @@ ${formData.description}
         setStatus('error');
         setErrorMessage(data.error || 'Failed to submit. Please try emailing directly.');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setErrorMessage('Network error. Please email defcon5ready@gmail.com directly.');
     }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 
 const homepagePath = 'c:/Users/defco/digital-estate/app/page.tsx';

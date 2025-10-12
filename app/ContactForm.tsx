@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Shield, Server, Lock, Home, Brain, ArrowRight, Phone, Mail, FileText, Calendar, CheckCircle2, AlertCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -29,7 +29,7 @@ export default function ContactForm() {
         setStatus('error');
         setErrorMessage(data.error || 'Failed to send message');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setErrorMessage('Network error. Please try again.');
     }

@@ -1,337 +1,364 @@
+"use client";
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, Check, Shield, Server, Home, Network, ArrowRight, Zap, Brain } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  Brain,
+  GaugeCircle,
+  Home,
+  Lock,
+  Network,
+  Server,
+  Shield,
+  Sparkles,
+  Workflow,
+} from 'lucide-react';
+
+const outcomeHighlights = [
+  { label: 'Resilience score', value: '99.7%', icon: Shield },
+  { label: 'Multi-site sync', value: '≤ 3 min', icon: Network },
+  { label: 'Automation scenes', value: '40+', icon: Home },
+  { label: 'Support runway', value: '90 days', icon: Sparkles },
+];
+
+const deliverableColumns = [
+  {
+    icon: Server,
+    title: 'Core estate build',
+    items: [
+      'Dual-node TrueNAS + Proxmox stack with GPU-ready virtualization',
+      '10–32TB usable storage with hot spare, snapshots, and replication',
+      'Layer-3 managed switching with 10Gb uplinks and PoE segmentation',
+      'Network UPS, environmental telemetry, and service catalog documentation',
+    ],
+  },
+  {
+    icon: Shield,
+    title: 'Zero-trust perimeter',
+    items: [
+      'pfSense/OPNsense firewall pair with policy-as-code governance',
+      'Identity provider integration for SSO + MFA across VPN and portals',
+      'East-west microsegmentation with attorney, operations, guest, and IoT zones',
+      'Continuous vulnerability scanning, IDS, and automated patch orchestration',
+    ],
+  },
+  {
+    icon: Brain,
+    title: 'Concierge automations',
+    items: [
+      'Home Assistant blueprints for climate, presence, security, and energy',
+      'Local LLM stack for in-estate knowledge retrieval and task orchestration',
+      'DarkGPT co-pilot integration with prompt library and role-specific safeguards',
+      'Executive dashboards for uptime, backup health, and concierge ticketing',
+    ],
+  },
+];
+
+const comparisonRows = [
+  { feature: 'Coverage', estate: 'Infrastructure + security + automations', piecemeal: 'Single vendor fragments' },
+  { feature: 'Change management', estate: 'Versioned runbooks & concierge team', piecemeal: 'Ad hoc / undocumented' },
+  { feature: 'Data posture', estate: 'Immutable backups + off-site replication', piecemeal: 'Hope and the public cloud' },
+  { feature: 'Network hygiene', estate: 'Segmented VLANs, NAC, continuous scans', piecemeal: 'Flat LAN, unknown firmware' },
+  { feature: 'Automation trust', estate: 'Verified, local-first workflows', piecemeal: 'Cloud voice assistants' },
+];
+
+const processSteps = [
+  { phase: 'Week 1', title: 'Estate audit & blueprint', copy: 'On-site walk-through, dependency mapping, risk assessment, and bill of materials approval.' },
+  { phase: 'Week 2', title: 'Core rack build', copy: 'Rack, cable, and harden servers, storage, and switching with baseline monitoring in place.' },
+  { phase: 'Week 3', title: 'Security + segmentation', copy: 'Deploy firewalls, identity integrations, NAC policies, and zero-trust remote access.' },
+  { phase: 'Week 4', title: 'Automation & AI layer', copy: 'Install Home Assistant, DarkGPT, and workflow engines with custom playbooks.' },
+  { phase: 'Week 5', title: 'Validation & concierge', copy: 'Disaster rehearsal, documentation handoff, and start of 90-day elite concierge program.' },
+];
+
+const idealFits = [
+  {
+    title: 'Multi-site principals',
+    description: 'Founders balancing city penthouse, lake home, and office annex needing synchronized infrastructure.',
+    accentClass: 'border border-sky-400/30 bg-sky-400/10 text-sky-100',
+  },
+  {
+    title: 'Hybrid law or medical teams',
+    description: 'Partners with distributed staff requiring compliant remote access, telepresence, and archival certainty.',
+    accentClass: 'border border-emerald-400/30 bg-emerald-400/10 text-emerald-100',
+  },
+  {
+    title: 'Automation-first estates',
+    description: 'Residences that expect lights, climate, gates, and theaters to stay online even during ISP or grid blips.',
+    accentClass: 'border border-amber-400/30 bg-amber-400/10 text-amber-100',
+  },
+];
+
+const resilienceBadges = [
+  { label: 'Active-active failover', value: 'Dual-site replication', badgeClass: 'border border-sky-400/30 bg-sky-400/10 text-sky-100' },
+  { label: 'Restoration drill', value: '< 8 min', badgeClass: 'border border-emerald-400/30 bg-emerald-400/10 text-emerald-100' },
+  { label: 'Automation coverage', value: '18 zones', badgeClass: 'border border-amber-400/30 bg-amber-400/10 text-amber-100' },
+  { label: 'Monitoring cadence', value: '24/7 SOC hooks', badgeClass: 'border border-purple-400/30 bg-purple-400/10 text-purple-100' },
+];
+
+const techBadges = [
+  { label: 'TrueNAS SCALE', badgeClass: 'border border-sky-400/35 bg-sky-400/10 text-sky-100' },
+  { label: 'Proxmox VE clusters', badgeClass: 'border border-emerald-400/35 bg-emerald-400/10 text-emerald-100' },
+  { label: 'pfSense HA pairs', badgeClass: 'border border-cyan-400/35 bg-cyan-400/10 text-cyan-100' },
+  { label: 'Home Assistant Yellow', badgeClass: 'border border-amber-400/35 bg-amber-400/10 text-amber-100' },
+  { label: 'Matter + Zigbee mesh', badgeClass: 'border border-purple-400/35 bg-purple-400/10 text-purple-100' },
+  { label: 'Uptime Kuma & Grafana', badgeClass: 'border border-pink-400/35 bg-pink-400/10 text-pink-100' },
+  { label: 'DarkGPT Concierge', badgeClass: 'border border-slate-400/35 bg-slate-400/10 text-slate-100' },
+  { label: 'Ansible playbooks', badgeClass: 'border border-emerald-400/35 bg-emerald-400/10 text-emerald-100' },
+];
+
+const conciergeHighlights = [
+  {
+    title: 'Quarterly posture reviews',
+    copy: 'Concierge team inspects firmware, backups, automations, and compliance posture with written findings.',
+  },
+  {
+    title: 'Executive escalation channel',
+    copy: 'Direct signal path to lead engineer for mission-critical incidents with 2-hour acknowledgement guarantee.',
+  },
+  {
+    title: 'New property onboarding',
+    copy: 'Blueprint and deploy additional locations or remodels using the same estate architecture playbook.',
+  },
+];
 
 export default function EstatePackage() {
+  const shouldReduceMotion = useReducedMotion();
+  const heroMotionProps = shouldReduceMotion
+    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
+    : {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+      };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white relative egyptian-texture">
-      {/* Background Image */}
-      <div className="fixed inset-0 z-0">
-        <Image
-          src="/images/25k.webp"
-          alt="Estate Package Background"
-          fill
-          className="object-cover opacity-10"
-          priority
-        />
-      </div>
-      {/* Content */}
-      <div className="relative z-10">
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur border-b border-blue-500/30 bg-slate-950/50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/#work" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black text-white egyptian-texture">
+      <header className="sticky top-0 z-40 border-b border-sky-500/30 bg-slate-950/80 backdrop-blur">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
+          <Link href="/#work" className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
             <ArrowLeft className="h-4 w-4" />
-            Back to Packages
+            Back to packages
           </Link>
-          <div className="flex items-center gap-4">
-            <span className="px-3 py-1 rounded-full bg-blue-500 text-black text-xs font-bold">
-              MOST POPULAR
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center rounded-full border border-sky-400/40 bg-sky-400/20 px-3 py-1 text-xs font-semibold text-slate-900">
+              Most requested
             </span>
-            <Link href="/start-project">
-              <button className="px-4 py-2 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium text-sm">
-                Get Started
-              </button>
+            <Link
+              href="/start-project"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow shadow-sky-500/25 transition hover:opacity-95"
+            >
+              Start estate build
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-16">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm mb-6">
-            ESTATE PACKAGE
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Estate <span className="text-blue-500">Package</span>
-          </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Comprehensive digital estate for professionals and families. Multi-server deployment with advanced security, smart home integration, and on-prem AI capabilities.
-          </p>
+      <main className="relative">
+        <div className="pointer-events-none absolute inset-0 opacity-30">
+          <Image src="/images/25k.webp" alt="Estate package background" fill className="object-cover" priority />
         </div>
-
-        {/* Image Showcase - Centerpiece */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-2xl blue-glow">
-          <Image
-            src="/images/25k.webp"
-            alt="Estate Package - Comprehensive digital estate"
-            width={1200}
-            height={800}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-
-        {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-blue-500 bg-gradient-to-br from-blue-500/20 to-transparent p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-slate-400/10 blur-3xl"></div>
-          <div className="relative">
-            <div className="text-6xl font-bold text-blue-500 mb-4">$8,000 – $15,000</div>
-            <div className="text-xl text-white/80">Complete Digital Estate</div>
-            <div className="mt-4 text-white/60">Our most popular package - comprehensive infrastructure with ongoing support</div>
-          </div>
-        </div>
-
-        {/* What's Included */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 to-transparent p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-blue-500" />
-              Multi-Server Infrastructure
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Multi-server deployment (2-3 physical or virtual servers)',
-                'Primary NAS with 10-20TB storage capacity',
-                'Dedicated application server for services',
-                'High-performance networking (1-10GbE)',
-                'Redundant backup systems',
-                'Virtualization with Proxmox or ESXi',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Network className="h-8 w-8 text-slate-400" />
-              Network Segmentation
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'VLAN segmentation for network isolation',
-                'Dedicated guest network with limited access',
-                'IoT VLAN for smart home devices',
-                'Work/office VLAN for professional use',
-                'Enterprise firewall (pfSense or OPNsense)',
-                'Advanced VPN with multiple protocols',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Home className="h-8 w-8 text-blue-500" />
-              Smart Home Integration
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Home Assistant server with full automation',
-                'Zigbee/Z-Wave controller integration',
-                'Local voice control (no cloud required)',
-                'Smart lighting and climate automation',
-                'Presence detection and geofencing',
-                'Custom automation rules and scenes',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Brain className="h-8 w-8 text-blue-500" />
-              On-Prem AI Services
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Local LLM deployment (Ollama or llama.cpp)',
-                'Private ChatGPT-style interface',
-                'Voice assistant integration',
-                'Document processing and search',
-                'Image recognition and tagging',
-                'All processing stays on your network',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-blue-500" />
-              Monitoring & Alerts
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Real-time system monitoring dashboard',
-                'Automated health checks and alerts',
-                'Performance metrics and logging',
-                'Storage capacity monitoring',
-                'Security event alerting',
-                'Mobile app for remote monitoring',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Zap className="h-8 w-8 text-slate-400" />
-              Extended Support
-            </h2>
-            <ul className="space-y-4">
-              {[
-                '90-day comprehensive support included',
-                'Priority response for critical issues',
-                'Remote assistance and troubleshooting',
-                'Configuration changes and optimization',
-                'Software updates and security patches',
-                'Quarterly system health reviews',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Use Cases */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">Perfect For:</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Home,
-                title: 'Tech-Forward Families',
-                description: 'Families wanting complete control over their digital life with smart home integration and privacy.',
-              },
-              {
-                icon: Server,
-                title: 'Remote Professionals',
-                description: 'Executives and consultants needing secure, professional-grade infrastructure from home.',
-              },
-              {
-                icon: Brain,
-                title: 'AI Enthusiasts',
-                description: 'Privacy-conscious users wanting to run AI models locally without cloud dependencies.',
-              },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center">
-                <item.icon className="h-12 w-12 text-blue-500 mb-4" />
-                <h3 className="font-semibold mb-2 text-blue-500">{item.title}</h3>
-                <p className="text-sm text-white/70">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Value Proposition */}
-        <div className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-transparent p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">Estate Package Value</h2>
-          <div className="grid md:grid-cols-4 gap-6 mb-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">3+</div>
-              <div className="text-white/70">Network Zones</div>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 py-16">
+          <section className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/40 bg-sky-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-sky-100">
+              Estate package
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-slate-400 mb-2">50+</div>
-              <div className="text-white/70">Devices Supported</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">100%</div>
-              <div className="text-white/70">Local Control</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">90</div>
-              <div className="text-white/70">Days Support</div>
-            </div>
-          </div>
-          <div className="border-t border-white/10 pt-6">
-            <p className="text-lg italic text-blue-500 text-center">
-              "The Estate package transforms your home into a sophisticated digital estate with enterprise-grade capabilities."
+            <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
+              The multi-site digital estate with concierge resilience
+            </h1>
+            <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-3xl mx-auto">
+              Estate replaces scattered smart devices and DIY servers with a hardened, synchronized infrastructure layer. You get enterprise uptime, verified security, and automations that survive outages.
             </p>
-          </div>
-        </div>
+            <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-white/60">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><GaugeCircle className="h-4 w-4 text-sky-200" /> 6-week deployment</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Lock className="h-4 w-4 text-sky-200" /> CMMC-inspired controls</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Sparkles className="h-4 w-4 text-sky-200" /> Concierge expansion ready</span>
+            </div>
+          </section>
 
-        {/* Implementation Timeline */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">6-Week Implementation</h2>
-          <div className="space-y-4">
-            {[
-              { phase: 'Weeks 1-2', title: 'Planning & Procurement', description: 'Detailed assessment, hardware specification, procurement and delivery' },
-              { phase: 'Week 3', title: 'Core Infrastructure', description: 'Server setup, network configuration, VLAN segmentation' },
-              { phase: 'Week 4', title: 'Smart Home & AI', description: 'Home Assistant deployment, AI model setup, automation rules' },
-              { phase: 'Week 5', title: 'Security & Testing', description: 'Security hardening, penetration testing, performance optimization' },
-              { phase: 'Week 6', title: 'Training & Go-Live', description: 'User training, documentation, final handoff and 90-day support begins' },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-24 text-blue-500 font-semibold">{item.phase}</div>
-                <div className="flex-1">
-                  <h3 className="font-semibold mb-1">{item.title}</h3>
-                  <p className="text-sm text-white/70">{item.description}</p>
-                </div>
+          <motion.div
+            className="mb-16 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center"
+            {...heroMotionProps}
+          >
+            <div className="rounded-2xl border border-white/12 bg-white/5 p-6 md:p-8">
+              <h2 className="text-left text-lg font-semibold text-sky-100">What estate delivers</h2>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                {outcomeHighlights.map(({ label, value, icon: Icon }) => (
+                  <div key={label} className="rounded-xl border border-white/12 bg-slate-950/60 p-4 text-left">
+                    <Icon className="h-5 w-5 text-sky-100" />
+                    <div className="mt-3 text-2xl font-semibold text-white">{value}</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">{label}</div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+              <p className="mt-6 text-sm text-white/65">
+                Typical estate engagements invest $8k–$15k depending on redundant hardware, multi-site runs, and AI concierge scope. Hardware is billed at cost with transparent asset logs.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-sky-500/35 shadow-2xl blue-glow">
+              <Image
+                src="/images/25k.webp"
+                alt="Estate package deployment"
+                width={1024}
+                height={768}
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
 
-        {/* Tech Stack */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">Technology Stack</h2>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { name: 'Proxmox VE', color: 'emerald' },
-              { name: 'pfSense', color: 'blue' },
-              { name: 'Home Assistant', color: 'purple' },
-              { name: 'Ollama AI', color: 'pink' },
-              { name: 'TrueNAS', color: 'emerald' },
-              { name: 'Wireguard', color: 'blue' },
-              { name: 'Grafana', color: 'purple' },
-              { name: 'Docker', color: 'pink' },
-              { name: 'VLAN 802.1Q', color: 'emerald' },
-              { name: 'Zigbee/Z-Wave', color: 'blue' },
-            ].map((tech) => (
-              <span key={tech.name} className={`px-4 py-2 rounded-lg bg-${tech.color}-400/10 text-${tech.color}-400 border border-${tech.color}-400/20 text-sm font-medium`}>
-                {tech.name}
-              </span>
-            ))}
-          </div>
-        </div>
+          <section className="mb-16 rounded-2xl border border-sky-500/35 bg-gradient-to-br from-sky-500/12 via-slate-950 to-slate-950 p-8 text-center">
+            <div className="text-4xl font-semibold text-sky-100">$8,000 – $15,000</div>
+            <p className="mt-3 text-sm text-white/70">Six-week orchestration covering discovery, multi-site install, automation build-out, and 90-day concierge runway.</p>
+            <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">Hardware at cost • Multi-site optional • Concierge expands on demand</p>
+          </section>
 
-        {/* CTA */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-6">Build Your Digital Estate</h2>
-          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-            Join the clients who've transformed their homes into sophisticated digital estates. Complete sovereignty with zero compromises.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/start-project">
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-black rounded-2xl hover:bg-blue-500 transition font-bold text-lg shadow-lg shadow-blue-500/30">
-                Start Your Estate <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
-            </Link>
-            <Link href="/#work">
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-white/10 border border-white/20 text-white rounded-2xl hover:bg-white/15 transition font-bold text-lg">
-                Compare All Packages
-              </button>
-            </Link>
-          </div>
+          <section className="mb-16" id="deliverables">
+            <div className="mb-10 text-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+                Deliverables
+              </div>
+              <h2 className="mt-4 text-3xl font-semibold">Infrastructure, security, and automations executed by one team</h2>
+              <p className="mt-3 mx-auto max-w-3xl text-sm text-white/70 sm:text-base">
+                Estate is the playbook we use for family offices and boutique firms that cannot tolerate downtime. Every subsystem is documented, rehearsed, and supported by our concierge desk.
+              </p>
+            </div>
+            <div className="grid gap-6 lg:grid-cols-3">
+              {deliverableColumns.map(({ icon: Icon, title, items }) => (
+                <div key={title} className="rounded-2xl border border-white/12 bg-white/5 p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-xl border border-sky-500/30 bg-sky-500/15 p-2">
+                      <Icon className="h-5 w-5 text-sky-100" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white">{title}</h3>
+                  </div>
+                  <ul className="mt-5 space-y-3 text-sm text-white/70">
+                    {items.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <Check className="mt-0.5 h-4 w-4 text-sky-200" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
+            <h2 className="text-2xl font-semibold">Who thrives on estate</h2>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              {idealFits.map(({ title, description, accentClass }) => (
+                <div key={title} className={`rounded-2xl p-6 text-left ${accentClass}`}>
+                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <p className="mt-3 text-sm text-white/80">{description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8 overflow-x-auto">
+            <h2 className="text-2xl font-semibold mb-6">Estate vs. cobbling solutions together</h2>
+            <table className="w-full min-w-[720px] text-left text-sm sm:text-base">
+              <thead className="text-white/60">
+                <tr className="border-b border-white/10">
+                  <th className="pb-3 pr-4 font-semibold">Dimension</th>
+                  <th className="pb-3 pr-4 font-semibold text-sky-200">Estate package</th>
+                  <th className="pb-3 font-semibold text-white/50">DIY stack</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map(({ feature, estate, piecemeal }) => (
+                  <tr key={feature} className="border-b border-white/10 last:border-0">
+                    <td className="py-3 pr-4 text-white/70">{feature}</td>
+                    <td className="py-3 pr-4 text-sky-200">{estate}</td>
+                    <td className="py-3 text-white/50">{piecemeal}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+
+          <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+              <Workflow className="h-4 w-4 text-sky-200" /> Deployment cadence
+            </div>
+            <div className="mt-6 space-y-5">
+              {processSteps.map(({ phase, title, copy }) => (
+                <div key={phase} className="rounded-xl border border-white/12 bg-slate-950/45 p-5">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-white/55">{phase}</span>
+                    <div className="h-px flex-1 bg-white/12" />
+                  </div>
+                  <h3 className="mt-3 text-base font-semibold text-white">{title}</h3>
+                  <p className="mt-2 text-xs text-white/65">{copy}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
+            <h2 className="text-2xl font-semibold">Resilience metrics we guarantee</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {resilienceBadges.map(({ label, value, badgeClass }) => (
+                <div key={label} className={`rounded-xl px-4 py-5 text-center ${badgeClass}`}>
+                  <div className="text-sm font-medium uppercase tracking-[0.22em] text-white/70">{label}</div>
+                  <div className="mt-3 text-2xl font-semibold text-white">{value}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
+            <h2 className="text-2xl font-semibold">Concierge runway beyond install</h2>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              {conciergeHighlights.map(({ title, copy }) => (
+                <div key={title} className="rounded-xl border border-white/12 bg-slate-950/45 p-6">
+                  <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/55">Concierge</div>
+                  <h3 className="mt-3 text-lg font-semibold text-white">{title}</h3>
+                  <p className="mt-3 text-sm text-white/70">{copy}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
+            <h2 className="text-2xl font-semibold">Stack the estate is built on</h2>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {techBadges.map(({ label, badgeClass }) => (
+                <span key={label} className={`inline-flex items-center rounded-full px-3 py-1 text-xs ${badgeClass}`}>
+                  {label}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-2xl border border-sky-500/35 bg-gradient-to-r from-sky-500/12 via-slate-950 to-slate-950 p-8 text-center">
+            <h2 className="text-3xl font-semibold">Ready to synchronize your entire estate?</h2>
+            <p className="mt-3 text-sm text-white/70 max-w-2xl mx-auto">
+              Schedule a discovery session. We will map your properties, size the infrastructure, and present the concierge plan we execute over six focused weeks.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link
+                href="/start-project"
+                className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/25 transition hover:opacity-95"
+              >
+                Book an estate consult
+              </Link>
+              <Link
+                href="/#work"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-sky-300/60 hover:text-white"
+              >
+                Compare packages
+              </Link>
+            </div>
+          </section>
         </div>
       </main>
-      </div>
     </div>
   );
 }

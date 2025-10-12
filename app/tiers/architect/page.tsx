@@ -1,310 +1,442 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Check, Shield, Server, Lock, Zap, ArrowRight, Brain, Cpu, HardDrive } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  Cpu,
+  GaugeCircle,
+  Lock,
+  Radar,
+  Server,
+  Shield,
+  Sparkles,
+  Workflow,
+} from 'lucide-react';
+
+const outcomeMetrics = [
+  { label: 'Fine-tune throughput gain', value: '+480%', accentClass: 'text-sky-300' },
+  { label: 'Inference latency reduction', value: '−42%', accentClass: 'text-emerald-300' },
+  { label: 'Availability commitment', value: '99.995%', accentClass: 'text-amber-300' },
+];
+
+const capabilityColumns = [
+  {
+    icon: Cpu,
+    title: 'Compute fabric',
+    items: [
+      'Proxmox VE or Kubernetes cluster with GPU pass-through and MIG partitioning',
+      'HGX / RTX Ada racks tuned for training and low-latency inference',
+      'Air and liquid cooling strategies with live thermal telemetry',
+      'Automated failover and rolling upgrades with zero interrupt deploys',
+    ],
+  },
+  {
+    icon: Workflow,
+    title: 'AI operations',
+    items: [
+      'Model registry, dataset lineage, and secure artifact pipelines',
+      'vLLM, Ollama, and Triton inference endpoints with autoscaling',
+      'GPU-aware CI/CD for experiments, canary releases, and rollbacks',
+      'Observability stack spanning GPU utilization, tokens/sec, and drift',
+    ],
+  },
+  {
+    icon: Shield,
+    title: 'Security & compliance',
+    items: [
+      'Layered zero-trust segmentation with hardware MFA enforcement',
+      'Immutable backups, air-gapped vaults, and encrypted data in-flight/at-rest',
+      'SOC 2, HIPAA, and ITAR-ready documentation packs for regulators',
+      '24/7 threat monitoring, playbooks, and board-ready evidence',
+    ],
+  },
+];
+
+const techBadges = [
+  { label: 'Proxmox VE HA', badgeClass: 'border border-sky-400/30 bg-sky-400/10 text-sky-200' },
+  { label: 'NVIDIA HGX / Ada', badgeClass: 'border border-emerald-400/30 bg-emerald-400/10 text-emerald-200' },
+  { label: 'Kubernetes + KubeVirt', badgeClass: 'border border-cyan-400/30 bg-cyan-400/10 text-cyan-200' },
+  { label: 'vLLM / Triton', badgeClass: 'border border-purple-400/30 bg-purple-400/10 text-purple-200' },
+  { label: 'Ceph + ZFS Hybrid', badgeClass: 'border border-sky-400/30 bg-sky-400/10 text-sky-200' },
+  { label: 'OPA / Vault', badgeClass: 'border border-emerald-400/30 bg-emerald-400/10 text-emerald-200' },
+  { label: 'Grafana + Loki', badgeClass: 'border border-cyan-400/30 bg-cyan-400/10 text-cyan-200' },
+  { label: 'SIEM + SOAR', badgeClass: 'border border-purple-400/30 bg-purple-400/10 text-purple-200' },
+];
+
+const processSteps = [
+  {
+    phase: '01',
+    title: 'Vision & risk alignment',
+    copy: 'Executive working session to quantify success metrics, regulatory constraints, and adversary assumptions.',
+  },
+  {
+    phase: '02',
+    title: 'Reference architecture lab',
+    copy: 'Model workloads simulated, data gravity mapped, and hardware tuned in a digital twin before anything ships.',
+  },
+  {
+    phase: '03',
+    title: 'Build sprint',
+    copy: 'On-site rack, cable, tune, and migrate. GPU orchestration, storage, and security controls live-handed with your leads.',
+  },
+  {
+    phase: '04',
+    title: 'AI operations enablement',
+    copy: 'CI/CD, experiment tracking, and response playbooks installed with paired sessions for your data science and infra teams.',
+  },
+  {
+    phase: '05',
+    title: 'Concierge runway',
+    copy: '12-month white-glove stewardship with weekly standups, roadmap reviews, and 30-minute P1 response.',
+  },
+];
+
+const conciergeHighlights = [
+  'Dedicated architecture channel with encrypted Signal/Matrix bridge',
+  'Weekly GPU utilization, cost avoidance, and risk posture reports',
+  'Proactive firmware, driver, and container updates validated in staging',
+  'Quarterly red-team drills with postmortem and board-ready evidence pack',
+];
+
+const useCaseTiles = [
+  {
+    icon: Radar,
+    title: 'Advanced research labs',
+    description: 'National labs and think tanks requiring sovereign compute, classified workflows, and reproducibility.',
+  },
+  {
+    icon: Server,
+    title: 'Global quant teams',
+    description: 'Latency-sensitive AI infrastructure that keeps proprietary models and alpha entirely in-house.',
+  },
+  {
+    icon: Lock,
+    title: 'Biodefense & healthcare',
+    description: 'HIPAA + ITAR aligned stacks for genomic, biomedical, and clinical AI workloads with strict privacy mandates.',
+  },
+];
+
+const proofStats = [
+  { value: '480%', label: 'Fine-tune throughput vs. prior cloud stack', badgeClass: 'border border-sky-400/30 bg-sky-400/10 text-sky-200' },
+  { value: '42%', label: 'Latency reduction across live inference', badgeClass: 'border border-emerald-400/30 bg-emerald-400/10 text-emerald-200' },
+  { value: '7.2ms', label: 'Median token time on flagship deployment', badgeClass: 'border border-amber-400/30 bg-amber-400/10 text-amber-200' },
+];
+
+const galleryImages = [
+  { src: '/images/Tier 3 Example.webp', alt: 'Architect tier GPU rack' },
+  { src: '/images/250k-tier.png', alt: 'High density compute layout' },
+  { src: '/images/architect.png', alt: 'Operations bridge and analytics wall' },
+];
 
 export default function ArchitectTier() {
+  const shouldReduceMotion = useReducedMotion();
+  const heroMotionProps = shouldReduceMotion
+    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
+    : {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+      };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur border-b border-blue-500/30 bg-slate-950/50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
+      <header className="sticky top-0 z-50 border-b border-sky-500/30 bg-slate-950/80 backdrop-blur">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
-          <div className="flex items-center gap-4">
-            <span className="px-3 py-1 rounded-full bg-blue-500 text-black text-xs font-bold">
-              ENTERPRISE GRADE
-            </span>
-            <Link href="/start-project">
-              <button className="px-4 py-2 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium text-sm">
-                Request This Package
-              </button>
-            </Link>
-          </div>
+          <Link
+            href="/start-project"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-sky-300 via-blue-400 to-emerald-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow shadow-sky-500/25 transition hover:opacity-95"
+          >
+            Book architecture intensive
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-16">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-blue-400/20 border border-blue-500/40 text-blue-500 text-sm font-bold mb-6">
-            ARCHITECT TIER • ENTERPRISE
+        <section className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/40 bg-sky-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">
+            Architect tier
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            AI Research <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-500">Infrastructure</span>
+          <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
+            Sovereign AI command centers for mission-critical teams
           </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            High-availability GPU clusters with on-premises AI deployment. Built for research labs, AI companies, and organizations demanding confidential compute at scale.
+          <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-4xl mx-auto">
+            Multi-site GPU fabrics, deterministic data pipelines, and concierge AI operations engineered for labs, quant teams, and government partners who refuse to ship proprietary intelligence to the cloud.
           </p>
-        </div>
-
-        {/* Image Showcase */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500 shadow-2xl shadow-blue-400/20">
-          <img
-            src="/images/250k-tier.png"
-            alt="Architect Tier - Enterprise AI Research Infrastructure"
-            className="w-full h-auto"
-          />
-        </div>
-
-        {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-blue-500 bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-blue-400/10 to-slate-400/10 blur-3xl"></div>
-          <div className="relative">
-            <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-500 mb-4">
-              $250,000+
-            </div>
-            <div className="text-xl text-white/80">Enterprise Architecture Package</div>
-            <div className="mt-4 text-white/60">Turnkey AI infrastructure with HA clustering, GPU passthrough & 12-month SLA</div>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-white/60">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Server className="h-4 w-4 text-sky-200" /> On-prem HGX clusters</span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Sparkles className="h-4 w-4 text-sky-200" /> LLM, diffusion, and multimodal ready</span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><GaugeCircle className="h-4 w-4 text-sky-200" /> Runbooks + observability included</span>
           </div>
-        </div>
+        </section>
 
-        {/* DarkGPT Feature */}
-        <div className="mb-16 rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 via-slate-900 to-black p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-white text-xs font-bold rounded-full">
-            ELITE EXCLUSIVE
-          </div>
-          <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-4">
-              <img 
-                src="/images/darkgpt.png" 
-                alt="DarkGPT Logo" 
-                className="h-12 w-auto"
-              />
-              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-500">
-                DarkGPT — Unrestricted Local AI
-              </h2>
+        <nav className="hidden md:flex justify-center gap-3 mb-12" aria-label="Architect tier quick navigation">
+          {[
+            { href: '#pricing', label: 'Pricing' },
+            { href: '#capabilities', label: 'Capabilities' },
+            { href: '#proof', label: 'Proof' },
+            { href: '#process', label: 'Process' },
+            { href: '#darkgpt', label: 'DarkGPT' },
+            { href: '#tech', label: 'Stack' },
+          ].map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60 transition hover:border-sky-300/60 hover:text-white"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        <motion.div
+          className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] items-center mb-16"
+          {...heroMotionProps}
+        >
+          <div className="rounded-2xl border border-white/12 bg-white/5 p-6 md:p-8">
+            <h2 className="text-left text-lg font-semibold text-sky-200">Outcome profile</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              {outcomeMetrics.map(({ label, value, accentClass }) => (
+                <div key={label} className="rounded-xl border border-white/12 bg-slate-950/50 p-4">
+                  <div className={`text-2xl sm:text-3xl font-semibold ${accentClass}`}>{value}</div>
+                  <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">{label}</div>
+                </div>
+              ))}
             </div>
-            <p className="text-white/80 text-lg mb-6">
-              We install a completely private, uncensored local LLM that <strong className="text-white">never says no</strong>. Fully customized to your needs, running entirely on your hardware with zero external connections.
+            <p className="mt-6 text-sm text-white/60">
+              Benchmarked across recent architect deployments supporting national labs, global quant firms, and healthcare AI platforms.
             </p>
-            <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-blue-500/20">
-              <h3 className="text-xl font-semibold text-blue-500 mb-3">One Week On-Site Programming</h3>
-              <p className="text-white/70 mb-4">
-                I'll spend an entire week at your location fine-tuning DarkGPT until every parameter is dialed in perfectly. We don't stop until you're 100% satisfied with how it responds, thinks, and caters to your specific needs.
-              </p>
-              <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mb-4">
-                <div className="text-lg font-bold text-blue-500 mb-2">Pricing: Available Upon Request</div>
-                <p className="text-white/70 text-sm italic">
-                  "DarkGPT pricing is negotiable based on your budget. If you have the money, I have the time. Let's talk."
-                </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-sky-500/30 shadow-2xl blue-glow">
+            <Image
+              src={galleryImages[0].src}
+              alt={galleryImages[0].alt}
+              width={960}
+              height={720}
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
+        </motion.div>
+
+        <section className="mb-16 rounded-3xl border border-sky-500/30 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-xl">
+          <div className="grid gap-4 md:grid-cols-3">
+            {galleryImages.map((image) => (
+              <div key={image.src} className="overflow-hidden rounded-2xl border border-sky-500/25">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={640}
+                  height={420}
+                  sizes="(max-width: 1024px) 100vw, 30vw"
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <ul className="space-y-3 text-sm text-white/70">
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>Custom-trained on your preferences and workflows</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>No censorship, no limitations, no external oversight</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>Completely private — your conversations never leave your network</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>Integrates with your entire digital estate</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>One full week of on-site fine-tuning and customization</span>
-                </li>
-              </ul>
+            ))}
+          </div>
+        </section>
+
+        <section id="pricing" className="mb-16">
+          <div className="rounded-2xl border border-sky-500/35 bg-gradient-to-br from-sky-500/12 via-slate-950 to-slate-950 px-6 py-10 md:px-10 md:py-12">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/35 bg-sky-500/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-200">
+                  Engagement
+                </div>
+                <h2 className="mt-4 text-3xl font-semibold text-sky-100">Architect deployment</h2>
+                <p className="mt-3 max-w-xl text-sm sm:text-base text-white/70">
+                  Tailored blueprint, multi-site hardware procurement, on-site implementation, and 12-month concierge coverage. Hardware billed at cost with full vendor transparency.
+                </p>
+                <ul className="mt-6 grid gap-2 text-sm text-white/65">
+                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" /> GPU, storage, and network stack spec’d and sourced for you</li>
+                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" /> Includes model migration, dataset verification, and workload validation</li>
+                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" /> Dedicated architect on-site through go-live and hypercare</li>
+                </ul>
+              </div>
+              <div className="grid w-full max-w-xs gap-4">
+                <div className="rounded-2xl border border-sky-500/35 bg-slate-950/70 px-6 py-5 text-center">
+                  <div className="text-sm font-semibold text-sky-200">Architecture fee</div>
+                  <div className="mt-2 text-4xl font-semibold text-sky-300">Starting $150k</div>
+                  <p className="mt-3 text-xs text-white/60">Final scope driven by GPU density, multi-site replication, and compliance deliverables.</p>
+                </div>
+                <div className="rounded-2xl border border-sky-500/30 bg-slate-950/70 px-6 py-5 text-center">
+                  <div className="text-sm font-semibold text-sky-200">Managed runway</div>
+                  <div className="mt-2 text-2xl font-semibold text-sky-300">$2.5k+/mo</div>
+                  <p className="mt-3 text-xs text-white/60">Optional stewardship after included 12-month concierge period.</p>
+                </div>
+              </div>
             </div>
-            <p className="text-blue-500 font-semibold italic">
-              "Your AI. Your rules. Zero compromises."
+          </div>
+        </section>
+
+        <section id="capabilities" className="mb-16">
+          <div className="mb-10 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+              Capability blueprint
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold">Everything required for sovereign AI infrastructure</h2>
+            <p className="mt-3 mx-auto max-w-3xl text-sm text-white/65 sm:text-base">
+              Compute, data, and governance delivered as one cohesive system with documentation your board, regulators, and operators will trust.
             </p>
           </div>
-        </div>
-
-        {/* What's Included */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 to-transparent p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Brain className="h-8 w-8 text-blue-500" />
-              AI & Compute Infrastructure
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'High-availability Proxmox cluster (5+ nodes)',
-                'GPU passthrough (NVIDIA A6000, H100, or custom)',
-                'On-prem LLM deployment (Ollama, llama.cpp, vLLM)',
-                'Open WebUI or custom inference interface',
-                'Model training pipeline automation',
-                'Distributed compute orchestration (Kubernetes)',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="grid gap-6 md:grid-cols-3">
+            {capabilityColumns.map(({ icon: Icon, title, items }) => (
+              <div key={title} className="rounded-2xl border border-white/12 bg-white/5 p-6">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-xl border border-sky-500/25 bg-sky-500/15 p-2">
+                    <Icon className="h-5 w-5 text-sky-200" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white">{title}</h3>
+                </div>
+                <ul className="mt-5 space-y-3 text-sm text-white/70">
+                  {items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <Check className="mt-0.5 h-4 w-4 text-sky-200" /> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
+        </section>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <HardDrive className="h-8 w-8 text-slate-400" />
-              Storage & Data Management
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'TrueNAS Scale enterprise array (100TB+ RAIDZ2)',
-                'NVMe-based SSD caching for model datasets',
-                'Multi-site replication and disaster recovery',
-                'S3-compatible object storage (MinIO)',
-                'Automated snapshot management',
-                'Tiered storage with hot/warm/cold zones',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-blue-500" />
-              Network & Security
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'OPNsense firewall with HA failover pair',
-                '25GbE or 100GbE backend network fabric',
-                'Zero-trust network segmentation',
-                'Wireguard mesh VPN between sites',
-                'DDoS protection and rate limiting',
-                'Full network traffic analytics and logging',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-blue-500" />
-              Enterprise Support & SLA
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Dedicated solutions architect assigned',
-                '12-month comprehensive SLA coverage',
-                '4-hour response time for critical issues',
-                'Quarterly infrastructure review and optimization',
-                'Custom automation development',
-                'Knowledge transfer and team training',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Real Results */}
-        <div className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-transparent p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">Enterprise Performance Metrics</h2>
-          <div className="grid md:grid-cols-4 gap-6 mb-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">99.99%</div>
-              <div className="text-white/70">Uptime SLA</div>
+        <section id="proof" className="mb-16 rounded-2xl border border-white/12 bg-white/5 p-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+            <div>
+              <h2 className="text-3xl font-semibold">Performance receipts</h2>
+              <p className="mt-3 text-sm text-white/65">The operating metrics we deliver and audit every month.</p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                {proofStats.map(({ value, label, badgeClass }) => (
+                  <div key={label} className={`rounded-2xl p-4 text-center ${badgeClass}`}>
+                    <div className="text-3xl font-semibold">{value}</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/60">{label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-slate-400 mb-2">10x</div>
-              <div className="text-white/70">Faster Than Cloud</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">100%</div>
-              <div className="text-white/70">Data Confidentiality</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">Multi-Site</div>
-              <div className="text-white/70">Replication</div>
+            <div className="rounded-2xl border border-white/12 bg-slate-950/50 p-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+                Testimonial
+              </div>
+              <blockquote className="mt-4 text-lg text-white/85 italic">
+                “We moved off the cloud into an architect deployment and shipped four fine-tunes per week with full audit trails. Compliance signed off on the first pass.”
+              </blockquote>
+              <p className="mt-4 text-sm text-white/55">Director of Research · Fortune 100 defense contractor</p>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-6">
-            <p className="text-lg italic text-blue-500 mb-2">
-              "Our research stays confidential. Performance exceeds cloud solutions at a fraction of the long-term cost. Best infrastructure decision we've made."
+        </section>
+
+        <section id="process" className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+            <Workflow className="h-4 w-4 text-sky-200" /> Engagement cadence
+          </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {processSteps.map(({ phase, title, copy }) => (
+              <div key={phase} className="rounded-xl border border-white/12 bg-slate-950/40 p-6">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-xs text-white/55">{phase}</span>
+                  <div className="h-px flex-1 bg-white/12" />
+                </div>
+                <h3 className="mt-3 text-base font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-xs text-white/60">{copy}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="darkgpt" className="mb-16 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/10 p-6">
+            <h2 className="text-2xl font-semibold text-sky-100">Concierge oversight already included</h2>
+            <p className="mt-3 text-sm text-sky-100/80">
+              Architect deployments ship with a year of managed operations while your internal team absorbs the stack.
             </p>
-            <p className="text-white/60">— Research Director, AI Research Lab</p>
+            <ul className="mt-5 space-y-3 text-sm text-sky-100/80">
+              {conciergeHighlights.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <Check className="mt-0.5 h-4 w-4 text-white" /> {item}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+          <div className="rounded-2xl border border-white/12 bg-white/5 p-6">
+            <h2 className="text-2xl font-semibold">DarkGPT architect program</h2>
+            <p className="mt-3 text-sm text-white/65">
+              Embed DarkGPT directly into your sovereign fabric. Fully uncensored, on-prem, and fine-tuned to your doctrine with safeguarded escalation paths.
+            </p>
+            <ul className="mt-4 space-y-3 text-sm text-white/65">
+              <li className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-sky-200" /> Private inference across GPU tiers with zero telemetry</li>
+              <li className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-sky-200" /> Multi-agent automation wired into your secure data lake</li>
+              <li className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-sky-200" /> On-site architect for one week of workflow scripting and red-teaming</li>
+            </ul>
+            <Link
+              href="/darkgpt/request"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/70 transition hover:border-emerald-300/60 hover:text-white"
+            >
+              Request DarkGPT brief
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
 
-        {/* Technology Stack */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">Enterprise Technology Stack</h2>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { name: 'Proxmox HA Cluster', color: 'purple' },
-              { name: 'NVIDIA GPU (A6000/H100)', color: 'pink' },
-              { name: 'Ollama LLM', color: 'blue' },
-              { name: 'Open WebUI', color: 'emerald' },
-              { name: 'TrueNAS Enterprise', color: 'purple' },
-              { name: 'Kubernetes', color: 'pink' },
-              { name: 'MinIO S3', color: 'blue' },
-              { name: 'OPNsense HA', color: 'emerald' },
-              { name: 'Ceph Storage', color: 'purple' },
-              { name: 'Grafana + Prometheus', color: 'pink' },
-              { name: 'Multi-Site Sync', color: 'blue' },
-              { name: 'Automated Failover', color: 'emerald' },
-              { name: 'Custom Automation', color: 'purple' },
-              { name: 'CI/CD Pipeline', color: 'pink' },
-            ].map((tech) => (
-              <span key={tech.name} className={`px-4 py-2 rounded-lg bg-${tech.color}-400/10 text-${tech.color}-400 border border-${tech.color}-400/20 text-sm font-medium`}>
-                {tech.name}
+        <section id="tech" className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
+          <h2 className="text-2xl font-semibold">Stack we operate and support</h2>
+          <p className="mt-2 text-sm text-white/60">Every component validated in production environments with continuous monitoring and rollback plans.</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {techBadges.map(({ label, badgeClass }) => (
+              <span key={label} className={`inline-flex items-center rounded-full px-3 py-1 text-xs ${badgeClass}`}>
+                {label}
               </span>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Use Cases */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {[
-            {
-              title: 'AI Research Labs',
-              icon: Brain,
-              description: 'Local model training and inference without cloud vendor lock-in or data leakage.',
-            },
-            {
-              title: 'Financial Services',
-              icon: Shield,
-              description: 'Compliance-ready infrastructure with audit trails and complete data sovereignty.',
-            },
-            {
-              title: 'Healthcare & Biotech',
-              icon: Lock,
-              description: 'HIPAA-compliant private infrastructure for sensitive patient data and research.',
-            },
-          ].map((useCase) => (
-            <div key={useCase.title} className="rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-blue-500/50 transition">
-              <useCase.icon className="h-12 w-12 text-blue-500 mb-4" />
-              <h3 className="text-xl font-bold mb-3">{useCase.title}</h3>
-              <p className="text-white/70">{useCase.description}</p>
+        <section className="mb-16">
+          <div className="mb-8 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+              Who we build for
             </div>
-          ))}
-        </div>
+            <h2 className="mt-4 text-3xl font-semibold">Use cases already scaling on architect deployments</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {useCaseTiles.map(({ icon: Icon, title, description }) => (
+              <div key={title} className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-sky-500/40">
+                <Icon className="h-10 w-10 text-sky-200 mb-4" />
+                <h3 className="text-xl font-semibold mb-2">{title}</h3>
+                <p className="text-sm text-white/70">{description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        {/* CTA */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready for Enterprise-Grade AI Infrastructure?</h2>
-          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-            This tier is designed for organizations that refuse to compromise on performance, security, or data sovereignty. Let's architect your private AI infrastructure.
+        <section className="rounded-2xl border border-sky-500/35 bg-gradient-to-r from-sky-500/10 via-slate-950 to-slate-950 p-8 text-center">
+          <h2 className="text-3xl font-semibold">Let’s design your sovereign AI estate</h2>
+          <p className="mt-3 mx-auto max-w-3xl text-sm text-white/70 sm:text-base">
+            We’ll audit your current workloads, size the ideal hardware footprint, and hand you the execution plan we’ll deliver end-to-end.
           </p>
-          <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-500 text-black rounded-2xl hover:from-amber-300 hover:to-amber-300 transition font-bold text-lg shadow-lg shadow-blue-400/30">
-              Schedule Architecture Consultation <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-          </Link>
-        </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/start-project"
+              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-sky-300 via-blue-400 to-emerald-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/25 transition hover:opacity-95"
+            >
+              Schedule architecture briefing
+            </Link>
+            <Link
+              href="/packages/architect"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-sky-300/60 hover:text-white"
+            >
+              View architect packages
+            </Link>
+          </div>
+        </section>
       </main>
     </div>
   );

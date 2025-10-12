@@ -11,23 +11,12 @@ import { formatPrice } from '@/config/pricing';
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [animationPhase, setAnimationPhase] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    // Super Cool Entrance Animation Sequence
-    const timer1 = setTimeout(() => setIsLoaded(true), 100);
-    const timer2 = setTimeout(() => setAnimationPhase(1), 400);
-    const timer3 = setTimeout(() => setAnimationPhase(2), 1000);
-    const timer4 = setTimeout(() => setAnimationPhase(3), 1800);
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-      clearTimeout(timer4);
-    };
+    const frame = requestAnimationFrame(() => setIsLoaded(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
@@ -158,134 +147,11 @@ export default function HomePage() {
         Skip to content
       </a>
 
-      {/* SUPER COOL ENTRANCE ANIMATION */}
-      {!shouldReduceMotion && (
-        <motion.div
-          className="fixed inset-0 z-50 pointer-events-none"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 0 }}
-          transition={{ duration: 2.5, delay: 2.2, ease: "easeInOut" }}
-        >
-          {/* Animated Background Matrix */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-slate-900/60 to-blue-800/30"
-            initial={{ scale: 0, opacity: 1, rotate: 0 }}
-            animate={{ scale: 3, opacity: 0, rotate: 180 }}
-            transition={{ duration: 2.8, ease: "easeInOut" }}
-          />
-          
-          {/* Central Holographic Loading */}
-          <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            initial={{ scale: 0, opacity: 1 }}
-            animate={{ scale: 1, opacity: 0 }}
-            transition={{ duration: 1.8, delay: 0.5, ease: "easeOut" }}
-          >
-            <div className="relative">
-              {/* Outer Holographic Ring */}
-              <motion.div 
-                className="w-48 h-48 border-4 border-blue-500/60 rounded-full relative"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 4, ease: "linear", repeat: Infinity }}
-              >
-                <div className="absolute inset-0 border-4 border-transparent border-t-blue-500 rounded-full" />
-                <div className="absolute inset-2 border-4 border-transparent border-r-blue-400 rounded-full" />
-                <div className="absolute inset-4 border-4 border-transparent border-b-blue-300 rounded-full" />
-              </motion.div>
-              
-              {/* Inner Counter-Rotating Ring */}
-              <motion.div 
-                className="absolute inset-4 w-40 h-40 border-4 border-amber-500/40 rounded-full"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 3, ease: "linear", repeat: Infinity }}
-              >
-                <div className="absolute inset-0 border-4 border-transparent border-l-amber-500 rounded-full" />
-                <div className="absolute inset-2 border-4 border-transparent border-t-amber-400 rounded-full" />
-              </motion.div>
-              
-              {/* Central Pulsing Core */}
-              <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ 
-                  scale: [0, 1.2, 1, 1.2, 1],
-                  opacity: [0, 1, 1, 1, 0]
-                }}
-                transition={{ duration: 1.8, delay: 0.8, ease: "easeInOut" }}
-              >
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-amber-500 rounded-full shadow-2xl shadow-blue-500/50" />
-              </motion.div>
-              
-              {/* Floating Tech Particles */}
-              {[...Array(12)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-blue-400 rounded-full"
-                  style={{
-                    top: `${50 + 40 * Math.cos((i * 30) * Math.PI / 180)}%`,
-                    left: `${50 + 40 * Math.sin((i * 30) * Math.PI / 180)}%`,
-                  }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ 
-                    opacity: [0, 1, 0],
-                    scale: [0, 1, 0],
-                    y: [-10, -30, -50]
-                  }}
-                  transition={{ 
-                    duration: 2.5, 
-                    delay: i * 0.2, 
-                    ease: "easeOut",
-                    repeat: Infinity,
-                    repeatDelay: 0.5
-                  }}
-                />
-              ))}
-              
-              {/* Scanning Line Effect */}
-              <motion.div
-                className="absolute inset-0 border-2 border-blue-500/30 rounded-full"
-                animate={{ 
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.8, 0.3]
-                }}
-                transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
-              />
-            </div>
-          </motion.div>
-
-          {/* Digital Rain Effect - Reduced for Mobile */}
-          {typeof window !== 'undefined' && [...Array(shouldReduceMotion ? 5 : 20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute text-blue-400/30 font-mono text-xs"
-              style={{
-                left: `${5 + (i * 5)}%`,
-                top: `${-10}%`,
-              }}
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ 
-                y: [0, window.innerHeight + 50],
-                opacity: [0, 1, 0]
-              }}
-              transition={{ 
-                duration: shouldReduceMotion ? 5 : 3 + Math.random() * 2, 
-                delay: shouldReduceMotion ? 0 : Math.random() * 2,
-                ease: "linear",
-                repeat: Infinity,
-                repeatDelay: shouldReduceMotion ? 2 : Math.random() * 3
-              }}
-            >
-              {Array.from({length: shouldReduceMotion ? 4 : 8}, () => Math.random().toString(36).substring(7)).join('\n')}
-            </motion.div>
-          ))}
-        </motion.div>
-      )}
-
       <motion.div 
         className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 text-white blue-texture"
         initial={{ opacity: 0 }}
         animate={isLoaded ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
       >
         {/* Header */}
         <motion.header
@@ -294,7 +160,7 @@ export default function HomePage() {
           animate={shouldReduceMotion ? false : { 
             y: 0, 
             opacity: 1,
-            transition: { duration: 0.8, delay: 0.3, ease: "easeOut" }
+            transition: { duration: 0.45, delay: 0.1, ease: "easeOut" }
           }}
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
@@ -430,115 +296,211 @@ export default function HomePage() {
             </div>
           </motion.div>
         </motion.div>
-
         <motion.main 
           id="main-content"
           initial={{ opacity: 0 }}
           animate={isLoaded ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
+          <nav
+            className="hidden lg:flex fixed right-6 top-1/3 z-40 flex-col gap-2"
+            aria-label="Quick section navigation"
+          >
+            {[
+              { href: "#services", label: "Services" },
+              { href: "#law", label: "Law" },
+              { href: "#healthcare", label: "Healthcare" },
+              { href: "#work", label: "Packages" },
+              { href: "#accomp", label: "Builds" },
+              { href: "#about", label: "About" },
+              { href: "#contact", label: "Contact" },
+            ].map(({ href, label }) => (
+              <motion.a
+                key={href}
+                href={href}
+                className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/70 px-4 py-2 text-xs font-medium text-white/60 backdrop-blur transition hover:border-emerald-300/60 hover:text-white"
+                whileHover={shouldReduceMotion ? undefined : { x: -4 }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 group-hover:bg-white transition" aria-hidden="true" />
+                {label}
+              </motion.a>
+            ))}
+          </nav>
+
           {/* Hero Section */}
           <section className="relative overflow-hidden">
+            <motion.div
+              className="absolute inset-0 -z-10"
+              initial={{ opacity: 0 }}
+              animate={isLoaded ? { opacity: 1 } : { opacity: 0 }}
+            >
+              <motion.div
+                className="absolute -top-24 -left-32 h-72 w-72 rounded-full bg-gradient-to-br from-emerald-500/35 via-blue-500/25 to-transparent blur-3xl"
+                animate={shouldReduceMotion ? {} : { y: [0, 24, 0], x: [0, 12, 0] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute bottom-12 -right-36 h-80 w-80 rounded-full bg-gradient-to-tr from-amber-500/35 via-purple-500/25 to-transparent blur-3xl"
+                animate={shouldReduceMotion ? {} : { y: [0, -20, 0], x: [0, -16, 0] }}
+                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(20,40,60,0.25)_0%,_transparent_60%)]" />
+            </motion.div>
+
             <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
               <motion.div
-                initial={{ opacity: 0, x: -80, scale: 0.9 }}
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
                 animate={isLoaded ? { 
                   opacity: 1, 
-                  x: 0, 
-                  scale: 1,
-                  transition: { duration: 1.2, delay: 0.5, ease: "easeOut" }
-                } : { opacity: 0, x: -80, scale: 0.9 }}
+                  y: 0,
+                  transition: { duration: 0.45, ease: "easeOut" }
+                } : { opacity: 0, y: 14 }}
               >
                 <motion.h1
-                  className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight"
+                  initial={shouldReduceMotion ? undefined : { opacity: 0, y: 12 }}
+                  animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                 >
-                  Ehab Allababidi —{' '}
-                  <span className="text-amber-500">Private AI Systems Architect</span>
+                  Ehab Allababidi builds{' '}
+                  <span className="bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 bg-clip-text text-transparent">
+                    sovereign automation estates
+                  </span>
                 </motion.h1>
                 <motion.p
-                  className="mt-6 text-white/80 text-base sm:text-lg md:text-xl max-w-xl"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg md:text-xl"
+                  initial={shouldReduceMotion ? undefined : { opacity: 0 }}
+                  animate={shouldReduceMotion ? undefined : { opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.12, ease: "easeOut" }}
                 >
-                  Building confidential, on-premise AI infrastructures for founders and labs. From GPU clusters to autonomous agents — deployed, secured, and operational in days.
+                  No SaaS leash. I design, rack, and harden on-prem AI systems that answer only to you and your threat model.
                 </motion.p>
+                <motion.div
+                  className="mt-6 grid gap-4 text-sm text-white/75 sm:text-base"
+                  initial={shouldReduceMotion ? undefined : { opacity: 0, y: 10 }}
+                  animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.16, ease: "easeOut" }}
+                >
+                  <div className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true" />
+                    <div>
+                      <p className="font-semibold text-white">Zero dependency, zero guesswork.</p>
+                      <p className="text-white/70">You get one builder accountable for the rack plan, firmware, automations, and long-term stewardship.</p>
+                    </div>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {[{
+                      Icon: Shield,
+                      label: 'Air-gapped security — segmentation, monitoring, red-team hardening'
+                    }, {
+                      Icon: Server,
+                      label: 'GPU clusters + NAS stacks tuned for your workloads'
+                    }, {
+                      Icon: Brain,
+                      label: 'Private LLM orchestration with policy controls'
+                    }, {
+                      Icon: Home,
+                      label: 'Estate-wide automation: sensors, AV, BMS, safes'
+                    }].map(({ Icon, label }) => (
+                      <div key={label} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                        <Icon className="h-4 w-4 text-emerald-300" aria-hidden="true" />
+                        <span className="text-left leading-tight">{label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
                 <motion.div
                   className="mt-8 flex flex-wrap gap-3"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 0.3 }}
+                  transition={{ duration: 0.4, delay: 0.25 }}
                 >
                   <a href="#contact">
                     <motion.button
-                      className="inline-flex items-center justify-center px-6 py-4 font-medium rounded-2xl transition bg-blue-500 text-black hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-950 text-base min-h-[44px] min-w-[140px]"
-                      whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                      className="inline-flex min-h-[44px] min-w-[140px] items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-6 py-4 text-base font-semibold text-slate-900 shadow-lg shadow-emerald-500/20 transition focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950"
+                      whileHover={shouldReduceMotion ? {} : { scale: 1.05, rotate: -0.5 }}
                       whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
                     >
-                      Book a consult <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                      Book a consult <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                     </motion.button>
                   </a>
                   <a href="#work">
                     <motion.button
-                      className="inline-flex items-center justify-center px-6 py-4 font-medium rounded-2xl transition bg-white/10 border border-white/10 text-white hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-slate-950 text-base min-h-[44px] min-w-[140px]"
-                      whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                      className="inline-flex min-h-[44px] min-w-[140px] items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-base font-semibold text-white transition hover:border-white/25 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-slate-950"
+                      whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
                       whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
                     >
-                      View packages
+                      Explore tiers
                     </motion.button>
                   </a>
                 </motion.div>
                 <motion.div
-                  className="mt-6 text-xs sm:text-sm text-white/70"
+                  className="mt-6 flex flex-wrap gap-2 text-xs sm:text-sm text-white/70"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 0.4 }}
+                  transition={{ duration: 0.4, delay: 0.35 }}
                 >
-                  On-prem NAS/VMs • Zero-trust security • Smart estates • Local AI
+                  {['On-prem NAS/VMs', 'Zero-trust networks', 'Luxury smart estates', 'Local AI orchestration'].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/70"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </motion.div>
                 <motion.div
-                  className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm font-medium"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-200 backdrop-blur"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 }}
+                  transition={{ duration: 0.4, delay: 0.45 }}
                 >
                   <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                   </svg>
-                  <span>Based in Chicago, IL — Serving Chicagoland & Beyond</span>
+                  Based in Chicago — deploying discreetly worldwide
                 </motion.div>
               </motion.div>
               <motion.div
                 className="flex justify-center"
-                initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={isLoaded ? { 
                   opacity: 1, 
                   scale: 1,
-                  rotateY: 0,
-                  transition: { duration: 1.2, delay: 0.7, ease: "easeOut" }
-                } : { opacity: 0, scale: 0.9, rotateY: 15 }}
+                  transition: { duration: 0.8, ease: "easeOut" }
+                } : { opacity: 0, scale: 0.96 }}
               >
                 <div className="relative">
                   <motion.div
-                    className="absolute inset-0 bg-blue-500/30 blur-3xl rounded-full blue-glow"
-                    animate={shouldReduceMotion ? false : { scale: [1, 1.05, 1], opacity: [0.3, 0.4, 0.3] }}
-                    transition={shouldReduceMotion ? {} : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  ></motion.div>
+                    className="absolute -inset-6 rounded-[32px] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(79,255,209,0.18)_0%,_rgba(12,24,40,0)_55%)]"
+                    animate={shouldReduceMotion ? {} : { opacity: [0.75, 0.5, 0.75] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <motion.div
+                    className="absolute inset-0 rounded-[28px] bg-gradient-to-br from-emerald-400/15 via-blue-500/10 to-transparent blur-3xl"
+                    animate={shouldReduceMotion ? {} : { scale: [1, 1.05, 1], opacity: [0.25, 0.4, 0.25] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  />
                   <Image
                     src="/me.jpg"
-                    alt="Ehab Allababidi - Digital Estate Architect, Chicago's Premier Infrastructure Specialist"
-                    width={400}
-                    height={400}
+                    alt="Ehab Allababidi - Private AI Systems Architect"
+                    width={420}
+                    height={420}
                     priority
-                    quality={75}
+                    quality={80}
                     placeholder="blur"
                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                    sizes="(max-width: 768px) 300px, 400px"
-                    className="relative rounded-2xl border-2 border-blue-500/50 shadow-2xl object-cover w-full max-w-sm blue-glow"
+                    sizes="(max-width: 768px) 300px, 420px"
+                    className="relative z-10 w-full max-w-sm rounded-[26px] border border-white/10 bg-slate-950/60 object-cover shadow-[0_40px_80px_-40px_rgba(6,182,212,0.45)]"
                   />
+                  <motion.div
+                    className="absolute -bottom-10 left-1/2 w-[260px] -translate-x-1/2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-center text-sm text-white/80 backdrop-blur"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                    transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+                  >
+                    10+ years building sovereign digital estates • 50+ deployments • 100% concierge delivery
+                  </motion.div>
                 </div>
               </motion.div>
             </div>
@@ -546,7 +508,7 @@ export default function HomePage() {
 
           {/* Trust Section */}
           <motion.section
-            className="py-12 border-y border-white/10 bg-white/5"
+            className="py-12 border-y border-white/10 bg-white/5 backdrop-blur-sm"
             {...fadeInUp}
           >
             <motion.div
@@ -555,15 +517,15 @@ export default function HomePage() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
                 <motion.div {...fadeInUp}>
-                  <div className="text-3xl sm:text-4xl font-bold text-blue-500">10+</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-blue-400">10+</div>
                   <div className="mt-2 text-sm sm:text-base text-white/70">Years of Experience</div>
                 </motion.div>
                 <motion.div {...fadeInUp}>
-                  <div className="text-3xl sm:text-4xl font-bold text-blue-500">50+</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-300">50+</div>
                   <div className="mt-2 text-sm sm:text-base text-white/70">Systems Deployed</div>
                 </motion.div>
                 <motion.div {...fadeInUp}>
-                  <div className="text-3xl sm:text-4xl font-bold text-blue-500">100%</div>
+                  <div className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-amber-300">100%</div>
                   <div className="mt-2 text-sm sm:text-base text-white/70">Client Satisfaction</div>
                 </motion.div>
               </div>
@@ -590,42 +552,51 @@ export default function HomePage() {
                 {...staggerContainer}
               >
                 <motion.div
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-300 hover:border-emerald-400/50 hover:bg-emerald-400/5"
                   {...scaleIn}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 >
-                  <div className="h-12 w-12 rounded-xl bg-blue-500/10 grid place-items-center mb-4">
-                    <Server className="h-6 w-6 text-blue-500" aria-hidden="true" />
+                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-emerald-400/10">
+                    <Server className="h-6 w-6 text-emerald-300" aria-hidden="true" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-medium">Private Servers</h3>
                   <p className="mt-3 text-white/70 text-sm sm:text-base">
-                    On-prem NAS (Synology, TrueNAS), VMs (Proxmox, ESXi), and secure home servers. Full control, zero cloud lock-in, local backups.
+                    High-availability NAS and VM stacks (TrueNAS, Proxmox) with encrypted snapshots and offline recovery drills.
+                  </p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-emerald-200/80">
+                    Recent build: triple-node TrueNAS vault protecting a 14TB litigation archive.
                   </p>
                 </motion.div>
                 <motion.div
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-300 hover:border-blue-400/50 hover:bg-blue-400/5"
                   {...scaleIn}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 >
-                  <div className="h-12 w-12 rounded-xl bg-blue-500/10 grid place-items-center mb-4">
-                    <Lock className="h-6 w-6 text-blue-500" aria-hidden="true" />
+                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-blue-400/10">
+                    <Lock className="h-6 w-6 text-blue-300" aria-hidden="true" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-medium">Zero-Trust Networks</h3>
                   <p className="mt-3 text-white/70 text-sm sm:text-base">
-                    Wireguard VPNs, VLAN segmentation, pfSense/OPNsense firewalls, and multi-factor auth. Bulletproof perimeter, encrypted everything.
+                    Segmented networks, WireGuard mesh, and policy automation. Every endpoint authenticated, every tunnel encrypted.
+                  </p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-blue-200/80">
+                    Recent build: biometric VPN perimeter covering six villas with automatic threat sweeps.
                   </p>
                 </motion.div>
                 <motion.div
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-300 hover:border-amber-400/50 hover:bg-amber-400/5"
                   {...scaleIn}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 >
-                  <div className="h-12 w-12 rounded-xl bg-blue-500/10 grid place-items-center mb-4">
-                    <Brain className="h-6 w-6 text-blue-500" aria-hidden="true" />
+                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-amber-400/10">
+                    <Brain className="h-6 w-6 text-amber-300" aria-hidden="true" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-medium">On-Prem AI</h3>
                   <p className="mt-3 text-white/70 text-sm sm:text-base">
-                    Local LLMs (Ollama, llama.cpp), private ChatGPT alternatives, confidential AI inference. Your data never leaves your network.
+                    Local LLM clusters (Ollama, vLLM) with curated datasets, safety policies, and observability tuned to your compliance rules.
+                  </p>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-amber-200/80">
+                    Recent build: confidential RAG counsel trained on twelve years of legal briefs.
                   </p>
                 </motion.div>
               </motion.div>
@@ -656,21 +627,43 @@ export default function HomePage() {
                 In Plain English
               </motion.h2>
               <motion.div
-                className="mt-12 space-y-6 text-base sm:text-lg text-white/80"
+                className="mt-12 grid gap-6 text-base text-white/80 sm:grid-cols-2"
                 {...staggerContainer}
               >
-                <motion.p {...fadeInUp}>
-                  <strong className="text-white">You don't trust the cloud.</strong> You want your files, cameras, smart home, and AI on servers <em>you</em> own—in your office, your home, or a locked rack you control.
-                </motion.p>
-                <motion.p {...fadeInUp}>
-                  <strong className="text-white">You're tired of consultants who just resell SaaS.</strong> You need someone who codes, racks hardware, configures firewalls, and actually understands the tech stack from bare metal to application layer.
-                </motion.p>
-                <motion.p {...fadeInUp}>
-                  <strong className="text-white">You want privacy by default.</strong> Zero telemetry, no vendor lock-in, encrypted tunnels, and systems designed for sovereignty—not surveillance.
-                </motion.p>
-                <motion.p className="text-blue-500 font-medium" {...fadeInUp}>
-                  That's what I build. Private digital estates for people who demand control.
-                </motion.p>
+                {[
+                  {
+                    title: "Cloud custody is a risk.",
+                    body: "Everything—files, CCTV, AI—lives on hardware you can walk up to and audit in seconds.",
+                  },
+                  {
+                    title: "You hire one accountable builder.",
+                    body: "I architect, cable, script, and document every layer so nothing is handed off to a mystery vendor.",
+                  },
+                  {
+                    title: "Privacy is the baseline.",
+                    body: "No telemetry, no SaaS callouts, immutable logging, and automatic key rotation across the estate.",
+                  },
+                  {
+                    title: "Support stays concierge.",
+                    body: "Blueprints, training, and periodic health checks come from the person who built the system—me.",
+                  },
+                ].map(({ title, body }) => (
+                  <motion.div
+                    key={title}
+                    className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur"
+                    {...fadeInUp}
+                    whileHover={shouldReduceMotion ? {} : { y: -6 }}
+                  >
+                    <h3 className="text-lg font-semibold text-white">{title}</h3>
+                    <p className="mt-3 text-sm sm:text-base text-white/75">{body}</p>
+                  </motion.div>
+                ))}
+                <motion.div
+                  className="sm:col-span-2 rounded-3xl border border-emerald-400/40 bg-emerald-400/10 p-6 text-center text-lg font-medium text-emerald-200"
+                  {...fadeInUp}
+                >
+                  Hire me when you want sovereign infrastructure with a single throat to choke.
+                </motion.div>
               </motion.div>
             </div>
           </section>
@@ -817,112 +810,39 @@ export default function HomePage() {
                   </div>
                   
                   {/* Content - positioned above background */}
-                  <div className="relative z-10">
-                  <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-black text-xs font-bold rounded-full">
-                    10/10 ABA COMPLIANT
-                  </div>
-                <div className="flex items-center gap-3 mb-6">
-                  <Shield className="h-8 w-8 text-blue-500" aria-hidden="true" />
-                  <h2 className="text-2xl md:text-3xl font-semibold">Law Firm Enterprise Compliance Infrastructure</h2>
-                </div>
-                <p className="text-white/80 text-lg mb-6">
-                  Premium-grade infrastructure for solo practitioners, boutique firms, and multi-partner practices. Full ABA Model Rule 1.6 compliance, attorney-client privilege protection, conflict-checking systems, and ethical wall enforcement with complete data sovereignty.
-                </p>
-                <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-blue-500/20">
-                  <p className="text-3xl font-bold text-blue-500">Starting at $18,000 install • $1,200+/mo managed services</p>
-                  <p className="mt-2 text-white/70">
-                    Includes: ABA-compliant infrastructure, secure document management system, encrypted client portals, conflict-checking database, disaster recovery, automated compliance reporting, staff training & 12-month white-glove support.
-                  </p>
-                </div>
-                <div className="grid md:grid-cols-2 gap-4 text-sm mb-6">
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                  <div className="relative z-10 space-y-6">
+                    <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-black text-xs font-bold rounded-full">
+                      ABA READY
                     </div>
-                    <span className="text-white/80">ABA Model Rule 1.6 compliance</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                    <div className="flex items-center gap-3">
+                      <Shield className="h-8 w-8 text-blue-500" aria-hidden="true" />
+                      <h2 className="text-2xl md:text-3xl font-semibold">Law Firm Compliance Estate</h2>
                     </div>
-                    <span className="text-white/80">Attorney-client privilege protection</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                    <p className="text-white/80 text-base sm:text-lg">
+                      Purpose-built stacks for boutiques and multi-partner firms that need airtight privilege, conflict automation, and verifiable Model Rule 1.6 controls.
+                    </p>
+                    <div className="bg-slate-950/70 rounded-xl p-5 border border-blue-500/25">
+                      <p className="text-2xl font-bold text-blue-500">From $18k install · $1.2k+/mo concierge</p>
+                      <p className="mt-2 text-white/70 text-sm">
+                        Includes privileged document vaults, encrypted client portals, immutable audit logs, and white-glove compliance reporting.
+                      </p>
                     </div>
-                    <span className="text-white/80">Secure document management (DMS)</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                    <ul className="grid sm:grid-cols-2 gap-3 text-sm text-white/75">
+                      {["Model Rule 1.6 defence-in-depth", "Conflict + ethical wall automation", "Encrypted DMS with matter-level MFA", "Air-gapped legal archive + ransomware drills", "Practice management integrations (Clio, Litify)", "Partner dashboards with breach telemetry"].map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-1 h-2 w-2 rounded-full bg-blue-500" aria-hidden="true" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-white/75">
+                      <p className="font-semibold text-blue-400">Why firms call me:</p>
+                      <p className="mt-2">Own your evidence, pass bar audits without scramble, and keep every subpoena response under your control.</p>
                     </div>
-                    <span className="text-white/80">Encrypted client portals</span>
+                    <p className="text-blue-400 text-sm italic border-t border-blue-500/20 pt-4">
+                      “Zero findings in our bar audit. Every partner finally trusts the tech.” — Managing Partner, Corporate Litigation
+                    </p>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                    </div>
-                    <span className="text-white/80">Conflict-checking systems</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                    </div>
-                    <span className="text-white/80">Ethical wall enforcement</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                    </div>
-                    <span className="text-white/80">Redundant backup systems</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                    </div>
-                    <span className="text-white/80">Zero-trust network architecture</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                    </div>
-                    <span className="text-white/80">Complete audit trail logging</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                    </div>
-                    <span className="text-white/80">Business continuity planning</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                    </div>
-                    <span className="text-white/80">Practice management integration</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                    </div>
-                    <span className="text-white/80">Dedicated compliance specialist liaison</span>
-                  </div>
-                </div>
-                <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 mb-4">
-                  <p className="text-blue-500 font-semibold mb-2">Why Law Firms Choose Us:</p>
-                  <ul className="space-y-2 text-sm text-white/70">
-                    <li>• Client data never leaves your premises — maintain attorney-client privilege sovereignty</li>
-                    <li>• Avoid cloud vendor subpoenas and third-party data breaches</li>
-                    <li>• Meet state bar ethical obligations with automated compliance documentation</li>
-                    <li>• Scale from solo practice to multi-office firm infrastructure</li>
-                    <li>• Integrate with existing practice management software (Clio, PracticePanther, etc.)</li>
-                    <li>• Protected against ransomware with air-gapped backup systems</li>
-                  </ul>
-                </div>
-                <p className="text-blue-500 text-sm italic border-t border-blue-500/20 pt-4">
-                  "We finally own our data. Installation was seamless, support exceptional, and we passed our state bar audit with zero findings." — Managing Partner, Corporate Law Firm
-                </p>
-                </div>
                 </motion.div>
               </Link>
             </div>
@@ -951,86 +871,38 @@ export default function HomePage() {
                   </div>
                   
                   {/* Content - positioned above background */}
-                  <div className="relative z-10">
-                  <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-white text-xs font-bold rounded-full">
-                    10/10 COMPLIANCE
-                  </div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <Heart className="h-8 w-8 text-blue-500" aria-hidden="true" />
-                    <h2 className="text-2xl md:text-3xl font-semibold">Healthcare & Medical Facilities — HIPAA-Grade Infrastructure</h2>
-                  </div>
-                  <p className="text-white/80 text-lg mb-6">
-                    Enterprise-grade infrastructure for hospitals, clinics, and medical practices. Full HIPAA compliance, zero-trust architecture, 99.99% uptime SLA, disaster recovery, and end-to-end encryption for patient data sovereignty.
-                  </p>
-                  <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-blue-500/20">
-                    <p className="text-3xl font-bold text-blue-500">Starting at $35,000 install • $2,500+/mo managed services</p>
-                    <p className="mt-2 text-white/70">
-                      Includes: HIPAA-compliant infrastructure, redundant servers, encrypted patient records system, disaster recovery, 24/7 monitoring, audit logging, staff training & 12-month concierge support with guaranteed response times.
+                  <div className="relative z-10 space-y-6">
+                    <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-white text-xs font-bold rounded-full">
+                      HIPAA READY
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Heart className="h-8 w-8 text-blue-400" aria-hidden="true" />
+                      <h2 className="text-2xl md:text-3xl font-semibold">Healthcare Sovereign Cloud</h2>
+                    </div>
+                    <p className="text-white/80 text-base sm:text-lg">
+                      Built for clinics and hospitals that demand HIPAA-grade uptime, zero-trust segmentation, and charting privacy without vendor lock-in.
                     </p>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-4 text-sm mb-6">
-                    <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                      </div>
-                      <span className="text-white/80">HIPAA-compliant from day one</span>
+                    <div className="bg-slate-950/70 rounded-xl p-5 border border-blue-500/25">
+                      <p className="text-2xl font-bold text-blue-400">From $35k install · $2.5k+/mo concierge</p>
+                      <p className="mt-2 text-white/70 text-sm">
+                        Turnkey EHR integrations, audited access controls, disaster recovery runbooks, and guaranteed on-call response.
+                      </p>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                      </div>
-                      <span className="text-white/80">Electronic health records (EHR) integration</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                      </div>
-                      <span className="text-white/80">Redundant backup systems</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                      </div>
-                      <span className="text-white/80">Zero-trust network segmentation</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                      </div>
-                      <span className="text-white/80">Complete audit trail logging</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                      </div>
-                      <span className="text-white/80">Business continuity planning</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                      </div>
-                      <span className="text-white/80">High availability clustering</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <div className="mt-0.5 h-5 w-5 rounded-full bg-blue-500/10 grid place-items-center flex-shrink-0">
-                        <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                      </div>
-                      <span className="text-white/80">Dedicated compliance officer liaison</span>
-                    </div>
-                  </div>
-                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 mb-4">
-                    <p className="text-blue-500 font-semibold mb-2">Why Healthcare Facilities Choose Us:</p>
-                    <ul className="space-y-2 text-sm text-white/70">
-                      <li>• Patient data never leaves your premises — complete sovereignty over sensitive medical records</li>
-                      <li>• Avoid cloud ransomware attacks with air-gapped backup systems</li>
-                      <li>• Meet OCR audit requirements with automated compliance documentation</li>
-                      <li>• Scale from single clinic to multi-location hospital networks</li>
-                      <li>• 99.99% uptime guarantee with failover protection for critical systems</li>
+                    <ul className="grid sm:grid-cols-2 gap-3 text-sm text-white/75">
+                      {["HIPAA + OCR audit readiness baked in", "Zero-trust VLAN design with clinician-aware policies", "Redundant EHR, PACS, and imaging storage", "Air-gapped ransomware response with 15-minute RPO", "Telemetry dashboards for compliance officers", "99.99% uptime SLA across critical services"].map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-1 h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
                     </ul>
-                  </div>
-                  <p className="text-blue-500 text-sm italic border-t border-blue-500/20 pt-4">
-                    "Mission-critical infrastructure that meets every regulatory requirement. Our patient data has never been more secure." — Medical Director, Multi-Specialty Clinic
-                  </p>
+                    <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-white/75">
+                      <p className="font-semibold text-blue-300">Why exec teams bring me in:</p>
+                      <p className="mt-2">Own every patient record, prove compliance on demand, and recover cleanly from any incident within minutes.</p>
+                    </div>
+                    <p className="text-blue-300 text-sm italic border-t border-blue-500/20 pt-4">
+                      “Meets every regulatory demand and our clinicians barely notice the upgrades—except for the speed.” — Medical Director, Multi-Specialty Clinic
+                    </p>
                   </div>
                 </motion.div>
               </Link>
@@ -1331,9 +1203,7 @@ export default function HomePage() {
 
               {/* CTA */}
               <div className="mt-12 text-center">
-                <p className="text-white/70 mb-6">
-                  Ready to join the ranks of clients who demand excellence in digital infrastructure?
-                </p>
+                <p className="text-white/70 mb-6">Ready to map your build? Let's lock in the first strategy call.</p>
                 <Link href="/start-project">
                   <button className="inline-flex items-center justify-center px-6 py-3 font-medium rounded-2xl transition bg-blue-500 text-black hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-950">
                     Start Your Project <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
@@ -1343,19 +1213,59 @@ export default function HomePage() {
             </div>
           </section>
 
+          {/* Engagement Flow */}
+          <section className="py-16">
+            <div className="max-w-4xl mx-auto px-4">
+              <h2 className="text-3xl md:text-4xl font-semibold text-center">How an Engagement Runs</h2>
+              <p className="mt-4 text-center text-white/70 text-base sm:text-lg">
+                Four tightly managed phases. Clear owners, no hidden handoffs.
+              </p>
+              <div className="mt-10 grid sm:grid-cols-2 gap-6">
+                {[{
+                  step: '01',
+                  title: 'Scope & threat mapping',
+                  detail: 'We inventory assets, risk tolerance, and compliance targets in a single strategy call.'
+                }, {
+                  step: '02',
+                  title: 'Architecture sign-off',
+                  detail: 'You approve the rack plan, bill of materials, and automation runbooks before hardware ships.'
+                }, {
+                  step: '03',
+                  title: 'On-site build week',
+                  detail: 'I wire, configure, and test every system alongside daily walkthroughs with your team.'
+                }, {
+                  step: '04',
+                  title: 'Stewardship & drills',
+                  detail: 'Quarterly health checks, incident rehearsals, and rapid support direct to my phone.'
+                }].map(({ step, title, detail }) => (
+                  <div key={step} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <span className="text-sm font-mono text-blue-400">{step}</span>
+                    <h3 className="mt-2 text-lg font-semibold text-white">{title}</h3>
+                    <p className="mt-2 text-sm text-white/70">{detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* About Section */}
           <section id="about" className="py-20 bg-white/5">
             <div className="max-w-4xl mx-auto px-4">
               <h2 className="text-3xl md:text-4xl font-semibold text-center">About Ehab Allababidi</h2>
-              <div className="mt-12 space-y-6 text-lg text-white/80">
+              <div className="mt-10 space-y-5 text-base sm:text-lg text-white/80">
                 <p>
-                  <strong className="text-white">Ehab Allababidi</strong> is a Chicago-based digital infrastructure architect specializing in private, sovereign technology deployments for high-net-worth individuals, boutique law firms, medical practices, privacy-conscious professionals throughout Chicagoland and beyond.
+                  <strong className="text-white">Ehab Allababidi</strong> is a Chicago engineer who has spent the last decade hardening private stacks for families, founders, law firms, and medical groups who refuse cloud custody.
                 </p>
-                <p>
-                  With over a decade of hands-on experience in enterprise systems engineering, Ehab delivers turnkey solutions that prioritize data sovereignty, regulatory compliance, zero vendor lock-in. His technical approach combines deep systems programming expertise with meticulous on-site installation and ongoing concierge support.
-                </p>
-                <p className="text-white/70 border-l-2 border-blue-500 pl-6 italic">
-                  "If you don't own the hardware, you don't own the data. I build systems where you control everything—from the silicon to the encryption keys."
+                <ul className="grid gap-3 text-sm sm:text-base text-white/70">
+                  {["Enterprise systems background: VMware, Proxmox, pfSense, Arista", "Hands-on builder—no resellers, no subcontractors, every rack wired personally", "Concierge stewardship with quarterly health checks and on-call response"].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-white/70 border-l-2 border-blue-500 pl-5 italic">
+                  "If you don't own the hardware, you don't own the data. I build estates where you command every packet."
                 </p>
               </div>
             </div>
@@ -1366,11 +1276,8 @@ export default function HomePage() {
             <div className="max-w-6xl mx-auto px-4">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-semibold">Get In Touch</h2>
-                <p className="mt-4 text-white/70 text-lg">
-                  Let's Build Something Exceptional
-                </p>
-                <p className="mt-2 text-white/60">
-                  Ready to deploy private AI infrastructure? Schedule a consultation or reach out directly.
+                <p className="mt-4 text-white/70 text-base sm:text-lg">
+                  Three fast ways to reach me. Pick the channel that fits and I’ll respond the same day.
                 </p>
               </div>
 
@@ -1381,9 +1288,7 @@ export default function HomePage() {
                     <Mail className="h-5 w-5 text-blue-500" aria-hidden="true" />
                     <h3 className="font-semibold">Email Inquiry</h3>
                   </div>
-                  <p className="text-sm text-white/60 mb-4">
-                    For proposals, partnerships, and technical documentation.
-                  </p>
+                  <p className="text-sm text-white/60 mb-4">Proposals, partnerships, detailed briefs.</p>
                   <a
                     href="mailto:defcon5ready@gmail.com"
                     className="text-blue-500 hover:text-blue-500 transition font-medium block mb-2"
@@ -1404,9 +1309,7 @@ export default function HomePage() {
                     <Phone className="h-5 w-5 text-blue-500" aria-hidden="true" />
                     <h3 className="font-semibold">Direct Line</h3>
                   </div>
-                  <p className="text-sm text-white/60 mb-4">
-                    Speak directly with an engineer or strategist.
-                  </p>
+                  <p className="text-sm text-white/60 mb-4">Call when you need an engineer immediately.</p>
                   <a
                     href="tel:+17739200030"
                     className="text-blue-500 hover:text-blue-500 transition font-medium block mb-2"
@@ -1430,10 +1333,8 @@ export default function HomePage() {
                     <Calendar className="h-5 w-5 text-blue-500" aria-hidden="true" />
                     <h3 className="font-semibold">Book 1-Hour Consultation</h3>
                   </div>
-                  <p className="text-sm text-white/60 mb-4">
-                    Tailored system design, risk analysis, and deployment roadmap.
-                  </p>
-                  <p className="text-blue-500 font-medium mb-2">Expert strategy session</p>
+                  <p className="text-sm text-white/60 mb-4">One-hour strategy session, roadmap, and next steps.</p>
+                  <p className="text-blue-500 font-medium mb-2">Expert blueprint review</p>
                   <a
                     href="https://calendly.com/defcon5ready/new-meeting"
                     target="_blank"
@@ -1449,13 +1350,10 @@ export default function HomePage() {
               <div className="max-w-2xl mx-auto">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
                   <h3 className="text-xl font-semibold mb-2">Or Send a Message</h3>
-                  <p className="text-white/60 text-sm mb-6">Response within 24 hours</p>
+                  <p className="text-white/60 text-sm mb-6">I reply within one business day.</p>
                   <ContactForm />
-                  <p className="mt-4 text-xs text-white/50 text-center">
-                    By submitting this form, you agree to our privacy policy and terms of service.
-                  </p>
-                  <p className="mt-2 text-xs text-white/60 text-center">
-                    Response time: Within 24 hours on business days
+                  <p className="mt-4 text-xs text-white/55 text-center">
+                    Submitting confirms you accept the privacy policy. Expect a follow-up within 24 hours (business days).
                   </p>
                 </div>
               </div>
@@ -1498,7 +1396,39 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+          <div className="px-4 pb-20 text-center">
+            <a
+              href="#main-content"
+              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm font-medium text-white/70 transition hover:border-emerald-300/60 hover:text-white"
+            >
+              Back to top
+            </a>
+          </div>
         </motion.main>
+
+        {/* Floating CTA */}
+        <motion.div
+          className="fixed inset-x-0 bottom-6 z-40 flex justify-center px-4"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isScrolled ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: "easeOut" }}
+        >
+          <div className="flex w-full max-w-xl items-center justify-between gap-4 rounded-2xl border border-white/10 bg-slate-950/90 px-5 py-3 shadow-lg shadow-emerald-500/10 backdrop-blur">
+            <div className="text-sm text-white/80">
+              <p className="font-semibold text-white">Ready for concierge deployment?</p>
+              <p className="text-white/60">Schedule a private build consultation.</p>
+            </div>
+            <Link href="#contact">
+              <motion.button
+                className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-4 py-2 text-sm font-semibold text-slate-900"
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+              >
+                Book now
+              </motion.button>
+            </Link>
+          </div>
+        </motion.div>
 
         {/* Footer */}
         <footer className="border-t border-white/10 py-12">

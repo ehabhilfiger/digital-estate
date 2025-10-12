@@ -2,14 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Lock, Unlock, Eye, EyeOff, Trophy, Target, Clock, Zap } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Lock, Unlock, Eye, EyeOff, Trophy, Target, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function ChallengePage() {
   const [unlockedHints, setUnlockedHints] = useState<number[]>([]);
   const [password, setPassword] = useState('');
   const [showSecret, setShowSecret] = useState(false);
-  const [answeredCount, setAnsweredCount] = useState(0);
   const [timeSpent, setTimeSpent] = useState(0);
 
   const toggleHint = (puzzleNum: number) => {
@@ -42,6 +41,7 @@ export default function ChallengePage() {
     return `${hrs}h ${mins}m ${secs}s`;
   };
 
+  const answeredCount = unlockedHints.length;
   const progressPercentage = (answeredCount / 20) * 100;
   const bonusEligible = answeredCount >= 20;
   const passThreshold = answeredCount >= 12;

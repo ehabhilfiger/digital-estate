@@ -1,279 +1,378 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Check, Shield, Server, Lock, Zap, ArrowRight, Home, Network } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  HardDrive,
+  Layers,
+  LineChart,
+  Shield,
+  ShieldAlert,
+  Signal,
+  Siren,
+} from 'lucide-react';
+
+const outcomeMetrics = [
+  { label: 'Ransomware resilience score', value: '99.7%', badgeClass: 'border border-teal-400/30 bg-teal-400/10 text-teal-200' },
+  { label: 'Failover recovery window', value: '< 5 min', badgeClass: 'border border-cyan-400/30 bg-cyan-400/10 text-cyan-200' },
+  { label: 'Active monitoring coverage', value: '24/7/365', badgeClass: 'border border-emerald-400/30 bg-emerald-400/10 text-emerald-200' },
+];
+
+const capabilityColumns = [
+  {
+    icon: HardDrive,
+    title: 'Enterprise storage fabric',
+    items: [
+      'TrueNAS Enterprise or Synology HA pair with redundant controllers',
+      'High-performance SSD caching, 10/25GbE core, redundant switching',
+      'Global deduplication, compression, and tiering tuned per workload',
+      'Multi-site replication with automatic failover sequencing',
+    ],
+  },
+  {
+    icon: Shield,
+    title: 'Zero compromise security',
+    items: [
+      'Immutable backups with air-gapped layers and offline vaulting',
+      'Privileged access management, password rotation, hardware keys',
+      'SIEM, syslog, and security tooling integrated into your stack',
+      'Quarterly ransomware tabletop exercises with leadership',
+    ],
+  },
+  {
+    icon: Signal,
+    title: 'Operational continuity',
+    items: [
+      'Executive-ready reporting and compliance documentation (SOC 2, HIPAA, FINRA)',
+      'Runbooks for legal, finance, and technical teams with play-by-play actions',
+      '24/7 concierge response with escalation matrix and on-call rotations',
+      'Joint change management, patching cadences, and horizon planning',
+    ],
+  },
+];
+
+const techBadges = [
+  'TrueNAS Enterprise',
+  'Synology HA',
+  'Veeam Immutable',
+  'WireGuard Mesh',
+  'Azure AD / Okta',
+  'CrowdStrike Falcon',
+  'Splunk / Sumo Logic',
+  'ZFS Snapshots',
+  'Ransomware Rollback',
+  'NIST 800-53 Controls',
+].map((label) => ({
+  label,
+  badgeClass: 'border border-teal-400/25 bg-teal-400/10 text-teal-100',
+}));
+
+const processSteps = [
+  {
+    phase: '01',
+    title: 'Executive alignment',
+    copy: 'Tabletop review of business continuity requirements, regulatory posture, and stakeholder expectations.',
+  },
+  {
+    phase: '02',
+    title: 'Architecture lab',
+    copy: 'Simulate workloads, validate recovery objectives, and sign off on capacity + performance envelopes.',
+  },
+  {
+    phase: '03',
+    title: 'Implementation sprint',
+    copy: 'Parallel build-out of primary and secondary sites, data migration, and staged failovers with your team.',
+  },
+  {
+    phase: '04',
+    title: 'Continuity validation',
+    copy: 'Immutable backup drills, ransomware detection tuning, and compliance documentation walkthroughs.',
+  },
+  {
+    phase: '05',
+    title: 'Concierge runway',
+    copy: '24/7 monitoring, executive briefings, and quarterly resilience audits included for the first 12 months.',
+  },
+];
+
+const conciergeHighlights = [
+  'Priority Signal line with <30 minute acknowledgements for P1 events',
+  'Monthly executive brief covering security KPIs, incidents, and roadmap',
+  'Proactive patching, firmware updates, and configuration drift checks',
+  'Quarterly disaster recovery rehearsal with board-ready evidence pack',
+];
 
 export default function EstateTier() {
+  const shouldReduceMotion = useReducedMotion();
+  const pricingMotionProps = shouldReduceMotion
+    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
+    : {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+      };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur border-b border-blue-500/30 bg-slate-950/50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
+      <header className="sticky top-0 z-50 border-b border-teal-500/25 bg-slate-950/80 backdrop-blur">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
-          <div className="flex items-center gap-4">
-            <span className="px-3 py-1 rounded-full bg-blue-500 text-black text-xs font-bold">
-              MOST POPULAR
-            </span>
-            <Link href="/start-project">
-              <button className="px-4 py-2 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium text-sm">
-                Request This Package
-              </button>
-            </Link>
-          </div>
+          <Link
+            href="/start-project"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-teal-300 via-blue-400 to-emerald-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow shadow-teal-500/20 transition hover:opacity-95"
+          >
+            Book estate discovery
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-16">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500 text-black text-sm font-bold mb-6">
-            ESTATE TIER • MOST POPULAR
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Complete Digital <span className="text-blue-500">Estate</span>
-          </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Multi-server zero-trust architecture for executives and high-net-worth individuals. Full digital sovereignty with luxury smart home integration.
-          </p>
-        </div>
-
-        {/* Image Showcase */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500 shadow-2xl shadow-blue-500/20">
-          <img
-            src="/images/secret-room.png"
-            alt="Estate Tier - Complete Digital Estate with Secret Server Room"
-            className="w-full h-auto"
-          />
-        </div>
-
-        {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-blue-500 bg-gradient-to-br from-blue-500/20 to-transparent p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-slate-400/10 blur-3xl"></div>
-          <div className="relative">
-            <div className="text-6xl font-bold text-blue-500 mb-4">$100,000</div>
-            <div className="text-xl text-white/80">Comprehensive Estate Package</div>
-            <div className="mt-4 text-white/60">Multi-server deployment, smart home integration & 6-month concierge support</div>
-          </div>
-        </div>
-
-        {/* DarkGPT Feature */}
-        <div className="mb-16 rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 via-slate-900 to-black p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-white text-xs font-bold rounded-full">
-            ELITE EXCLUSIVE
-          </div>
-          <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-4">
-              <img 
-                src="/images/darkgpt.png" 
-                alt="DarkGPT Logo" 
-                className="h-12 w-auto"
-              />
-              <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-500">
-                DarkGPT — Unrestricted Local AI
-              </h2>
+        <section className="mb-14 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-teal-100">
+              Estate tier
             </div>
-            <p className="text-white/80 text-lg mb-6">
-              We install a completely private, uncensored local LLM that <strong className="text-white">never says no</strong>. Fully customized to your needs, running entirely on your hardware with zero external connections.
+            <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
+              Zero-downtime infrastructure for multi-site firms
+            </h1>
+            <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-3xl">
+              Estate is the resilience playbook for teams that treat uptime, compliance, and ransomware immunity as non-negotiable. Two fully hardened sites, immutable backups, continuous monitoring, and a concierge on-call to keep every control verified.
             </p>
-            <div className="bg-slate-950/70 rounded-xl p-6 mb-6 border border-blue-500/20">
-              <h3 className="text-xl font-semibold text-blue-500 mb-3">One Week On-Site Programming</h3>
-              <p className="text-white/70 mb-4">
-                I'll spend an entire week at your location fine-tuning DarkGPT until every parameter is dialed in perfectly. We don't stop until you're 100% satisfied with how it responds, thinks, and caters to your specific needs.
-              </p>
-              <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mb-4">
-                <div className="text-lg font-bold text-blue-500 mb-2">Pricing: Available Upon Request</div>
-                <p className="text-white/70 text-sm italic">
-                  "DarkGPT pricing is negotiable based on your budget. If you have the money, I have the time. Let's talk."
-                </p>
-              </div>
-              <ul className="space-y-3 text-sm text-white/70">
+            <div className="mt-6 flex flex-wrap gap-3 text-xs sm:text-sm text-white/60">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1">
+                <ShieldAlert className="h-4 w-4 text-teal-200" /> Ransomware rollback under five minutes
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1">
+                <Layers className="h-4 w-4 text-teal-200" /> Multi-location replication with failover
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1">
+                <LineChart className="h-4 w-4 text-teal-200" /> Executive-grade reporting baked in
+              </span>
+            </div>
+          </div>
+          <motion.div
+            className="relative"
+            {...pricingMotionProps}
+          >
+            <div className="absolute -inset-5 rounded-3xl bg-teal-500/15 blur-3xl" />
+            <div className="relative rounded-3xl border border-teal-500/35 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-2xl">
+              <div className="text-xs uppercase tracking-[0.3em] text-white/50">Investment</div>
+              <div className="mt-4 text-5xl sm:text-6xl font-semibold text-teal-200">Starting $52k</div>
+              <p className="mt-4 text-sm text-white/65">Scopes flex for user counts, secondary sites, and compliance deliverables. Hardware billed transparently at cost.</p>
+              <ul className="mt-6 space-y-3 text-sm text-white/70">
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>Custom-trained on your preferences and workflows</span>
+                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Dedicated architecture lab and tabletop scenarios before hardware ships
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>No censorship, no limitations, no external oversight</span>
+                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Multi-site deployment with staged failovers and immutable backup testing
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>Completely private — your conversations never leave your network</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>Integrates with your entire digital estate</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span>One full week of on-site fine-tuning and customization</span>
+                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> 12 months of 24/7 concierge coverage, included
                 </li>
               </ul>
+              <Link
+                href="/start-project"
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-teal-300 via-blue-400 to-emerald-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-teal-500/30 transition hover:opacity-95"
+              >
+                Scope your estate build
+                <ArrowRight className="h-5 w-5" />
+              </Link>
             </div>
-            <p className="text-blue-500 font-semibold italic">
-              "Your AI. Your rules. Zero compromises."
+          </motion.div>
+        </section>
+
+        <section className="mb-16 rounded-3xl border border-teal-500/30 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-xl">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="overflow-hidden rounded-2xl border border-teal-500/35">
+              <Image
+                src="/images/Tier 2 example.webp"
+                alt="Estate tier network racks"
+                width={640}
+                height={640}
+                sizes="(max-width: 1024px) 100vw, 32vw"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="grid grid-rows-2 gap-4">
+              <div className="overflow-hidden rounded-2xl border border-teal-500/35">
+                <Image
+                  src="/images/250k-tier.png"
+                  alt="Estate command dashboards"
+                  width={640}
+                  height={320}
+                  sizes="(max-width: 1024px) 100vw, 32vw"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-teal-500/35">
+                <Image
+                  src="/images/Tier 3 Example.webp"
+                  alt="Estate failover control center"
+                  width={640}
+                  height={320}
+                  sizes="(max-width: 1024px) 100vw, 32vw"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16 rounded-2xl border border-white/12 bg-white/5 p-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+            <div>
+              <h2 className="text-3xl font-semibold">Estate performance in the field</h2>
+              <p className="mt-3 text-sm text-white/65">What leadership teams receive after we deploy.</p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                {outcomeMetrics.map(({ label, value, badgeClass }) => (
+                  <div key={label} className={`rounded-2xl p-4 text-center ${badgeClass}`}>
+                    <div className="text-3xl font-semibold">{value}</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/60">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/12 bg-slate-950/50 p-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+                Board testimonial
+              </div>
+              <blockquote className="mt-4 text-lg text-white/85 italic">
+                “Our estate deployment took ransomware recovery from theoretical to rehearsed. We have a failover we trust, documentation our board understands, and a partner watching the dials 24/7.”
+              </blockquote>
+              <p className="mt-4 text-sm text-white/55">Operating Partner · Private equity-backed healthcare network</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="capabilities" className="mb-16">
+          <div className="mb-10 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+              Estate deliverables
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold">Every control validated, documented, and monitored</h2>
+            <p className="mt-3 mx-auto max-w-3xl text-sm text-white/65 sm:text-base">
+              From redundant hardware to regulatory evidence, Estate is a full-spectrum transformation led end-to-end.
             </p>
           </div>
-        </div>
-
-        {/* What's Included */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 to-transparent p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Server className="h-8 w-8 text-blue-500" />
-              Network Infrastructure
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'pfSense or OPNsense firewall with HA failover',
-                'Segmented VLANs (smart home, office, guest, IoT)',
-                'Managed 10GbE switch with VLAN configuration',
-                'Wireguard VPN with unlimited client configs',
-                'Pi-hole DNS filtering across all networks',
-                'UniFi or equivalent enterprise WiFi mesh (6+ APs)',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="grid gap-6 md:grid-cols-3">
+            {capabilityColumns.map(({ icon: Icon, title, items }) => (
+              <div key={title} className="rounded-2xl border border-white/12 bg-white/5 p-6">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-xl border border-teal-500/25 bg-teal-500/15 p-2">
+                    <Icon className="h-5 w-5 text-teal-200" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white">{title}</h3>
+                </div>
+                <ul className="mt-5 space-y-3 text-sm text-white/70">
+                  {items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <Check className="mt-0.5 h-4 w-4 text-teal-200" /> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
+        </section>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Lock className="h-8 w-8 text-slate-400" />
-              Server & Storage
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Proxmox VE cluster (3-node or single high-spec)',
-                'TrueNAS Scale or Synology RS4021xs+ (32TB+ RAID)',
-                'VM hosting for applications and services',
-                'Docker container orchestration',
-                'Automated backup to multiple destinations',
-                'Snapshot-based recovery and rollback',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-slate-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
+        <section id="process" className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+            <Siren className="h-4 w-4 text-teal-200" /> Estate engagement cadence
           </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {processSteps.map(({ phase, title, copy }) => (
+              <div key={phase} className="rounded-xl border border-white/12 bg-slate-950/40 p-6">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-xs text-white/55">{phase}</span>
+                  <div className="h-px flex-1 bg-white/12" />
+                </div>
+                <h3 className="mt-3 text-base font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-xs text-white/60">{copy}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Home className="h-8 w-8 text-blue-500" />
-              Smart Home Integration
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Home Assistant server with full automation',
-                'Zigbee/Z-Wave controller integration',
-                'Local voice control (no cloud dependencies)',
-                'Security camera NVR with local storage',
-                'Smart lighting and climate control',
-                'Presence detection and automation rules',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-blue-500" />
-              Security & Monitoring
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Intrusion detection system (IDS/IPS)',
-                'Real-time traffic monitoring and analytics',
-                'Automated threat blocking and alerts',
-                'Certificate management (SSL/TLS)',
-                'Full network logging and audit trails',
-                '6-month concierge support with priority response',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Real Results */}
-        <div className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-transparent p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">Estate-Level Outcomes</h2>
-          <div className="grid md:grid-cols-4 gap-6 mb-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">3+</div>
-              <div className="text-white/70">Isolated Networks</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-slate-400 mb-2">50+</div>
-              <div className="text-white/70">Connected Devices</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">100%</div>
-              <div className="text-white/70">Local Processing</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">Zero</div>
-              <div className="text-white/70">Cloud Dependencies</div>
-            </div>
-          </div>
-          <div className="border-t border-white/10 pt-6">
-            <p className="text-lg italic text-blue-500 mb-2">
-              "Peace of mind knowing my family's entire digital life is secure and private. The smart home integration is seamless."
+        <section id="concierge" className="mb-16 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          <div className="rounded-2xl border border-teal-500/30 bg-teal-500/10 p-6">
+            <h2 className="text-2xl font-semibold text-teal-100">Concierge operations already included</h2>
+            <p className="mt-3 text-sm text-teal-100/80">
+              Estate engagements ship with a full year of stewarded operations while your team adopts the new muscle memory.
             </p>
-            <p className="text-white/60">— Executive Client, Chicago</p>
+            <ul className="mt-5 space-y-3 text-sm text-teal-100/80">
+              {conciergeHighlights.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <Check className="mt-0.5 h-4 w-4 text-white" /> {item}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+          <div className="rounded-2xl border border-white/12 bg-white/5 p-6">
+            <h2 className="text-2xl font-semibold">DarkGPT estate integration</h2>
+            <p className="mt-3 text-sm text-white/65">
+              Estate is the perfect launchpad for DarkGPT. Keep sensitive knowledge in-house while empowering analysts, paralegals, and operations teams with a tireless partner.
+            </p>
+            <ul className="mt-4 space-y-3 text-sm text-white/65">
+              <li className="flex items-start gap-2">
+                <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Runs on your GPU stack or an architected inference server
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Fine-tuned with your filings, SOPs, transcripts, and playbooks
+              </li>
+              <li className="flex items-start gap-2">
+                <Check className="mt-0.5 h-4 w-4 text-teal-200" /> On-site engineer for a week to wire workflows and guardrails
+              </li>
+            </ul>
+            <Link
+              href="/darkgpt/request"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/70 transition hover:border-emerald-300/60 hover:text-white"
+            >
+              Request DarkGPT brief
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
 
-        {/* Architecture Diagram */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">Technology Stack</h2>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { name: 'pfSense Firewall', color: 'emerald' },
-              { name: 'Proxmox VE', color: 'blue' },
-              { name: 'VLAN Segmentation', color: 'purple' },
-              { name: 'Home Assistant', color: 'pink' },
-              { name: 'TrueNAS Scale', color: 'emerald' },
-              { name: 'Wireguard VPN', color: 'blue' },
-              { name: 'UniFi Network', color: 'purple' },
-              { name: 'Docker/Kubernetes', color: 'pink' },
-              { name: 'Grafana Monitoring', color: 'emerald' },
-              { name: 'Suricata IDS', color: 'blue' },
-              { name: 'Pi-hole DNS', color: 'purple' },
-              { name: 'Automated Backups', color: 'pink' },
-            ].map((tech) => (
-              <span key={tech.name} className={`px-4 py-2 rounded-lg bg-${tech.color}-400/10 text-${tech.color}-400 border border-${tech.color}-400/20 text-sm font-medium`}>
-                {tech.name}
+        <section id="tech" className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
+          <h2 className="text-2xl font-semibold">Stack we stand behind</h2>
+          <p className="mt-2 text-sm text-white/60">Every component is production-proven with global enterprises and regulated firms.</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {techBadges.map(({ label, badgeClass }) => (
+              <span key={label} className={`inline-flex items-center rounded-full px-3 py-1 text-xs ${badgeClass}`}>
+                {label}
               </span>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* CTA */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-6">Transform Your Home into a Digital Estate</h2>
-          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-            This is our most popular package for good reason. Complete digital sovereignty with luxury smart home integration—zero compromises on security or convenience.
+        <section className="rounded-2xl border border-teal-500/35 bg-gradient-to-r from-teal-500/10 via-slate-950 to-slate-950 p-8 text-center">
+          <h2 className="text-3xl font-semibold">Let’s architect your estate deployment</h2>
+          <p className="mt-3 mx-auto max-w-3xl text-sm text-white/70 sm:text-base">
+            We’ll unpack your current landscape, quantify risk exposure, and deliver an estate blueprint with exact timelines, hardware, and outcomes.
           </p>
-          <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-black rounded-2xl hover:bg-blue-500 transition font-bold text-lg shadow-lg shadow-blue-500/30">
-              Start Your Digital Estate <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-          </Link>
-        </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/start-project"
+              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-teal-300 via-blue-400 to-emerald-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-teal-500/25 transition hover:opacity-95"
+            >
+              Schedule estate briefing
+            </Link>
+            <Link
+              href="/packages/estate"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-teal-300/60 hover:text-white"
+            >
+              View estate packages
+            </Link>
+          </div>
+        </section>
       </main>
     </div>
   );

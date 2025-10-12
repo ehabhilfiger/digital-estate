@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
 
     const message = data.choices?.[0]?.message?.content || '';
     return NextResponse.json({ message });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Internal server error.' }, { status: 500 });
   }
 }

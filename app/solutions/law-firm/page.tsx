@@ -2,331 +2,337 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Check, Scale, Shield, Server, Database, Lock, FileText, Users, Clock, Phone } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Briefcase, Building, Check, Clock, FileText, Gavel, Scale, Shield, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const outcomeMetrics = [
+  { label: 'Privilege breaches', value: '0', accent: 'text-emerald-300' },
+  { label: 'Avg. SaaS cost reduction', value: '−68%', accent: 'text-blue-300' },
+  { label: 'Delivery window', value: '28 days', accent: 'text-amber-300' },
+];
+
+const capabilityGroups = [
+  {
+    icon: Shield,
+    title: 'Sovereign infrastructure',
+    points: [
+      'TrueNAS or Synology vault with encrypted RAID + immutable snapshots',
+      'Dedicated pfSense perimeter and segmented VLANs for attorneys, staff, guest, IoT',
+      'WireGuard mesh for remote counsel with device attestation and logging',
+      'Air-gapped litigation archive with automated verification drills',
+    ],
+  },
+  {
+    icon: FileText,
+    title: 'Practice operations',
+    points: [
+      'Self-hosted case workspace (Nextcloud Legal / Mattermost) with role controls',
+      'Conflict engine + intake portal mapped to ABA Model Rules 1.6, 1.7, 1.9',
+      'Document automation, redaction, and secure client delivery in one stack',
+      'Integrated calendaring, docket alerts, and litigation hold workflows',
+    ],
+  },
+  {
+    icon: Users,
+    title: 'Stewardship & compliance',
+    points: [
+      'Attorney + staff enablement: on-site training, SOP playbooks, video runbooks',
+      'Managed updates, evidence chain audits, and quarterly penetration tests',
+      'Regulatory documentation pack (ABA, state bar, SOC2-mapped controls)',
+      'Concierge hotline: direct access to the architect with <4h response SLA',
+    ],
+  },
+];
+
+const techBadges = [
+  'TrueNAS SCALE',
+  'Synology DSM 7',
+  'pfSense HA',
+  'WireGuard',
+  'Nextcloud Legal',
+  'OnlyOffice Docs',
+  'Keycloak RBAC',
+  'PostgreSQL Audit Trail',
+  'Ceph Snapshots',
+  'Wazuh SIEM',
+];
+
+const processSteps = [
+  {
+    step: '01',
+    title: 'Discovery + risk mapping',
+    detail: 'One working session with your managing partner, compliance lead, and IT contact to chart privilege risks, retention needs, and existing tooling.',
+  },
+  {
+    step: '02',
+    title: 'Architecture approval',
+    detail: 'Bill of materials, rack diagrams, ABA mapping, and migration plan signed off before hardware ships. Every control traced to a rule.',
+  },
+  {
+    step: '03',
+    title: 'On-site build week',
+    detail: 'I rack, cable, and harden the environment, migrate matter data, and rehearse failover scenarios with your partners.',
+  },
+  {
+    step: '04',
+    title: 'Validation + concierge',
+    detail: 'Day-four red-team exercise, documentation handoff, and 90-day stewardship with optional managed retainer.',
+  },
+];
+
 export default function LawFirmSolution() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-100px" },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
-  const staggerContainer = {
-    initial: {},
-    whileInView: { transition: { staggerChildren: 0.1 } },
-    viewport: { once: true, margin: "-100px" }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
-      {/* Header */}
       <motion.header
-        className="sticky top-0 z-50 backdrop-blur border-b border-white/10"
+        className="sticky top-0 z-50 backdrop-blur border-b border-blue-500/20"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.55 }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition">
+          <Link href="/" className="flex items-center gap-2 text-sm text-white/75 hover:text-white transition">
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
-          <Link href="/start-project">
-            <button className="px-4 py-2 bg-blue-500 text-black rounded-xl hover:bg-blue-500 transition font-medium text-sm">
-              Schedule Consultation
-            </button>
+          <Link href="/start-project" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow shadow-emerald-500/15 transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950">
+            Book discovery
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </motion.header>
 
       <main className="max-w-6xl mx-auto px-4 py-16">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm mb-6">
-            LAW FIRM SOLUTION
+        <section id="overview" className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">
+            Law Firm Solution
           </div>
-          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500 text-white text-xs font-bold mb-6">
-            10/10 ABA COMPLIANT
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-blue-500">Complete Digital Infrastructure</span> for Law Firms
+          <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
+            Sovereign infrastructure for firms that can’t risk privilege leakage
           </h1>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Attorney-client privilege starts with data sovereignty. Deploy a private, secure case management system that keeps everything local, encrypted, and compliant.
+          <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-3xl mx-auto">
+            Designed for boutiques through multi-partner practices that need ABA-aligned controls, on-prem case automation, and concierge stewardship from the architect who built it.
           </p>
-        </div>
-
-        {/* Image Showcase - Centerpiece */}
-        <div className="mb-16 rounded-2xl overflow-hidden border-2 border-blue-500/30 shadow-2xl blue-glow">
-          <Image
-            src="/images/lawfirm.png"
-            alt="Law Firm Infrastructure - ABA-compliant legal practice"
-            width={1200}
-            height={800}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-
-        {/* Pricing */}
-        <div className="mb-16 rounded-2xl border-2 border-blue-500 bg-gradient-to-br from-blue-500/10 to-transparent p-12 text-center">
-          <div className="inline-flex px-4 py-2 rounded-full bg-blue-500 text-black text-xs font-bold mb-4">
-            10/10 ABA COMPLIANT
+          <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-white/60">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Model Rule 1.6, 1.7, 1.9 mapped</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">SOC2-style evidence bundle</span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Concierge post-deployment drills</span>
           </div>
-          <div className="text-sm text-blue-500 font-semibold mb-2">ENTERPRISE PRICING</div>
-          <div className="text-6xl font-bold text-blue-500 mb-4">$18,000+</div>
-          <div className="text-xl text-white/80">Enterprise Law Firm Compliance Infrastructure</div>
-          <div className="mt-4 text-white/60">Complete ABA-compliant setup + Training + 12-month enterprise support + Compliance specialist</div>
-          <div className="mt-6 text-blue-500 font-semibold">$1,200+/month managed services</div>
-        </div>
+        </section>
 
-        {/* Why Law Firms Need This */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Your Firm Needs Private Infrastructure</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <Scale className="h-12 w-12 text-blue-500 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-3">Client Confidentiality</h3>
-              <p className="text-white/70 text-sm">
-                Attorney-client privilege demands absolute data control. No third-party cloud providers accessing case files.
-              </p>
+        <nav className="hidden md:flex justify-center gap-3 mb-12" aria-label="Section navigation">
+          {[
+            { href: '#pricing', label: 'Pricing' },
+            { href: '#capabilities', label: 'Capabilities' },
+            { href: '#evidence', label: 'Evidence' },
+            { href: '#process', label: 'Process' },
+            { href: '#tech', label: 'Stack' },
+          ].map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60 transition hover:border-emerald-300/60 hover:text-white"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        <motion.div
+          className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] items-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+            <h2 className="text-left text-lg font-semibold text-blue-300">Outcomes clients monitor</h2>
+            <div className="mt-4 grid sm:grid-cols-3 gap-4">
+              {outcomeMetrics.map(({ label, value, accent }) => (
+                <div key={label} className="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+                  <div className={`text-3xl font-semibold ${accent}`}>{value}</div>
+                  <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/50">{label}</div>
+                </div>
+              ))}
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <Shield className="h-12 w-12 text-blue-500 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-3">Compliance Ready</h3>
-              <p className="text-white/70 text-sm">
-                Meet ABA ethical obligations, HIPAA requirements, and data residency rules with local-first architecture.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-              <Database className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-3">Cut Costs</h3>
-              <p className="text-white/70 text-sm">
-                Stop paying monthly SaaS fees. Own your infrastructure and reduce operating costs by 60-80% over 3 years.
-              </p>
+            <div className="mt-6 text-sm text-white/60">
+              Latest deployments: 14TB litigation archive for boutique corporate firm · 40-seat hybrid office for immigration practice · 6-partner family law rebuild with DarkGPT assistant.
             </div>
           </div>
-        </div>
+          <div className="rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl blue-glow">
+            <Image
+              src="/images/lawfirm.png"
+              alt="Rack-mounted legal infrastructure with compliance telemetry"
+              width={960}
+              height={720}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+        </motion.div>
 
-        {/* What You Get */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Complete Solution — From Setup to Mastery</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Infrastructure */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Server className="h-8 w-8 text-blue-500" />
-                Private Infrastructure
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  'Synology NAS or TrueNAS server (4-8TB encrypted storage)',
-                  'Encrypted client file repository with role-based access',
-                  'Automated daily backups (local + encrypted off-site)',
-                  'Secure VPN for remote case access',
-                  'Network segmentation & firewall configuration',
-                  'Professional on-site installation & cable management',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/80 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Case Management */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <FileText className="h-8 w-8 text-blue-500" />
-                Local Case Management System
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  'Self-hosted case management platform (Nextcloud Legal or similar)',
-                  'Document management with version control',
-                  'Client portal for secure file exchange',
-                  'Calendar, deadlines, and task tracking',
-                  'Full-text search across all case files',
-                  'Mobile app access for attorneys on the go',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/80 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Training & Support */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Users className="h-8 w-8 text-emerald-400" />
-                Training & Documentation
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  'Staff training sessions (attorneys + admin)',
-                  'Custom documentation for your firm\'s workflows',
-                  'Data migration from existing systems',
-                  'Best practices for client intake & case organization',
-                  'Security protocols training',
-                  'Video tutorials for common tasks',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/80 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Ongoing Management */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Clock className="h-8 w-8 text-blue-400" />
-                90-Day Support + Optional Management
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  '90 days of white-glove support included',
-                  'Remote monitoring and troubleshooting',
-                  'Priority response for critical issues',
-                  'Optional: Monthly retainer for ongoing case management support',
-                  'Optional: We handle all caseload organization & system maintenance',
-                  'Optional: Quarterly system reviews and optimization',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/80 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
+        <section id="pricing" className="mb-16">
+          <div className="rounded-2xl border border-blue-500/40 bg-gradient-to-br from-blue-500/10 via-slate-950 to-slate-950 px-6 py-10 md:px-10 md:py-12">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/50 bg-blue-500/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-200">
+                  Investment
+                </div>
+                <h2 className="mt-4 text-3xl font-semibold text-blue-200">Law Firm Sovereign Cloud</h2>
+                <p className="mt-3 max-w-xl text-sm sm:text-base text-white/70">
+                  Fixed-fee architecture, installation, and migration. Concierge stewardship for 90 days, with managed retainers available when you want a single throat to choke.
+                </p>
+                <ul className="mt-6 grid gap-2 text-sm text-white/65">
+                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-blue-300" /> ABA, SOC2, and state confidentiality mapped in writing</li>
+                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-blue-300" /> On-site build week + data migration + red-team rehearsal</li>
+                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-blue-300" /> DarkGPT concierge option for elite tiers ($50k+ estates)</li>
+                </ul>
+              </div>
+              <div className="grid gap-4 w-full max-w-xs">
+                <div className="rounded-2xl border border-blue-500/40 bg-slate-950/70 px-6 py-5 text-center">
+                  <div className="text-sm font-semibold text-blue-200">Project fee</div>
+                  <div className="mt-2 text-4xl font-semibold text-blue-300">Starting $18k</div>
+                  <p className="mt-3 text-xs text-white/60">Includes hardware specification, procurement guidance, build, migration, documentation, and playbooks.</p>
+                </div>
+                <div className="rounded-2xl border border-blue-500/30 bg-slate-950/70 px-6 py-5 text-center">
+                  <div className="text-sm font-semibold text-blue-200">Managed concierge</div>
+                  <div className="mt-2 text-2xl font-semibold text-blue-300">$1.2k+/mo</div>
+                  <p className="mt-3 text-xs text-white/60">24/7 monitoring, compliance evidence bundles, quarterly tabletop drills.</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Ongoing Management Option */}
-        <div className="mb-16 rounded-2xl border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 to-transparent p-8">
-          <div className="flex items-start gap-4">
-            <Phone className="h-10 w-10 text-blue-500 flex-shrink-0 mt-1" />
-            <div>
-              <h3 className="text-2xl font-bold mb-3 text-amber-300">Want Us to Manage Everything?</h3>
-              <p className="text-white/80 mb-4">
-                <strong>Call us</strong> to discuss our <strong>ongoing management services</strong>. We can handle all your caseload organization, document management, backups, monitoring, and system maintenance — letting you focus on practicing law.
-              </p>
-              <ul className="space-y-2 mb-4">
-                {[
-                  'Monthly retainer starts at $500/month',
-                  'We organize and manage all case files locally',
-                  'Train your team on best practices as your firm grows',
-                  'Proactive system maintenance and upgrades',
-                  'Priority support with 4-hour response time',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm">
-                    <Check className="h-4 w-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/70">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/start-project">
-                <button className="px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-500 transition font-semibold">
-                  Schedule a Call
-                </button>
-              </Link>
+        <section id="capabilities" className="mb-16">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+              From rack to retention
             </div>
+            <h2 className="mt-4 text-3xl font-semibold">What we deliver end-to-end</h2>
+            <p className="mt-3 text-white/65 text-sm sm:text-base max-w-2xl mx-auto">
+              Every deployment is operated, documented, and stress-tested by the same architect who designs it. No handoffs, no mystery MSPs.
+            </p>
           </div>
-        </div>
-
-        {/* Real Results */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">What Firms Are Saying</h2>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">75%</div>
-              <div className="text-white/70">Cost Reduction vs SaaS</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-500 mb-2">100%</div>
-              <div className="text-white/70">Client Data Privacy</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-emerald-400 mb-2">2 Hours</div>
-              <div className="text-white/70">Average Training Time</div>
-            </div>
-          </div>
-          <div className="border-t border-white/10 pt-6 space-y-4">
-            <div>
-              <p className="text-lg italic text-blue-500 mb-2">
-                "Finally, complete control over our client files. The system is intuitive and the team training was excellent."
-              </p>
-              <p className="text-white/60">— Managing Partner, 5-Attorney Firm, Chicago</p>
-            </div>
-            <div>
-              <p className="text-lg italic text-blue-500 mb-2">
-                "We cut our document management costs by $18,000/year and sleep better knowing everything is encrypted and local."
-              </p>
-              <p className="text-white/60">— Solo Practitioner, Estate Planning</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Use Cases */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Perfect For</h2>
-          <div className="grid md:grid-cols-4 gap-4">
-            {[
-              { title: 'Solo Practitioners', desc: 'Affordable sovereignty' },
-              { title: 'Boutique Firms', desc: '2-10 attorneys' },
-              { title: 'Family Law', desc: 'Sensitive documents' },
-              { title: 'Estate Planning', desc: 'Long-term archives' },
-            ].map((use, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-6 text-center">
-                <div className="text-lg font-bold mb-2">{use.title}</div>
-                <div className="text-sm text-white/60">{use.desc}</div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {capabilityGroups.map(({ icon: Icon, title, points }) => (
+              <div key={title} className="rounded-2xl border border-white/12 bg-white/5 p-6">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-2">
+                    <Icon className="h-5 w-5 text-blue-200" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white">{title}</h3>
+                </div>
+                <ul className="mt-5 space-y-3 text-sm text-white/70">
+                  {points.map((point) => (
+                    <li key={point} className="flex items-start gap-2">
+                      <Check className="mt-0.5 h-4 w-4 text-blue-300" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Tech Stack */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
-          <h2 className="text-2xl font-bold mb-6">Technology Stack</h2>
-          <div className="flex flex-wrap gap-3">
-            {[
-              'Synology DSM / TrueNAS',
-              'Nextcloud Legal',
-              'Wireguard VPN',
-              'Encrypted RAID Storage',
-              'Automated Backups',
-              '2FA Authentication',
-              'Role-Based Access Control',
-              'Full Disk Encryption',
-            ].map((tech) => (
-              <span key={tech} className="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-500 border border-blue-500/20 text-sm">
-                {tech}
-              </span>
-            ))}
+        <section id="evidence" className="mb-16">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+              <div>
+                <h2 className="text-3xl font-semibold">Evidence and testimonials</h2>
+                <p className="mt-3 text-sm text-white/65">Numbers your partners can show the board.</p>
+                <div className="mt-6 grid sm:grid-cols-3 gap-4">
+                  <div className="rounded-xl border border-blue-500/25 bg-blue-500/10 p-4 text-center">
+                    <div className="text-3xl font-semibold text-blue-200">75%</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">Avg. SaaS spend avoided</div>
+                  </div>
+                  <div className="rounded-xl border border-emerald-400/25 bg-emerald-400/10 p-4 text-center">
+                    <div className="text-3xl font-semibold text-emerald-200">0</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">Privilege breaches reported</div>
+                  </div>
+                  <div className="rounded-xl border border-amber-400/25 bg-amber-400/10 p-4 text-center">
+                    <div className="text-3xl font-semibold text-amber-200">2 hrs</div>
+                    <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">Average team onboarding</div>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-6">
+                <div className="flex items-center gap-3 text-blue-200">
+                  <Building className="h-5 w-5" />
+                  <span className="text-sm uppercase tracking-[0.24em]">Case study</span>
+                </div>
+                <blockquote className="mt-4 text-lg text-white/85 italic">
+                  “We passed our state bar audit with zero findings. Privilege logs are automated, client portals are ours, and we saved $18k/yr after retiring three SaaS contracts.”
+                </blockquote>
+                <p className="mt-4 text-sm text-white/55">Managing Partner · 7-attorney corporate litigation practice (Chicago)</p>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3 text-xs text-white/55">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Scale className="h-3.5 w-3.5 text-blue-200" /> ABA Model Rules mapped</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Gavel className="h-3.5 w-3.5 text-blue-200" /> Litigation hold workflows</span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Briefcase className="h-3.5 w-3.5 text-blue-200" /> M&A diligence data rooms</span>
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* CTA */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Own Your Firm's Data?</h2>
-          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-            Schedule a consultation to discuss your firm's needs. We'll design a custom solution, install everything on-site, train your team, and provide ongoing support.
+        <section id="process" className="mb-16">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1fr)] items-start">
+            <div className="rounded-2xl border border-blue-500/30 bg-blue-500/10 p-6">
+              <h2 className="text-2xl font-semibold text-blue-100">Managed concierge option</h2>
+              <p className="mt-3 text-sm text-blue-100/80">
+                Most firms stay on our managed program beyond the initial 90 days. We run quarterly tabletop exercises, deliver compliance evidence, and keep every automation aligned with your evolving caseload.
+              </p>
+              <ul className="mt-5 space-y-3 text-sm text-blue-100/80">
+                <li className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-emerald-200" /> Partner-only hotline with 2h critical response</li>
+                <li className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-emerald-200" /> Automated privilege log exports + retention attestations</li>
+                <li className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-emerald-200" /> Annual penetration test facilitation and remediation</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h2 className="text-2xl font-semibold">How the engagement runs</h2>
+              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                {processSteps.map(({ step, title, detail }) => (
+                  <div key={step} className="rounded-xl border border-white/10 bg-slate-950/40 p-5">
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-white/50">{step}</span>
+                      <div className="h-px flex-1 bg-white/10" />
+                    </div>
+                    <h3 className="mt-3 text-base font-semibold text-white">{title}</h3>
+                    <p className="mt-2 text-xs text-white/60">{detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="tech" className="mb-16">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+            <h2 className="text-2xl font-semibold">Enterprise stack we deploy</h2>
+            <p className="mt-2 text-sm text-white/60">Every tool self-hosted, monitored, and controlled by you.</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {techBadges.map((badge) => (
+                <span key={badge} className="inline-flex items-center rounded-full border border-blue-500/25 bg-blue-500/10 px-3 py-1 text-xs text-blue-200">
+                  {badge}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-blue-500/25 bg-gradient-to-r from-blue-500/10 via-slate-950 to-slate-950 p-8 text-center">
+          <h2 className="text-3xl font-semibold">Ready to own your evidence?</h2>
+          <p className="mt-3 text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+            Book a confidential discovery call. We’ll map your privilege risks, scope the build, and give you the exact playbook we’ll execute.
           </p>
-          <Link href="/start-project">
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-blue-500 text-black rounded-2xl hover:bg-blue-500 transition font-bold text-lg shadow-lg shadow-blue-500/20">
-              Schedule Your Consultation
-            </button>
-          </Link>
-          <div className="mt-6 text-white/60 text-sm">
-            Starting at $4,800 | 90-day support included | Optional ongoing management available
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link href="/start-project" className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-blue-500/20 transition hover:opacity-95">
+              Schedule consultation
+            </Link>
+            <Link href="/packages/estate" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-emerald-300/60 hover:text-white">
+              Compare tiers
+            </Link>
           </div>
-        </div>
+        </section>
       </main>
     </div>
   );
