@@ -16,8 +16,8 @@ import {
   Stethoscope,
   Thermometer,
   Users,
-  Clock,
 } from 'lucide-react';
+  // Clock,
 
 const outcomeStats = [
   { label: 'Ransomware recoveries', value: '0 downtime hours', accent: 'text-emerald-300' },

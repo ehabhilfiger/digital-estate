@@ -132,9 +132,55 @@ const galleryImages = [
   { src: '/images/architect.png', alt: 'Operations bridge and analytics wall' },
 ];
 
+const pricingHighlights = [
+  'Digital twin validation lab before hardware ships',
+  'Multi-site GPU fabric with staged cutovers and rollback drills',
+  '12 months of white-glove AI operations concierge included',
+];
+
+const executiveSummary = [
+  {
+    label: 'Outcome',
+    copy: 'Own sovereign AI clusters with compliance-ready automation and monitoring.',
+  },
+  {
+    label: 'Investment',
+    copy: 'Starting $275k for services, hardware invoiced at cost with your approval.',
+  },
+  {
+    label: 'Timeline',
+    copy: '10-week build with 12 months of concierge runway baked in.',
+  },
+];
+
+const investmentBreakdown = [
+  {
+    label: 'GPU + infrastructure bill of materials',
+    value: 'Pass-through (0% markup)',
+    detail: 'HGX/Ada nodes, storage, firewalls, and power ship on vendor invoices you approve.',
+  },
+  {
+    label: 'Architect deployment fee',
+    value: 'Starting $275k',
+    detail: 'Charter, reference lab, implementation, MLOps enablement, and compliance packs with a 30–40% target margin.',
+  },
+  {
+    label: 'Concierge runway',
+    value: '12 months included',
+    detail: 'Optional renewal from $2.5k+/mo (60% margin) funds dedicated architects, monitoring, and quarterly red-teams.',
+  },
+];
+
 export default function ArchitectTier() {
   const shouldReduceMotion = useReducedMotion();
   const heroMotionProps = shouldReduceMotion
+    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
+    : {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+      };
+  const pricingMotionProps = shouldReduceMotion
     ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
     : {
         initial: { opacity: 0, y: 24 },
@@ -169,8 +215,16 @@ export default function ArchitectTier() {
             Sovereign AI command centers for mission-critical teams
           </h1>
           <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-4xl mx-auto">
-            Multi-site GPU fabrics, deterministic data pipelines, and concierge AI operations engineered for labs, quant teams, and government partners who refuse to ship proprietary intelligence to the cloud.
+            Multi-site GPU fabrics, deterministic data pipelines, and on-call operators—built so proprietary intelligence stays on hardware you control.
           </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3 text-left">
+            {executiveSummary.map(({ label, copy }) => (
+              <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
+                <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/50">{label}</div>
+                <p className="mt-2 leading-relaxed">{copy}</p>
+              </div>
+            ))}
+          </div>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-white/60">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Server className="h-4 w-4 text-sky-200" /> On-prem HGX clusters</span>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Sparkles className="h-4 w-4 text-sky-200" /> LLM, diffusion, and multimodal ready</span>
@@ -247,35 +301,68 @@ export default function ArchitectTier() {
 
         <section id="pricing" className="mb-16">
           <div className="rounded-2xl border border-sky-500/35 bg-gradient-to-br from-sky-500/12 via-slate-950 to-slate-950 px-6 py-10 md:px-10 md:py-12">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/35 bg-sky-500/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-200">
                   Engagement
                 </div>
                 <h2 className="mt-4 text-3xl font-semibold text-sky-100">Architect deployment</h2>
                 <p className="mt-3 max-w-xl text-sm sm:text-base text-white/70">
-                  Tailored blueprint, multi-site hardware procurement, on-site implementation, and 12-month concierge coverage. Hardware billed at cost with full vendor transparency.
+                  Tailored blueprint, multi-site hardware procurement, and on-site implementation with a year of concierge coverage. Hardware stays at cost with every invoice routed for approval.
                 </p>
                 <ul className="mt-6 grid gap-2 text-sm text-white/65">
-                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" /> GPU, storage, and network stack spec’d and sourced for you</li>
-                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" /> Includes model migration, dataset verification, and workload validation</li>
+                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" /> We spec and source the GPU, storage, and network stack</li>
+                  <li className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" /> Includes model migration, dataset checks, and workload validation</li>
                   <li className="flex items-center gap-2"><Check className="h-4 w-4 text-sky-300" /> Dedicated architect on-site through go-live and hypercare</li>
                 </ul>
               </div>
-              <div className="grid w-full max-w-xs gap-4">
-                <div className="rounded-2xl border border-sky-500/35 bg-slate-950/70 px-6 py-5 text-center">
-                  <div className="text-sm font-semibold text-sky-200">Architecture fee</div>
-                  <div className="mt-2 text-4xl font-semibold text-sky-300">Starting $150k</div>
-                  <p className="mt-3 text-xs text-white/60">Final scope driven by GPU density, multi-site replication, and compliance deliverables.</p>
+              <motion.div className="relative" {...pricingMotionProps}>
+                <div className="absolute -inset-5 rounded-3xl bg-sky-400/20 blur-3xl" />
+                <div className="relative rounded-3xl border border-sky-500/40 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-2xl">
+                  <div className="text-xs uppercase tracking-[0.3em] text-white/50">Investment</div>
+                  <div className="mt-4 text-5xl sm:text-6xl font-semibold text-sky-200">Starting $275k</div>
+                  <p className="mt-4 text-sm text-white/65">Scopes flex for GPU density, automation depth, and site count. Hardware billed transparently at cost.</p>
+                  <ul className="mt-6 space-y-3 text-sm text-white/70">
+                    {pricingHighlights.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <Check className="mt-0.5 h-4 w-4 text-sky-200" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/start-project"
+                    className="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-sky-300 via-blue-400 to-emerald-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/30 transition hover:opacity-95"
+                  >
+                    Scope your architect build
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                  <p className="mt-4 text-[11px] text-white/55">Optional managed runway after the included year begins at $2.5k+/mo.</p>
                 </div>
-                <div className="rounded-2xl border border-sky-500/30 bg-slate-950/70 px-6 py-5 text-center">
-                  <div className="text-sm font-semibold text-sky-200">Managed runway</div>
-                  <div className="mt-2 text-2xl font-semibold text-sky-300">$2.5k+/mo</div>
-                  <p className="mt-3 text-xs text-white/60">Optional stewardship after included 12-month concierge period.</p>
-                </div>
-              </div>
+              </motion.div>
             </div>
           </div>
+        </section>
+
+        <section className="mb-16 rounded-2xl border border-white/12 bg-white/5 p-8">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-sky-400/40 text-sky-200">$</span>
+            Investment breakdown
+          </div>
+          <p className="mt-4 text-sm text-white/65 max-w-3xl">
+            We keep sovereign builds transparent: hardware moves at cost, and our expert teams earn their margin on the orchestration, automation, and concierge runway that keep your estate operational.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {investmentBreakdown.map(({ label, value, detail }) => (
+              <div key={label} className="rounded-2xl border border-white/12 bg-slate-950/55 p-6">
+                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/50">{label}</div>
+                <div className="mt-3 text-xl font-semibold text-white">{value}</div>
+                <p className="mt-3 text-sm text-white/65">{detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-xs uppercase tracking-[0.24em] text-white/45">
+            Refurbished or secondary-market gear is only sourced with your written approval and any savings are passed through one-for-one.
+          </p>
         </section>
 
         <section id="capabilities" className="mb-16">

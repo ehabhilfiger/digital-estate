@@ -106,6 +106,39 @@ const conciergeHighlights = [
   'Quarterly disaster recovery rehearsal with board-ready evidence pack',
 ];
 
+const executiveSummary = [
+  {
+    label: 'Outcome',
+    copy: 'Dual-site infrastructure with ransomware recovery rehearsed and documented.',
+  },
+  {
+    label: 'Investment',
+    copy: 'Starting $106k in services; hardware passes through at cost.',
+  },
+  {
+    label: 'Timeline',
+    copy: 'Reference lab, build, and validation typically delivered in eight weeks with a year of concierge support.',
+  },
+];
+
+const investmentBreakdown = [
+  {
+    label: 'Dual-site hardware & software',
+    value: 'Pass-through (0% markup)',
+    detail: 'Core, storage, firewalls, and backup media invoice direct from vendors for your approval.',
+  },
+  {
+    label: 'Estate deployment fee',
+    value: 'Starting $106k',
+    detail: 'Architecture lab, implementation, compliance documentation, and rehearsal cycles target a 30–40% margin on expert labor.',
+  },
+  {
+    label: 'Concierge coverage',
+    value: '12 months included',
+    detail: 'Optional renewal from $3.5k+/mo (60% margin) funds 24/7 response and quarterly audits.',
+  },
+];
+
 export default function EstateTier() {
   const shouldReduceMotion = useReducedMotion();
   const pricingMotionProps = shouldReduceMotion
@@ -144,8 +177,16 @@ export default function EstateTier() {
               Zero-downtime infrastructure for multi-site firms
             </h1>
             <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-3xl">
-              Estate is the resilience playbook for teams that treat uptime, compliance, and ransomware immunity as non-negotiable. Two fully hardened sites, immutable backups, continuous monitoring, and a concierge on-call to keep every control verified.
+              Estate packages two hardened sites, immutable backups, and concierge monitoring so uptime, compliance, and ransomware immunity stop being theoretical.
             </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3 text-left">
+              {executiveSummary.map(({ label, copy }) => (
+                <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
+                  <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/50">{label}</div>
+                  <p className="mt-2 leading-relaxed">{copy}</p>
+                </div>
+              ))}
+            </div>
             <div className="mt-6 flex flex-wrap gap-3 text-xs sm:text-sm text-white/60">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1">
                 <ShieldAlert className="h-4 w-4 text-teal-200" /> Ransomware rollback under five minutes
@@ -165,17 +206,17 @@ export default function EstateTier() {
             <div className="absolute -inset-5 rounded-3xl bg-teal-500/15 blur-3xl" />
             <div className="relative rounded-3xl border border-teal-500/35 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-2xl">
               <div className="text-xs uppercase tracking-[0.3em] text-white/50">Investment</div>
-              <div className="mt-4 text-5xl sm:text-6xl font-semibold text-teal-200">Starting $52k</div>
+              <div className="mt-4 text-5xl sm:text-6xl font-semibold text-teal-200">Starting $106k</div>
               <p className="mt-4 text-sm text-white/65">Scopes flex for user counts, secondary sites, and compliance deliverables. Hardware billed transparently at cost.</p>
               <ul className="mt-6 space-y-3 text-sm text-white/70">
                 <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Dedicated architecture lab and tabletop scenarios before hardware ships
+                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Architecture lab and tabletop drills before hardware ships
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Multi-site deployment with staged failovers and immutable backup testing
+                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Multi-site deployment with staged failovers and immutable backup tests
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> 12 months of 24/7 concierge coverage, included
+                  <Check className="mt-0.5 h-4 w-4 text-teal-200" /> 12 months of 24/7 concierge coverage included
                 </li>
               </ul>
               <Link
@@ -187,6 +228,28 @@ export default function EstateTier() {
               </Link>
             </div>
           </motion.div>
+        </section>
+
+        <section className="mb-16 rounded-2xl border border-white/12 bg-white/5 p-8">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-teal-400/40 text-teal-200">$</span>
+            Investment breakdown
+          </div>
+          <p className="mt-4 text-sm text-white/65 max-w-3xl">
+            Estate engagements separate hard costs from expert effort. Hardware ships at cost while our deployment and concierge crews carry the contribution needed to guarantee resilience and 24/7 coverage.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {investmentBreakdown.map(({ label, value, detail }) => (
+              <div key={label} className="rounded-2xl border border-white/12 bg-slate-950/50 p-6">
+                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/50">{label}</div>
+                <div className="mt-3 text-xl font-semibold text-white">{value}</div>
+                <p className="mt-3 text-sm text-white/65">{detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-xs uppercase tracking-[0.24em] text-white/45">
+            If a refurbished asset lowers total cost, we document it, obtain approval, and pass the savings straight through.
+          </p>
         </section>
 
         <section className="mb-16 rounded-3xl border border-teal-500/30 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-xl">

@@ -128,7 +128,23 @@ export default function FoundationPackage() {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-16">
+      <div className="fixed inset-x-4 bottom-4 z-40 md:hidden">
+        <div className="flex items-center justify-between rounded-2xl border border-sky-500/25 bg-slate-950/90 px-4 py-3 shadow-lg shadow-sky-500/25 backdrop-blur">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/55">Foundation package</div>
+            <div className="text-sm font-medium text-white">Starts at $4,500 • 4-week install</div>
+          </div>
+          <Link
+            href="/start-project"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-3 py-2 text-xs font-semibold text-slate-900 shadow shadow-sky-500/25 transition hover:opacity-95"
+          >
+            Book a consult
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+
+  <main className="max-w-6xl mx-auto px-4 pt-16 pb-32 md:pb-16">
         <section className="text-center mb-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/35 bg-sky-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">
             Foundation package
@@ -227,26 +243,46 @@ export default function FoundationPackage() {
           </div>
         </section>
 
-        <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8 overflow-x-auto">
+        <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
           <h2 className="text-2xl font-semibold mb-6">Foundation vs. keeping everything in the cloud</h2>
-          <table className="w-full min-w-[640px] text-left text-sm sm:text-base">
-            <thead className="text-white/60">
-              <tr className="border-b border-white/12">
-                <th className="pb-3 pr-4 font-semibold">Feature</th>
-                <th className="pb-3 pr-4 font-semibold text-sky-200">Foundation package</th>
-                <th className="pb-3 font-semibold text-white/50">Dropbox / Google Drive</th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonRows.map(({ feature, foundation, cloud }) => (
-                <tr key={feature} className="border-b border-white/10 last:border-0">
-                  <td className="py-3 pr-4 text-white/70">{feature}</td>
-                  <td className="py-3 pr-4 text-sky-200">{foundation}</td>
-                  <td className="py-3 text-white/50">{cloud}</td>
+          <div className="grid gap-4 md:hidden">
+            {comparisonRows.map(({ feature, foundation, cloud }) => (
+              <div key={feature} className="rounded-2xl border border-white/8 bg-slate-950/60 p-4">
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Feature</div>
+                <h3 className="mt-1 text-base font-semibold text-white">{feature}</h3>
+                <dl className="mt-4 space-y-3 text-sm">
+                  <div className="rounded-xl border border-sky-500/25 bg-sky-500/10 p-3">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200/80">Foundation package</dt>
+                    <dd className="mt-1 text-sky-100">{foundation}</dd>
+                  </div>
+                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Dropbox / Google Drive</dt>
+                    <dd className="mt-1 text-white/60">{cloud}</dd>
+                  </div>
+                </dl>
+              </div>
+            ))}
+          </div>
+          <div className="hidden overflow-x-auto md:block">
+            <table className="w-full min-w-[640px] text-left text-sm sm:text-base">
+              <thead className="text-white/60">
+                <tr className="border-b border-white/12">
+                  <th className="pb-3 pr-4 font-semibold">Feature</th>
+                  <th className="pb-3 pr-4 font-semibold text-sky-200">Foundation package</th>
+                  <th className="pb-3 font-semibold text-white/50">Dropbox / Google Drive</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {comparisonRows.map(({ feature, foundation, cloud }) => (
+                  <tr key={feature} className="border-b border-white/10 last:border-0">
+                    <td className="py-3 pr-4 text-white/70">{feature}</td>
+                    <td className="py-3 pr-4 text-sky-200">{foundation}</td>
+                    <td className="py-3 text-white/50">{cloud}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">

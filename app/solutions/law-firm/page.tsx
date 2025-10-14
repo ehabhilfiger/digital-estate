@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Briefcase, Building, Check, Clock, FileText, Gavel, Scale, Shield, Users } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Briefcase, Building, Check, FileText, Gavel, Scale, Shield, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const outcomeMetrics = [
@@ -57,6 +58,12 @@ const techBadges = [
   'Wazuh SIEM',
 ];
 
+const clientProof = [
+  { label: 'Regional Litigation Group', metric: 'Passed state bar data audit with zero findings', result: 'Privilege logs auto-generated for 18 active matters.' },
+  { label: 'Immigration Boutique', metric: '40-seat hybrid office online in 21 days', result: 'Encrypted intake portal in three languages with DarkGPT concierge.' },
+  { label: 'Family Office Counsel', metric: 'Retired $22k/yr in SaaS spend', result: 'Private document rooms replacing three subscription platforms.' },
+];
+
 const processSteps = [
   {
     step: '01',
@@ -80,7 +87,35 @@ const processSteps = [
   },
 ];
 
+const clearanceLevels = [
+  {
+    value: 'privileged',
+    label: 'Privileged Chambers',
+    headline: 'Seal privilege leaks before they start.',
+    summary: 'Partitioned chambers for litigation, family, and corporate teams with signed confidentiality attestations.',
+    scif: 'Dedicated SCIF-inspired pods with acoustic isolation, Faraday shielding, and 24/7 telemetry logging for privileged review.',
+    sap: 'SAP-lite segmentation keyed to senior partners and designated counsel with rotating hardware tokens.',
+  },
+  {
+    value: 'fortified',
+    label: 'Fortified War Room',
+    headline: 'Run cross-border matters without touching the public cloud.',
+    summary: 'Matter command center for M&A diligence, regulatory inquiries, and international arbitration teams.',
+    scif: 'Mobile SCIF kit for off-site proceedings plus in-office vault with air-gapped evidence ingest.',
+    sap: 'Special Access Program workflows with dual-control approvals and tamper-evident audit trails.',
+  },
+  {
+    value: 'sovereign',
+    label: 'Sovereign Counsel Ops',
+    headline: 'Operate at defense-grade confidentiality for celebrity and government briefs.',
+    summary: 'Highest assurance implementation with live concierge oversight and redundant counsel pods.',
+    scif: 'Full SCIF build-out: ballistic barriering, dedicated HVAC, RF isolation, and continuous spectrum monitoring.',
+    sap: 'Tiered SAP matrix with biometric checkpoints, ephemeral credentials, and classified matter vaulting.',
+  },
+];
+
 export default function LawFirmSolution() {
+  const [selectedClearance, setSelectedClearance] = useState(clearanceLevels[1]);
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
       <motion.header
@@ -95,27 +130,101 @@ export default function LawFirmSolution() {
             Back to Home
           </Link>
           <Link href="/start-project" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow shadow-emerald-500/15 transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950">
-            Book discovery
+            Schedule consult
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </motion.header>
 
-      <main className="max-w-6xl mx-auto px-4 py-16">
-        <section id="overview" className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">
-            Law Firm Solution
+      <div className="fixed inset-x-4 bottom-4 z-40 md:hidden">
+        <div className="flex items-center justify-between rounded-2xl border border-blue-500/30 bg-slate-950/90 px-4 py-3 shadow-lg shadow-blue-500/25 backdrop-blur">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-blue-200/80">Law firm engagement</div>
+            <div className="text-sm font-medium text-white">Starts at $18k • 28-day rollout</div>
           </div>
-          <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
-            Sovereign infrastructure for firms that can’t risk privilege leakage
-          </h1>
-          <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-3xl mx-auto">
-            Designed for boutiques through multi-partner practices that need ABA-aligned controls, on-prem case automation, and concierge stewardship from the architect who built it.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-white/60">
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Model Rule 1.6, 1.7, 1.9 mapped</span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">SOC2-style evidence bundle</span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Concierge post-deployment drills</span>
+          <Link
+            href="/start-project"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-3 py-2 text-xs font-semibold text-slate-900 shadow shadow-blue-500/25 transition hover:opacity-95"
+          >
+            Schedule consult
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+
+  <main className="max-w-6xl mx-auto px-4 pt-16 pb-32 md:pb-16">
+        <nav className="mb-6 text-xs uppercase tracking-[0.28em] text-white/50" aria-label="Breadcrumb">
+          <ol className="flex flex-wrap items-center gap-2">
+            <li>
+              <Link href="/" className="hover:text-white transition">Home</Link>
+            </li>
+            <li className="text-white/30">/</li>
+            <li>
+              <Link href="/#law" className="hover:text-white transition">Solutions</Link>
+            </li>
+            <li className="text-white/30">/</li>
+            <li className="text-white/70">Law Firm</li>
+          </ol>
+        </nav>
+
+        <section id="overview" className="mb-14">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-blue-500/35 bg-slate-950/70 px-6 py-6 shadow-lg shadow-blue-500/15">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+              <div className="max-w-md">
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-blue-300/80">Clearance profile</span>
+                <p className="mt-2 text-sm text-white/65">
+                  Choose the security clearance this engagement demands. We calibrate network segmentation, concierge protocols, and evidence handling to match.
+                </p>
+              </div>
+              <div className="w-full max-w-xs">
+                <label htmlFor="clearance" className="block text-xs font-semibold uppercase tracking-[0.24em] text-blue-200/80">
+                  Clearance level
+                </label>
+                <select
+                  id="clearance"
+                  value={selectedClearance.value}
+                  onChange={(event) => {
+                    const next = clearanceLevels.find((option) => option.value === event.target.value) ?? clearanceLevels[0];
+                    setSelectedClearance(next);
+                  }}
+                  className="mt-2 w-full rounded-xl border border-blue-500/40 bg-slate-950/90 px-4 py-3 text-sm font-medium text-blue-100 shadow-inner focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/30"
+                >
+                  {clearanceLevels.map((option) => (
+                    <option key={option.value} value={option.value} className="bg-slate-900 text-blue-100">
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+                <p className="mt-3 text-xs text-white/70">{selectedClearance.summary}</p>
+              </div>
+            </div>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-blue-500/25 bg-slate-950/75 p-4">
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300/80">SCIF posture</span>
+                <p className="mt-2 text-sm text-white/70 leading-relaxed">{selectedClearance.scif}</p>
+              </div>
+              <div className="rounded-xl border border-blue-500/25 bg-slate-950/75 p-4">
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300/80">SAP handling</span>
+                <p className="mt-2 text-sm text-white/70 leading-relaxed">{selectedClearance.sap}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">
+              Law Firm Solution
+            </div>
+            <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
+              {selectedClearance.headline}
+            </h1>
+            <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-3xl mx-auto">
+              Sovereign infrastructure engineered for boutiques through multi-partner practices that need ABA-aligned controls, on-prem case automation, and concierge stewardship from the architect who built it.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-white/65">
+              <span className="rounded-full border border-blue-500/30 bg-slate-950/70 px-3 py-1">Model Rule 1.6, 1.7, 1.9 mapped</span>
+              <span className="rounded-full border border-blue-500/30 bg-slate-950/70 px-3 py-1">SOC2-style evidence bundle</span>
+              <span className="rounded-full border border-blue-500/30 bg-slate-950/70 px-3 py-1">Concierge post-deployment drills</span>
+            </div>
           </div>
         </section>
 
@@ -130,12 +239,20 @@ export default function LawFirmSolution() {
             <a
               key={href}
               href={href}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60 transition hover:border-emerald-300/60 hover:text-white"
+              className="rounded-full border border-blue-500/30 bg-slate-950/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 transition hover:border-emerald-300/60 hover:text-white"
             >
               {label}
             </a>
           ))}
         </nav>
+
+        <section className="mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-4 rounded-2xl border border-blue-500/25 bg-slate-950/70 px-6 py-5 text-xs uppercase tracking-[0.24em] text-white/60">
+            <span className="rounded-full border border-blue-500/30 bg-slate-950/80 px-3 py-2 text-white/70">Trusted by 7-partner litigation teams</span>
+            <span className="rounded-full border border-blue-500/30 bg-slate-950/80 px-3 py-2 text-white/70">Immigration practices with multilingual intake</span>
+            <span className="rounded-full border border-blue-500/30 bg-slate-950/80 px-3 py-2 text-white/70">Family office counsel managing celebrity briefs</span>
+          </div>
+        </section>
 
         <motion.div
           className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] items-center mb-16"
@@ -143,17 +260,17 @@ export default function LawFirmSolution() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+          <div className="rounded-2xl border border-blue-500/25 bg-slate-950/70 p-6 md:p-8">
             <h2 className="text-left text-lg font-semibold text-blue-300">Outcomes clients monitor</h2>
             <div className="mt-4 grid sm:grid-cols-3 gap-4">
               {outcomeMetrics.map(({ label, value, accent }) => (
-                <div key={label} className="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+                <div key={label} className="rounded-xl border border-blue-500/20 bg-slate-950/80 p-4">
                   <div className={`text-3xl font-semibold ${accent}`}>{value}</div>
-                  <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/50">{label}</div>
+                  <div className="mt-2 text-xs uppercase tracking-[0.24em] text-white/60">{label}</div>
                 </div>
               ))}
             </div>
-            <div className="mt-6 text-sm text-white/60">
+            <div className="mt-6 text-sm text-white/70">
               Latest deployments: 14TB litigation archive for boutique corporate firm · 40-seat hybrid office for immigration practice · 6-partner family law rebuild with DarkGPT assistant.
             </div>
           </div>
@@ -271,6 +388,15 @@ export default function LawFirmSolution() {
               <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Gavel className="h-3.5 w-3.5 text-blue-200" /> Litigation hold workflows</span>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Briefcase className="h-3.5 w-3.5 text-blue-200" /> M&A diligence data rooms</span>
             </div>
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {clientProof.map(({ label, metric, result }) => (
+                <div key={label} className="rounded-xl border border-blue-500/25 bg-slate-950/60 p-5">
+                  <div className="text-xs uppercase tracking-[0.24em] text-blue-200/80">{label}</div>
+                  <p className="mt-3 text-sm font-semibold text-white/80">{metric}</p>
+                  <p className="mt-2 text-xs text-white/60">{result}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -289,16 +415,19 @@ export default function LawFirmSolution() {
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
               <h2 className="text-2xl font-semibold">How the engagement runs</h2>
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+              <div className="mt-5 space-y-3">
                 {processSteps.map(({ step, title, detail }) => (
-                  <div key={step} className="rounded-xl border border-white/10 bg-slate-950/40 p-5">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-white/50">{step}</span>
-                      <div className="h-px flex-1 bg-white/10" />
-                    </div>
-                    <h3 className="mt-3 text-base font-semibold text-white">{title}</h3>
-                    <p className="mt-2 text-xs text-white/60">{detail}</p>
-                  </div>
+                  <details key={step} className="group rounded-xl border border-white/10 bg-slate-950/50 p-4 transition hover:border-emerald-300/40">
+                    <summary className="flex cursor-pointer items-center justify-between text-left text-sm font-semibold text-white/80">
+                      <span className="flex items-center gap-3">
+                        <span className="font-mono text-xs text-white/50">{step}</span>
+                        {title}
+                      </span>
+                      <span className="text-xs text-white/40 group-open:hidden">View</span>
+                      <span className="text-xs text-emerald-300 group-open:inline hidden">Hide</span>
+                    </summary>
+                    <p className="mt-3 text-xs text-white/65 leading-relaxed">{detail}</p>
+                  </details>
                 ))}
               </div>
             </div>
@@ -326,7 +455,7 @@ export default function LawFirmSolution() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link href="/start-project" className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-blue-500/20 transition hover:opacity-95">
-              Schedule consultation
+              Schedule consult
             </Link>
             <Link href="/packages/estate" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-emerald-300/60 hover:text-white">
               Compare tiers

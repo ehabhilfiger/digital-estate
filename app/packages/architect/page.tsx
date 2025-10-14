@@ -11,13 +11,11 @@ import {
   Cpu,
   GaugeCircle,
   Lock,
-  Network,
   Radar,
   Server,
   Shield,
   Sparkles,
   Workflow,
-  Zap,
 } from 'lucide-react';
 
 const outcomeHighlights = [
@@ -160,11 +158,27 @@ export default function ArchitectPackage() {
         </div>
       </header>
 
+      <div className="fixed inset-x-4 bottom-4 z-40 md:hidden">
+        <div className="flex items-center justify-between rounded-2xl border border-sky-500/25 bg-slate-950/90 px-4 py-3 shadow-lg shadow-sky-500/25 backdrop-blur">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/55">Architect package</div>
+            <div className="text-sm font-medium text-white">$20k+ • 10-week roadmap</div>
+          </div>
+          <Link
+            href="/start-project"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-3 py-2 text-xs font-semibold text-slate-900 shadow shadow-sky-500/25 transition hover:opacity-95"
+          >
+            Book a consult
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+
       <main className="relative">
         <div className="pointer-events-none absolute inset-0 opacity-25">
           <Image src="/images/architect.png" alt="Architect package background" fill className="object-cover" priority />
         </div>
-        <div className="relative z-10 max-w-6xl mx-auto px-4 py-16">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 pt-16 pb-32 md:pb-16">
           <section className="text-center mb-12">
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/40 bg-sky-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-sky-100">
               Architect package
@@ -263,26 +277,46 @@ export default function ArchitectPackage() {
             </div>
           </section>
 
-          <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8 overflow-x-auto">
+          <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
             <h2 className="text-2xl font-semibold mb-6">Architect vs. traditional enterprise bundles</h2>
-            <table className="w-full min-w-[760px] text-left text-sm sm:text-base">
-              <thead className="text-white/60">
-                <tr className="border-b border-white/10">
-                  <th className="pb-3 pr-4 font-semibold">Dimension</th>
-                  <th className="pb-3 pr-4 font-semibold text-sky-200">Architect package</th>
-                  <th className="pb-3 font-semibold text-white/50">Managed enterprise suite</th>
-                </tr>
-              </thead>
-              <tbody>
-                {capabilityComparisons.map(({ dimension, architect, enterprise }) => (
-                  <tr key={dimension} className="border-b border-white/10 last:border-0">
-                    <td className="py-3 pr-4 text-white/70">{dimension}</td>
-                    <td className="py-3 pr-4 text-sky-200">{architect}</td>
-                    <td className="py-3 text-white/50">{enterprise}</td>
+            <div className="grid gap-4 md:hidden">
+              {capabilityComparisons.map(({ dimension, architect, enterprise }) => (
+                <div key={dimension} className="rounded-2xl border border-white/8 bg-slate-950/60 p-4">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Dimension</div>
+                  <h3 className="mt-1 text-base font-semibold text-white">{dimension}</h3>
+                  <dl className="mt-4 space-y-3 text-sm">
+                    <div className="rounded-xl border border-sky-500/25 bg-sky-500/12 p-3">
+                      <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200/80">Architect package</dt>
+                      <dd className="mt-1 text-sky-100">{architect}</dd>
+                    </div>
+                    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                      <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Managed enterprise suite</dt>
+                      <dd className="mt-1 text-white/60">{enterprise}</dd>
+                    </div>
+                  </dl>
+                </div>
+              ))}
+            </div>
+            <div className="hidden overflow-x-auto md:block">
+              <table className="w-full min-w-[760px] text-left text-sm sm:text-base">
+                <thead className="text-white/60">
+                  <tr className="border-b border-white/10">
+                    <th className="pb-3 pr-4 font-semibold">Dimension</th>
+                    <th className="pb-3 pr-4 font-semibold text-sky-200">Architect package</th>
+                    <th className="pb-3 font-semibold text-white/50">Managed enterprise suite</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {capabilityComparisons.map(({ dimension, architect, enterprise }) => (
+                    <tr key={dimension} className="border-b border-white/10 last:border-0">
+                      <td className="py-3 pr-4 text-white/70">{dimension}</td>
+                      <td className="py-3 pr-4 text-sky-200">{architect}</td>
+                      <td className="py-3 text-white/50">{enterprise}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">

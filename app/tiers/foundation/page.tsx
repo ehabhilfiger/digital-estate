@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import {
   ArrowLeft,
   ArrowRight,
@@ -119,7 +119,61 @@ const conciergeHighlights = [
   'Remote patches, monitoring, and hardware lifecycle planning',
 ];
 
+const pricingHighlights = [
+  'Four-day on-site install and training before handoff',
+  'Cloud-to-NAS migration with verified restores and rollbacks',
+  '90 days of concierge stewardship included with every build',
+];
+
+const executiveSummary = [
+  {
+    label: 'Outcome',
+    copy: 'Private NAS, VPN, and backup stack that replaces scattered cloud drives.',
+  },
+  {
+    label: 'Investment',
+    copy: 'Starting $52k for services; hardware flows through at cost.',
+  },
+  {
+    label: 'Timeline',
+    copy: 'Discovery to install in roughly four days on-site with 90 days of runway.',
+  },
+];
+
+const investmentBreakdown = [
+  {
+    label: 'Hardware kit',
+    value: 'Pass-through (0% markup)',
+    detail: 'Synology/TrueNAS chassis, drives, switches, and UPS—paid directly by you with optional approved refurb swaps.',
+  },
+  {
+    label: 'Build & migration fee',
+    value: 'Starting $52k',
+    detail: 'Discovery, design, install, migration, and documentation with a 30–40% target margin covering expert labor.',
+  },
+  {
+    label: 'Concierge runway',
+    value: 'Included 90 days',
+    detail: 'Optional renewal at $450+/mo (60% margin) funds monitoring, reporting, and lifecycle planning.',
+  },
+];
+
 export default function FoundationTier() {
+  const shouldReduceMotion = useReducedMotion();
+  const heroMotionProps = shouldReduceMotion
+    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
+    : {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: 'easeOut' as const },
+      };
+  const pricingMotionProps = shouldReduceMotion
+    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
+    : {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+      };
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-black text-white egyptian-texture">
       <header className="sticky top-0 z-50 border-b border-blue-500/20 bg-slate-950/80 backdrop-blur">
@@ -147,8 +201,16 @@ export default function FoundationTier() {
             Sovereign storage for founders and boutique teams
           </h1>
           <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-3xl mx-auto">
-            Replace Dropbox and scattered drives with a private NAS, encrypted backups, and remote access that you actually own. Designed, deployed, and supported by the architect who builds it.
+            Replace Dropbox sprawl with private storage, encrypted backups, and remote access you actually control.
           </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3 text-left">
+            {executiveSummary.map(({ label, copy }) => (
+              <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
+                <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/50">{label}</div>
+                <p className="mt-2 leading-relaxed">{copy}</p>
+              </div>
+            ))}
+          </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-white/60">
             <span className="rounded-full border border-white/12 bg-white/5 px-3 py-1">NAS + VPN + backups in one engagement</span>
             <span className="rounded-full border border-white/12 bg-white/5 px-3 py-1">Migrate off Google Drive and OneDrive</span>
@@ -176,9 +238,7 @@ export default function FoundationTier() {
 
         <motion.div
           className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] items-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          {...heroMotionProps}
         >
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
             <h2 className="text-left text-lg font-semibold text-blue-200">Outcomes owners care about</h2>
@@ -208,14 +268,14 @@ export default function FoundationTier() {
 
         <section id="pricing" className="mb-16">
           <div className="rounded-2xl border border-blue-500/35 bg-gradient-to-br from-blue-500/12 via-slate-950 to-slate-950 px-6 py-10 md:px-10 md:py-12">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-200">
                   Investment
                 </div>
                 <h2 className="mt-4 text-3xl font-semibold text-blue-100">Foundation infrastructure build</h2>
                 <p className="mt-3 max-w-xl text-sm sm:text-base text-white/70">
-                  Fixed-fee engagement for hardware specification, on-site installation, migration, training, and 90-day runway.
+                  Fixed-fee services for specification, on-site installation, migration, training, and the 90-day runway.
                 </p>
                 <ul className="mt-6 grid gap-2 text-sm text-white/65">
                   <li className="flex items-center gap-2"><Check className="h-4 w-4 text-blue-300" /> Hardware sourced at cost with transparent invoices</li>
@@ -223,20 +283,53 @@ export default function FoundationTier() {
                   <li className="flex items-center gap-2"><Check className="h-4 w-4 text-blue-300" /> Includes runbooks and executive-facing documentation</li>
                 </ul>
               </div>
-              <div className="grid w-full max-w-xs gap-4">
-                <div className="rounded-2xl border border-blue-500/35 bg-slate-950/70 px-6 py-5 text-center">
-                  <div className="text-sm font-semibold text-blue-200">Project fee</div>
-                  <div className="mt-2 text-4xl font-semibold text-blue-300">Starting $18k</div>
-                  <p className="mt-3 text-xs text-white/60">Scope flexes with storage volume, user count, and automation depth.</p>
+              <motion.div className="relative" {...pricingMotionProps}>
+                <div className="absolute -inset-5 rounded-3xl bg-blue-400/20 blur-3xl" />
+                <div className="relative rounded-3xl border border-blue-500/40 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-2xl">
+                  <div className="text-xs uppercase tracking-[0.3em] text-white/50">Investment</div>
+                  <div className="mt-4 text-5xl sm:text-6xl font-semibold text-blue-200">Starting $52k</div>
+                  <p className="mt-4 text-sm text-white/65">Scopes flex for storage volume, user count, and automation depth. Hardware billed transparently at cost.</p>
+                  <ul className="mt-6 space-y-3 text-sm text-white/70">
+                    {pricingHighlights.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <Check className="mt-0.5 h-4 w-4 text-blue-200" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href="/start-project"
+                    className="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-blue-500/30 transition hover:opacity-95"
+                  >
+                    Scope your foundation build
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                  <p className="mt-4 text-[11px] text-white/55">Optional managed runway after the included 90-day period starts at $450+/mo.</p>
                 </div>
-                <div className="rounded-2xl border border-blue-500/30 bg-slate-950/70 px-6 py-5 text-center">
-                  <div className="text-sm font-semibold text-blue-200">Managed runway</div>
-                  <div className="mt-2 text-2xl font-semibold text-blue-300">$450+/mo</div>
-                  <p className="mt-3 text-xs text-white/60">Optional concierge stewardship after the 90-day included period.</p>
-                </div>
-              </div>
+              </motion.div>
             </div>
           </div>
+        </section>
+
+        <section className="mb-16 rounded-2xl border border-white/12 bg-white/5 p-8">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-blue-400/40 text-blue-200">$</span>
+            Investment breakdown
+          </div>
+          <p className="mt-4 text-sm text-white/65 max-w-2xl">
+            We separate hardware from services so you can see exactly where the margins sit. Hardware invoices flow through at cost. Labor and concierge coverage carry the contribution we need to keep principal engineers on your account.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {investmentBreakdown.map(({ label, value, detail }) => (
+              <div key={label} className="rounded-2xl border border-white/12 bg-slate-950/50 p-6">
+                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/50">{label}</div>
+                <div className="mt-3 text-xl font-semibold text-white">{value}</div>
+                <p className="mt-3 text-sm text-white/65">{detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-xs uppercase tracking-[0.24em] text-white/45">
+            Refurbished hardware only ships with your written approval and the savings pass straight through.
+          </p>
         </section>
 
         <section id="capabilities" className="mb-16">

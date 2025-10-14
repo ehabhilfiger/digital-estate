@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from 'next/link';
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
@@ -91,6 +92,34 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <footer className="border-t border-white/10 bg-slate-950/90 text-white/70">
+          <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 md:flex-row md:items-center md:justify-between">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/50">Compliance & trust</div>
+              <p className="mt-3 max-w-md text-sm text-white/60">
+                HIPAA-aligned handling, ABA confidentiality, and GDPR-ready data processes for Chicagoland firms and clinics.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2 text-xs text-white/50">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">HIPAA aware</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">SOC 2 inspired runbooks</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Zero-trust default</span>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2 text-sm md:text-right">
+              <Link href="/privacy" className="text-white/70 transition hover:text-white">Privacy Policy</Link>
+              <Link href="/terms" className="text-white/70 transition hover:text-white">Terms of Service</Link>
+              <Link href="/compliance" className="text-white/70 transition hover:text-white">Compliance & GDPR</Link>
+              <Link href="/sla" className="text-white/70 transition hover:text-white">Service Levels</Link>
+              <Link href="/careers" className="text-white/70 transition hover:text-white">Join the Team</Link>
+            </div>
+          </div>
+          <div className="border-t border-white/10">
+            <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+              <span>© {new Date().getFullYear()} Digital Estate Architect. All rights reserved.</span>
+              <span>Chicago, IL • concierge@backupestate.com • +1 (773) 920-0030</span>
+            </div>
+          </div>
+        </footer>
         <Analytics />
         <Script id="ld-local" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
