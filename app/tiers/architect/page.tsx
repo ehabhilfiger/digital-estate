@@ -145,7 +145,7 @@ const executiveSummary = [
   },
   {
     label: 'Investment',
-    copy: 'Starting $275k for services, hardware invoiced at cost with your approval.',
+    copy: 'Starting $1m+ for services, hardware invoiced at cost with your approval.',
   },
   {
     label: 'Timeline',
@@ -153,21 +153,39 @@ const executiveSummary = [
   },
 ];
 
+const pricingBreakdown = [
+  {
+    label: 'Services',
+    copy: 'Starting $1m+ for services, hardware invoiced at cost with your approval.',
+    detail: 'Includes stakeholder workshops, compliance scoping, deployment orchestration, security hardening, and 12-month SLA.',
+  },
+  {
+    label: 'Hardware',
+    copy: 'Invoiced at cost',
+    detail: 'GPU racks, storage tiers, switching, and environmental systems ordered per your executive approval.',
+  },
+  {
+    label: 'Concierge SLA',
+    copy: '12-month term included',
+    detail: 'On-call response, quarterly disaster drills, model monitoring, and compliance reporting included in engagement.',
+  },
+];
+
 const investmentBreakdown = [
   {
-    label: 'GPU + infrastructure bill of materials',
-    value: 'Pass-through (0% markup)',
-    detail: 'HGX/Ada nodes, storage, firewalls, and power ship on vendor invoices you approve.',
+    label: 'Engagement investment',
+    value: '$1m+',
+    detail: 'Covers executive scoping, compute build, observability, AI deployment, and 12-month SLA.',
   },
   {
-    label: 'Architect deployment fee',
-    value: 'Starting $275k',
-    detail: 'Charter, reference lab, implementation, MLOps enablement, and compliance packs with a 30–40% target margin.',
+    label: 'Hardware pass-through',
+    value: '0% markup',
+    detail: 'GPU racks, fabric, storage, cooling—invoiced at cost with your approval.',
   },
   {
-    label: 'Concierge runway',
+    label: 'Concierge operations',
     value: '12 months included',
-    detail: 'Optional renewal from $2.5k+/mo (60% margin) funds dedicated architects, monitoring, and quarterly red-teams.',
+    detail: 'On-call response, disaster drills, AI observability, and compliance reporting.',
   },
 ];
 
@@ -320,7 +338,7 @@ export default function ArchitectTier() {
                 <div className="absolute -inset-5 rounded-3xl bg-sky-400/20 blur-3xl" />
                 <div className="relative rounded-3xl border border-sky-500/40 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-2xl">
                   <div className="text-xs uppercase tracking-[0.3em] text-white/50">Investment</div>
-                  <div className="mt-4 text-5xl sm:text-6xl font-semibold text-sky-200">Starting $275k</div>
+                  <div className="mt-4 text-5xl sm:text-6xl font-semibold text-sky-200">$1m+</div>
                   <p className="mt-4 text-sm text-white/65">Scopes flex for GPU density, automation depth, and site count. Hardware billed transparently at cost.</p>
                   <ul className="mt-6 space-y-3 text-sm text-white/70">
                     {pricingHighlights.map((item) => (

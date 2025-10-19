@@ -132,7 +132,7 @@ const executiveSummary = [
   },
   {
     label: 'Investment',
-    copy: 'Starting $52k for services; hardware flows through at cost.',
+    copy: 'Starting $50k–$250k for services; hardware flows through at cost.',
   },
   {
     label: 'Timeline',
@@ -148,7 +148,7 @@ const investmentBreakdown = [
   },
   {
     label: 'Build & migration fee',
-    value: 'Starting $52k',
+    value: '$50k–$250k',
     detail: 'Discovery, design, install, migration, and documentation with a 30–40% target margin covering expert labor.',
   },
   {
@@ -287,7 +287,7 @@ export default function FoundationTier() {
                 <div className="absolute -inset-5 rounded-3xl bg-blue-400/20 blur-3xl" />
                 <div className="relative rounded-3xl border border-blue-500/40 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-2xl">
                   <div className="text-xs uppercase tracking-[0.3em] text-white/50">Investment</div>
-                  <div className="mt-4 text-5xl sm:text-6xl font-semibold text-blue-200">Starting $52k</div>
+                  <div className="mt-4 text-5xl sm:text-6xl font-semibold text-blue-200">$50k–$250k</div>
                   <p className="mt-4 text-sm text-white/65">Scopes flex for storage volume, user count, and automation depth. Hardware billed transparently at cost.</p>
                   <ul className="mt-6 space-y-3 text-sm text-white/70">
                     {pricingHighlights.map((item) => (

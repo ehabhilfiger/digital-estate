@@ -93,10 +93,10 @@ export default function RootLayout({
       >
         {children}
         <footer className="border-t border-white/10 bg-slate-950/90 text-white/70">
-          <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 md:flex-row md:items-center md:justify-between">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
             <div>
               <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/50">Compliance & trust</div>
-              <p className="mt-3 max-w-md text-sm text-white/60">
+              <p className="mt-3 max-w-sm text-sm text-white/60">
                 HIPAA-aligned handling, ABA confidentiality, and GDPR-ready data processes for Chicagoland firms and clinics.
               </p>
               <div className="mt-4 flex flex-wrap gap-2 text-xs text-white/50">
@@ -105,18 +105,52 @@ export default function RootLayout({
                 <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Zero-trust default</span>
               </div>
             </div>
-            <div className="flex flex-col gap-2 text-sm md:text-right">
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.24em] text-white/50">Direct contact</div>
+              <p className="mt-3 text-sm text-white/60">Same-day responses for retainer and emergency requests.</p>
+              <div className="mt-4 space-y-2 text-sm text-white/70">
+                <a href="mailto:defcon5ready@gmail.com" className="hover:text-white transition">defcon5ready@gmail.com</a>
+                <a href="tel:+17739200030" className="block hover:text-white transition">+1 (773) 920-0030</a>
+                <span>Chicago, IL — consultations worldwide</span>
+              </div>
+              <div className="mt-4 text-xs text-white/50">
+                Retainer minimum: $5k on-site · $2k/hr advisory
+              </div>
+            </div>
+            <div className="grid gap-2 text-sm md:text-right">
               <Link href="/privacy" className="text-white/70 transition hover:text-white">Privacy Policy</Link>
               <Link href="/terms" className="text-white/70 transition hover:text-white">Terms of Service</Link>
               <Link href="/compliance" className="text-white/70 transition hover:text-white">Compliance & GDPR</Link>
               <Link href="/sla" className="text-white/70 transition hover:text-white">Service Levels</Link>
               <Link href="/careers" className="text-white/70 transition hover:text-white">Join the Team</Link>
+              <Link href="/challenge" className="text-white/70 transition hover:text-white">Infrastructure Challenge</Link>
+              <a
+                href="https://darkdeck.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 transition hover:text-white"
+              >
+                Dark Deck Access Point
+              </a>
+              <div className="flex justify-end gap-3 text-xs text-white/50 md:justify-end">
+                <Link href="/humans.txt" className="hover:text-white/80 transition">{'// HUMANS'}</Link>
+                <Link href="/robots.txt" className="hover:text-white/80 transition">{'// MACHINES'}</Link>
+                <Link href="/map" className="hover:text-white/80 transition">{'// MAP'}</Link>
+              </div>
             </div>
           </div>
           <div className="border-t border-white/10">
             <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
               <span>© {new Date().getFullYear()} Digital Estate Architect. All rights reserved.</span>
-              <span>Chicago, IL • concierge@backupestate.com • +1 (773) 920-0030</span>
+              <div className="flex flex-wrap items-center gap-3">
+                <a href="https://github.com/ehaballa" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition">GitHub</a>
+                <span className="text-white/30">|</span>
+                <a href="https://www.linkedin.com/in/ehab-allababidi" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition">LinkedIn</a>
+                <span className="text-white/30">|</span>
+                <Link href="/onepager.html" className="hover:text-white/70 transition">One-pager</Link>
+                <span className="text-white/30">|</span>
+                <span>Analytics: Vercel (performance only)</span>
+              </div>
             </div>
           </div>
         </footer>

@@ -149,9 +149,9 @@ Your site now features a sophisticated **black, gold, and gray** color scheme in
 **All tier showcase cards and package cards are now clickable:**
 
 ### Service Tiers (from homepage "Service Tiers" section):
-1. **Foundation** → `/packages/foundation` ($3,500–$6,000)
-2. **Estate** → `/packages/estate` ($8,000–$15,000) — MOST POPULAR
-3. **Architect** → `/packages/architect` ($20,000+)
+1. **Foundation** → `/packages/foundation` ($25,000–$40,000)
+2. **Estate** → `/packages/estate` ($50,000–$90,000) — MOST POPULAR
+3. **Architect** → `/packages/architect` ($100,000–$250,000)
 
 ### Premium Showcases (from "Elite Infrastructure Deployments"):
 1. **Foundation** → `/tiers/foundation` ($25k NAS deployment)

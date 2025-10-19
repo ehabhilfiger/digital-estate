@@ -1,14 +1,47 @@
-export const PRICING = {
-  FOUNDATION: { label: "Foundation", price: 3500, priceMax: 6000, currency: "USD" },
-  ESTATE:     { label: "Estate",     price: 8000, priceMax: 15000, currency: "USD" },
-  ARCHITECT:  { label: "Architect",  price: 20000, currency: "USD" },
-} as const;
+type EliteBuild = {
+  label: string;
+  summary: string;
+  price: number;
+  priceMax?: number;
+  currency: string;
+};
 
-// Helper functions for display
-export function formatPrice(tier: keyof typeof PRICING): string {
-  const t = PRICING[tier];
-  if ('priceMax' in t && t.priceMax) {
-    return `$${t.price.toLocaleString()}–$${t.priceMax.toLocaleString()}`;
-  }
-  return `$${t.price.toLocaleString()}+`;
+export const ELITE_PRICING = {
+  PRIVATE_NAS: {
+    label: "Elite Build 01: Private NAS Estate",
+    summary: "Sovereign storage cluster with concierge backup and secure remote access",
+    price: 50000,
+    priceMax: 250000,
+    currency: "USD",
+  },
+  COMMAND_CENTER: {
+    label: "Elite Build 02: Estate Command Center",
+    summary: "Zero-trust estate network with automation, visualization, and incident response",
+    price: 250000,
+    priceMax: 1000000,
+    currency: "USD",
+  },
+  AI_RESEARCH: {
+    label: "Elite Build 03: AI Research Estate",
+    summary: "GPU clusters, sovereign AI workloads, and global replication under concierge care",
+    price: 1000000,
+    priceMax: undefined,
+    currency: "USD",
+  },
+} as const satisfies Record<string, EliteBuild>;
+
+export type EliteBuildKey = keyof typeof ELITE_PRICING;
+
+export function formatPrice(tier: EliteBuildKey): string {
+  const t = ELITE_PRICING[tier];
+  const minLabel = `$${t.price.toLocaleString()}`;
+  const maxLabel = typeof t.priceMax === "number" && t.priceMax > t.price
+    ? `$${t.priceMax.toLocaleString()}`
+    : null;
+
+  return maxLabel ? `${minLabel}–${maxLabel}` : `${minLabel}+`;
+}
+
+export function getBuildMetadata(tier: EliteBuildKey) {
+  return ELITE_PRICING[tier];
 }

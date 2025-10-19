@@ -163,18 +163,18 @@ https://vercel.com/reindeerexecutions-projects/digital-estate
 ### Service Tiers (All Clickable & Comprehensive)
 
 **Tier 1: Foundation** → `/tiers/foundation`
-- Price: $3,500–$6,000
+- Price: $25,000–$40,000
 - Single-node NAS/server, basic VPN, encrypted backups
 - Perfect for getting started
 
 **Tier 2: Estate** → `/tiers/estate` 🔥 MOST POPULAR
-- Price: $8,000–$15,000
+- Price: $50,000–$90,000
 - Multi-server deployment, VLAN segmentation, smart home integration
 - On-prem AI services, monitoring & alerts
 - Comprehensive digital estate
 
 **Tier 3: Architect** → `/tiers/architect` 💎 PREMIUM
-- Price: $20,000+
+- Price: $100,000–$250,000
 - Enterprise-grade HA clustering, custom automation
 - Multi-site synchronization, dedicated concierge
 - 12-month SLA

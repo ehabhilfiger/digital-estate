@@ -59,9 +59,9 @@
 
 **Pricing Displayed:**
 - Law Firm Package: $4,800 install • $350+/mo concierge
-- Tier 1: $3,500–$6,000
-- Tier 2: $8,000–$15,000 (Most Popular)
-- Tier 3: $20,000+
+- Tier 1: $25,000–$40,000
+- Tier 2: $50,000–$90,000 (Most Popular)
+- Tier 3: $100,000–$250,000
 
 ---
 

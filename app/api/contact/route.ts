@@ -1,9 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'defcon5ready@gmail.com';
+const CONTACT_FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Digital Estate Architect <onboarding@resend.dev>'; // Replace with verified domain in production
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
+    const name = typeof body.name === 'string' ? body.name.trim() : '';
+    const email = typeof body.email === 'string' ? body.email.trim() : '';
+    const message = typeof body.message === 'string' ? body.message.trim() : '';
 
     // Validate input
     if (!name || !email || !message) {
@@ -22,33 +29,43 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Log the contact submission (in production, this would send an email)
-    console.log('📨 New Contact Form Submission:');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Message: ${message}`);
-    console.log(`Timestamp: ${new Date().toISOString()}`);
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
+    if (message.length > 4000) {
+      return NextResponse.json(
+        { error: 'Message is too long. Please keep it under 4,000 characters.' },
+        { status: 400 }
+      );
+    }
 
-    // TODO: In production, integrate with email service provider:
-    // - Resend: https://resend.com/docs/send-with-nextjs
-    // - SendGrid: https://docs.sendgrid.com/for-developers/sending-email/api-getting-started
-    // - AWS SES, Postmark, etc.
-    
-    // Example Resend integration (commented out):
-    /*
-    import { Resend } from 'resend';
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    
+    if (!resend) {
+      console.error('Contact form warning: RESEND_API_KEY not configured.');
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Contact payload (development fallback):', { name, email, message });
+        return NextResponse.json(
+          { success: true, message: 'Message received in development mode (email service not configured).' },
+          { status: 200 }
+        );
+      }
+
+      return NextResponse.json(
+        { error: 'Contact temporarily unavailable. Please call +1 (773) 920-0030.' },
+        { status: 503 }
+      );
+    }
+
+    const messageBody = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      '',
+      message,
+    ].join('\n');
+
     await resend.emails.send({
-      from: 'noreply@yourdomain.com',
-      to: 'defcon5ready@gmail.com',
+      from: CONTACT_FROM_EMAIL,
+      to: CONTACT_TO_EMAIL,
       replyTo: email,
-      subject: `New Contact Form: ${name}`,
-      text: `From: ${name} (${email})\n\n${message}`,
+      subject: `Digital Estate Architect — New Inquiry from ${name}`,
+      text: messageBody,
     });
-    */
 
     return NextResponse.json(
       { success: true, message: 'Message received successfully' },

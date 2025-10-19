@@ -16,7 +16,7 @@
 - **Email:** defcon5ready@gmail.com  
 - **Phone:** (773) 920-0030  
 - **Location:** Chicago, Illinois  
-- **Calendly:** https://calendly.com/defcon5ready/intro  
+- **Calendly:** https://calendly.com/defcon5ready/new-meeting-1  
 - **Headshot:** Optimized at `/public/me.jpg` (~118 KB)  
 - **Used:** next/image with priority loading for optimal performance
 
@@ -195,7 +195,7 @@
 
 ## 📦 PACKAGE PAGES - FULLY CLICKABLE & COMPREHENSIVE
 
-### Foundation Tier ($3,500-$6,000)
+### Foundation Tier ($25,000-$40,000)
 **URL:** `/packages/foundation`  
 **Showcase URL:** `/tiers/foundation`  
 **Features:**
@@ -211,7 +211,7 @@
 - **Image:** Tier 1 Example (high-quality setup photo)
 - **Testimonial:** "We finally own our data. Installation was seamless, support exceptional." — Boutique Law Firm
 
-### Estate Tier ($8,000-$15,000) - MOST POPULAR
+### Estate Tier ($50,000-$90,000) - MOST POPULAR
 **URL:** `/packages/estate`  
 **Showcase URL:** `/tiers/estate`  
 **Features:**
@@ -228,7 +228,7 @@
 - **Image:** Tier 2 Example (full estate deployment)
 - **Testimonial:** "Peace of mind knowing my family's entire digital life is secure and private." — Executive Client
 
-### Architect Tier ($20,000+) - ULTRA-PREMIUM
+### Architect Tier ($100,000-$250,000) - ULTRA-PREMIUM
 **URL:** `/packages/architect`  
 **Showcase URL:** `/tiers/architect`  
 **Features:**
@@ -334,7 +334,7 @@ This allows Ehab to pre-qualify leads and ensure serious inquiries only.
 **Contact & Scheduling:**
 - Email: defcon5ready@gmail.com
 - Phone: (773) 920-0030
-- Calendly: https://calendly.com/defcon5ready/intro
+- Calendly: https://calendly.com/defcon5ready/new-meeting-1
 
 ---
 

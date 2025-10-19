@@ -30,7 +30,7 @@ All scores meet or exceed the ≥95 threshold for production readiness!
 - ✅ Phone: (773) 920-0030
 - ✅ Location: Chicago, Illinois
 - ✅ Headshot: Optimized and placed at /public/me.jpg
-- ✅ Calendly: https://calendly.com/defcon5ready/intro
+- ✅ Calendly: https://calendly.com/defcon5ready/new-meeting-1
 
 ### 2. SEO & Meta Tags ✅
 - ✅ Title: "Ehab Allababidi — Digital Estate Architect (Private Servers, Smart Estates & On-Prem AI)"
@@ -290,7 +290,7 @@ This section is perfect as-is and should remain on the site.
 - **Location:** Chicago, Illinois
 - **Service Area:** On-site & Remote
 - **Website:** https://digital-estate-orcin.vercel.app
-- **Calendly:** https://calendly.com/defcon5ready/intro
+- **Calendly:** https://calendly.com/defcon5ready/new-meeting-1
 
 ---
 

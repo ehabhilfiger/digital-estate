@@ -2,15 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Shield, Server, Lock, Home, Brain, ArrowRight, Phone, Mail, Calendar, Heart, Check } from 'lucide-react';
+import { Shield, Server, Home, Brain, ArrowRight, Phone, Mail, Calendar, Lock, Menu, X } from 'lucide-react';
 import ContactForm from './ContactForm';
-import { motion, useReducedMotion, type MotionProps } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { formatPrice } from '@/config/pricing';
+import { AnimatePresence, motion, useReducedMotion, type MotionProps } from 'framer-motion';
+import { useEffect, useState, type MouseEvent } from 'react';
+import SectionNav from "@/app/components/home/SectionNav";
+import RegulatedEstates from "@/app/components/home/RegulatedEstates";
+import DarkDeckSection from "@/app/components/home/DarkDeckSection";
+import ServicesSection from "@/app/components/home/ServicesSection";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const shouldReduceMotion = useReducedMotion();
 
   const easing: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -43,6 +49,63 @@ export default function HomePage() {
     transition: { duration: 0.45, ease: easing },
   };
 
+  const PRIMARY_NAV = [
+    { href: "#accomp", label: "Elite Builds" },
+    { href: "#regulated", label: "Regulated Estates" },
+    { href: "#darkdeck", label: "Dark Deck" },
+    { href: "#services", label: "What I Deliver" },
+    { href: "#about", label: "Engagement" },
+    { href: "#contact", label: "Contact" },
+  ] as const;
+
+  const eliteBuilds = [
+    {
+      id: 'build-01',
+      image: {
+        src: '/images/Tier 1 Example.png',
+        alt: 'Private NAS estate with encrypted backup infrastructure',
+      },
+      badge: 'ELITE BUILD 01',
+      investment: 'Starting from $50k–$250k',
+      title: 'Private NAS Estate',
+      description:
+        'Synology DS920+ configured with 16TB RAID 10, immutable snapshots, and WireGuard access for a boutique law firm. Replaced cloud subscriptions and restored ownership of sensitive case files.',
+      tags: ['Synology NAS', 'RAID 10', 'WireGuard VPN'],
+      href: '/tiers/foundation',
+      quote: '"We finally own our data. Installation was seamless." — Boutique Law Firm',
+    },
+    {
+      id: 'build-02',
+      href: '/tiers/estate',
+      image: {
+        src: '/images/secret-room.png',
+        alt: 'Segmented estate command center with dedicated server room',
+      },
+      badge: 'ELITE BUILD 02',
+      investment: 'Typical investment $250k–$1m',
+      title: 'Segmented Estate Command Center',
+      description:
+        'Multi-server estate with pfSense perimeter, segmented VLANs, Proxmox virtualization, and Home Assistant orchestration. Built for an executive family demanding zero-trust security in every room.',
+      tags: ['pfSense', 'VLAN Segmentation', 'Proxmox', 'Home Assistant'],
+      quote: '"Our estate finally feels untouchable." — Executive Client',
+    },
+    {
+      id: 'build-03',
+      href: '/tiers/architect',
+      image: {
+        src: '/images/250k-tier.png',
+        alt: 'AI research estate with GPU cluster and air-gapped storage',
+      },
+      badge: 'ELITE BUILD 03',
+      investment: 'Typical investment $1m+',
+      title: 'AI Research Estate',
+      description:
+        'High-availability Proxmox cluster with GPU passthrough, on-prem LLM deployment, and TrueNAS Scale storage. Multi-site replication keeps mission-critical AI datasets sovereign and lightning fast.',
+      tags: ['GPU Cluster', 'On-Prem AI', 'HA Proxmox', 'Multi-Site Sync'],
+      quote: '"Our research stays private and faster than the cloud." — AI Lab',
+    },
+  ] as const;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
@@ -66,22 +129,19 @@ export default function HomePage() {
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Digital Estate Packages',
+      name: 'Elite Digital Estate Engagements',
       itemListElement: [
         {
           '@type': 'Offer',
-          name: 'Foundation Tier',
-          price: formatPrice('FOUNDATION'),
-        },
-        {
-          '@type': 'Offer',
-          name: 'Estate Tier',
-          price: formatPrice('ESTATE'),
-        },
-        {
-          '@type': 'Offer',
-          name: 'Architect Tier',
-          price: formatPrice('ARCHITECT'),
+          name: 'Elite Build Program',
+          description: 'Bespoke digital estates with on-prem AI, zero-trust networks, and concierge stewardship.',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'USD',
+            price: 50000,
+            minPrice: 50000,
+            priceType: 'Starting price',
+          },
         },
       ],
     },
@@ -164,10 +224,51 @@ export default function HomePage() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      setShowBackToTop(window.scrollY > 500);
+      
+      // Calculate scroll progress
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrolled = window.scrollY;
+      const progress = (scrolled / (documentHeight - windowHeight)) * 100;
+      setScrollProgress(Math.min(progress, 100));
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const { body } = document;
+    if (isMenuOpen) {
+      const previous = body.style.overflow;
+      body.style.overflow = 'hidden';
+      return () => {
+        body.style.overflow = previous;
+      };
+    }
+    body.style.removeProperty('overflow');
+  }, [isMenuOpen]);
+
+  const handleAnchorClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      event.preventDefault();
+      const id = href.slice(1);
+      const node = typeof document !== 'undefined' ? document.getElementById(id) : null;
+      if (node) {
+        node.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth', block: 'start' });
+        if (typeof window !== 'undefined') {
+          window.history.replaceState(null, '', `#${id}`);
+        }
+      }
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <>
@@ -175,6 +276,16 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 z-[100] h-1 bg-white/5">
+        <motion.div
+          className="h-full bg-gradient-to-r from-blue-500 to-blue-400"
+          style={{ width: `${scrollProgress}%` }}
+          initial={{ width: 0 }}
+          transition={{ duration: 0.1 }}
+        />
+      </div>
 
       <a
         href="#main-content"
@@ -210,34 +321,112 @@ export default function HomePage() {
               </span>
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm text-white/70" aria-label="Primary">
-              <a href="#services" className="hover:text-white focus:text-white focus:outline-none focus:underline">
-                Services
-              </a>
-              <a href="#work" className="hover:text-white focus:text-white focus:outline-none focus:underline">
-                Service Tiers
-              </a>
-              <a href="#accomp" className="hover:text-white focus:text-white focus:outline-none focus:underline">
-                Elite Builds
-              </a>
-              <a href="#law" className="hover:text-white focus:text-white focus:outline-none focus:underline">
-                Law Firms
-              </a>
-              <a href="#healthcare" className="hover:text-white focus:text-white focus:outline-none focus:underline">
-                Healthcare
-              </a>
-              <a href="#about" className="hover:text-white focus:text-white focus:outline-none focus:underline">
-                About
-              </a>
-              <a href="#contact" className="hover:text-white focus:text-white focus:outline-none focus:underline">
-                Contact
-              </a>
+              {PRIMARY_NAV.map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={(event) => handleAnchorClick(event, href)}
+                  className="hover:text-white focus:text-white focus:outline-none focus:underline"
+                >
+                  {label}
+                </a>
+              ))}
             </nav>
+            <div className="flex items-center gap-3 md:hidden">
+              <a
+                href="#contact"
+                onClick={(event) => handleAnchorClick(event, '#contact')}
+                className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/70 transition hover:border-white/30 hover:text-white"
+              >
+                Consult
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen(true)}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-navigation"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition hover:border-white/30 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              >
+                <span className="sr-only">Open navigation</span>
+                <Menu className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </motion.header>
 
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              key="mobile-nav"
+              className="fixed inset-0 z-[70] bg-slate-950/95 backdrop-blur-xl md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: easing }}
+            >
+              <div className="flex items-center justify-between px-6 pt-6">
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">Navigate</span>
+                <button
+                  type="button"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition hover:border-white/30 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                >
+                  <span className="sr-only">Close navigation</span>
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <nav
+                id="mobile-navigation"
+                className="mt-8 flex flex-col gap-4 px-6 pb-6 overflow-y-auto max-h-[calc(100vh-200px)]"
+                aria-label="Mobile navigation"
+              >
+                {PRIMARY_NAV.map(({ href, label }) => (
+                  <motion.a
+                    key={href}
+                    href={href}
+                    onClick={(event) => handleAnchorClick(event, href)}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, ease: easing }}
+                    className="flex items-center justify-between rounded-2xl border border-white/15 bg-white/5 px-5 py-5 text-lg font-medium text-white/80 shadow-[0_18px_60px_-42px_rgba(56,189,248,0.8)] backdrop-blur min-h-[60px] active:scale-95 transition-transform"
+                  >
+                    {label}
+                    <ArrowRight className="h-5 w-5 flex-shrink-0" />
+                  </motion.a>
+                ))}
+              </nav>
+              <div className="mt-4 px-6 pb-6">
+                <div className="mb-4 rounded-2xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-center">
+                  <p className="text-xs font-semibold text-amber-300 uppercase tracking-wider">Limited Availability</p>
+                  <p className="text-sm text-amber-200 mt-1">Only 2 Q4 2025 slots remaining</p>
+                </div>
+                <div className="rounded-2xl border border-white/12 bg-white/5 px-5 py-5 text-sm text-white/75 backdrop-blur">
+                  <p className="uppercase tracking-[0.18em] text-white/55 text-xs">Concierge hotline</p>
+                  <a
+                    href="tel:+17739200030"
+                    className="mt-3 block text-xl font-semibold text-white min-h-[44px] flex items-center"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    (773) 920-0030
+                  </a>
+                  <a
+                    href="mailto:defcon5ready@gmail.com"
+                    className="mt-3 block text-white/70 underline min-h-[44px] flex items-center"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    defcon5ready@gmail.com
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <SectionNav />
+
         <motion.main id="main-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pb-20">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden">
+          {/* Hero Section */}
+          <section className="relative overflow-hidden">
             <motion.div
               className="absolute inset-0 -z-10"
               initial={{ opacity: 0 }}
@@ -256,7 +445,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(20,40,60,0.25)_0%,_transparent_60%)]" />
             </motion.div>
 
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20 grid md:grid-cols-[1fr_420px] gap-10 lg:gap-16 items-start">
               <motion.div
                 initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
                 animate={isLoaded ? { 
@@ -282,8 +471,48 @@ export default function HomePage() {
                   animate={shouldReduceMotion ? undefined : { opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.12, ease: easing }}
                 >
-                  No SaaS leash. I design, rack, and harden on-prem AI systems that answer only to you and your threat model.
+                  No SaaS leash. I design, rack, and harden on-prem AI systems that answer only to you.
                 </motion.p>
+                <motion.div
+                  className="mt-4 flex flex-col gap-2"
+                  initial={shouldReduceMotion ? undefined : { opacity: 0 }}
+                  animate={shouldReduceMotion ? undefined : { opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.14, ease: easing }}
+                >
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="text-white/60">Currently running</span>
+                    <a 
+                      href="https://darkdeck.ai" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-semibold text-blue-400 hover:text-blue-300 transition"
+                    >
+                      DarkDeck
+                      <ArrowRight className="h-3 w-3" />
+                    </a>
+                    <span className="text-white/60">— projected</span>
+                    <span className="font-semibold text-emerald-400">$100M valuation</span>
+                    <span className="text-white/60">by end of Q4 2025</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-amber-300 font-semibold">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                      </span>
+                      Only 2 estate slots remaining this quarter
+                    </span>
+                    <span className="text-white/40">|</span>
+                    <a 
+                      href="https://transparencypage.vercel.app/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-white/60 hover:text-emerald-400 transition text-xs"
+                    >
+                      Transparency Page
+                    </a>
+                  </div>
+                </motion.div>
                 <motion.div
                   className="mt-6 grid gap-4 text-sm text-white/75 sm:text-base"
                   initial={shouldReduceMotion ? undefined : { opacity: 0, y: 10 }}
@@ -293,27 +522,27 @@ export default function HomePage() {
                   <div className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                     <span className="mt-1 h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true" />
                     <div>
-                      <p className="font-semibold text-white">Zero dependency, zero guesswork.</p>
-                      <p className="text-white/70">You get one builder accountable for the rack plan, firmware, automations, and long-term stewardship.</p>
+                      <p className="font-semibold text-white">One accountable architect.</p>
+                      <p className="text-white/70">I run the rack plan, firmware, automations, and stewardship without passing you off.</p>
                     </div>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2">
                     {[{
                       Icon: Shield,
-                      label: 'Air-gapped security — segmentation, monitoring, red-team hardening'
+                      label: 'Air-gapped security, segmented zones, red-team drills'
                     }, {
                       Icon: Server,
-                      label: 'GPU clusters + NAS stacks tuned for your workloads'
+                      label: 'GPU clusters & NAS tuned for your workloads'
                     }, {
                       Icon: Brain,
-                      label: 'Private LLM orchestration with policy controls'
+                      label: 'Private LLM orchestration with guardrails'
                     }, {
                       Icon: Home,
-                      label: 'Estate-wide automation: sensors, AV, BMS, safes'
+                      label: 'Estate automation for sensors, AV, BMS, safes'
                     }].map(({ Icon, label }) => (
                       <div key={label} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
                         <Icon className="h-4 w-4 text-emerald-300" aria-hidden="true" />
-                        <span className="text-left leading-tight">{label}</span>
+                        <span className="text-left text-sm leading-snug text-white/80 sm:text-base sm:leading-tight">{label}</span>
                       </div>
                     ))}
                   </div>
@@ -324,54 +553,28 @@ export default function HomePage() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4, delay: 0.25, ease: easing }}
                 >
-                  <a href="#contact">
+                  <Link href="/assessment">
                     <motion.button
                       className="inline-flex min-h-[44px] min-w-[140px] items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-6 py-4 text-base font-semibold text-slate-900 shadow-lg shadow-emerald-500/20 transition focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-slate-950"
                       whileHover={shouldReduceMotion ? {} : { scale: 1.05, rotate: -0.5 }}
                       whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
                     >
-                      Book a consult <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                      Take 2-min assessment <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                     </motion.button>
-                  </a>
-                  <a href="#work">
+                  </Link>
+                  <a href="#contact">
                     <motion.button
                       className="inline-flex min-h-[44px] min-w-[140px] items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-base font-semibold text-white transition hover:border-white/25 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-slate-950"
                       whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
                       whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
                     >
-                      Explore tiers
+                      Book a consult
                     </motion.button>
                   </a>
                 </motion.div>
-                <motion.div
-                  className="mt-6 flex flex-wrap gap-2 text-xs sm:text-sm text-white/70"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4, delay: 0.35 }}
-                >
-                  {['On-prem NAS/VMs', 'Zero-trust networks', 'Luxury smart estates', 'Local AI orchestration'].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/70"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </motion.div>
-                <motion.div
-                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-200 backdrop-blur"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.45 }}
-                >
-                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                  </svg>
-                  Based in Chicago — deploying discreetly worldwide
-                </motion.div>
               </motion.div>
               <motion.div
-                className="flex justify-center"
+                className="hidden md:flex flex-col items-center sticky top-24 h-fit"
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={isLoaded ? { 
                   opacity: 1, 
@@ -400,17 +603,43 @@ export default function HomePage() {
                     placeholder="blur"
                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                     sizes="(max-width: 768px) 300px, 420px"
-                    className="relative z-10 w-full max-w-sm rounded-[26px] border border-white/10 bg-slate-950/60 object-cover shadow-[0_40px_80px_-40px_rgba(6,182,212,0.45)]"
+                    className="relative z-10 w-[420px] h-[420px] rounded-[26px] border border-white/10 bg-slate-950/60 object-cover shadow-[0_40px_80px_-40px_rgba(6,182,212,0.45)]"
                   />
-                  <motion.div
-                    className="absolute -bottom-10 left-1/2 w-[260px] -translate-x-1/2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-center text-sm text-white/80 backdrop-blur"
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-                    transition={{ delay: 0.4, duration: 0.6, ease: easing }}
-                  >
-                    10+ years building sovereign digital estates • 50+ deployments • 100% concierge delivery
-                  </motion.div>
                 </div>
+                <motion.div
+                  className="mt-6 w-[420px] rounded-2xl border border-white/20 bg-slate-950/90 px-5 py-4 text-center text-sm font-medium text-white backdrop-blur-xl shadow-2xl"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                  transition={{ delay: 0.4, duration: 0.6, ease: easing }}
+                >
+                  10+ sovereign estates • 50+ deployments • 100% concierge delivery
+                </motion.div>
+                <motion.div
+                  className="mt-4 w-[420px] inline-flex items-center justify-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-200 backdrop-blur"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                >
+                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  </svg>
+                  Based in Chicago — deploying discreetly worldwide
+                </motion.div>
+                <motion.div
+                  className="mt-4 w-[420px] flex flex-wrap gap-2 justify-center text-xs sm:text-sm text-white/70"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4, delay: 0.55 }}
+                >
+                  {['On-prem NAS/VMs', 'Zero-trust networks', 'Luxury smart estates', 'Local AI orchestration'].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-white/70"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </motion.div>
               </motion.div>
             </div>
           </section>
@@ -441,295 +670,86 @@ export default function HomePage() {
             </motion.div>
           </motion.section>
 
-          {/* Service Tiers Section (moved up) */}
-          <section id="work" className="py-20 bg-white/5">
-            <div className="max-w-6xl mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-semibold text-center">Service Tiers</h2>
-              <p className="mt-4 text-center text-white/70 max-w-2xl mx-auto">
-                From foundation setups to enterprise-grade estates. Choose the tier that fits your needs.
-              </p>
-              <div className="mt-12 grid md:grid-cols-3 gap-8">
-                {/* Tier 1 - Foundation */}
-                <Link href="/packages/foundation" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/images/foundation.png"
-                      alt="Foundation Tier - Professional NAS deployment"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-xl font-semibold mb-1">Foundation Tier</h3>
-                      <p className="text-2xl font-bold text-blue-500">{formatPrice('FOUNDATION')}</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-white/70 text-sm mb-4">Perfect for getting started</p>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Single-node NAS or server</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Basic VPN setup</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Encrypted local backups</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Documentation</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">30-day support</span>
-                      </li>
-                    </ul>
-                    <div className="mt-6 text-blue-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                      Learn More <ArrowRight className="h-4 w-4" />
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Tier 2 - Estate - MOST POPULAR */}
-                <Link href="/packages/estate" className="group rounded-2xl border-2 border-blue-500/50 bg-gradient-to-b from-blue-500/5 to-transparent overflow-hidden hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 relative cursor-pointer">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-500 text-black text-xs font-bold rounded-full z-10">
-                    MOST POPULAR
-                  </div>
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/images/25k.webp"
-                      alt="Estate Tier - Comprehensive digital estate"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-xl font-semibold mb-1">Estate Tier</h3>
-                      <p className="text-2xl font-bold text-blue-500">{formatPrice('ESTATE')}</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-white/70 text-sm mb-4">Comprehensive digital estate</p>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Multi-server deployment</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">VLAN segmentation</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Smart home integration</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">On-prem AI services</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Monitoring &amp; alerts</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">90-day support</span>
-                      </li>
-                    </ul>
-                    <div className="mt-6 text-blue-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                      Learn More <ArrowRight className="h-4 w-4" />
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Tier 3 - Architect */}
-                <Link href="/packages/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/images/architect.png"
-                      alt="Architect Tier - Enterprise-grade infrastructure"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-xl font-semibold mb-1">Architect Tier</h3>
-                      <p className="text-2xl font-bold text-blue-500">{formatPrice('ARCHITECT')}</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-white/70 text-sm mb-4">Enterprise-grade infrastructure</p>
-                    <ul className="space-y-2 text-sm">
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Enterprise-grade stack</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">High-availability clustering</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Custom automation</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Multi-site synchronization</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">Dedicated concierge</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-500 mt-0.5">✓</span>
-                        <span className="text-white/80">12-month SLA</span>
-                      </li>
-                    </ul>
-                    <div className="mt-6 text-blue-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                      Learn More <ArrowRight className="h-4 w-4" />
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* Elite Tier Builds Section (moved up) */}
+          {/* Elite Build Portfolio */}
           <section id="accomp" className="py-20">
             <div className="max-w-6xl mx-auto px-4">
               <div className="text-center mb-4">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-sm mb-4">
-                  <span>🏆</span>
-                  <span>Elite Portfolio</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-sm mb-4 font-semibold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                  </span>
+                  <span>Only 2 Q4 2025 slots remaining</span>
                 </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-semibold text-center">Elite Tier Builds</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-center">Elite Build Portfolio</h2>
               <p className="mt-4 text-center text-white/70 max-w-2xl mx-auto">
                 World-class digital estates representing the pinnacle of private infrastructure engineering—custom-tailored, meticulously secured, and built for longevity.
               </p>
+              <div className="mt-6 text-center">
+                <Link href="/assessment">
+                  <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 hover:bg-emerald-400/20 transition font-semibold text-sm">
+                    <Shield className="h-4 w-4" />
+                    Not sure which tier? Take the assessment
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </Link>
+              </div>
               <div className="mt-12 grid md:grid-cols-3 gap-8">
-                {/* Tier 1 Showcase */}
-                <Link href="/tiers/foundation" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/images/Tier 1 Example.png"
-                      alt="Foundation Tier - Professional NAS deployment with enterprise backup solution"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                      <div className="inline-flex px-3 py-1 rounded-full bg-blue-500 text-black text-xs font-semibold">
-                        FOUNDATION TIER
+                {eliteBuilds.map(({ id, href, image, badge, investment, title, description, tags, quote }) => (
+                  <Link
+                    key={id}
+                    href={href}
+                    className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer"
+                  >
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={600}
+                        height={400}
+                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={85}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                      <div className="absolute top-4 right-4">
+                        <div className="inline-flex px-2 py-1 rounded-md bg-red-500/90 text-white text-[10px] font-bold backdrop-blur-sm">
+                          HIGH DEMAND
+                        </div>
                       </div>
-                      <div className="text-blue-500 text-sm font-bold">$50k</div>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-500 transition">Professional NAS Deployment</h3>
-                    <p className="text-white/70 text-sm mb-4">
-                      Enterprise-grade Synology DS920+ with 16TB RAID 10, encrypted backups, and WireGuard VPN access. Replaced cloud subscriptions with a 60% cost reduction and total data sovereignty.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">Synology NAS</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">RAID 10</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">VPN Access</span>
-                    </div>
-                    <p className="text-blue-500 text-sm italic border-t border-white/10 pt-4">
-                      "We finally own our data. Installation was seamless." — Boutique Law Firm
-                    </p>
-                    <div className="mt-4 text-blue-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                      View Full Details <ArrowRight className="h-4 w-4" />
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Tier 2 Showcase */}
-                <Link href="/tiers/estate" className="group rounded-2xl border-2 border-blue-500/50 bg-gradient-to-b from-blue-500/5 to-transparent overflow-hidden hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 relative cursor-pointer">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-500 text-black text-xs font-bold rounded-full z-10">
-                    MOST POPULAR
-                  </div>
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/images/secret-room.png"
-                      alt="Estate Tier - Complete digital estate with secret server room"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                      <div className="inline-flex px-3 py-1 rounded-full bg-blue-500 text-black text-xs font-semibold">
-                        ESTATE TIER
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <div className="inline-flex px-3 py-1 rounded-full bg-blue-500 text-black text-xs font-semibold">
+                          {badge}
+                        </div>
+                        <div className="text-blue-500 text-sm font-bold">{investment}</div>
                       </div>
-                      <div className="text-blue-500 text-sm font-bold">$100k</div>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-500 transition">Complete Digital Estate</h3>
-                    <p className="text-white/70 text-sm mb-4">
-                      Multi-server deployment with pfSense firewall, segmented VLANs, Proxmox virtualization, and Home Assistant integration. Zero-trust architecture with end-to-end encryption across zones.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">pfSense</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">VLAN Segmentation</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">Proxmox</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">Home Assistant</span>
-                    </div>
-                    <p className="text-blue-500 text-sm italic border-t border-white/10 pt-4">
-                      "Our estate finally feels untouchable." — Executive Client
-                    </p>
-                    <div className="mt-4 text-blue-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                      View Full Details <ArrowRight className="h-4 w-4" />
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Tier 3 Showcase */}
-                <Link href="/tiers/architect" className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src="/images/250k-tier.png"
-                      alt="Architect Tier - Enterprise-grade infrastructure with on-premises AI and GPU clustering"
-                      width={600}
-                      height={400}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                      <div className="inline-flex px-3 py-1 rounded-full bg-blue-500 text-white text-xs font-semibold">
-                        ARCHITECT TIER
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-500 transition">{title}</h3>
+                      <p className="text-white/70 text-sm mb-4">
+                        {description}
+                      </p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20"
+                          >
+                            {tag}
+                          </span>
+                        ))}
                       </div>
-                      <div className="text-blue-500 text-sm font-bold">$250k+</div>
+                      <p className="text-blue-500 text-sm italic border-t border-white/10 pt-4">
+                        {quote}
+                      </p>
+                      <div className="mt-4 text-blue-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+                        Book this build <ArrowRight className="h-4 w-4" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-500 transition">AI Research Infrastructure</h3>
-                    <p className="text-white/70 text-sm mb-4">
-                      High-availability Proxmox cluster with GPU passthrough, on-prem LLM deployment, TrueNAS Scale storage, and multi-site replication. Custom automation for model training and inference workloads.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">GPU Cluster</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-slate-400/10 text-slate-400 border border-slate-400/20">On-Prem AI</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">HA Cluster</span>
-                      <span className="text-xs px-2 py-1 rounded-md bg-blue-500/10 text-blue-500 border border-blue-500/20">Multi-Site</span>
-                    </div>
-                    <p className="text-blue-500 text-sm italic border-t border-white/10 pt-4">
-                      "Our research stays private and faster than the cloud." — AI Lab
-                    </p>
-                    <div className="mt-4 text-blue-500 text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
-                      View Full Details <ArrowRight className="h-4 w-4" />
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
+                ))}
               </div>
 
               <div className="mt-12 text-center">
@@ -743,381 +763,18 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Regulated Estates Section */}
-          <section className="py-20 bg-white/5">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6">
-              <motion.div className="mx-auto max-w-3xl text-center" {...fadeInUp}>
-                <h2 className="text-3xl md:text-4xl font-semibold">Regulated Estates</h2>
-                <p className="mt-4 text-white/70 text-sm sm:text-base">
-                  Two flagship deployments engineered for teams who answer to bar auditors and HIPAA investigators.
-                </p>
-              </motion.div>
-              <div className="mt-12 grid gap-10 lg:grid-cols-2">
-                <div id="law" className="h-full">
-                  <Link href="/solutions/law-firm" className="block h-full">
-                    <motion.div
-                      className="flex h-full flex-col rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-transparent p-8 md:p-12 transition-all duration-300 hover:border-blue-500/50 hover:from-blue-500/15 hover:to-blue-500/5"
-                      whileHover={{ scale: 1.02 }}
-                      {...fadeInUp}
-                    >
-                      <div className="relative h-48 overflow-hidden rounded-xl border border-blue-500/20 bg-blue-500/5">
-                        <Image
-                          src="/images/lawfirm.png"
-                          alt="Law Firm Infrastructure"
-                          fill
-                          className="object-cover opacity-0"
-                          sizes="(max-width: 768px) 100vw, 896px"
-                          quality={80}
-                        />
-                        <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-black text-xs font-bold rounded-full">
-                          ABA READY
-                        </div>
-                      </div>
-                      <div className="mt-8 flex flex-1 flex-col space-y-6">
-                        <div className="flex items-center gap-3">
-                          <Shield className="h-8 w-8 text-blue-500" aria-hidden="true" />
-                          <h3 className="text-2xl md:text-3xl font-semibold">Law Firm Compliance Estate</h3>
-                        </div>
-                        <p className="text-white/80 text-base sm:text-lg">
-                          Purpose-built stacks for boutiques and multi-partner firms that need airtight privilege, conflict automation, and verifiable Model Rule 1.6 controls.
-                        </p>
-                        <div className="bg-slate-950/70 rounded-xl p-5 border border-blue-500/25">
-                          <p className="text-2xl font-bold text-blue-500">From $18k install · $1.2k+/mo concierge</p>
-                          <p className="mt-2 text-white/70 text-sm">
-                            Includes privileged document vaults, encrypted client portals, immutable audit logs, and white-glove compliance reporting.
-                          </p>
-                        </div>
-                        <ul className="grid sm:grid-cols-2 gap-3 text-sm text-white/75">
-                          {["Model Rule 1.6 defence-in-depth", "Conflict + ethical wall automation", "Encrypted DMS with matter-level MFA", "Air-gapped legal archive + ransomware drills", "Practice management integrations (Clio, Litify)", "Partner dashboards with breach telemetry"].map((item) => (
-                            <li key={item} className="flex items-start gap-2">
-                              <span className="mt-1 h-2 w-2 rounded-full bg-blue-500" aria-hidden="true" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-white/75">
-                          <p className="font-semibold text-blue-400">Why firms call me:</p>
-                          <p className="mt-2">Own your evidence, pass bar audits without scramble, and keep every subpoena response under your control.</p>
-                        </div>
-                        <p className="text-blue-400 text-sm italic border-t border-blue-500/20 pt-4">
-                          “Zero findings in our bar audit. Every partner finally trusts the tech.” — Managing Partner, Corporate Litigation
-                        </p>
-                      </div>
-                    </motion.div>
-                  </Link>
-                </div>
+          <RegulatedEstates fadeInUp={fadeInUp} />
 
-                <div id="healthcare" className="h-full">
-                  <Link href="/solutions/healthcare" className="block h-full">
-                    <motion.div
-                      className="flex h-full flex-col rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-blue-500/5 p-8 md:p-12 transition-all duration-300 hover:border-blue-500/50 hover:from-blue-500/15 hover:to-blue-500/10"
-                      whileHover={{ scale: 1.02 }}
-                      {...fadeInUp}
-                    >
-                      <div className="relative h-48 overflow-hidden rounded-xl border border-blue-500/20 bg-blue-500/5">
-                        <Image
-                          src="/images/hospital.png"
-                          alt="Healthcare Infrastructure"
-                          fill
-                          className="object-cover opacity-0"
-                          sizes="(max-width: 768px) 100vw, 896px"
-                          quality={80}
-                        />
-                        <div className="absolute top-4 right-4 px-4 py-2 bg-blue-500 text-white text-xs font-bold rounded-full">
-                          HIPAA READY
-                        </div>
-                      </div>
-                      <div className="mt-8 flex flex-1 flex-col space-y-6">
-                        <div className="flex items-center gap-3">
-                          <Heart className="h-8 w-8 text-blue-400" aria-hidden="true" />
-                          <h3 className="text-2xl md:text-3xl font-semibold">Healthcare Sovereign Cloud</h3>
-                        </div>
-                        <p className="text-white/80 text-base sm:text-lg">
-                          Built for clinics and hospitals that demand HIPAA-grade uptime, zero-trust segmentation, and charting privacy without vendor lock-in.
-                        </p>
-                        <div className="bg-slate-950/70 rounded-xl p-5 border border-blue-500/25">
-                          <p className="text-2xl font-bold text-blue-400">From $35k install · $2.5k+/mo concierge</p>
-                          <p className="mt-2 text-white/70 text-sm">
-                            Turnkey EHR integrations, audited access controls, disaster recovery runbooks, and guaranteed on-call response.
-                          </p>
-                        </div>
-                        <ul className="grid sm:grid-cols-2 gap-3 text-sm text-white/75">
-                          {["HIPAA + OCR audit readiness baked in", "Zero-trust VLAN design with clinician-aware policies", "Redundant EHR, PACS, and imaging storage", "Air-gapped ransomware response with 15-minute RPO", "Telemetry dashboards for compliance officers", "99.99% uptime SLA across critical services"].map((item) => (
-                            <li key={item} className="flex items-start gap-2">
-                              <span className="mt-1 h-2 w-2 rounded-full bg-blue-400" aria-hidden="true" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-white/75">
-                          <p className="font-semibold text-blue-300">Why exec teams bring me in:</p>
-                          <p className="mt-2">Own every patient record, prove compliance on demand, and recover cleanly from any incident within minutes.</p>
-                        </div>
-                        <p className="text-blue-300 text-sm italic border-t border-blue-500/20 pt-4">
-                          “Meets every regulatory demand and our clinicians barely notice the upgrades—except for the speed.” — Medical Director, Multi-Specialty Clinic
-                        </p>
-                      </div>
-                    </motion.div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
+          <DarkDeckSection fadeInUp={fadeInUp} />
 
-          {/* DarkGPT Section - Installed Locally */}
-          <section id="darkgpt" className="py-20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-black to-black egyptian-pattern"></div>
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-              <motion.div className="text-center mb-12" {...fadeInUp}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/30 border border-blue-500/60 text-blue-500 text-sm mb-6 blue-glow">
-                  <span>🔒</span>
-                  <span>ELITE EXCLUSIVE</span>
-                </div>
-                <div className="flex items-center justify-center gap-4 mb-6">
-                  <Image
-                    src="/images/darkgpt.png"
-                    alt="DarkGPT Logo"
-                    width={64}
-                    height={64}
-                    className="h-16 w-auto"
-                  />
-                  <h2 className="text-4xl md:text-5xl font-bold">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-500">DarkGPT</span> — Installed Locally
-                  </h2>
-                </div>
-                <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                  Test DarkGPT today: a private LLM wired into your estate, tuned to your policies, and impossible to subpoena from the cloud.
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="rounded-2xl border-2 border-blue-500/70 bg-gradient-to-br from-blue-500/15 via-black to-black p-8 md:p-12 blue-glow-lg"
-                {...fadeInUp}
-              >
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h3 className="text-2xl font-bold text-blue-500 mb-4">What You Get</h3>
-                    <ul className="space-y-3 text-white/80">
-                      <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                        <span><strong>One week on-site programming</strong> — I stay at your location until it's perfect</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                        <span><strong>Private deployment</strong> — Locally-configurable safety policies, governed by your own rules</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                        <span><strong>Complete privacy</strong> — Runs locally, conversations never leave your network</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                        <span><strong>Custom personality</strong> — Fine-tuned to your preferences and communication style</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                        <span><strong>Estate integration</strong> — Access from anywhere in your infrastructure</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-slate-950/70 rounded-xl p-6 border border-blue-500/20">
-                    <h3 className="text-xl font-semibold text-blue-500 mb-4">The Process</h3>
-                    <div className="space-y-4 text-sm text-white/70">
-                      {[{
-                        step: '1',
-                        title: 'Initial consultation & requirements',
-                        detail: 'We capture use cases, compliance priorities, and baseline datasets.',
-                      }, {
-                        step: '2',
-                        title: 'Hardware setup & base model deployment',
-                        detail: 'Install optimized LLM infrastructure with GPU acceleration and observability.',
-                      }, {
-                        step: '3',
-                        title: 'One-week onsite fine-tuning',
-                        detail: 'Daily iterations with your team until prompts, guardrails, and integrations are perfect.',
-                      }, {
-                        step: '4',
-                        title: 'Training & handoff',
-                        detail: 'Runbooks, drills, and acceptance testing before I leave the estate.',
-                      }].map(({ step, title, detail }) => (
-                        <div key={step} className="flex gap-3">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-500 font-bold">
-                            {step}
-                          </div>
-                          <div>
-                            <p className="font-semibold text-white">{title}</p>
-                            <p>{detail}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6 text-center">
-                  <div className="text-lg font-bold text-blue-500 mb-2">Pricing: Available Upon Request</div>
-                  <p className="text-white/70 text-sm italic mb-4">
-                    "DarkGPT pricing is negotiable based on your budget. If you have the money, I have the time. Let's talk."
-                  </p>
-                  <Link href="/start-project">
-                    <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-500 text-white rounded-xl hover:from-blue-500 hover:to-blue-500 transition font-semibold text-lg shadow-lg">
-                      Test DarkGPT Today
-                    </button>
-                  </Link>
-                  <p className="text-white/60 text-xs mt-4 border-t border-blue-500/10 pt-4">
-                    Use is subject to lawful, ethical, and compliance-aligned policies. On-prem or private cloud only.
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-blue-500/20 text-center">
-                  <p className="text-blue-500 text-lg font-semibold italic">
-                    "Your AI. Your rules. Total control."
-                  </p>
-                  <p className="text-white/60 text-sm mt-2">
-                    Available exclusively with Elite Tier builds ($50k+)
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </section>
-
-          {/* Services Section */}
-          <section id="services" className="py-20">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6">
-              <motion.h2
-                className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center"
-                {...fadeInUp}
-              >
-                What I Deliver
-              </motion.h2>
-              <motion.p
-                className="mt-4 text-center text-white/70 max-w-2xl mx-auto text-sm sm:text-base"
-                {...fadeInUp}
-              >
-                Three pillars of sovereign infrastructure—built for privacy, security, and total control.
-              </motion.p>
-              <motion.div
-                className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
-                {...staggerContainer}
-              >
-                <motion.div
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-300 hover:border-emerald-400/50 hover:bg-emerald-400/5"
-                  {...scaleIn}
-                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                >
-                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-emerald-400/10">
-                    <Server className="h-6 w-6 text-emerald-300" aria-hidden="true" />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-medium">Private Servers</h3>
-                  <p className="mt-3 text-white/70 text-sm sm:text-base">
-                    High-availability NAS and VM stacks (TrueNAS, Proxmox) with encrypted snapshots and offline recovery drills.
-                  </p>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-emerald-200/80">
-                    Recent build: triple-node TrueNAS vault protecting a 14TB litigation archive.
-                  </p>
-                </motion.div>
-                <motion.div
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-300 hover:border-blue-400/50 hover:bg-blue-400/5"
-                  {...scaleIn}
-                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                >
-                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-blue-400/10">
-                    <Lock className="h-6 w-6 text-blue-300" aria-hidden="true" />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-medium">Zero-Trust Networks</h3>
-                  <p className="mt-3 text-white/70 text-sm sm:text-base">
-                    Segmented networks, WireGuard mesh, and policy automation. Every endpoint authenticated, every tunnel encrypted.
-                  </p>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-blue-200/80">
-                    Recent build: biometric VPN perimeter covering six villas with automatic threat sweeps.
-                  </p>
-                </motion.div>
-                <motion.div
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 transition-all duration-300 hover:border-amber-400/50 hover:bg-amber-400/5"
-                  {...scaleIn}
-                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                >
-                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-amber-400/10">
-                    <Brain className="h-6 w-6 text-amber-300" aria-hidden="true" />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-medium">On-Prem AI</h3>
-                  <p className="mt-3 text-white/70 text-sm sm:text-base">
-                    Local LLM clusters (Ollama, vLLM) with curated datasets, safety policies, and observability tuned to your compliance rules.
-                  </p>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-amber-200/80">
-                    Recent build: confidential RAG counsel trained on twelve years of legal briefs.
-                  </p>
-                </motion.div>
-              </motion.div>
-            </div>
-          </section>
-
-          {/* Plain English TLDR */}
-          <section id="tldr" className="py-20 bg-white/5 relative overflow-hidden">
-            <div className="absolute inset-0">
-              <Image
-                src="/images/plain-english.png"
-                alt="Plain English Explanation"
-                fill
-                className="object-cover opacity-70"
-                sizes="100vw"
-                quality={80}
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/70 to-slate-950/80"></div>
-            </div>
-
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-              <motion.h2
-                className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center"
-                {...fadeInUp}
-              >
-                In Plain English
-              </motion.h2>
-              <motion.div
-                className="mt-12 grid gap-6 text-base text-white/80 sm:grid-cols-2"
-                {...staggerContainer}
-              >
-                {[
-                  {
-                    title: "Cloud custody is a risk.",
-                    body: "Everything—files, CCTV, AI—lives on hardware you can walk up to and audit in seconds.",
-                  },
-                  {
-                    title: "You hire one accountable builder.",
-                    body: "I architect, cable, script, and document every layer so nothing is handed off to a mystery vendor.",
-                  },
-                  {
-                    title: "Privacy is the baseline.",
-                    body: "No telemetry, no SaaS callouts, immutable logging, and automatic key rotation across the estate.",
-                  },
-                  {
-                    title: "Support stays concierge.",
-                    body: "Blueprints, training, and periodic health checks come from the person who built the system—me.",
-                  },
-                ].map(({ title, body }) => (
-                  <motion.div
-                    key={title}
-                    className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur"
-                    {...fadeInUp}
-                    whileHover={shouldReduceMotion ? {} : { y: -6 }}
-                  >
-                    <h3 className="text-lg font-semibold text-white">{title}</h3>
-                    <p className="mt-3 text-sm sm:text-base text-white/75">{body}</p>
-                  </motion.div>
-                ))}
-                <motion.div
-                  className="sm:col-span-2 rounded-3xl border border-emerald-400/40 bg-emerald-400/10 p-6 text-center text-lg font-medium text-emerald-200"
-                  {...fadeInUp}
-                >
-                  Hire me when you want sovereign infrastructure with a single throat to choke.
-                </motion.div>
-              </motion.div>
-            </div>
-          </section>
+          <ServicesSection
+            fadeInUp={fadeInUp}
+            staggerContainer={staggerContainer}
+            scaleIn={scaleIn}
+          />
 
           {/* Engagement Flow */}
-          <section className="py-16">
+          <section id="engagement" className="py-16">
             <div className="max-w-4xl mx-auto px-4">
               <h2 className="text-3xl md:text-4xl font-semibold text-center">How an Engagement Runs</h2>
               <p className="mt-4 text-center text-white/70 text-base sm:text-lg">
@@ -1178,6 +835,13 @@ export default function HomePage() {
           <section id="contact" className="py-20">
             <div className="max-w-6xl mx-auto px-4">
               <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs mb-4 font-semibold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                  </span>
+                  <span>2 Q4 2025 slots remaining • Next availability: Q1 2026</span>
+                </div>
                 <h2 className="text-3xl md:text-4xl font-semibold">Get In Touch</h2>
                 <p className="mt-4 text-white/70 text-base sm:text-lg">
                   Three fast ways to reach me. Pick the channel that fits and I’ll respond the same day.
@@ -1239,7 +903,7 @@ export default function HomePage() {
                   <p className="text-sm text-white/60 mb-4">One-hour strategy session, roadmap, and next steps.</p>
                   <p className="text-blue-500 font-medium mb-2">Expert blueprint review</p>
                   <a
-                    href="https://calendly.com/defcon5ready/new-meeting"
+                    href="https://calendly.com/defcon5ready/new-meeting-1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-white/70 hover:text-white transition inline-flex items-center gap-1"
@@ -1353,9 +1017,9 @@ export default function HomePage() {
                   {'//'} MAP
                 </a>
                 <span className="text-white/30">|</span>
-                <a href="https://darkgpt-official.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-500/60 hover:text-blue-500 focus:text-blue-500 focus:outline-none inline-flex items-center gap-1 transition-colors">
+                <a href="https://darkdeck.ai/" target="_blank" rel="noopener noreferrer" className="text-blue-500/60 hover:text-blue-500 focus:text-blue-500 focus:outline-none inline-flex items-center gap-1 transition-colors">
                   <Lock className="h-3 w-3" aria-hidden="true" />
-                  {'//'} DARKGPT access point
+                  {'//'} DARK DECK access point
                 </a>
               </div>
             </div>
@@ -1387,6 +1051,50 @@ export default function HomePage() {
           </div>
         </footer>
       </motion.div>
+
+      {/* Sticky Mobile CTA */}
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: isScrolled ? 0 : 100, opacity: isScrolled ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: easing }}
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-gradient-to-t from-black via-black to-transparent pointer-events-none"
+      >
+        <a
+          href="https://calendly.com/defcon5ready/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full py-4 px-6 rounded-xl bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white font-semibold text-center shadow-xl active:scale-95 transition-all pointer-events-auto"
+        >
+          <span className="flex items-center justify-center gap-2">
+            <Calendar className="h-5 w-5" />
+            Book Consultation
+            <span className="inline-flex items-center gap-1.5 ml-2 px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400"></span>
+              </span>
+              2 slots left
+            </span>
+          </span>
+        </a>
+      </motion.div>
+
+      {/* Back to Top Button */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+            onClick={scrollToTop}
+            className="fixed bottom-24 right-6 z-50 p-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-2xl shadow-blue-600/30 transition-all active:scale-90 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black"
+            aria-label="Scroll to top"
+          >
+            <ArrowRight className="h-5 w-5 rotate-[-90deg]" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -38,7 +38,7 @@ const requirements = [
 ];
 
 const applicationSteps = [
-  'Email concierge@backupestate.com with the role you are interested in and a short description of relevant experience.',
+  'Email defcon5ready@gmail.com with the role you are interested in and a short description of relevant experience.',
   'Attach proof of recent projects or certifications. Links are fine, no need for formal resumes if your work speaks for itself.',
   'Outline availability windows (weekday, evening, weekend) and preferred compensation structure.',
   'If it is a fit, we will schedule a technical and operational interview with the principal architect.',
@@ -96,7 +96,7 @@ export default function CareersPage() {
             ))}
           </ol>
           <p className="mt-6 text-sm text-white/60">
-            You can also message <Link href="mailto:concierge@backupestate.com" className="text-emerald-300 underline-offset-4 hover:underline">concierge@backupestate.com</Link> for confidential questions before submitting a full application.
+            You can also message <Link href="mailto:defcon5ready@gmail.com" className="text-emerald-300 underline-offset-4 hover:underline">defcon5ready@gmail.com</Link> for confidential questions before submitting a full application.
           </p>
         </section>
 

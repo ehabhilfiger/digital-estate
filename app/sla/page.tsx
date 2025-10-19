@@ -87,7 +87,7 @@ export default function ServiceLevelAgreementPage() {
           <h2 className="text-lg font-semibold text-white">Contacting support</h2>
           <p className="mt-3">Priority hotline: +1 (773) 920-0030</p>
           <p className="mt-1">Signal / Matrix bridge: Provided at onboarding</p>
-          <p className="mt-1">Email: concierge@backupestate.com</p>
+          <p className="mt-1">Email: defcon5ready@gmail.com</p>
           <p className="mt-4 text-xs uppercase tracking-[0.24em] text-white/45">
             All incidents tracked in the shared client portal with timestamps and resolution notes.
           </p>

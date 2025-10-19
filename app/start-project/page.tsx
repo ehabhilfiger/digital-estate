@@ -37,6 +37,7 @@ export default function StartProject() {
     'HIPAA/Legal Compliance',
     'Multi-Site Replication',
     'High-Availability Infrastructure',
+    'Consulting Retainer',
   ];
 
   const handleGoalToggle = (goal: string) => {

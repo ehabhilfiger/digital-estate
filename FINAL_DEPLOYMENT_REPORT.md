@@ -305,9 +305,9 @@ npx playwright screenshot public/onepager.html onepager.pdf --full-page
 ## 📦 CLICKABLE TIER & PACKAGE PAGES
 
 **Service Tiers (clickable from homepage):**
-1. ✅ `/packages/foundation` — Tier 1: $3,500–$6,000
-2. ✅ `/packages/estate` — Tier 2: $8,000–$15,000 (Most Popular)
-3. ✅ `/packages/architect` — Tier 3: $20,000+
+1. ✅ `/packages/foundation` — Tier 1: $25,000–$40,000
+2. ✅ `/packages/estate` — Tier 2: $50,000–$90,000 (Most Popular)
+3. ✅ `/packages/architect` — Tier 3: $100,000–$250,000
 
 **Premium Showcases (clickable from portfolio):**
 1. ✅ `/tiers/foundation` — $25k NAS deployment

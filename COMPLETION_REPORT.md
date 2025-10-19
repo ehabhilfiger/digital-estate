@@ -214,9 +214,9 @@ Successfully upgraded the Digital Estate website from basic template to producti
 - ✅ "What I Deliver" (3 service pillars)
 - ✅ **Law Firms section with pricing: "From $4,800 install • $350+/mo concierge"**
 - ✅ **Packages with 3 Tiers:**
-  - Tier 1: Foundation ($3,500-$6,000)
-  - Tier 2: Estate ($8,000-$15,000) - MOST POPULAR
-  - Tier 3: Architect ($20,000+)
+   - Tier 1: Foundation ($25,000-$40,000)
+   - Tier 2: Estate ($50,000-$90,000) - MOST POPULAR
+   - Tier 3: Architect ($100,000-$250,000)
 - ✅ Accomplishments & Case Studies (3 cards)
 - ✅ About section
 - ✅ Contact section with form

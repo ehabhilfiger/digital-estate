@@ -54,7 +54,7 @@ export default function CompliancePage() {
         </section>
         <section className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/70">
           <h2 className="text-lg font-semibold text-white">Request documentation</h2>
-          <p className="mt-3">Email concierge@backupestate.com to request SOC 2 bridge letters, HIPAA BAAs, GDPR DPAs, or incident response summaries.</p>
+          <p className="mt-3">Email defcon5ready@gmail.com to request SOC 2 bridge letters, HIPAA BAAs, GDPR DPAs, or incident response summaries.</p>
         </section>
       </div>
     </main>

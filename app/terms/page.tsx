@@ -65,7 +65,7 @@ export default function TermsPage() {
         </div>
         <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/70">
           <h2 className="text-lg font-semibold text-white">Questions</h2>
-          <p className="mt-3">Reach our legal desk at concierge@backupestate.com for contract language or compliance approvals.</p>
+          <p className="mt-3">Reach our legal desk at defcon5ready@gmail.com for contract language or compliance approvals.</p>
         </div>
       </div>
     </main>

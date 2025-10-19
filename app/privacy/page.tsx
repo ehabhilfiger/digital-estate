@@ -16,7 +16,7 @@ const policySections = [
   {
     title: 'Retention & deletion',
     paragraphs: [
-      'Client files are retained for the duration of an engagement plus 12 months unless your contract specifies otherwise. You can request deletion by emailing concierge@backupestate.com.',
+  'Client files are retained for the duration of an engagement plus 12 months unless your contract specifies otherwise. You can request deletion by emailing defcon5ready@gmail.com.',
     ],
   },
   {
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
         </div>
         <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-white/70">
           <h2 className="text-lg font-semibold text-white">Contact</h2>
-          <p className="mt-3">concierge@backupestate.com • +1 (773) 920-0030 • Chicago, IL</p>
+          <p className="mt-3">defcon5ready@gmail.com • +1 (773) 920-0030 • Chicago, IL</p>
         </div>
       </div>
     </main>

@@ -336,7 +336,7 @@ digital-estate/
 - **Phone**: (773) 920-0030
 - **Location**: Chicago, Illinois
 - **Website**: digital-estate-orcin.vercel.app
-- **Calendly**: https://calendly.com/defcon5ready/intro
+- **Calendly**: https://calendly.com/defcon5ready/new-meeting-1
 
 ---
 

@@ -113,7 +113,7 @@ const executiveSummary = [
   },
   {
     label: 'Investment',
-    copy: 'Starting $106k in services; hardware passes through at cost.',
+    copy: 'Starting $250k–$1m in services; hardware passes through at cost.',
   },
   {
     label: 'Timeline',
@@ -128,9 +128,9 @@ const investmentBreakdown = [
     detail: 'Core, storage, firewalls, and backup media invoice direct from vendors for your approval.',
   },
   {
-    label: 'Estate deployment fee',
-    value: 'Starting $106k',
-    detail: 'Architecture lab, implementation, compliance documentation, and rehearsal cycles target a 30–40% margin on expert labor.',
+    label: 'Engagement investment',
+    value: '$250k–$1m',
+    detail: 'Covers executive scoping, deployment, automation orchestration, training, and 90-day concierge.',
   },
   {
     label: 'Concierge coverage',
@@ -204,10 +204,10 @@ export default function EstateTier() {
             {...pricingMotionProps}
           >
             <div className="absolute -inset-5 rounded-3xl bg-teal-500/15 blur-3xl" />
-            <div className="relative rounded-3xl border border-teal-500/35 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-2xl">
+                        <div className="relative rounded-3xl border border-teal-500/40 bg-gradient-to-br from-slate-950 via-slate-900 to-black p-8 shadow-2xl">
               <div className="text-xs uppercase tracking-[0.3em] text-white/50">Investment</div>
-              <div className="mt-4 text-5xl sm:text-6xl font-semibold text-teal-200">Starting $106k</div>
-              <p className="mt-4 text-sm text-white/65">Scopes flex for user counts, secondary sites, and compliance deliverables. Hardware billed transparently at cost.</p>
+              <div className="mt-4 text-5xl sm:text-6xl font-semibold text-teal-200">$250k–$1m</div>
+              <p className="mt-4 text-sm text-white/65">Scope flexes with team size, automation depth, and resilience targets. Hardware billed transparently at cost.</p>
               <ul className="mt-6 space-y-3 text-sm text-white/70">
                 <li className="flex items-start gap-2">
                   <Check className="mt-0.5 h-4 w-4 text-teal-200" /> Architecture lab and tabletop drills before hardware ships

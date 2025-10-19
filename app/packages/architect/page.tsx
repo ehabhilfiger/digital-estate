@@ -17,6 +17,7 @@ import {
   Sparkles,
   Workflow,
 } from 'lucide-react';
+import { formatPrice, getBuildMetadata } from '@/config/pricing';
 
 const outcomeHighlights = [
   { label: 'Cluster uptime commitment', value: '99.99%', icon: Shield },
@@ -59,11 +60,11 @@ const deliverableColumns = [
 ];
 
 const capabilityComparisons = [
-  { dimension: 'Compute orchestration', architect: 'Dedicated GPU/CPU clusters with live migration + predictive scaling', enterprise: 'Single cloud tenant, auto-scaling best effort' },
-  { dimension: 'Compliance posture', architect: 'Policy-as-code, CIS baselines, auditable change logs', enterprise: 'Manual spreadsheets, quarterly reviews' },
-  { dimension: 'Automation depth', architect: 'Self-healing pipelines, DarkGPT concierge, multi-domain tasks', enterprise: 'Ticket-based scripts, limited assistants' },
-  { dimension: 'Data sovereignty', architect: 'On-prem, encrypted, redundant, vendor-agnostic', enterprise: 'Cloud region dependence, shared tenancy' },
-  { dimension: 'Support runway', architect: '12-month SLA, on-site, direct architect channel', enterprise: 'Call center escalation tree' },
+  { dimension: 'Compute orchestration', build: 'Dedicated GPU/CPU clusters with live migration + predictive scaling', enterprise: 'Single cloud tenant, auto-scaling best effort' },
+  { dimension: 'Compliance posture', build: 'Policy-as-code, CIS baselines, auditable change logs', enterprise: 'Manual spreadsheets, quarterly reviews' },
+  { dimension: 'Automation depth', build: 'Self-healing pipelines, DarkGPT concierge, multi-domain tasks', enterprise: 'Ticket-based scripts, limited assistants' },
+  { dimension: 'Data sovereignty', build: 'On-prem, encrypted, redundant, vendor-agnostic', enterprise: 'Cloud region dependence, shared tenancy' },
+  { dimension: 'Support runway', build: '12-month SLA, on-site, direct architect channel', enterprise: 'Call center escalation tree' },
 ];
 
 const processSteps = [
@@ -127,6 +128,11 @@ const conciergeHighlights = [
 
 export default function ArchitectPackage() {
   const shouldReduceMotion = useReducedMotion();
+  const buildMeta = getBuildMetadata('AI_RESEARCH');
+  const { label: buildLabel, summary: buildSummary, price: basePrice } = buildMeta;
+  const buildShortName = buildLabel.split(': ').pop() ?? buildLabel;
+  const priceRange = formatPrice('AI_RESEARCH');
+  const startingLabel = `$${basePrice.toLocaleString()}`;
   const heroMotionProps = shouldReduceMotion
     ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
     : {
@@ -139,9 +145,9 @@ export default function ArchitectPackage() {
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-black text-white egyptian-texture">
       <header className="sticky top-0 z-40 border-b border-sky-500/40 bg-slate-950/80 backdrop-blur">
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
-          <Link href="/#work" className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
+          <Link href="/#accomp" className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-white">
             <ArrowLeft className="h-4 w-4" />
-            Back to packages
+            Back to elite builds
           </Link>
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center rounded-full border border-sky-400/40 bg-sky-400/20 px-3 py-1 text-xs font-semibold text-slate-900">
@@ -151,7 +157,7 @@ export default function ArchitectPackage() {
               href="/start-project"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow shadow-sky-500/25 transition hover:opacity-95"
             >
-              Engage the architect team
+              Book {buildShortName}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -161,8 +167,8 @@ export default function ArchitectPackage() {
       <div className="fixed inset-x-4 bottom-4 z-40 md:hidden">
         <div className="flex items-center justify-between rounded-2xl border border-sky-500/25 bg-slate-950/90 px-4 py-3 shadow-lg shadow-sky-500/25 backdrop-blur">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/55">Architect package</div>
-            <div className="text-sm font-medium text-white">$20k+ • 10-week roadmap</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/55">{buildLabel}</div>
+            <div className="text-sm font-medium text-white">Starts at {startingLabel} • 10-week roadmap</div>
           </div>
           <Link
             href="/start-project"
@@ -176,18 +182,18 @@ export default function ArchitectPackage() {
 
       <main className="relative">
         <div className="pointer-events-none absolute inset-0 opacity-25">
-          <Image src="/images/architect.png" alt="Architect package background" fill className="object-cover" priority />
+          <Image src="/images/architect.png" alt={`${buildShortName} background`} fill className="object-cover" priority />
         </div>
         <div className="relative z-10 max-w-6xl mx-auto px-4 pt-16 pb-32 md:pb-16">
           <section className="text-center mb-12">
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/40 bg-sky-500/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-sky-100">
-              Architect package
+              {buildLabel}
             </div>
             <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
               Sovereign AI and infrastructure engineered without compromise
             </h1>
             <p className="mt-5 text-base sm:text-lg md:text-xl text-white/75 max-w-3xl mx-auto">
-              Architect is the turnkey engagement when uptime, compliance, and private AI performance must exceed the public cloud. We combine GPU clusters, zero-trust security, and concierge operations into one accountable team.
+              {buildSummary}. {buildShortName} is the turnkey engagement when uptime, compliance, and private AI performance must exceed the public cloud. We combine GPU clusters, zero-trust security, and concierge operations into one accountable team.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-white/60">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-1"><Radar className="h-4 w-4 text-sky-200" /> Global multi-site ready</span>
@@ -201,7 +207,7 @@ export default function ArchitectPackage() {
             {...heroMotionProps}
           >
             <div className="rounded-2xl border border-white/12 bg-white/5 p-6 md:p-8">
-              <h2 className="text-left text-lg font-semibold text-sky-100">Architect impact metrics</h2>
+              <h2 className="text-left text-lg font-semibold text-sky-100">Impact metrics that stay accountable</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {outcomeHighlights.map(({ label, value, icon: Icon }) => (
                   <div key={label} className="rounded-xl border border-white/12 bg-slate-950/55 p-5 text-left">
@@ -212,13 +218,13 @@ export default function ArchitectPackage() {
                 ))}
               </div>
               <p className="mt-6 text-sm text-white/65">
-                Architect engagements begin at $20k and scale with GPU count, site quantity, and automation breadth. Hardware is invoiced at cost with asset tags, warranties, and refresh forecasting.
+                Typical {buildShortName} engagements begin at {startingLabel} and scale with GPU count, site quantity, and automation breadth. Hardware is invoiced at cost with asset tags, warranties, and refresh forecasting.
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden border border-sky-500/35 shadow-2xl blue-glow">
               <Image
                 src="/images/architect.png"
-                alt="Architect package deployment"
+                alt={`${buildShortName} deployment`}
                 width={1080}
                 height={720}
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -229,7 +235,7 @@ export default function ArchitectPackage() {
           </motion.div>
 
           <section className="mb-16 rounded-2xl border border-sky-500/35 bg-gradient-to-br from-sky-500/12 via-slate-950 to-slate-950 p-8 text-center">
-            <div className="text-4xl font-semibold text-sky-100">$20,000+</div>
+            <div className="text-4xl font-semibold text-sky-100">{priceRange}</div>
             <p className="mt-3 text-sm text-white/70">10-week orchestration covering architecture charter, cluster build, AI workloads, and the first year of concierge care.</p>
             <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/55">Hardware at cost • GPU procurement handled • 12-month SLA included</p>
           </section>
@@ -241,7 +247,7 @@ export default function ArchitectPackage() {
               </div>
               <h2 className="mt-4 text-3xl font-semibold">Compute, security, and AI runbooks delivered by one accountable squad</h2>
               <p className="mt-3 mx-auto max-w-3xl text-sm text-white/70 sm:text-base">
-                From rack elevation diagrams to post-incident retros, Architect covers every layer with documented playbooks and concierge follow-through.
+                From rack elevation diagrams to post-incident retros, {buildShortName} covers every layer with documented playbooks and concierge follow-through.
               </p>
             </div>
             <div className="grid gap-6 lg:grid-cols-3">
@@ -266,7 +272,7 @@ export default function ArchitectPackage() {
           </section>
 
           <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-semibold">Who Architect was built for</h2>
+            <h2 className="text-2xl font-semibold">Who this build was engineered for</h2>
             <div className="mt-6 grid gap-6 md:grid-cols-3">
               {idealFits.map(({ title, description, accentClass }) => (
                 <div key={title} className={`rounded-2xl p-6 text-left ${accentClass}`}>
@@ -278,16 +284,16 @@ export default function ArchitectPackage() {
           </section>
 
           <section className="mb-16 rounded-2xl border border-white/10 bg-white/5 p-8">
-            <h2 className="text-2xl font-semibold mb-6">Architect vs. traditional enterprise bundles</h2>
+            <h2 className="text-2xl font-semibold mb-6">{buildShortName} vs. traditional enterprise bundles</h2>
             <div className="grid gap-4 md:hidden">
-              {capabilityComparisons.map(({ dimension, architect, enterprise }) => (
+              {capabilityComparisons.map(({ dimension, build, enterprise }) => (
                 <div key={dimension} className="rounded-2xl border border-white/8 bg-slate-950/60 p-4">
                   <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Dimension</div>
                   <h3 className="mt-1 text-base font-semibold text-white">{dimension}</h3>
                   <dl className="mt-4 space-y-3 text-sm">
                     <div className="rounded-xl border border-sky-500/25 bg-sky-500/12 p-3">
-                      <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200/80">Architect package</dt>
-                      <dd className="mt-1 text-sky-100">{architect}</dd>
+                      <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200/80">{buildShortName}</dt>
+                      <dd className="mt-1 text-sky-100">{build}</dd>
                     </div>
                     <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
                       <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Managed enterprise suite</dt>
@@ -302,15 +308,15 @@ export default function ArchitectPackage() {
                 <thead className="text-white/60">
                   <tr className="border-b border-white/10">
                     <th className="pb-3 pr-4 font-semibold">Dimension</th>
-                    <th className="pb-3 pr-4 font-semibold text-sky-200">Architect package</th>
+                    <th className="pb-3 pr-4 font-semibold text-sky-200">{buildShortName}</th>
                     <th className="pb-3 font-semibold text-white/50">Managed enterprise suite</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {capabilityComparisons.map(({ dimension, architect, enterprise }) => (
+                  {capabilityComparisons.map(({ dimension, build, enterprise }) => (
                     <tr key={dimension} className="border-b border-white/10 last:border-0">
                       <td className="py-3 pr-4 text-white/70">{dimension}</td>
-                      <td className="py-3 pr-4 text-sky-200">{architect}</td>
+                      <td className="py-3 pr-4 text-sky-200">{build}</td>
                       <td className="py-3 text-white/50">{enterprise}</td>
                     </tr>
                   ))}
@@ -363,7 +369,7 @@ export default function ArchitectPackage() {
           </section>
 
           <section className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-16">
-            <h2 className="text-2xl font-semibold">Stack powering architect deployments</h2>
+            <h2 className="text-2xl font-semibold">Stack powering {buildShortName}</h2>
             <div className="mt-6 flex flex-wrap gap-3">
               {techBadges.map(({ label, badgeClass }) => (
                 <span key={label} className={`inline-flex items-center rounded-full px-3 py-1 text-xs ${badgeClass}`}>
@@ -383,13 +389,13 @@ export default function ArchitectPackage() {
                 href="/start-project"
                 className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-300 via-blue-400 to-amber-300 px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-sky-500/25 transition hover:opacity-95"
               >
-                Schedule architect consult
+                Schedule {buildShortName} consult
               </Link>
               <Link
-                href="/#work"
+                href="/#accomp"
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-sky-300/60 hover:text-white"
               >
-                Compare tier packages
+                Review other builds
               </Link>
             </div>
           </section>
